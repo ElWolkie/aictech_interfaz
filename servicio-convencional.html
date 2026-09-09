@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AICTECH - Equipos Convencionales</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/templatemo-style.css">
+    <style>
+        body { color: #fff; background-color: #0c1017; font-family: 'Source Sans Pro', sans-serif; }
+        .detail-card { background: rgba(0, 0, 0, 0.75); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 15px; padding: 35px; backdrop-filter: blur(10px); }
+        .img-zoom-container { overflow: hidden; border-radius: 10px; border: 1px solid rgba(56, 182, 255, 0.3); }
+        .img-zoom-container img { transition: transform 0.5s ease; width: 100%; height: 220px; object-fit: cover; }
+        .img-zoom-container:hover img { transform: scale(1.12); }
+        .tech-list li { margin-bottom: 10px; font-size: 1.1rem; }
+    </style>
+</head>
+<body>
+    <video autoplay muted loop id="bg-video">
+        <source src="video/gfp-astro-timelapse.mp4" type="video/mp4">
+    </video>
+
+    <div class="container py-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="text-info fw-bold">AICTECH</h1>
+            <a href="index.html" class="btn btn-outline-light rounded-pill px-4">← Volver al Menú</a>
+        </div>
+
+        <div class="detail-card mb-5">
+            <h2 class="mb-3 text-white">Prueba de Pozo con Equipos Convencionales</h2>
+            <p class="fs-5 text-light mb-4">
+                Ofrecemos servicios de separación y medición multifásica mediante separadores de prueba de 3 fases (Petróleo, Agua y Gas), equipados con instrumentación digital para la adquisición continuada de datos de alta fidelidad.
+            </p>
+
+            <h4 class="text-info mb-3">Galería y Equipamiento en Campo</h4>
+            <div class="row g-3 mb-4">
+                <div class="col-md-4">
+                    <div class="img-zoom-container">
+                        <img src="img/convencional-1.jpg" alt="Separador Trifásico" onerror="this.src='img/gallery-img-01.jpg'">
+                    </div>
+                    <p class="text-center text-white-50 mt-2 small">Separador Trifásico Portátil</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="img-zoom-container">
+                        <img src="img/convencional-2.jpg" alt="Manifold de Prueba" onerror="this.src='img/gallery-img-01.jpg'">
+                    </div>
+                    <p class="text-center text-white-50 mt-2 small">Manifold de Distribución</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="img-zoom-container">
+                        <img src="img/convencional-3.jpg" alt="Consola de Monitoreo" onerror="this.src='img/gallery-img-01.jpg'">
+                    </div>
+                    <p class="text-center text-white-50 mt-2 small">Monitoreo en Tiempo Real</p>
+                </div>
+            </div>
+
+            <h4 class="text-info mb-3">Características Principales</h4>
+            <ul class="tech-list">
+                <li>✔ Separación física gravimétrica de gas, petróleo y agua.</li>
+                <li>✔ Medición precisa de RGP (Relación Gas-Petróleo) y porcentaje de BSW.</li>
+                <li>✔ Registradores de presión y temperatura en tiempo real.</li>
+                <li>✔ Válvulas de control automático de nivel y presión de operación.</li>
+            </ul>
+
+            <div class="text-center mt-4">
+                <a href="index.html" class="btn btn-primary btn-lg px-5">Regresar al Inicio</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

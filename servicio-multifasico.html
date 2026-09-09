@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AICTECH - Equipos Multifásicos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/templatemo-style.css">
+    <style>
+        body { color: #fff; background-color: #0c1017; font-family: 'Source Sans Pro', sans-serif; }
+        .detail-card { background: rgba(0, 0, 0, 0.75); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 15px; padding: 35px; backdrop-filter: blur(10px); }
+        .img-zoom-container { overflow: hidden; border-radius: 10px; border: 1px solid rgba(56, 182, 255, 0.3); }
+        .img-zoom-container img { transition: transform 0.5s ease; width: 100%; height: 220px; object-fit: cover; }
+        .img-zoom-container:hover img { transform: scale(1.12); }
+        .tech-list li { margin-bottom: 10px; font-size: 1.1rem; }
+    </style>
+</head>
+<body>
+    <video autoplay muted loop id="bg-video">
+        <source src="video/gfp-astro-timelapse.mp4" type="video/mp4">
+    </video>
+
+    <div class="container py-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="text-info fw-bold">AICTECH</h1>
+            <a href="index.html" class="btn btn-outline-light rounded-pill px-4">← Volver al Menú</a>
+        </div>
+
+        <div class="detail-card mb-5">
+            <h2 class="mb-3 text-white">Prueba de Pozo con Equipos Multifásicos (MPFM)</h2>
+            <p class="fs-5 text-light mb-4">
+                Medición continua e instantánea de caudales de petróleo, gas y agua sin necesidad de separación previa de fases. Tecnología compacta de respuesta rápida ideal para pruebas dinámicas.
+            </p>
+
+            <h4 class="text-info mb-3">Galería de Tecnología Multifásica</h4>
+            <div class="row g-3 mb-4">
+                <div class="col-md-4">
+                    <div class="img-zoom-container">
+                        <img src="img/multifasico-1.jpg" alt="Skid MPFM" onerror="this.src='img/gallery-img-02.jpg'">
+                    </div>
+                    <p class="text-center text-white-50 mt-2 small">Skid Multifásico Compacto</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="img-zoom-container">
+                        <img src="img/multifasico-2.jpg" alt="Transmisores Gamagraficos/Piesométricos" onerror="this.src='img/gallery-img-02.jpg'">
+                    </div>
+                    <p class="text-center text-white-50 mt-2 small">Sensores de Densidad y Flujo</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="img-zoom-container">
+                        <img src="img/multifasico-3.jpg" alt="Telemetría en Vivo" onerror="this.src='img/gallery-img-02.jpg'">
+                    </div>
+                    <p class="text-center text-white-50 mt-2 small">Telemetría e Integración Petrolia</p>
+                </div>
+            </div>
+
+            <h4 class="text-info mb-3">Ventajas Operacionales</h4>
+            <ul class="tech-list">
+                <li>✔ Medición directa en la línea sin tiempo de retención.</li>
+                <li>✔ Menor tamaño e impacto ambiental en la localización.</li>
+                <li>✔ Respuesta inmediata ante cambios de régimen de flujo del pozo.</li>
+                <li>✔ Transmisión de datos instantánea a la plataforma Petrolia.</li>
+            </ul>
+
+            <div class="text-center mt-4">
+                <a href="index.html" class="btn btn-primary btn-lg px-5">Regresar al Inicio</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

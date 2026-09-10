@@ -16,17 +16,16 @@
     <link rel="stylesheet" href="css/slick.css" type="text/css" /> 
     <link rel="stylesheet" href="css/templatemo-style.css">
 
-    <!-- OVERRIDE COMPLETO PARA PANTALLA TÁCTIL Y AZUL SUAVE -->
+    <!-- CSS RESPONSIVO ADAPTATIVO PARA PANTALLAS GRANDES Y LAPTOPS -->
     <style>
         :root {
-            /* Azul suave anti-fatiga visual (Sky / Cyan Soft) */
             --primary-glow: #38bdf8; 
-            --primary-soft: rgba(56, 189, 248, 0.15);
-            --primary-active: rgba(56, 189, 248, 0.3);
+            --primary-soft: rgba(56, 189, 248, 0.12);
+            --primary-active: rgba(56, 189, 248, 0.25);
             --secondary-glow: #0284c7;
             --dark-glass: rgba(10, 16, 26, 0.88);
-            --card-border: rgba(56, 189, 248, 0.22);
-            --card-border-hover: rgba(56, 189, 248, 0.6);
+            --card-border: rgba(56, 189, 248, 0.18);
+            --card-border-hover: rgba(56, 189, 248, 0.45);
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
         }
@@ -38,6 +37,7 @@
             user-select: none;
             -webkit-user-select: none;
             touch-action: manipulation;
+            overflow-x: hidden;
         }
 
         h1, h2, h3, h4, h5, .navbar-brand {
@@ -46,57 +46,118 @@
         }
 
         /* ------------------------------------------------------------- */
-        /* SOBREESCRITURA FORZADA DEL MENÚ SUPERIOR (ELIMINA EL VERDE) */
+        /* BARRA DE NAVEGACIÓN Y ALINEACIÓN                               */
         /* ------------------------------------------------------------- */
         .cd-slider-nav {
-            background: rgba(8, 14, 22, 0.92) !important;
+            background: rgba(8, 14, 22, 0.94) !important;
             backdrop-filter: blur(18px);
             -webkit-backdrop-filter: blur(18px);
             border-bottom: 1px solid rgba(56, 189, 248, 0.18) !important;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5) !important;
+            width: 100%;
+        }
+
+        .nav-container-custom {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            transition: max-width 0.3s ease;
         }
 
         .navbar-brand {
             font-weight: 800;
-            font-size: 1.6rem;
+            font-size: 1.75rem;
             background: linear-gradient(135deg, #ffffff 0%, var(--primary-glow) 100%);
-            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text !important;
+            background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            color: transparent !important;
+            display: inline-block;
             text-transform: uppercase;
+            padding: 10px 0;
+            margin-right: 0 !important;
         }
 
-        /* Texto de los enlaces del menú */
         .cd-slider-nav a,
         .cd-slider-nav .nav-link {
-            color: rgba(255, 255, 255, 0.8) !important;
+            color: rgba(248, 250, 252, 0.85) !important;
+            font-size: 1.05rem !important;
+            padding: 15px 20px !important;
             transition: color 0.3s ease !important;
         }
 
-        /* Pestaña seleccionada o al presionar (Azul Suave) */
         .cd-slider-nav li.selected a,
         .cd-slider-nav li.selected .nav-link,
-        .cd-slider-nav li a:hover,
-        .cd-slider-nav li a:focus {
+        .cd-slider-nav li a:hover {
             color: var(--primary-glow) !important;
-            text-shadow: 0 0 10px rgba(56, 189, 248, 0.5) !important;
+            text-shadow: 0 0 10px rgba(56, 189, 248, 0.4) !important;
         }
 
-        /* Indicador circular/línea del menú (Sobreescribe el verde original) */
+        .cd-slider-nav *,
+        .cd-slider-nav *::before,
+        .cd-slider-nav *::after {
+            border-color: rgba(56, 189, 248, 0.2) !important;
+        }
+
+        .cd-slider-nav li::after,
+        .cd-slider-nav li::before,
+        .cd-slider-nav .nav-item::after,
+        .cd-slider-nav .nav-item::before,
+        .cd-slider-nav .selected::after,
+        .cd-slider-nav .selected::before {
+            background-color: var(--primary-glow) !important;
+            background: var(--primary-glow) !important;
+            height: 2px !important;
+        }
+
         .cd-slider-nav .circle,
-        .cd-slider-nav li.selected .circle,
-        .cd-slider-nav li a:hover ~ .circle {
+        .cd-slider-nav li.selected .circle {
             background-color: var(--primary-glow) !important;
             border-color: var(--primary-glow) !important;
-            box-shadow: 0 0 12px var(--primary-glow) !important;
-        }
-
-        .cd-slider-nav .nav-item::after,
-        .cd-slider-nav .selected::after {
-            background-color: var(--primary-glow) !important;
+            box-shadow: 0 0 10px var(--primary-glow) !important;
         }
 
         /* ------------------------------------------------------------- */
-        /* VIDEO DE FONDO PERMANENTE                                      */
+        /* CONTENEDOR PRINCIPAL Y TARJETAS                                */
         /* ------------------------------------------------------------- */
+        .page-width-1, .page-width-2 {
+            max-width: 1280px;
+            margin: 0 auto;
+            transition: max-width 0.3s ease;
+        }
+
+        .intro-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .intro-left {
+            flex: 1.25;
+        }
+
+        .intro-right {
+            flex: 0.95;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .intro-right img {
+            width: 100%;
+            height: 185px;
+            object-fit: cover;
+            border-radius: 14px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            transition: height 0.3s ease;
+        }
+
         #bg-video {
             position: fixed;
             right: 0;
@@ -107,23 +168,18 @@
             height: auto;
             z-index: -1000;
             object-fit: cover;
-            filter: brightness(0.65) contrast(1.1);
+            filter: brightness(0.65) contrast(1.05);
         }
 
-        /* TARJETAS Y CONTENIDO GLASSMORPHISM */
         .glass-card {
             background: var(--dark-glass);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
             border: 1px solid var(--card-border);
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
-                        box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
-                        border-color 0.35s ease;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
         }
 
-        /* TARJETAS DE SERVICIO TÁCTILES CON ANIMACIÓN DE EXPANSIÓN SUAVE */
         .service-touch-card {
             background: rgba(10, 17, 28, 0.92);
             border: 1px solid var(--card-border);
@@ -133,16 +189,14 @@
             flex-direction: column;
             height: 100%;
             cursor: pointer;
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
-                        box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
-                        border-color 0.3s ease;
+            transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.3s ease;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
         }
 
         .service-touch-card:active {
-            transform: scale(1.04);
+            transform: scale(1.03);
             border-color: var(--primary-glow);
-            box-shadow: 0 15px 35px rgba(56, 189, 248, 0.25);
+            box-shadow: 0 12px 28px rgba(56, 189, 248, 0.25);
         }
 
         .service-card-img {
@@ -153,7 +207,7 @@
         }
 
         .service-card-body {
-            padding: 20px;
+            padding: 22px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
@@ -162,16 +216,16 @@
 
         .service-card-title {
             color: #ffffff;
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .service-card-text {
             color: var(--text-muted);
-            font-size: 0.92rem;
-            line-height: 1.45;
-            margin-bottom: 18px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
         }
 
         /* BOTONES PANTALLA TÁCTIL */
@@ -180,8 +234,8 @@
             color: #050b14 !important;
             font-weight: 700;
             border: none;
-            padding: 14px 32px;
-            font-size: 1.05rem;
+            padding: 16px 42px;
+            font-size: 1.1rem;
             border-radius: 50px;
             box-shadow: 0 6px 20px rgba(56, 189, 248, 0.25);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -193,16 +247,16 @@
 
         .btn-tech:active {
             transform: scale(0.96);
-            box-shadow: 0 3px 12px rgba(56, 189, 248, 0.4);
+            box-shadow: 0 2px 10px rgba(56, 189, 248, 0.35);
         }
 
         .btn-tech-outline {
             background: var(--primary-soft);
-            border: 1px solid var(--primary-glow);
+            border: 1px solid var(--card-border-hover);
             color: var(--primary-glow) !important;
             font-weight: 700;
-            padding: 12px 28px;
-            font-size: 0.95rem;
+            padding: 14px 28px;
+            font-size: 1rem;
             border-radius: 50px;
             backdrop-filter: blur(10px);
             transition: all 0.2s ease;
@@ -230,7 +284,7 @@
             z-index: 9999;
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: opacity 0.35s ease, transform 0.35s ease;
             transform: scale(0.94);
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
@@ -244,19 +298,19 @@
         }
 
         .modal-content-tech {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 35px;
+            max-width: 950px;
+            margin: 30px auto;
+            padding: 40px;
             background: rgba(10, 17, 28, 0.95);
-            border: 1px solid var(--primary-glow);
-            border-radius: 24px;
+            border: 1px solid var(--card-border-hover);
+            border-radius: 28px;
             box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 25px rgba(56, 189, 248, 0.15);
             position: relative;
         }
 
         .modal-close-btn {
             background: var(--primary-soft);
-            border: 1px solid var(--primary-glow);
+            border: 1px solid var(--card-border-hover);
             color: var(--primary-glow);
             width: 52px;
             height: 52px;
@@ -279,10 +333,10 @@
         .badge-tech {
             background: var(--primary-soft);
             color: var(--primary-glow);
-            border: 1px solid rgba(56, 189, 248, 0.4);
-            padding: 8px 16px;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            padding: 8px 18px;
             border-radius: 20px;
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -303,12 +357,87 @@
             font-size: 0.95rem;
         }
 
-        .swipe-indicator {
-            width: 48px;
-            height: 5px;
-            background: rgba(255, 255, 255, 0.25);
-            border-radius: 10px;
-            margin: 0 auto 15px auto;
+        /* ------------------------------------------------------------- */
+        /* REGLAS RESPONSIVAS ESPECÍFICAS DE PANTALLA Y LAPTOP            */
+        /* ------------------------------------------------------------- */
+
+        /* 1. Ajuste de altura para laptops (1600x900) para evitar scroll vertical */
+        @media (max-height: 920px) {
+            .cd-hero-slider {
+                padding-top: 1rem !important;
+                padding-bottom: 1rem !important;
+            }
+            .intro-container {
+                padding: 2.2rem !important;
+            }
+            .intro-right img {
+                height: 155px !important;
+            }
+            .mt-4 {
+                margin-top: 1.2rem !important;
+            }
+        }
+
+        /* 2. Escalado amplio para Pantallas Grandes (Full HD 1920x1080) */
+        @media (min-width: 1600px) {
+            .page-width-1, .page-width-2 {
+                max-width: 1480px !important;
+            }
+            .nav-container-custom {
+                max-width: 1480px !important;
+            }
+            .navbar-brand {
+                font-size: 2rem !important;
+            }
+            .cd-slider-nav a, .cd-slider-nav .nav-link {
+                font-size: 1.15rem !important;
+                padding: 18px 25px !important;
+            }
+            .intro-container {
+                padding: 3.5rem !important;
+                gap: 50px;
+            }
+            .intro-right img {
+                height: 220px !important;
+            }
+            h2.display-6 {
+                font-size: 2.5rem !important;
+            }
+            .intro-left p {
+                font-size: 1.2rem !important;
+            }
+            .btn-tech {
+                font-size: 1.25rem !important;
+                padding: 18px 50px !important;
+            }
+        }
+
+        /* 3. Escalado ultra amplio para Pantallas 4K o superiores */
+        @media (min-width: 2200px) {
+            .page-width-1, .page-width-2, .nav-container-custom {
+                max-width: 1750px !important;
+            }
+            .intro-right img {
+                height: 270px !important;
+            }
+            h2.display-6 {
+                font-size: 3rem !important;
+            }
+            .intro-left p {
+                font-size: 1.35rem !important;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .intro-container {
+                flex-direction: column;
+            }
+            .intro-right {
+                width: 100%;
+            }
+            .nav-container-custom {
+                padding: 0 15px;
+            }
         }
     </style>
 </head>
@@ -320,70 +449,68 @@
     </video>
 
     <div class="page-container">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="cd-slider-nav">
-              <nav class="navbar navbar-expand-lg" id="tm-nav">
-                <a class="navbar-brand" href="#">AICTECH</a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-supported-content" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbar-supported-content">
-                    <ul class="navbar-nav mb-2 mb-lg-0">
-                      <li class="nav-item selected">
-                        <a class="nav-link" aria-current="page" href="#0" data-no="1">Inicio</a>
-                        <div class="circle"></div>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#0" data-no="2">Servicios</a>
-                        <div class="circle"></div>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#0" data-no="3">Petrolia</a>
-                        <div class="circle"></div>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#0" data-no="4">EduTech</a>
-                        <div class="circle"></div>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#0" data-no="5">Equipo y Contacto</a>
-                        <div class="circle"></div>
-                      </li>
-                    </ul>
-                  </div>
-              </nav>
+      <div class="container-fluid p-0">
+        <div class="cd-slider-nav">
+          <nav class="navbar navbar-expand-lg nav-container-custom" id="tm-nav">
+            <a class="navbar-brand" href="#">AICTECH</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-supported-content" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar-supported-content">
+              <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+                <li class="nav-item selected">
+                  <a class="nav-link" aria-current="page" href="#0" data-no="1">Inicio</a>
+                  <div class="circle"></div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#0" data-no="2">Servicios</a>
+                  <div class="circle"></div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#0" data-no="3">PetrolIA</a>
+                  <div class="circle"></div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#0" data-no="4">EduTech</a>
+                  <div class="circle"></div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#0" data-no="5">Equipo y Contacto</a>
+                  <div class="circle"></div>
+                </li>
+              </ul>
             </div>
-          </div>          
-        </div>        
+          </nav>
+        </div>
       </div>      
 
       <div class="container-fluid tm-content-container">
-        <ul class="cd-hero-slider mb-0 py-5">
+        <ul class="cd-hero-slider mb-0 py-3">
           
           <!-- SECCIÓN 1: INICIO -->
           <li class="px-3" data-page-no="1">
-            <div class="page-width-1 page-left">
-              <div class="d-flex position-relative tm-border-top tm-border-bottom intro-container glass-card p-4">
+            <div class="page-width-1">
+              <div class="intro-container glass-card p-4 p-md-5">
                 <div class="intro-left">
                   <span class="badge-tech mb-3 d-inline-block">Estación de Control Táctil</span>
-                  <h2 class="mb-4 text-white fw-bold">Tecnología de Alta Precisión Industrial</h2>
-                  <p class="mb-4 text-light leading-relaxed">
+                  <h2 class="mb-3 text-white fw-bold display-6">Tecnología de Alta Precisión Industrial</h2>
+                  <p class="mb-3 text-light leading-relaxed fs-5">
                     Somos <strong>AICTECH</strong>, especialistas en la integración de ingeniería avanzada, análisis de datos en tiempo real y pruebas instrumentadas de pozo para optimizar operaciones en el sector petrolero.
                   </p>
-                  <p class="mb-0 text-muted">
+                  <p class="mb-0 text-muted fs-6">
                     Explora nuestra oferta tecnológica y plataformas propietarias diseñadas para garantizar máxima eficiencia en campo.
                   </p>
                 </div>
                 <div class="intro-right">
-                  <img src="img/home-img-1.jpg" alt="AICTECH Operaciones" class="img-fluid intro-img-1 rounded-3">
-                  <img src="img/home-img-2.jpg" alt="AICTECH Tecnología" class="img-fluid intro-img-2 rounded-3">
+                  <img src="img/home-img-1.jpg" alt="AICTECH Operaciones">
+                  <img src="img/home-img-2.jpg" alt="AICTECH Tecnología">
                 </div>
               </div>
+
+              <!-- BOTÓN EXPLORAR SERVICIOS VISIBLE Y CENTRADO -->
               <div class="text-center mt-4">
                 <a href="#0" data-page-no="2" class="btn-tech tm-page-link">
-                  Explorar Servicios
+                  Explorar Servicios ➔
                 </a>
               </div>            
             </div>            
@@ -391,7 +518,7 @@
 
           <!-- SECCIÓN 2: SERVICIOS -->
           <li data-page-no="2" class="px-3">
-            <div class="container" style="max-width: 1200px;">
+            <div class="page-width-1">
               <div class="row g-4 justify-content-center">
                 
                 <!-- Servicio 1 -->
@@ -456,15 +583,15 @@
 
           <!-- SECCIÓN 3: PETROLIA -->
           <li data-page-no="3" class="px-3">
-            <div class="position-relative page-width-1 page-right">
+            <div class="page-width-1">
               <div class="glass-card p-5 text-center">
                 <span class="badge-tech mb-3 d-inline-block">Plataforma Digital</span>
-                <h2 class="mb-4 text-white fw-bold">PETROLIA</h2>
-                <p class="fs-5 text-light mb-4" style="max-width: 700px; margin: 0 auto;">
+                <h2 class="mb-4 text-white fw-bold display-5">PetrolIA</h2>
+                <p class="fs-5 text-light mb-4" style="max-width: 750px; margin: 0 auto; line-height: 1.6;">
                   Sistema centralizado de monitoreo operacional, gestión telemetrada de pozos y analítica avanzada para la toma de decisiones estratégicas en tiempo real.
                 </p>
-                <a href="http://ruta-o-ip-de-petrolia" target="_blank" class="btn-tech">
-                  Iniciar Sesión en Petrolia ⚡
+                <a href="http://ruta-o-ip-de-petrolia" target="_blank" class="btn-tech mt-2">
+                  Iniciar Sesión en PetrolIA ⚡
                 </a>
               </div>              
             </div>
@@ -472,14 +599,14 @@
 
           <!-- SECCIÓN 4: EDUTECH -->
           <li data-page-no="4" class="px-3">
-            <div class="position-relative page-width-1 page-left">
+            <div class="page-width-1">
               <div class="glass-card p-5 text-center">
                 <span class="badge-tech mb-3 d-inline-block">Capacitación Especializada</span>
-                <h2 class="mb-4 text-white fw-bold">EDUTECH</h2>
-                <p class="fs-5 text-light mb-4" style="max-width: 700px; margin: 0 auto;">
+                <h2 class="mb-4 text-white fw-bold display-5">EduTech</h2>
+                <p class="fs-5 text-light mb-4" style="max-width: 750px; margin: 0 auto; line-height: 1.6;">
                   Centro de aprendizaje y certificación técnica continua diseñado para perfeccionar las competencias del personal de ingeniería y operaciones de campo.
                 </p>
-                <a href="http://ruta-o-ip-de-edutech" target="_blank" class="btn-tech">
+                <a href="http://ruta-o-ip-de-edutech" target="_blank" class="btn-tech mt-2">
                   Acceder a Portal EduTech 🎓
                 </a>
               </div>              
@@ -488,31 +615,31 @@
 
           <!-- SECCIÓN 5: EQUIPO Y CONTACTO -->
           <li data-page-no="5" class="px-3">
-            <div class="mx-auto page-width-2">
+            <div class="page-width-1">
               <div class="row g-4">
                 <div class="col-md-6">
-                    <div class="glass-card p-4 h-100">
+                    <div class="glass-card p-4 p-md-5 h-100">
                         <span class="badge-tech mb-3 d-inline-block">Talento Humano</span>
                         <h3 class="mb-3 text-white fw-bold">Personal Altamente Calificado</h3>
-                        <p class="text-light mb-4">
+                        <p class="text-light mb-4 fs-6">
                             Nuestro equipo está conformado por ingenieros y especialistas con sólida experiencia en redes industriales, instrumentación y optimización de pruebas de pozo.
                         </p>
                         <div class="tech-list-item">Ingeniería Informática, Redes y Soporte</div>
                         <div class="tech-list-item">Especialistas Certificados en Caudalímetros Flexim</div>
                         <div class="tech-list-item">Operadores en Ecogramas y Diagnóstico Echometer</div>
-                        <div class="tech-list-item">Analistas de Datos en Tiempo Real (Petrolia)</div>
+                        <div class="tech-list-item">Analistas de Datos en Tiempo Real (PetrolIA)</div>
                     </div>
                 </div>
                 <div class="col-md-6">                  
-                  <div class="glass-card p-4 h-100">
+                  <div class="glass-card p-4 p-md-5 h-100">
                     <span class="badge-tech mb-3 d-inline-block">Ubicación & Soporte</span>
                     <h3 class="mb-3 text-white fw-bold">Contacto Directo</h3>
-                    <p class="mb-2"><strong>Oficina:</strong> Anaco - Anzoátegui, Venezuela</p>
-                    <p class="mb-2"><strong>Email:</strong> <a href="mailto:ventas@aictech.net" class="text-info">ventas@aictech.net</a></p>
-                    <p class="mb-4"><strong>Línea de Atención:</strong> <a href="tel:+584148366073" class="text-info">+58 414 8366073</a></p>
+                    <p class="mb-2 fs-6"><strong>Oficina:</strong> Anaco - Anzoátegui, Venezuela</p>
+                    <p class="mb-2 fs-6"><strong>Email:</strong> <a href="mailto:ventas@aictech.net" class="text-info">ventas@aictech.net</a></p>
+                    <p class="mb-4 fs-6"><strong>Línea de Atención:</strong> <a href="tel:+584148366073" class="text-info">+58 414 8366073</a></p>
                     
                     <div class="rounded-3 overflow-hidden border border-secondary">
-                        <iframe width="100%" height="220" id="gmap-canvas"
+                        <iframe width="100%" height="210" id="gmap-canvas"
                             src="https://maps.google.com/maps?q=9.447929573272631,-64.46658166186569&hl=es&z=15&output=embed"
                             frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
                     </div>
@@ -524,17 +651,16 @@
         </ul>
     </div>
 
-    <footer class="row mx-auto tm-footer mt-5">
+    <footer class="row mx-auto tm-footer mt-4">
       <div class="col-md-12 text-center text-muted">
         <small>© 2026 AICTECH - Soluciones Tecnológicas Industriales. Todos los derechos reservados.</small>
       </div>
     </footer>
   </div>
 
-  <!-- MODALES DE DETALLES -->
+  <!-- MODALES DE DETALLES TÁCTILES -->
   <div id="modal-convencional" class="service-modal">
       <div class="modal-content-tech">
-          <div class="swipe-indicator d-block d-md-none"></div>
           <div class="d-flex justify-content-between align-items-center mb-4">
               <span class="badge-tech">Servicio de Campo</span>
               <div class="modal-close-btn" onclick="closeModal('modal-convencional')">✕</div>
@@ -544,13 +670,13 @@
           
           <div class="row g-3 mb-4">
               <div class="col-md-4">
-                  <img src="img/convencional-1.jpg" onerror="this.src='img/gallery-img-01.jpg'" class="img-fluid rounded border border-secondary" alt="Separador">
+                  <img src="img/convencional-1.jpg" onerror="this.src='img/gallery-img-01.jpg'" class="img-fluid rounded-3 border border-secondary" alt="Separador">
               </div>
               <div class="col-md-4">
-                  <img src="img/convencional-2.jpg" onerror="this.src='img/gallery-img-01.jpg'" class="img-fluid rounded border border-secondary" alt="Manifold">
+                  <img src="img/convencional-2.jpg" onerror="this.src='img/gallery-img-01.jpg'" class="img-fluid rounded-3 border border-secondary" alt="Manifold">
               </div>
               <div class="col-md-4">
-                  <img src="img/convencional-3.jpg" onerror="this.src='img/gallery-img-01.jpg'" class="img-fluid rounded border border-secondary" alt="Monitoreo">
+                  <img src="img/convencional-3.jpg" onerror="this.src='img/gallery-img-01.jpg'" class="img-fluid rounded-3 border border-secondary" alt="Monitoreo">
               </div>
           </div>
 
@@ -566,7 +692,6 @@
 
   <div id="modal-multifasico" class="service-modal">
       <div class="modal-content-tech">
-          <div class="swipe-indicator d-block d-md-none"></div>
           <div class="d-flex justify-content-between align-items-center mb-4">
               <span class="badge-tech">Servicio Avanzado</span>
               <div class="modal-close-btn" onclick="closeModal('modal-multifasico')">✕</div>
@@ -576,18 +701,18 @@
           
           <div class="row g-3 mb-4">
               <div class="col-md-4">
-                  <img src="img/multifasico-1.jpg" onerror="this.src='img/gallery-img-02.jpg'" class="img-fluid rounded border border-secondary" alt="MPFM Skid">
+                  <img src="img/multifasico-1.jpg" onerror="this.src='img/gallery-img-02.jpg'" class="img-fluid rounded-3 border border-secondary" alt="MPFM Skid">
               </div>
               <div class="col-md-4">
-                  <img src="img/multifasico-2.jpg" onerror="this.src='img/gallery-img-02.jpg'" class="img-fluid rounded border border-secondary" alt="Sensores">
+                  <img src="img/multifasico-2.jpg" onerror="this.src='img/gallery-img-02.jpg'" class="img-fluid rounded-3 border border-secondary" alt="Sensores">
               </div>
               <div class="col-md-4">
-                  <img src="img/multifasico-3.jpg" onerror="this.src='img/gallery-img-02.jpg'" class="img-fluid rounded border border-secondary" alt="Telemetria">
+                  <img src="img/multifasico-3.jpg" onerror="this.src='img/gallery-img-02.jpg'" class="img-fluid rounded-3 border border-secondary" alt="Telemetria">
               </div>
           </div>
 
           <div class="tech-list-item">Cero tiempo de retención en línea de flujo.</div>
-          <div class="tech-list-item">Módem de transmisión continua acoplado a Petrolia.</div>
+          <div class="tech-list-item">Módem de transmisión continua acoplado a PetrolIA.</div>
           <div class="tech-list-item">Dimensiones reducidas para espacios limitados en localización.</div>
 
           <div class="text-center text-md-end mt-4">
@@ -598,7 +723,6 @@
 
   <div id="modal-flexim" class="service-modal">
       <div class="modal-content-tech">
-          <div class="swipe-indicator d-block d-md-none"></div>
           <div class="d-flex justify-content-between align-items-center mb-4">
               <span class="badge-tech">Medición Ultrasónica</span>
               <div class="modal-close-btn" onclick="closeModal('modal-flexim')">✕</div>
@@ -608,13 +732,13 @@
           
           <div class="row g-3 mb-4">
               <div class="col-md-4">
-                  <img src="img/flexim-1.jpg" onerror="this.src='img/gallery-img-03.jpg'" class="img-fluid rounded border border-secondary" alt="Flexim 1">
+                  <img src="img/flexim-1.jpg" onerror="this.src='img/gallery-img-03.jpg'" class="img-fluid rounded-3 border border-secondary" alt="Flexim 1">
               </div>
               <div class="col-md-4">
-                  <img src="img/flexim-2.jpg" onerror="this.src='img/gallery-img-03.jpg'" class="img-fluid rounded border border-secondary" alt="Flexim 2">
+                  <img src="img/flexim-2.jpg" onerror="this.src='img/gallery-img-03.jpg'" class="img-fluid rounded-3 border border-secondary" alt="Flexim 2">
               </div>
               <div class="col-md-4">
-                  <img src="img/flexim-3.jpg" onerror="this.src='img/gallery-img-03.jpg'" class="img-fluid rounded border border-secondary" alt="Flexim 3">
+                  <img src="img/flexim-3.jpg" onerror="this.src='img/gallery-img-03.jpg'" class="img-fluid rounded-3 border border-secondary" alt="Flexim 3">
               </div>
           </div>
 
@@ -630,7 +754,6 @@
 
   <div id="modal-echometer" class="service-modal">
       <div class="modal-content-tech">
-          <div class="swipe-indicator d-block d-md-none"></div>
           <div class="d-flex justify-content-between align-items-center mb-4">
               <span class="badge-tech">Diagnóstico Acústico</span>
               <div class="modal-close-btn" onclick="closeModal('modal-echometer')">✕</div>
@@ -640,13 +763,13 @@
           
           <div class="row g-3 mb-4">
               <div class="col-md-4">
-                  <img src="img/echometer-1.jpg" onerror="this.src='img/gallery-img-04.jpg'" class="img-fluid rounded border border-secondary" alt="Echometer 1">
+                  <img src="img/echometer-1.jpg" onerror="this.src='img/gallery-img-04.jpg'" class="img-fluid rounded-3 border border-secondary" alt="Echometer 1">
               </div>
               <div class="col-md-4">
-                  <img src="img/echometer-2.jpg" onerror="this.src='img/gallery-img-04.jpg'" class="img-fluid rounded border border-secondary" alt="Echometer 2">
+                  <img src="img/echometer-2.jpg" onerror="this.src='img/gallery-img-04.jpg'" class="img-fluid rounded-3 border border-secondary" alt="Echometer 2">
               </div>
               <div class="col-md-4">
-                  <img src="img/echometer-3.jpg" onerror="this.src='img/gallery-img-04.jpg'" class="img-fluid rounded border border-secondary" alt="Echometer 3">
+                  <img src="img/echometer-3.jpg" onerror="this.src='img/gallery-img-04.jpg'" class="img-fluid rounded-3 border border-secondary" alt="Echometer 3">
               </div>
           </div>
 

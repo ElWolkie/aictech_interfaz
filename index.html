@@ -9,35 +9,42 @@
     <!-- Fuentes Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- CSS Bootstrap & Slick -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/slick.css" type="text/css" /> 
     <link rel="stylesheet" href="css/templatemo-style.css">
 
-    <!-- CSS RESPONSIVO ADAPTATIVO PARA PANTALLAS GRANDES Y LAPTOPS -->
+    <!-- CSS PALETA CORTADA: MITAD AZUL / MITAD BLANCO INDUSTRIAL -->
     <style>
         :root {
-            --primary-glow: #38bdf8; 
-            --primary-soft: rgba(56, 189, 248, 0.12);
-            --primary-active: rgba(56, 189, 248, 0.25);
-            --secondary-glow: #0284c7;
-            --dark-glass: rgba(10, 16, 26, 0.88);
-            --card-border: rgba(56, 189, 248, 0.18);
-            --card-border-hover: rgba(56, 189, 248, 0.45);
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
+            --brand-blue: #0d47a1;
+            --brand-blue-hover: #0a3880;
+            --brand-cyan: #0284c7;
+            --bg-light: #f0f4f8;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --card-border: #e2e8f0;
+            --card-shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            color: var(--text-main);
-            background-color: #06090e;
+            color: var(--text-dark);
+            /* EFECTO MITAD AZUL / MITAD BLANCO */
+            background: linear-gradient(180deg, #0d47a1 0px, #0d47a1 380px, #f0f4f8 380px, #f0f4f8 100%);
+            background-attachment: fixed;
             user-select: none;
             -webkit-user-select: none;
             touch-action: manipulation;
             overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Ocultamos el video de fondo para conservar el fondo limpio estilo panel industrial */
+        #bg-video {
+            display: none;
         }
 
         h1, h2, h3, h4, h5, .navbar-brand {
@@ -46,14 +53,12 @@
         }
 
         /* ------------------------------------------------------------- */
-        /* BARRA DE NAVEGACIÓN Y ALINEACIÓN                               */
+        /* BARRA DE NAVEGACIÓN EN FRANJA AZUL                             */
         /* ------------------------------------------------------------- */
         .cd-slider-nav {
-            background: rgba(8, 14, 22, 0.94) !important;
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-            border-bottom: 1px solid rgba(56, 189, 248, 0.18) !important;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5) !important;
+            background: #083375 !important;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.15) !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
             width: 100%;
         }
 
@@ -70,12 +75,10 @@
 
         .navbar-brand {
             font-weight: 800;
-            font-size: 1.75rem;
-            background: linear-gradient(135deg, #ffffff 0%, var(--primary-glow) 100%);
-            -webkit-background-clip: text !important;
-            background-clip: text !important;
-            -webkit-text-fill-color: transparent !important;
-            color: transparent !important;
+            font-size: 1.8rem;
+            color: #ffffff !important;
+            background: none !important;
+            -webkit-text-fill-color: #ffffff !important;
             display: inline-block;
             text-transform: uppercase;
             padding: 10px 0;
@@ -84,50 +87,50 @@
 
         .cd-slider-nav a,
         .cd-slider-nav .nav-link {
-            color: rgba(248, 250, 252, 0.85) !important;
+            color: rgba(255, 255, 255, 0.88) !important;
             font-size: 1.05rem !important;
+            font-weight: 600 !important;
             padding: 15px 20px !important;
-            transition: color 0.3s ease !important;
+            transition: color 0.2s ease !important;
         }
 
         .cd-slider-nav li.selected a,
         .cd-slider-nav li.selected .nav-link,
         .cd-slider-nav li a:hover {
-            color: var(--primary-glow) !important;
-            text-shadow: 0 0 10px rgba(56, 189, 248, 0.4) !important;
-        }
-
-        .cd-slider-nav *,
-        .cd-slider-nav *::before,
-        .cd-slider-nav *::after {
-            border-color: rgba(56, 189, 248, 0.2) !important;
-        }
-
-        .cd-slider-nav li::after,
-        .cd-slider-nav li::before,
-        .cd-slider-nav .nav-item::after,
-        .cd-slider-nav .nav-item::before,
-        .cd-slider-nav .selected::after,
-        .cd-slider-nav .selected::before {
-            background-color: var(--primary-glow) !important;
-            background: var(--primary-glow) !important;
-            height: 2px !important;
+            color: #ffffff !important;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.6) !important;
         }
 
         .cd-slider-nav .circle,
         .cd-slider-nav li.selected .circle {
-            background-color: var(--primary-glow) !important;
-            border-color: var(--primary-glow) !important;
-            box-shadow: 0 0 10px var(--primary-glow) !important;
+            background-color: #ffffff !important;
+            border-color: #ffffff !important;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8) !important;
         }
 
         /* ------------------------------------------------------------- */
-        /* CONTENEDOR PRINCIPAL Y TARJETAS                                */
+        /* TARJETAS BLANCAS CON TEXTO OSCURO                              */
         /* ------------------------------------------------------------- */
         .page-width-1, .page-width-2 {
             max-width: 1280px;
             margin: 0 auto;
             transition: max-width 0.3s ease;
+        }
+
+        .glass-card {
+            background: #ffffff !important;
+            border: 1px solid var(--card-border) !important;
+            border-radius: 24px !important;
+            box-shadow: var(--card-shadow) !important;
+            color: var(--text-dark) !important;
+        }
+
+        .glass-card h2, .glass-card h3, .glass-card strong {
+            color: #0f172a !important;
+        }
+
+        .glass-card p, .glass-card .text-light, .glass-card .text-muted {
+            color: #475569 !important;
         }
 
         .intro-container {
@@ -153,57 +156,37 @@
             height: 185px;
             object-fit: cover;
             border-radius: 14px;
-            border: 1px solid rgba(56, 189, 248, 0.2);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            border: 1px solid #cbd5e1;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
             transition: height 0.3s ease;
         }
 
-        #bg-video {
-            position: fixed;
-            right: 0;
-            bottom: 0;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -1000;
-            object-fit: cover;
-            filter: brightness(0.65) contrast(1.05);
-        }
-
-        .glass-card {
-            background: var(--dark-glass);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-            border: 1px solid var(--card-border);
-            border-radius: 24px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
-        }
-
+        /* TARJETAS DE SERVICIOS EN BLANCO */
         .service-touch-card {
-            background: rgba(10, 17, 28, 0.92);
-            border: 1px solid var(--card-border);
-            border-radius: 20px;
+            background: #ffffff !important;
+            border: 1px solid var(--card-border) !important;
+            border-radius: 20px !important;
             overflow: hidden;
             display: flex;
             flex-direction: column;
             height: 100%;
             cursor: pointer;
-            transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            box-shadow: var(--card-shadow) !important;
         }
 
+        .service-touch-card:hover,
         .service-touch-card:active {
-            transform: scale(1.03);
-            border-color: var(--primary-glow);
-            box-shadow: 0 12px 28px rgba(56, 189, 248, 0.25);
+            transform: translateY(-4px) scale(1.01);
+            border-color: var(--brand-blue) !important;
+            box-shadow: 0 18px 38px rgba(13, 71, 161, 0.15) !important;
         }
 
         .service-card-img {
             width: 100%;
-            height: 200px;
+            height: 190px;
             object-fit: cover;
-            border-bottom: 1px solid rgba(56, 189, 248, 0.15);
+            border-bottom: 1px solid #e2e8f0;
         }
 
         .service-card-body {
@@ -215,50 +198,49 @@
         }
 
         .service-card-title {
-            color: #ffffff;
+            color: #0f172a !important;
             font-size: 1.2rem;
             font-weight: 700;
             margin-bottom: 10px;
         }
 
         .service-card-text {
-            color: var(--text-muted);
+            color: #475569 !important;
             font-size: 0.95rem;
             line-height: 1.5;
             margin-bottom: 20px;
         }
 
-        /* BOTONES PANTALLA TÁCTIL */
+        /* BOTONES ESTILO INDUSTRIAL */
         .btn-tech {
-            background: linear-gradient(135deg, #0284c7 0%, var(--primary-glow) 100%);
-            color: #050b14 !important;
+            background: var(--brand-blue) !important;
+            color: #ffffff !important;
             font-weight: 700;
             border: none;
             padding: 16px 42px;
             font-size: 1.1rem;
             border-radius: 50px;
-            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.25);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 6px 20px rgba(13, 71, 161, 0.28);
+            transition: transform 0.2s ease, background 0.2s ease;
             display: inline-block;
             text-decoration: none;
             cursor: pointer;
             text-align: center;
         }
 
-        .btn-tech:active {
-            transform: scale(0.96);
-            box-shadow: 0 2px 10px rgba(56, 189, 248, 0.35);
+        .btn-tech:hover, .btn-tech:active {
+            background: var(--brand-blue-hover) !important;
+            transform: scale(0.97);
         }
 
         .btn-tech-outline {
-            background: var(--primary-soft);
-            border: 1px solid var(--card-border-hover);
-            color: var(--primary-glow) !important;
+            background: #eef4ff !important;
+            border: 1.5px solid var(--brand-blue) !important;
+            color: var(--brand-blue) !important;
             font-weight: 700;
-            padding: 14px 28px;
-            font-size: 1rem;
+            padding: 12px 24px;
+            font-size: 0.95rem;
             border-radius: 50px;
-            backdrop-filter: blur(10px);
             transition: all 0.2s ease;
             cursor: pointer;
             text-align: center;
@@ -266,28 +248,28 @@
         }
 
         .btn-tech-outline:active {
-            background: var(--primary-glow);
-            color: #050b14 !important;
-            transform: scale(0.96);
+            background: var(--brand-blue) !important;
+            color: #ffffff !important;
         }
 
-        /* MODALES TÁCTILES */
+        /* ------------------------------------------------------------- */
+        /* MODALES BLANCOS CON LETRAS NEGRAS                              */
+        /* ------------------------------------------------------------- */
         .service-modal {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(4, 8, 14, 0.88);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             z-index: 9999;
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.35s ease, transform 0.35s ease;
-            transform: scale(0.94);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: scale(0.95);
             overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
             padding: 30px 15px;
         }
 
@@ -301,45 +283,52 @@
             max-width: 950px;
             margin: 30px auto;
             padding: 40px;
-            background: rgba(10, 17, 28, 0.95);
-            border: 1px solid var(--card-border-hover);
+            background: #ffffff !important;
+            color: #0f172a !important;
+            border: 1px solid #cbd5e1;
             border-radius: 28px;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 25px rgba(56, 189, 248, 0.15);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
             position: relative;
         }
 
+        .modal-content-tech h2 {
+            color: #0f172a !important;
+        }
+
+        .modal-content-tech p {
+            color: #475569 !important;
+        }
+
         .modal-close-btn {
-            background: var(--primary-soft);
-            border: 1px solid var(--card-border-hover);
-            color: var(--primary-glow);
-            width: 52px;
-            height: 52px;
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            color: #0f172a;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.2s ease;
         }
 
         .modal-close-btn:active {
-            background: var(--primary-glow);
-            color: #000;
-            transform: scale(0.92);
+            background: var(--brand-blue);
+            color: #ffffff;
         }
 
         .badge-tech {
-            background: var(--primary-soft);
-            color: var(--primary-glow);
-            border: 1px solid rgba(56, 189, 248, 0.3);
+            background: #e0edff !important;
+            color: var(--brand-blue) !important;
+            border: 1px solid #93c5fd !important;
             padding: 8px 18px;
             border-radius: 20px;
             font-size: 0.88rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
         }
 
         .tech-list-item {
@@ -347,22 +336,23 @@
             align-items: center;
             margin-bottom: 14px;
             font-size: 1.05rem;
-            color: #e2e8f0;
+            color: #334155 !important;
         }
 
         .tech-list-item::before {
             content: "❖";
-            color: var(--primary-glow);
+            color: var(--brand-blue);
             margin-right: 12px;
             font-size: 0.95rem;
         }
 
         /* ------------------------------------------------------------- */
-        /* REGLAS RESPONSIVAS ESPECÍFICAS DE PANTALLA Y LAPTOP            */
+        /* RESPONSIVO PARA PANTALLAS GRANDES Y LAPTOPS                    */
         /* ------------------------------------------------------------- */
-
-        /* 1. Ajuste de altura para laptops (1600x900) para evitar scroll vertical */
         @media (max-height: 920px) {
+            body {
+                background: linear-gradient(180deg, #0d47a1 0px, #0d47a1 320px, #f0f4f8 320px, #f0f4f8 100%);
+            }
             .cd-hero-slider {
                 padding-top: 1rem !important;
                 padding-bottom: 1rem !important;
@@ -373,58 +363,23 @@
             .intro-right img {
                 height: 155px !important;
             }
-            .mt-4 {
-                margin-top: 1.2rem !important;
-            }
         }
 
-        /* 2. Escalado amplio para Pantallas Grandes (Full HD 1920x1080) */
         @media (min-width: 1600px) {
-            .page-width-1, .page-width-2 {
+            body {
+                background: linear-gradient(180deg, #0d47a1 0px, #0d47a1 420px, #f0f4f8 420px, #f0f4f8 100%);
+            }
+            .page-width-1, .page-width-2, .nav-container-custom {
                 max-width: 1480px !important;
-            }
-            .nav-container-custom {
-                max-width: 1480px !important;
-            }
-            .navbar-brand {
-                font-size: 2rem !important;
-            }
-            .cd-slider-nav a, .cd-slider-nav .nav-link {
-                font-size: 1.15rem !important;
-                padding: 18px 25px !important;
             }
             .intro-container {
                 padding: 3.5rem !important;
-                gap: 50px;
             }
             .intro-right img {
                 height: 220px !important;
             }
             h2.display-6 {
                 font-size: 2.5rem !important;
-            }
-            .intro-left p {
-                font-size: 1.2rem !important;
-            }
-            .btn-tech {
-                font-size: 1.25rem !important;
-                padding: 18px 50px !important;
-            }
-        }
-
-        /* 3. Escalado ultra amplio para Pantallas 4K o superiores */
-        @media (min-width: 2200px) {
-            .page-width-1, .page-width-2, .nav-container-custom {
-                max-width: 1750px !important;
-            }
-            .intro-right img {
-                height: 270px !important;
-            }
-            h2.display-6 {
-                font-size: 3rem !important;
-            }
-            .intro-left p {
-                font-size: 1.35rem !important;
             }
         }
 
@@ -435,25 +390,17 @@
             .intro-right {
                 width: 100%;
             }
-            .nav-container-custom {
-                padding: 0 15px;
-            }
         }
     </style>
 </head>
 <body>
-
-    <!-- VIDEO DE FONDO PERMANENTE -->
-    <video autoplay muted loop playsinline id="bg-video">
-        <source src="video/gfp-astro-timelapse.mp4" type="video/mp4">
-    </video>
 
     <div class="page-container">
       <div class="container-fluid p-0">
         <div class="cd-slider-nav">
           <nav class="navbar navbar-expand-lg nav-container-custom" id="tm-nav">
             <a class="navbar-brand" href="#">AICTECH</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-supported-content" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-supported-content" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbar-supported-content">
@@ -493,8 +440,8 @@
               <div class="intro-container glass-card p-4 p-md-5">
                 <div class="intro-left">
                   <span class="badge-tech mb-3 d-inline-block">Estación de Control Táctil</span>
-                  <h2 class="mb-3 text-white fw-bold display-6">Tecnología de Alta Precisión Industrial</h2>
-                  <p class="mb-3 text-light leading-relaxed fs-5">
+                  <h2 class="mb-3 fw-bold display-6">Tecnología de Alta Precisión Industrial</h2>
+                  <p class="mb-3 leading-relaxed fs-5">
                     Somos <strong>AICTECH</strong>, especialistas en la integración de ingeniería avanzada, análisis de datos en tiempo real y pruebas instrumentadas de pozo para optimizar operaciones en el sector petrolero.
                   </p>
                   <p class="mb-0 text-muted fs-6">
@@ -507,7 +454,7 @@
                 </div>
               </div>
 
-              <!-- BOTÓN EXPLORAR SERVICIOS VISIBLE Y CENTRADO -->
+              <!-- BOTÓN EXPLORAR SERVICIOS -->
               <div class="text-center mt-4">
                 <a href="#0" data-page-no="2" class="btn-tech tm-page-link">
                   Explorar Servicios ➔
@@ -586,8 +533,8 @@
             <div class="page-width-1">
               <div class="glass-card p-5 text-center">
                 <span class="badge-tech mb-3 d-inline-block">Plataforma Digital</span>
-                <h2 class="mb-4 text-white fw-bold display-5">PetrolIA</h2>
-                <p class="fs-5 text-light mb-4" style="max-width: 750px; margin: 0 auto; line-height: 1.6;">
+                <h2 class="mb-4 fw-bold display-5">PetrolIA</h2>
+                <p class="fs-5 mb-4" style="max-width: 750px; margin: 0 auto; line-height: 1.6;">
                   Sistema centralizado de monitoreo operacional, gestión telemetrada de pozos y analítica avanzada para la toma de decisiones estratégicas en tiempo real.
                 </p>
                 <a href="http://ruta-o-ip-de-petrolia" target="_blank" class="btn-tech mt-2">
@@ -602,8 +549,8 @@
             <div class="page-width-1">
               <div class="glass-card p-5 text-center">
                 <span class="badge-tech mb-3 d-inline-block">Capacitación Especializada</span>
-                <h2 class="mb-4 text-white fw-bold display-5">EduTech</h2>
-                <p class="fs-5 text-light mb-4" style="max-width: 750px; margin: 0 auto; line-height: 1.6;">
+                <h2 class="mb-4 fw-bold display-5">EduTech</h2>
+                <p class="fs-5 mb-4" style="max-width: 750px; margin: 0 auto; line-height: 1.6;">
                   Centro de aprendizaje y certificación técnica continua diseñado para perfeccionar las competencias del personal de ingeniería y operaciones de campo.
                 </p>
                 <a href="http://ruta-o-ip-de-edutech" target="_blank" class="btn-tech mt-2">
@@ -620,8 +567,8 @@
                 <div class="col-md-6">
                     <div class="glass-card p-4 p-md-5 h-100">
                         <span class="badge-tech mb-3 d-inline-block">Talento Humano</span>
-                        <h3 class="mb-3 text-white fw-bold">Personal Altamente Calificado</h3>
-                        <p class="text-light mb-4 fs-6">
+                        <h3 class="mb-3 fw-bold">Personal Altamente Calificado</h3>
+                        <p class="mb-4 fs-6">
                             Nuestro equipo está conformado por ingenieros y especialistas con sólida experiencia en redes industriales, instrumentación y optimización de pruebas de pozo.
                         </p>
                         <div class="tech-list-item">Ingeniería Informática, Redes y Soporte</div>
@@ -633,10 +580,10 @@
                 <div class="col-md-6">                  
                   <div class="glass-card p-4 p-md-5 h-100">
                     <span class="badge-tech mb-3 d-inline-block">Ubicación & Soporte</span>
-                    <h3 class="mb-3 text-white fw-bold">Contacto Directo</h3>
+                    <h3 class="mb-3 fw-bold">Contacto Directo</h3>
                     <p class="mb-2 fs-6"><strong>Oficina:</strong> Anaco - Anzoátegui, Venezuela</p>
-                    <p class="mb-2 fs-6"><strong>Email:</strong> <a href="mailto:ventas@aictech.net" class="text-info">ventas@aictech.net</a></p>
-                    <p class="mb-4 fs-6"><strong>Línea de Atención:</strong> <a href="tel:+584148366073" class="text-info">+58 414 8366073</a></p>
+                    <p class="mb-2 fs-6"><strong>Email:</strong> <a href="mailto:ventas@aictech.net" class="text-primary fw-semibold">ventas@aictech.net</a></p>
+                    <p class="mb-4 fs-6"><strong>Línea de Atención:</strong> <a href="tel:+584148366073" class="text-primary fw-semibold">+58 414 8366073</a></p>
                     
                     <div class="rounded-3 overflow-hidden border border-secondary">
                         <iframe width="100%" height="210" id="gmap-canvas"
@@ -658,25 +605,25 @@
     </footer>
   </div>
 
-  <!-- MODALES DE DETALLES TÁCTILES -->
+  <!-- MODALES BLANCOS CON LETRAS NEGRAS -->
   <div id="modal-convencional" class="service-modal">
       <div class="modal-content-tech">
           <div class="d-flex justify-content-between align-items-center mb-4">
               <span class="badge-tech">Servicio de Campo</span>
               <div class="modal-close-btn" onclick="closeModal('modal-convencional')">✕</div>
           </div>
-          <h2 class="text-white fw-bold mb-3">Prueba de Pozo con Equipos Convencionales</h2>
-          <p class="fs-5 text-light mb-4">Separación trifásica de alta precisión (Petróleo, Agua y Gas) con registro automatizado en tiempo real.</p>
+          <h2 class="fw-bold mb-3">Prueba de Pozo con Equipos Convencionales</h2>
+          <p class="fs-5 mb-4">Separación trifásica de alta precisión (Petróleo, Agua y Gas) con registro automatizado en tiempo real.</p>
           
           <div class="row g-3 mb-4">
               <div class="col-md-4">
-                  <img src="img/convencional-1.jpg" onerror="this.src='img/gallery-img-01.jpg'" class="img-fluid rounded-3 border border-secondary" alt="Separador">
+                  <img src="img/convencional-1.jpg" onerror="this.src='img/gallery-img-01.jpg'" class="img-fluid rounded-3 border" alt="Separador">
               </div>
               <div class="col-md-4">
-                  <img src="img/convencional-2.jpg" onerror="this.src='img/gallery-img-01.jpg'" class="img-fluid rounded-3 border border-secondary" alt="Manifold">
+                  <img src="img/convencional-2.jpg" onerror="this.src='img/gallery-img-01.jpg'" class="img-fluid rounded-3 border" alt="Manifold">
               </div>
               <div class="col-md-4">
-                  <img src="img/convencional-3.jpg" onerror="this.src='img/gallery-img-01.jpg'" class="img-fluid rounded-3 border border-secondary" alt="Monitoreo">
+                  <img src="img/convencional-3.jpg" onerror="this.src='img/gallery-img-01.jpg'" class="img-fluid rounded-3 border" alt="Monitoreo">
               </div>
           </div>
 
@@ -696,18 +643,18 @@
               <span class="badge-tech">Servicio Avanzado</span>
               <div class="modal-close-btn" onclick="closeModal('modal-multifasico')">✕</div>
           </div>
-          <h2 class="text-white fw-bold mb-3">Prueba de Pozo con Equipos Multifásicos (MPFM)</h2>
-          <p class="fs-5 text-light mb-4">Medición instantánea sin necesidad de separación previa, ideal para pruebas dinámicas intensivas.</p>
+          <h2 class="fw-bold mb-3">Prueba de Pozo con Equipos Multifásicos (MPFM)</h2>
+          <p class="fs-5 mb-4">Medición instantánea sin necesidad de separación previa, ideal para pruebas dinámicas intensivas.</p>
           
           <div class="row g-3 mb-4">
               <div class="col-md-4">
-                  <img src="img/multifasico-1.jpg" onerror="this.src='img/gallery-img-02.jpg'" class="img-fluid rounded-3 border border-secondary" alt="MPFM Skid">
+                  <img src="img/multifasico-1.jpg" onerror="this.src='img/gallery-img-02.jpg'" class="img-fluid rounded-3 border" alt="MPFM Skid">
               </div>
               <div class="col-md-4">
-                  <img src="img/multifasico-2.jpg" onerror="this.src='img/gallery-img-02.jpg'" class="img-fluid rounded-3 border border-secondary" alt="Sensores">
+                  <img src="img/multifasico-2.jpg" onerror="this.src='img/gallery-img-02.jpg'" class="img-fluid rounded-3 border" alt="Sensores">
               </div>
               <div class="col-md-4">
-                  <img src="img/multifasico-3.jpg" onerror="this.src='img/gallery-img-02.jpg'" class="img-fluid rounded-3 border border-secondary" alt="Telemetria">
+                  <img src="img/multifasico-3.jpg" onerror="this.src='img/gallery-img-02.jpg'" class="img-fluid rounded-3 border" alt="Telemetria">
               </div>
           </div>
 
@@ -727,18 +674,18 @@
               <span class="badge-tech">Medición Ultrasónica</span>
               <div class="modal-close-btn" onclick="closeModal('modal-flexim')">✕</div>
           </div>
-          <h2 class="text-white fw-bold mb-3">Caudalímetro No Invasivo Flexim</h2>
-          <p class="fs-5 text-light mb-4">Determinación ultrasónica de tasa de gas sobre la superficie externa de la tubería (Clamp-On).</p>
+          <h2 class="fw-bold mb-3">Caudalímetro No Invasivo Flexim</h2>
+          <p class="fs-5 mb-4">Determinación ultrasónica de tasa de gas sobre la superficie externa de la tubería (Clamp-On).</p>
           
           <div class="row g-3 mb-4">
               <div class="col-md-4">
-                  <img src="img/flexim-1.jpg" onerror="this.src='img/gallery-img-03.jpg'" class="img-fluid rounded-3 border border-secondary" alt="Flexim 1">
+                  <img src="img/flexim-1.jpg" onerror="this.src='img/gallery-img-03.jpg'" class="img-fluid rounded-3 border" alt="Flexim 1">
               </div>
               <div class="col-md-4">
-                  <img src="img/flexim-2.jpg" onerror="this.src='img/gallery-img-03.jpg'" class="img-fluid rounded-3 border border-secondary" alt="Flexim 2">
+                  <img src="img/flexim-2.jpg" onerror="this.src='img/gallery-img-03.jpg'" class="img-fluid rounded-3 border" alt="Flexim 2">
               </div>
               <div class="col-md-4">
-                  <img src="img/flexim-3.jpg" onerror="this.src='img/gallery-img-03.jpg'" class="img-fluid rounded-3 border border-secondary" alt="Flexim 3">
+                  <img src="img/flexim-3.jpg" onerror="this.src='img/gallery-img-03.jpg'" class="img-fluid rounded-3 border" alt="Flexim 3">
               </div>
           </div>
 
@@ -758,18 +705,18 @@
               <span class="badge-tech">Diagnóstico Acústico</span>
               <div class="modal-close-btn" onclick="closeModal('modal-echometer')">✕</div>
           </div>
-          <h2 class="text-white fw-bold mb-3">Medición de Nivel con Echometer</h2>
-          <p class="fs-5 text-light mb-4">Análisis del nivel dinámico de fluido anular y cálculo de presión de fondo fluyente (Pwf).</p>
+          <h2 class="fw-bold mb-3">Medición de Nivel con Echometer</h2>
+          <p class="fs-5 mb-4">Análisis del nivel dinámico de fluido anular y cálculo de presión de fondo fluyente (Pwf).</p>
           
           <div class="row g-3 mb-4">
               <div class="col-md-4">
-                  <img src="img/echometer-1.jpg" onerror="this.src='img/gallery-img-04.jpg'" class="img-fluid rounded-3 border border-secondary" alt="Echometer 1">
+                  <img src="img/echometer-1.jpg" onerror="this.src='img/gallery-img-04.jpg'" class="img-fluid rounded-3 border" alt="Echometer 1">
               </div>
               <div class="col-md-4">
-                  <img src="img/echometer-2.jpg" onerror="this.src='img/gallery-img-04.jpg'" class="img-fluid rounded-3 border border-secondary" alt="Echometer 2">
+                  <img src="img/echometer-2.jpg" onerror="this.src='img/gallery-img-04.jpg'" class="img-fluid rounded-3 border" alt="Echometer 2">
               </div>
               <div class="col-md-4">
-                  <img src="img/echometer-3.jpg" onerror="this.src='img/gallery-img-04.jpg'" class="img-fluid rounded-3 border border-secondary" alt="Echometer 3">
+                  <img src="img/echometer-3.jpg" onerror="this.src='img/gallery-img-04.jpg'" class="img-fluid rounded-3 border" alt="Echometer 3">
               </div>
           </div>
 

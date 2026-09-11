@@ -391,6 +391,126 @@
                 width: 100%;
             }
         }
+
+
+        /* Estilo para las imágenes de las tarjetas Bifásico/Trifásico */
+    .style-card-img {
+        height: 180px;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    /* ------------------------------------------------------------- */
+    /* CONTENEDOR Y EFECTOS SEMI-3D / LÍQUIDO                        */
+    /* ------------------------------------------------------------- */
+    .demo-3d-container {
+        position: relative; /* OBLIGATORIO para que la onda de agua no se salga */
+        width: 100%;
+        height: 340px;
+        background-color: #0c1017;
+        border-radius: 14px;
+        overflow: hidden;   /* OBLIGATORIO para recortar la gota */
+        cursor: pointer;
+        border: 2px solid #38b6ff;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .demo-3d-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease 1.2s;
+        
+        /* Calibración del zoom */
+        transform-origin: 38% 40%; 
+    }
+
+    /* ZOOM AL TAPÓN CUANDO SE ACTIVA */
+    .demo-3d-container img.zoom-activo {
+        transform: scale(8) !important; /* Multiplica el zoom */
+        opacity: 0.2;
+    }
+
+    /* INDICADOR FLOTANTE */
+    .demo-3d-badge {
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        background: rgba(12, 16, 23, 0.85);
+        color: #38b6ff;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        border: 1px solid rgba(56, 182, 255, 0.4);
+        backdrop-filter: blur(5px);
+        pointer-events: none;
+        z-index: 5;
+    }
+
+    /* CARGADOR OVERLAY */
+    .demo-3d-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(12, 16, 23, 0.95);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.5s ease 1.1s;
+        z-index: 20;
+    }
+
+    .demo-3d-overlay.activo {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    /* ------------------------------------------------------------- */
+    /* ANIMACIÓN LÍQUIDA Y GELATINA (MARIO 64)                       */
+    /* ------------------------------------------------------------- */
+    .liquid-wobble {
+        animation: marioWaterBounce 0.6s cubic-bezier(0.25, 1.8, 0.5, 0.8) !important;
+    }
+
+    @keyframes marioWaterBounce {
+        0%   { transform: scale3d(1, 1, 1); }
+        30%  { transform: scale3d(1.08, 0.92, 1) rotateX(-5deg); }
+        60%  { transform: scale3d(0.95, 1.05, 1) rotateX(3deg); }
+        80%  { transform: scale3d(1.02, 0.98, 1); }
+        100% { transform: scale3d(1, 1, 1); }
+    }
+
+    /* ONDA DE AGUA / GOTA EXPANSIVA */
+    .water-ripple {
+        position: absolute;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(56, 182, 255, 0.8) 0%, rgba(56, 182, 255, 0.3) 40%, rgba(255, 255, 255, 0) 70%);
+        border: 2px solid rgba(56, 182, 255, 0.9);
+        transform: translate(-50%, -50%) scale(0);
+        pointer-events: none;
+        animation: rippleExpand 0.7s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+        z-index: 10;
+        box-shadow: 0 0 25px rgba(56, 182, 255, 0.8);
+    }
+
+    @keyframes rippleExpand {
+        0% {
+            width: 0px;
+            height: 0px;
+            opacity: 1;
+        }
+        100% {
+            width: 600px;
+            height: 600px;
+            opacity: 0;
+        }
+    }
     </style>
 </head>
 <body>
@@ -605,37 +725,100 @@
     </footer>
   </div>
 
-  <!-- MODALES BLANCOS CON LETRAS NEGRAS -->
-  <div id="modal-convencional" class="service-modal">
-      <div class="modal-content-tech">
-          <div class="d-flex justify-content-between align-items-center mb-4">
-              <span class="badge-tech">Servicio de Campo</span>
-              <div class="modal-close-btn" onclick="closeModal('modal-convencional')">✕</div>
-          </div>
-          <h2 class="fw-bold mb-3">Prueba de Pozo con Equipos Convencionales</h2>
-          <p class="fs-5 mb-4">Separación trifásica de alta precisión (Petróleo, Agua y Gas) con registro automatizado en tiempo real.</p>
-          
-          <div class="row g-3 mb-4">
-              <div class="col-md-4">
-                  <img src="img/convencional-1.jpg" onerror="this.src='img/gallery-img-01.jpg'" class="img-fluid rounded-3 border" alt="Separador">
-              </div>
-              <div class="col-md-4">
-                  <img src="img/convencional-2.jpg" onerror="this.src='img/gallery-img-01.jpg'" class="img-fluid rounded-3 border" alt="Manifold">
-              </div>
-              <div class="col-md-4">
-                  <img src="img/convencional-3.jpg" onerror="this.src='img/gallery-img-01.jpg'" class="img-fluid rounded-3 border" alt="Monitoreo">
-              </div>
-          </div>
+<!-- MODAL DEDICADO: CONOCER EQUIPOS CONVENCIONALES -->
+<div id="modal-convencional" class="service-modal">
+    <div class="modal-content-tech" style="max-width: 1000px; width: 92%;">
+        
+        <!-- ENCABEZADO -->
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <span class="badge-tech">Sección Interactiva: Conocer el Equipo</span>
+            <div class="modal-close-btn" onclick="closeModal('modal-convencional')">✕</div>
+        </div>
 
-          <div class="tech-list-item">Separación gravimétrica trifásica continua.</div>
-          <div class="tech-list-item">Medición precisa de corte de agua (BSW) y RGP.</div>
-          <div class="tech-list-item">Válvulas neumáticas de regulación automática de presión.</div>
+        <h2 class="fw-bold mb-2">Separadores de Producción y Pruebas</h2>
+        <p class="text-muted mb-4">Aprende a diferenciar, identificar y operar los equipos bifásicos y trifásicos en campo.</p>
 
-          <div class="text-center text-md-end mt-4">
-              <button class="btn-tech-outline" onclick="closeModal('modal-convencional')">Cerrar Ventana</button>
-          </div>
-      </div>
-  </div>
+        <!-- BLOQUE 1: COMPARATIVA BIFÁSICO VS TRIFÁSICO -->
+        <div class="row g-4 mb-4">
+            <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <h4 class="fw-bold text-primary mb-2">1. Equipo Bifásico</h4>
+                        <p class="small text-dark mb-3">
+                            Diseñado para separar los fluidos provenientes del pozo en <strong>dos fases principales</strong>: Líquido y Gas.
+                        </p>
+                        <div class="text-center mb-3">
+                            <img src="img/gallery-img-01.jpg" onerror="this.src='img/gallery-img-01.jpg'" class="img-fluid rounded-3 border shadow-sm style-card-img" alt="Equipo Bifásico">
+                        </div>
+                        <div class="tech-list-item small">✔ 1 Entrada de mezcla / 2 Salidas principales (Gas y Líquido).</div>
+                        <div class="tech-list-item small">✔ Ideal para pruebas rápidas sin separación agua/crudo al instante.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <h4 class="fw-bold text-primary mb-2">2. Equipo Trifásico</h4>
+                        <p class="small text-dark mb-3">
+                            Aparato más complejo que separa <strong>tres fases independientes</strong>: Petróleo, Agua y Gas.
+                        </p>
+                        <div class="text-center mb-3">
+                            <img src="img/trifasico.jpg" onerror="this.src='img/gallery-img-01.jpg'" class="img-fluid rounded-3 border shadow-sm style-card-img" alt="Equipo Trifásico">
+                        </div>
+                        <div class="tech-list-item small">✔ 3 Salidas independientes: Gas, Petróleo y Agua.</div>
+                        <div class="tech-list-item small">✔ Indispensable para medir BSW y RGP en tiempo real.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BLOQUE 2: USO E IDENTIFICACIÓN EN CAMPO -->
+        <div class="row g-3 mb-4">
+            <div class="col-md-6">
+                <h5 class="fw-bold">¿Para qué sirven y cómo los usamos?</h5>
+                <p class="small text-muted mb-0">
+                    Se instalan en la línea de flujo del pozo para estabilizar la presión y medir la producción diaria de crudo, agua y gas.
+                </p>
+            </div>
+            <div class="col-md-6">
+                <h5 class="fw-bold">¿Cómo identificarlos a simple vista?</h5>
+                <ul class="small text-muted ps-3 mb-0">
+                    <li><strong>Líneas de descarga:</strong> 2 salidas para bifásico, 3 para trifásico.</li>
+                    <li><strong>Controladores de Nivel:</strong> El trifásico posee visores y válvulas adicionales para el crudo.</li>
+                </ul>
+            </div>
+        </div>
+
+        <hr class="my-4">
+
+        <!-- BLOQUE 3: DEMOSTRACIÓN 3D INTERACTIVA -->
+        <div class="text-center mb-3">
+            <h4 class="fw-bold mb-1">Demostración Interactiva de Funcionamiento</h4>
+            <p class="small text-muted">Haz clic sobre el equipo para explorar su interior en 3D...</p>
+        </div>
+
+        <!-- CONTENEDOR FOTO SEMI-3D CON EFECTOS -->
+        <div id="demo-3d-trigger" class="demo-3d-container">
+            <img src="img/trifasico-3d.jpg" id="demo-3d-img" alt="Demostración Equipo Abierto" onerror="this.src='img/gallery-img-01.jpg'">
+
+            <div class="demo-3d-badge">
+                🔍 Haz clic para visualizar su funcionamiento
+            </div>
+
+            <div id="demo-3d-overlay" class="demo-3d-overlay">
+                <div class="spinner-border text-info mb-3" role="status" style="width: 3rem; height: 3rem;"></div>
+                <h4 class="fw-bold text-white m-0">Iniciando Modelo 3D...</h4>
+                <p class="text-light small mt-2">Ejecutando simulador en 3D (.exe)</p>
+            </div>
+        </div>
+
+        <!-- BOTÓN DE CIERRE -->
+        <div class="text-center text-md-end mt-4">
+            <button class="btn-tech-outline" onclick="closeModal('modal-convencional')">Cerrar Ventana</button>
+        </div>
+    </div>
+</div>
 
   <div id="modal-multifasico" class="service-modal">
       <div class="modal-content-tech">
@@ -769,5 +952,82 @@
         }
     });
   </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const card = document.getElementById('demo-3d-trigger');
+    const img = document.getElementById('demo-3d-img');
+    const overlay = document.getElementById('demo-3d-overlay');
+
+    if (!card || !img) return;
+
+    let isZoomed = false;
+
+    // 1. EFECTO TILT 3D (Inclinación al mover el mouse)
+    card.addEventListener('mousemove', (e) => {
+        if (isZoomed || img.classList.contains('zoom-activo')) return;
+
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left - (rect.width / 2);
+        const y = e.clientY - rect.top - (rect.height / 2);
+
+        const tiltX = (y / rect.height) * -10;
+        const tiltY = (x / rect.width) * 10;
+
+        card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(1.02, 1.02, 1.02)`;
+        card.style.transition = 'transform 0.1s ease-out';
+    });
+
+    card.addEventListener('mouseleave', () => {
+        if (!isZoomed && !img.classList.contains('zoom-activo')) {
+            card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+            card.style.transition = 'transform 0.5s ease';
+        }
+    });
+
+    // 2. EFECTO CLIC (AGUA MARIO 64 + GELATINA + ZOOM)
+    card.addEventListener('click', function (e) {
+        if (isZoomed || img.classList.contains('zoom-activo')) return;
+        isZoomed = true;
+
+        // Limpiar estilos del Tilt para NO bloquear la animación de Gelatina
+        card.style.transform = '';
+
+        // A) Calcular posición exactita del toque
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        // B) Crear la Onda de Agua estilo Mario 64
+        const ripple = document.createElement('div');
+        ripple.classList.add('water-ripple');
+        ripple.style.left = `${x}px`;
+        ripple.style.top = `${y}px`;
+        card.appendChild(ripple);
+
+        setTimeout(() => ripple.remove(), 700);
+
+        // C) Disparar Rebote de Gelatina
+        card.classList.add('liquid-wobble');
+        setTimeout(() => card.classList.remove('liquid-wobble'), 600);
+
+        // D) Disparar el Mega Zoom
+        setTimeout(() => {
+            img.classList.add('zoom-activo');
+            if (overlay) overlay.classList.add('activo');
+
+            console.log("¡Entrando al agua 3D! Ejecutando simulador...");
+
+            // (Opcional) Restaurar todo tras 5 segundos
+            setTimeout(() => {
+                img.classList.remove('zoom-activo');
+                if (overlay) overlay.classList.remove('activo');
+                isZoomed = false;
+            }, 5000);
+
+        }, 300); // 300ms de delay para disfrutar el impacto de agua
+    });
+});
+</script>
 </body>
 </html>

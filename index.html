@@ -18,6 +18,21 @@
 
     <!-- CSS PALETA CORTADA: MITAD AZUL / MITAD BLANCO INDUSTRIAL -->
     <style>
+        /* LOGO*/
+        .navbar-logo {
+            height: 50px; /* Ajusta la altura según la altura de tu navbar (ej. 45px - 60px) */
+            width: auto;  /* Mantiene la proporción de aspecto original (1024x254) */
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        /* Opcional: Ajuste para pantallas pequeñas / móviles */
+        @media (max-width: 768px) {
+            .navbar-logo {
+                height: 40px;
+            }
+        }
+
         :root {
             --brand-blue: #0d47a1;
             --brand-blue-hover: #0a3880;
@@ -519,7 +534,11 @@
       <div class="container-fluid p-0">
         <div class="cd-slider-nav">
           <nav class="navbar navbar-expand-lg nav-container-custom" id="tm-nav">
-            <a class="navbar-brand" href="#">AICTECH</a>
+            <!-- LOGO EN REEMPLAZO DEL TEXTO -->
+            <a class="navbar-brand d-flex align-items-center py-0" href="#">
+              <img src="img/aictech_logo.png" alt="AICTECH Logo" class="navbar-logo">
+            </a>
+
             <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-supported-content" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -549,7 +568,7 @@
             </div>
           </nav>
         </div>
-      </div>      
+      </div>   
 
       <div class="container-fluid tm-content-container">
         <ul class="cd-hero-slider mb-0 py-3">
@@ -562,7 +581,7 @@
                   <span class="badge-tech mb-3 d-inline-block">Estación de Control Táctil</span>
                   <h2 class="mb-3 fw-bold display-6">Tecnología de Alta Precisión Industrial</h2>
                   <p class="mb-3 leading-relaxed fs-5">
-                    Somos <strong>AICTECH</strong>, especialistas en la integración de ingeniería avanzada, análisis de datos en tiempo real y pruebas instrumentadas de pozo para optimizar operaciones en el sector petrolero.
+                    Somos <strong><b style="color:#083375">AIC</b> <b style="color:rgb(255, 175, 3)">TECH</b><b>, C.A</b></strong>, especialistas en la integración de ingeniería avanzada, análisis de datos en tiempo real y pruebas instrumentadas de pozo para optimizar operaciones en el sector petrolero.
                   </p>
                   <p class="mb-0 text-muted fs-6">
                     Explora nuestra oferta tecnológica y plataformas propietarias diseñadas para garantizar máxima eficiencia en campo.
@@ -595,7 +614,7 @@
                         <div class="service-card-body">
                             <div>
                                 <h3 class="service-card-title">Pruebas Convencionales</h3>
-                                <p class="service-card-text">Medición de prueba de pozo con equipos convencionales con sistema de monitoreo en tiempo real.</p>
+                                <p class="service-card-text">Medición de prueba de pozo de equipos convencionales con sistema de monitoreo en tiempo real.</p>
                             </div>
                             <button class="btn-tech-outline">Ver Detalles</button>
                         </div>
@@ -609,7 +628,7 @@
                         <div class="service-card-body">
                             <div>
                                 <h3 class="service-card-title">Medición Multifásica</h3>
-                                <p class="service-card-text">Medición de prueba de pozo con equipos multifasicos con sistema de monitoreo en tiempo real.</p>
+                                <p class="service-card-text">Medición de prueba de pozo de equipos multifasicos con sistema de monitoreo en tiempo real.</p>
                             </div>
                             <button class="btn-tech-outline">Ver Detalles</button>
                         </div>

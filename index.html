@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>AICTECH - Estación de Control Táctil</title>
+
+    <link rel="icon" type="image/png" href="img/aicicon.jpg">
     
     <!-- Fuentes Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -839,36 +841,78 @@
     </div>
 </div>
 
-  <div id="modal-multifasico" class="service-modal">
-      <div class="modal-content-tech">
-          <div class="d-flex justify-content-between align-items-center mb-4">
-              <span class="badge-tech">Servicio Avanzado</span>
-              <div class="modal-close-btn" onclick="closeModal('modal-multifasico')">✕</div>
-          </div>
-          <h2 class="fw-bold mb-3">Prueba de Pozo con Equipos Multifásicos (MPFM)</h2>
-          <p class="fs-5 mb-4">Medición instantánea sin necesidad de separación previa, ideal para pruebas dinámicas intensivas.</p>
-          
-          <div class="row g-3 mb-4">
-              <div class="col-md-4">
-                  <img src="img/multifasico-1.jpg" onerror="this.src='img/gallery-img-02.jpg'" class="img-fluid rounded-3 border" alt="MPFM Skid">
-              </div>
-              <div class="col-md-4">
-                  <img src="img/multifasico-2.jpg" onerror="this.src='img/gallery-img-02.jpg'" class="img-fluid rounded-3 border" alt="Sensores">
-              </div>
-              <div class="col-md-4">
-                  <img src="img/multifasico-3.jpg" onerror="this.src='img/gallery-img-02.jpg'" class="img-fluid rounded-3 border" alt="Telemetria">
-              </div>
-          </div>
+  <!-- MODAL 2: EQUIPOS MULTIFÁSICOS (MPFM) - ENFOQUE OPERATIVO Y DE CAMPO -->
+<div id="modal-multifasico" class="service-modal">
+    <div class="modal-content-tech">
+        <!-- Header con Badge Técnico y Cierre -->
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <span class="badge-tech">TECNOLOGÍA MPFM EN TIEMPO REAL</span>
+            <div class="modal-close-btn" onclick="closeModal('modal-multifasico')">✕</div>
+        </div>
 
-          <div class="tech-list-item">Cero tiempo de retención en línea de flujo.</div>
-          <div class="tech-list-item">Módem de transmisión continua acoplado a PetrolIA.</div>
-          <div class="tech-list-item">Dimensiones reducidas para espacios limitados en localización.</div>
+        <!-- Título y Descripción Enfocada a Ingeniería de Yacimientos/Producción -->
+        <h2 class="fw-bold mb-2">Prueba de Pozo con Equipos Multifásicos (MPFM)</h2>
+        <p class="fs-6 text-muted mb-4">Determinación continua e instantánea de tasas de Petróleo, Agua y Gas a condiciones de línea, sin requerir separación física de fases ni paradas de producción.</p>
 
-          <div class="text-center text-md-end mt-4">
-              <button class="btn-tech-outline" onclick="closeModal('modal-multifasico')">Cerrar Ventana</button>
-          </div>
-      </div>
-  </div>
+        <!-- Tarjetas de Impacto Operativo (KPIs Técnicos) -->
+        <div class="row g-2 mb-4">
+            <div class="col-4">
+                <div class="p-2 text-center rounded-3 bg-light border">
+                    <div class="text-primary fw-bold fs-5">3 Fases</div>
+                    <div class="text-secondary" style="font-size: 0.75rem;">Petróleo / Agua / Gas</div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="p-2 text-center rounded-3 bg-light border">
+                    <div class="text-success fw-bold fs-5">0 min</div>
+                    <div class="text-secondary" style="font-size: 0.75rem;">Tiempo de Retención</div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="p-2 text-center rounded-3 bg-light border">
+                    <div class="text-info fw-bold fs-5">Telemetría</div>
+                    <div class="text-secondary" style="font-size: 0.75rem;">Conexión a PetrolIA</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Galería Fotográfica de Campo -->
+        <div class="row g-2 mb-4">
+            <div class="col-md-4">
+                <img src="img/gallery-img-02.jpg" onerror="this.src='img/gallery-img-02.jpg'" class="img-fluid rounded-3 border w-100" style="height: 110px; object-fit: cover;" alt="Unidad Móvil MPFM Skid">
+            </div>
+            <div class="col-md-4">
+                <img src="img/multifasico-1.jpg" onerror="this.src='img/gallery-img-02.jpg'" class="img-fluid rounded-3 border w-100" style="height: 110px; object-fit: cover;" alt="Sensores e Instrumentación de Campo">
+            </div>
+            <div class="col-md-4">
+                <img src="img/multifasico-2.jpg" onerror="this.src='img/gallery-img-02.jpg'" class="img-fluid rounded-3 border w-100" style="height: 110px; object-fit: cover;" alt="Módem de Transmisión PetrolIA">
+            </div>
+        </div>
+
+        <!-- Especificaciones Operativas de Campo -->
+        <div class="mb-4">
+            <h6 class="text-uppercase text-secondary fw-bold mb-2" style="font-size: 0.8rem; letter-spacing: 1px;">Puntos Clave de Operación</h6>
+            <div class="tech-list-item d-flex align-items-start mb-2">
+                <span class="text-primary me-2 fw-bold">❖</span> 
+                <span><strong>Monitoreo Dinámico Transitorio:</strong> Determinación instantánea de variaciones en la relación Gas-Petróleo (GOR) y Corte de Agua (BS&W).</span>
+            </div>
+            <div class="tech-list-item d-flex align-items-start mb-2">
+                <span class="text-primary me-2 fw-bold">❖</span> 
+                <span><strong>Unidad Móvil Compacta:</strong> Skid de huella reducida montado en camión para acople rápido directo en el cabezal (*wellhead*) o múltiple de prueba.</span>
+            </div>
+            <div class="tech-list-item d-flex align-items-start mb-2">
+                <span class="text-primary me-2 fw-bold">❖</span> 
+                <span><strong>Operación Ecológica y Automatizada:</strong> Eliminación de quema/venteo de gas en fosa, acoplado con transmisión telemétrica continua hacia <strong>PetrolIA</strong>.</span>
+            </div>
+        </div>
+
+        <!-- Footer / Cierre del Modal -->
+        <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+            <span class="text-muted small">Aplicación: Conexión directa en línea de flujo</span>
+            <button class="btn-tech-outline" onclick="closeModal('modal-multifasico')">Cerrar Ventana</button>
+        </div>
+    </div>
+</div>
 
   <div id="modal-flexim" class="service-modal">
       <div class="modal-content-tech">

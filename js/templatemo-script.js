@@ -66,11 +66,9 @@ function openPage(no) {
     }    
   }
 
-  $('.cd-hero-slider > li').hide().removeClass('selected');
-  $('.cd-hero-slider > li[data-page-no="' + no + '"]')
-    .stop(true, true)
-    .fadeIn(300)
-    .addClass('selected');
+  $('.cd-hero-slider > li').removeClass('selected').hide();
+  var $target = $('.cd-hero-slider > li[data-page-no="' + no + '"]');
+  $target.css('display', 'flex').hide().fadeIn(300).addClass('selected');
 }
 
 $(window).on('load', function() {

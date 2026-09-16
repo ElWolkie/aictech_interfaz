@@ -22,13 +22,12 @@
     <style>
         /* LOGO*/
         .navbar-logo {
-            height: 50px; /* Ajusta la altura según la altura de tu navbar (ej. 45px - 60px) */
-            width: auto;  /* Mantiene la proporción de aspecto original (1024x254) */
+            height: 50px;
+            width: auto;
             object-fit: contain;
             transition: transform 0.3s ease;
         }
 
-        /* Opcional: Ajuste para pantallas pequeñas / móviles */
         @media (max-width: 768px) {
             .navbar-logo {
                 height: 40px;
@@ -59,7 +58,6 @@
             min-height: 100vh;
         }
 
-        /* Ocultamos el video de fondo para conservar el fondo limpio estilo panel industrial */
         #bg-video {
             display: none;
         }
@@ -80,7 +78,7 @@
         }
 
         .nav-container-custom {
-            max-width: 1280px;
+            max-width: 1500px;
             margin: 0 auto;
             padding: 0 25px;
             display: flex;
@@ -129,7 +127,8 @@
         /* TARJETAS BLANCAS CON TEXTO OSCURO                              */
         /* ------------------------------------------------------------- */
         .page-width-1, .page-width-2 {
-            max-width: 1280px;
+            max-width: 1500px;
+            width: 100%;
             margin: 0 auto;
             transition: max-width 0.3s ease;
         }
@@ -158,24 +157,28 @@
         }
 
         .intro-left {
-            flex: 1.25;
+            flex: 1.1;
         }
 
         .intro-right {
-            flex: 0.95;
+            flex: 1.1;
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 20px;
         }
 
         .intro-right img {
             width: 100%;
-            height: 185px;
+            height: 250px;
             object-fit: cover;
-            border-radius: 14px;
+            border-radius: 16px;
             border: 1px solid #cbd5e1;
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-            transition: height 0.3s ease;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            transition: transform 0.3s ease, height 0.3s ease;
+        }
+
+        .intro-right img:hover {
+            transform: scale(1.02);
         }
 
         /* TARJETAS DE SERVICIOS EN BLANCO */
@@ -378,7 +381,7 @@
                 padding: 2.2rem !important;
             }
             .intro-right img {
-                height: 155px !important;
+                height: 200px !important;
             }
         }
 
@@ -387,13 +390,13 @@
                 background: linear-gradient(180deg, #0d47a1 0px, #0d47a1 420px, #f0f4f8 420px, #f0f4f8 100%);
             }
             .page-width-1, .page-width-2, .nav-container-custom {
-                max-width: 1480px !important;
+                max-width: 1650px !important;
             }
             .intro-container {
                 padding: 3.5rem !important;
             }
             .intro-right img {
-                height: 220px !important;
+                height: 280px !important;
             }
             h2.display-6 {
                 font-size: 2.5rem !important;
@@ -409,348 +412,456 @@
             }
         }
 
+        .style-card-img {
+            height: 180px;
+            width: 100%;
+            object-fit: cover;
+        }
 
-        /* Estilo para las imágenes de las tarjetas Bifásico/Trifásico */
-    .style-card-img {
-        height: 180px;
-        width: 100%;
-        object-fit: cover;
-    }
+        .demo-3d-container {
+            position: relative;
+            width: 100%;
+            height: 340px;
+            background-color: #0c1017;
+            border-radius: 14px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid #38b6ff;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
 
-    /* ------------------------------------------------------------- */
-    /* CONTENEDOR Y EFECTOS SEMI-3D / LÍQUIDO                        */
-    /* ------------------------------------------------------------- */
-    .demo-3d-container {
-        position: relative; /* OBLIGATORIO para que la onda de agua no se salga */
-        width: 100%;
-        height: 340px;
-        background-color: #0c1017;
-        border-radius: 14px;
-        overflow: hidden;   /* OBLIGATORIO para recortar la gota */
-        cursor: pointer;
-        border: 2px solid #38b6ff;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    }
+        .demo-3d-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease 1.2s;
+            transform-origin: 38% 40%; 
+        }
 
-    .demo-3d-container img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease 1.2s;
-        
-        /* Calibración del zoom */
-        transform-origin: 38% 40%; 
-    }
+        .demo-3d-container img.zoom-activo {
+            transform: scale(8) !important;
+            opacity: 0.2;
+        }
 
-    /* ZOOM AL TAPÓN CUANDO SE ACTIVA */
-    .demo-3d-container img.zoom-activo {
-        transform: scale(8) !important; /* Multiplica el zoom */
-        opacity: 0.2;
-    }
+        .demo-3d-badge {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background: rgba(12, 16, 23, 0.85);
+            color: #38b6ff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(56, 182, 255, 0.4);
+            backdrop-filter: blur(5px);
+            pointer-events: none;
+            z-index: 5;
+        }
 
-    /* INDICADOR FLOTANTE */
-    .demo-3d-badge {
-        position: absolute;
-        bottom: 15px;
-        right: 15px;
-        background: rgba(12, 16, 23, 0.85);
-        color: #38b6ff;
-        padding: 8px 16px;
-        border-radius: 20px;
-        font-size: 0.85rem;
-        font-weight: 600;
-        border: 1px solid rgba(56, 182, 255, 0.4);
-        backdrop-filter: blur(5px);
-        pointer-events: none;
-        z-index: 5;
-    }
+        .demo-3d-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(12, 16, 23, 0.95);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease 1.1s;
+            z-index: 20;
+        }
 
-    /* CARGADOR OVERLAY */
-    .demo-3d-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(12, 16, 23, 0.95);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.5s ease 1.1s;
-        z-index: 20;
-    }
+        .demo-3d-overlay.activo {
+            opacity: 1;
+            pointer-events: auto;
+        }
 
-    .demo-3d-overlay.activo {
-        opacity: 1;
-        pointer-events: auto;
-    }
+        .liquid-wobble {
+            animation: marioWaterBounce 0.6s cubic-bezier(0.25, 1.8, 0.5, 0.8) !important;
+        }
 
-    /* ------------------------------------------------------------- */
-    /* ANIMACIÓN LÍQUIDA Y GELATINA (MARIO 64)                       */
-    /* ------------------------------------------------------------- */
-    .liquid-wobble {
-        animation: marioWaterBounce 0.6s cubic-bezier(0.25, 1.8, 0.5, 0.8) !important;
-    }
+        @keyframes marioWaterBounce {
+            0%   { transform: scale3d(1, 1, 1); }
+            30%  { transform: scale3d(1.08, 0.92, 1) rotateX(-5deg); }
+            60%  { transform: scale3d(0.95, 1.05, 1) rotateX(3deg); }
+            80%  { transform: scale3d(1.02, 0.98, 1); }
+            100% { transform: scale3d(1, 1, 1); }
+        }
 
-    @keyframes marioWaterBounce {
-        0%   { transform: scale3d(1, 1, 1); }
-        30%  { transform: scale3d(1.08, 0.92, 1) rotateX(-5deg); }
-        60%  { transform: scale3d(0.95, 1.05, 1) rotateX(3deg); }
-        80%  { transform: scale3d(1.02, 0.98, 1); }
-        100% { transform: scale3d(1, 1, 1); }
-    }
+        .water-ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(56, 182, 255, 0.8) 0%, rgba(56, 182, 255, 0.3) 40%, rgba(255, 255, 255, 0) 70%);
+            border: 2px solid rgba(56, 182, 255, 0.9);
+            transform: translate(-50%, -50%) scale(0);
+            pointer-events: none;
+            animation: rippleExpand 0.7s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+            z-index: 10;
+            box-shadow: 0 0 25px rgba(56, 182, 255, 0.8);
+        }
 
-    /* ONDA DE AGUA / GOTA EXPANSIVA */
-    .water-ripple {
-        position: absolute;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(56, 182, 255, 0.8) 0%, rgba(56, 182, 255, 0.3) 40%, rgba(255, 255, 255, 0) 70%);
-        border: 2px solid rgba(56, 182, 255, 0.9);
-        transform: translate(-50%, -50%) scale(0);
-        pointer-events: none;
-        animation: rippleExpand 0.7s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
-        z-index: 10;
-        box-shadow: 0 0 25px rgba(56, 182, 255, 0.8);
-    }
+        @keyframes rippleExpand {
+            0% {
+                width: 0px;
+                height: 0px;
+                opacity: 1;
+            }
+            100% {
+                width: 600px;
+                height: 600px;
+                opacity: 0;
+            }
+        }
 
-    @keyframes rippleExpand {
-        0% {
-            width: 0px;
-            height: 0px;
+        /* --- ESTILOS DEL SIDEBAR DASHBOARD UNIFICADO --- */
+        #wrapper {
+            overflow-x: hidden;
+            height: 100vh;
+        }
+
+        #sidebar {
+            min-width: 260px;
+            max-width: 260px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: margin 0.25s ease-out;
+            background-color: #083375 !important; /* Fondo azul unificado */
+        }
+
+        .sidebar-heading {
+            background: linear-gradient(135deg, #1b5baf 0%, #10438a 100%) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.25) !important;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 4px 15px rgba(0, 0, 0, 0.25) !important;
+            padding: 1.25rem 1rem !important;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* EFECTO 3D CON SOMBRA Y RESALTE EN EL LOGO */
+        .sidebar-heading img,
+        .navbar-logo,
+        .navbar img {
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s ease;
+            filter: drop-shadow(0px 5px 8px rgba(0, 0, 0, 0.45)) 
+                    drop-shadow(0px 1px 3px rgba(255, 255, 255, 0.4))
+                    drop-shadow(0px 0px 12px rgba(255, 175, 3, 0.25));
+        }
+
+        .sidebar-heading img:hover,
+        .navbar-logo:hover,
+        .navbar img:hover {
+            transform: translateY(-3px) scale(1.04);
+            filter: drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.6)) 
+                    drop-shadow(0px 0px 15px rgba(56, 182, 255, 0.7));
+        }
+
+        .sidebar-nav-custom {
+            background-color: transparent !important;
+            border-bottom: none !important;
+            box-shadow: none !important;
+        }
+
+        .sidebar-nav-custom .nav-link {
+            border-left: 4px solid transparent;
+            transition: all 0.3s ease;
+            opacity: 0.85;
+            color: #ffffff !important;
+        }
+
+        .sidebar-nav-custom .nav-link:hover {
+            opacity: 1;
+            background-color: rgba(255, 255, 255, 0.12) !important;
+        }
+
+        .sidebar-nav-custom .nav-link.selected,
+        .sidebar-nav-custom .nav-link.active {
+            border-left-color: #ffaf03; /* Amarillo corporativo AIC */
+            background-color: rgba(255, 255, 255, 0.18) !important;
             opacity: 1;
         }
-        100% {
-            width: 600px;
-            height: 600px;
-            opacity: 0;
+
+        #page-content-wrapper {
+            min-width: 100vw;
+            height: 100vh;
+            overflow-y: auto;
+            background-color: #f8f9fa;
         }
-    }
+
+        @media (max-width: 991.98px) {
+            #sidebar {
+                margin-left: -260px;
+                position: absolute;
+                z-index: 1000;
+            }
+            
+            #wrapper.toggled #sidebar {
+                margin-left: 0;
+            }
+        }
+
+        @media (min-width: 992px) {
+            #page-content-wrapper {
+                min-width: 0;
+                width: 100%;
+            }
+        }
+
+        .easter-egg-wrapper {
+            position: relative;
+            display: inline-block;
+            user-select: none;
+        }
+
+        .jefe-easter-egg {
+            position: absolute;
+            bottom: 110%;
+            left: 50%;
+            transform: translateX(-50%) scale(0) rotate(-15deg);
+            width: 65px;
+            height: auto;
+            opacity: 0;
+            pointer-events: none;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+            z-index: 100;
+            filter: drop-shadow(0px 4px 8px rgba(0,0,0,0.3));
+        }
+
+        .jefe-easter-egg.active {
+            opacity: 1;
+            transform: translateX(-50%) scale(1) rotate(0deg) translateY(-8px);
+        }
     </style>
 </head>
 <body>
 
-    <div class="page-container">
-      <div class="container-fluid p-0">
-        <div class="cd-slider-nav">
-          <nav class="navbar navbar-expand-lg nav-container-custom" id="tm-nav">
-            <!-- LOGO EN REEMPLAZO DEL TEXTO -->
-            <a class="navbar-brand d-flex align-items-center py-0" href="#">
-              <img src="img/aictech_logo.png" alt="AICTECH Logo" class="navbar-logo">
+<div class="d-flex" id="wrapper">
+    <!-- SIDEBAR (Barra Lateral Izquierda) -->
+    <div class="sidebar-wrapper text-white shadow-lg" id="sidebar">
+        <div class="sidebar-heading text-center py-4">
+            <!-- LOGO -->
+            <a href="#" class="d-block text-decoration-none">
+                <img src="img/aictech_logo.png" alt="AICTECH Logo" class="img-fluid" style="max-height: 50px;">
             </a>
-
-            <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-supported-content" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbar-supported-content">
-              <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
-                <li class="nav-item selected">
-                  <a class="nav-link" aria-current="page" href="#0" data-no="1">Inicio</a>
-                  <div class="circle"></div>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#0" data-no="2">Servicios</a>
-                  <div class="circle"></div>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#0" data-no="3">PetrolIA</a>
-                  <div class="circle"></div>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#0" data-no="4">EduTech</a>
-                  <div class="circle"></div>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#0" data-no="5">Equipo y Contacto</a>
-                  <div class="circle"></div>
-                </li>
-              </ul>
-            </div>
-          </nav>
         </div>
-      </div>   
-
-      <div class="container-fluid tm-content-container">
-        <ul class="cd-hero-slider mb-0 py-3">
-          
-          <!-- SECCIÓN 1: INICIO -->
-          <li class="px-3" data-page-no="1">
-            <div class="page-width-1">
-              <div class="intro-container glass-card p-4 p-md-5">
-                <div class="intro-left">
-                  <span class="badge-tech mb-3 d-inline-block">Estación de Control Táctil</span>
-                  <h2 class="mb-3 fw-bold display-6">Tecnología de Alta Precisión Industrial</h2>
-                  <p class="mb-3 leading-relaxed fs-5">
-                    Somos <strong><b style="color:#083375">AIC</b> <b style="color:rgb(255, 175, 3)">TECH</b><b>, C.A</b></strong>, especialistas en la integración de ingeniería avanzada, análisis de datos en tiempo real y pruebas instrumentadas de pozo para optimizar operaciones en el sector petrolero.
-                  </p>
-                  <p class="mb-0 text-muted fs-6">
-                    Explora nuestra oferta tecnológica y plataformas propietarias diseñadas para garantizar máxima eficiencia en campo.
-                  </p>
-                </div>
-                <div class="intro-right">
-                  <img src="img/home-img-1.jpg" alt="AICTECH Operaciones">
-                  <img src="img/home-img-2.jpg" alt="AICTECH Tecnología">
-                </div>
-              </div>
-
-              <!-- BOTÓN EXPLORAR SERVICIOS -->
-              <div class="text-center mt-4">
-                <a href="#0" data-page-no="2" class="btn-tech tm-page-link">
-                  Explorar Servicios ➔
-                </a>
-              </div>            
-            </div>            
-          </li>
-
-          <!-- SECCIÓN 2: SERVICIOS -->
-          <li data-page-no="2" class="px-3">
-            <div class="page-width-1">
-              <div class="row g-4 justify-content-center">
-                
-                <!-- Servicio 1 -->
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="service-touch-card" onclick="openModal('modal-convencional')">
-                        <img src="img/gallery-img-01.jpg" alt="Equipos Convencionales" class="service-card-img">
-                        <div class="service-card-body">
-                            <div>
-                                <h3 class="service-card-title">Pruebas Convencionales</h3>
-                                <p class="service-card-text">Medición de prueba de pozo de equipos convencionales con sistema de monitoreo en tiempo real.</p>
-                            </div>
-                            <button class="btn-tech-outline">Ver Detalles</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Servicio 2 -->
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="service-touch-card" onclick="openModal('modal-multifasico')">
-                        <img src="img/gallery-img-02.jpg" alt="Equipos Multifásicos" class="service-card-img">
-                        <div class="service-card-body">
-                            <div>
-                                <h3 class="service-card-title">Medición Multifásica</h3>
-                                <p class="service-card-text">Medición de prueba de pozo de equipos multifasicos con sistema de monitoreo en tiempo real.</p>
-                            </div>
-                            <button class="btn-tech-outline">Ver Detalles</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Servicio 3 -->
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="service-touch-card" onclick="openModal('modal-flexim')">
-                        <img src="img/gallery-img-03.jpg" alt="Flexim Ultrasónico" class="service-card-img">
-                        <div class="service-card-body">
-                            <div>
-                                <h3 class="service-card-title">Caudalímetro Flexim</h3>
-                                <p class="service-card-text">Medir tasas de gas mediante Caudalímetro Ultrasónico no Invasivo-FLEXIM.</p>
-                            </div>
-                            <button class="btn-tech-outline">Ver Detalles</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Servicio 4 -->
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="service-touch-card" onclick="openModal('modal-echometer')">
-                        <img src="img/gallery-img-04.jpg" alt="Diagnóstico Echometer" class="service-card-img">
-                        <div class="service-card-body">
-                            <div>
-                                <h3 class="service-card-title">Diagnóstico Echometer</h3>
-                                <p class="service-card-text">Medir profundidad de nivel de liquido medianto el uso del ECHOMETER.</p>
-                            </div>
-                            <button class="btn-tech-outline">Ver Detalles</button>
-                        </div>
-                    </div>
-                </div>
-
-              </div>
-            </div>
-          </li>
-
-          <!-- SECCIÓN 3: PETROLIA -->
-          <li data-page-no="3" class="px-3">
-            <div class="page-width-1">
-              <div class="glass-card p-5 text-center">
-                <span class="badge-tech mb-3 d-inline-block">Plataforma Digital</span>
-                <h2 class="mb-4 fw-bold display-5">PetrolIA</h2>
-                <p class="fs-5 mb-4" style="max-width: 750px; margin: 0 auto; line-height: 1.6;">
-                  Sistema centralizado de monitoreo operacional, gestión telemetrada de pozos y analítica avanzada para la toma de decisiones estratégicas en tiempo real.
-                </p>
-                <a href="http://ruta-o-ip-de-petrolia" target="_blank" class="btn-tech mt-2">
-                  Iniciar Sesión en PetrolIA ⚡
-                </a>
-              </div>              
-            </div>
-          </li>
-
-          <!-- SECCIÓN 4: EDUTECH -->
-          <li data-page-no="4" class="px-3">
-            <div class="page-width-1">
-              <div class="glass-card p-5 text-center">
-                <span class="badge-tech mb-3 d-inline-block">Capacitación Especializada</span>
-                <h2 class="mb-4 fw-bold display-5">EduTech</h2>
-                <p class="fs-5 mb-4" style="max-width: 750px; margin: 0 auto; line-height: 1.6;">
-                  Centro de aprendizaje y certificación técnica continua diseñado para perfeccionar las competencias del personal de ingeniería y operaciones de campo.
-                </p>
-                <a href="http://ruta-o-ip-de-edutech" target="_blank" class="btn-tech mt-2">
-                  Acceder a Portal EduTech 🎓
-                </a>
-              </div>              
-            </div>
-          </li>
-
-          <!-- SECCIÓN 5: EQUIPO Y CONTACTO -->
-          <li data-page-no="5" class="px-3">
-            <div class="page-width-1">
-              <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="glass-card p-4 p-md-5 h-100">
-                        <span class="badge-tech mb-3 d-inline-block">Talento Humano</span>
-                        <h3 class="mb-3 fw-bold">Personal Altamente Calificado</h3>
-                        <p class="mb-4 fs-6">
-                            Nuestro equipo está conformado por ingenieros y especialistas con sólida experiencia en redes industriales, instrumentación y optimización de pruebas de pozo.
-                        </p>
-                        <div class="tech-list-item">Ingeniería Informática, Redes y Soporte</div>
-                        <div class="tech-list-item">Especialistas Certificados en Caudalímetros Flexim</div>
-                        <div class="tech-list-item">Operadores en Ecogramas y Diagnóstico Echometer</div>
-                        <div class="tech-list-item">Analistas de Datos en Tiempo Real (PetrolIA)</div>
-                    </div>
-                </div>
-                <div class="col-md-6">                  
-                  <div class="glass-card p-4 p-md-5 h-100">
-                    <span class="badge-tech mb-3 d-inline-block">Ubicación & Soporte</span>
-                    <h3 class="mb-3 fw-bold">Contacto Directo</h3>
-                    <p class="mb-2 fs-6"><strong>Oficina:</strong> Anaco - Anzoátegui, Venezuela</p>
-                    <p class="mb-2 fs-6"><strong>Email:</strong> <a href="mailto:ventas@aictech.net" class="text-primary fw-semibold">ventas@aictech.net</a></p>
-                    <p class="mb-4 fs-6"><strong>Línea de Atención:</strong> <a href="tel:+584148366073" class="text-primary fw-semibold">+58 414 8366073</a></p>
-                    
-                    <div class="rounded-3 overflow-hidden border border-secondary">
-                        <iframe width="100%" height="210" id="gmap-canvas"
-                            src="https://maps.google.com/maps?q=9.447929573272631,-64.46658166186569&hl=es&z=15&output=embed"
-                            frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>            
-          </li>
-        </ul>
+        
+        <div class="list-group list-group-flush my-3 cd-slider-nav sidebar-nav-custom">
+            <!-- Enlaces del Menú Lateral -->
+            <a href="#0" class="list-group-item list-group-item-action bg-transparent text-white fw-bold py-3 px-4 d-flex align-items-center nav-link selected" data-no="1">
+                <i class="fas fa-home me-3 fs-5"></i> Inicio
+            </a>
+            <a href="#0" class="list-group-item list-group-item-action bg-transparent text-white fw-bold py-3 px-4 d-flex align-items-center nav-link" data-no="2">
+                <i class="fas fa-cogs me-3 fs-5"></i> Servicios
+            </a>
+            <a href="#0" class="list-group-item list-group-item-action bg-transparent text-white fw-bold py-3 px-4 d-flex align-items-center nav-link" data-no="3">
+                <i class="fas fa-chart-network me-3 fs-5"></i> PetrolIA
+            </a>
+            <a href="#0" class="list-group-item list-group-item-action bg-transparent text-white fw-bold py-3 px-4 d-flex align-items-center nav-link" data-no="4">
+                <i class="fas fa-graduation-cap me-3 fs-5"></i> EduTech
+            </a>
+            <a href="#0" class="list-group-item list-group-item-action bg-transparent text-white fw-bold py-3 px-4 d-flex align-items-center nav-link" data-no="5">
+                <i class="fas fa-address-card me-3 fs-5"></i> Equipo y Contacto
+            </a>
+        </div>
     </div>
+    <!-- /FIN SIDEBAR -->
 
-    <footer class="row mx-auto tm-footer mt-4">
-      <div class="col-md-12 text-center text-muted">
-        <small>© 2026 AICTECH - Soluciones Tecnológicas Industriales. Todos los derechos reservados.</small>
-      </div>
-    </footer>
-  </div>
+    <!-- CONTENIDO PRINCIPAL DE LA PÁGINA -->
+    <div id="page-content-wrapper" class="w-100 position-relative">
+        
+        <!-- Navbar Superior Móvil -->
+        <nav class="navbar navbar-dark bg-dark px-3 py-2 d-lg-none shadow-sm w-100 position-absolute top-0" style="z-index: 10;">
+            <div class="d-flex align-items-center w-100 justify-content-between">
+                <img src="img/aictech_logo.png" alt="AICTECH Logo" style="max-height: 35px;">
+                <button class="navbar-toggler border-0" type="button" id="menu-toggle">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Contenedor de las Secciones (Slider) -->
+        <div class="container-fluid tm-content-container h-100 pt-5 pt-lg-0">
+            <ul class="cd-hero-slider mb-0 py-3 h-100">
+                
+                <!-- SECCIÓN 1: INICIO -->
+                <li class="px-3 selected" data-page-no="1">
+                    <div class="page-width-1 h-100 d-flex align-items-center">
+                        <div class="intro-container glass-card p-4 p-md-5 w-100">
+                            <div class="intro-left">
+                                <span class="badge-tech mb-3 d-inline-block">Estación de Control Táctil</span>
+                                <h2 class="mb-3 fw-bold display-6">Tecnología de Alta Precisión Industrial</h2>
+                                <p class="mb-3 leading-relaxed fs-5">
+                                    Somos <strong>
+                                        <span id="easter-egg-trigger" class="easter-egg-wrapper">
+                                            <b style="color:#083375">AIC</b> <b style="color:rgb(255, 175, 3)">TECH</b>
+                                            <img src="img/jefe.jpg" id="jefe-pop" class="jefe-easter-egg" alt="Easter Egg">
+                                        </span>
+                                        <b>, C.A</b>
+                                    </strong>, especialistas en la integración de ingeniería avanzada, análisis de datos en tiempo real y pruebas instrumentadas de pozo para optimizar operaciones en el sector petrolero.
+                                </p>
+                                <!-- BOTÓN EXPLORAR SERVICIOS -->
+                                <div class="mt-4">
+                                    <a href="#0" data-page-no="2" class="btn-tech tm-page-link d-inline-block">
+                                        Explorar Servicios ➔
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="intro-right d-none d-md-block">
+                                <img src="img/home-img-1.jpg" alt="AICTECH Operaciones" class="img-fluid rounded shadow-sm mb-3">
+                                <img src="img/home-img-2.jpg" alt="AICTECH Tecnología" class="img-fluid rounded shadow-sm">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- SECCIÓN 2: SERVICIOS -->
+                <li data-page-no="2" class="px-3">
+                    <div class="page-width-1 h-100 d-flex align-items-center">
+                        <div class="row g-4 justify-content-center w-100">
+                            
+                            <!-- Servicio 1: Convencional -->
+                            <div class="col-12 col-md-6 col-lg-3">
+                                <div class="service-touch-card" onclick="openModal('modal-convencional')">
+                                    <img src="img/gallery-img-01.jpg" alt="Equipos Convencionales" class="service-card-img">
+                                    <div class="service-card-body">
+                                        <div>
+                                            <h3 class="service-card-title">Pruebas Convencionales</h3>
+                                            <p class="service-card-text text-muted small">Medición de prueba de pozo de equipos convencionales con sistema de monitoreo en tiempo real.</p>
+                                        </div>
+                                        <button class="btn-tech-outline w-100 mt-2">Ver Detalles</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Servicio 2: Multifásico -->
+                            <div class="col-12 col-md-6 col-lg-3">
+                                <div class="service-touch-card" onclick="openModal('modal-multifasico')">
+                                    <img src="img/gallery-img-02.jpg" alt="Equipos Multifásicos" class="service-card-img">
+                                    <div class="service-card-body">
+                                        <div>
+                                            <h3 class="service-card-title">Medición Multifásica</h3>
+                                            <p class="service-card-text text-muted small">Medición de prueba de pozo de equipos multifasicos con sistema de monitoreo en tiempo real.</p>
+                                        </div>
+                                        <button class="btn-tech-outline w-100 mt-2">Ver Detalles</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Servicio 3: Flexim -->
+                            <div class="col-12 col-md-6 col-lg-3">
+                                <div class="service-touch-card" onclick="openModal('modal-flexim')">
+                                    <img src="img/gallery-img-03.jpg" alt="Flexim Ultrasónico" class="service-card-img">
+                                    <div class="service-card-body">
+                                        <div>
+                                            <h3 class="service-card-title">Caudalímetro Flexim</h3>
+                                            <p class="service-card-text text-muted small">Medir tasas de gas mediante Caudalímetro Ultrasónico no Invasivo-FLEXIM.</p>
+                                        </div>
+                                        <button class="btn-tech-outline w-100 mt-2">Ver Detalles</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Servicio 4: Echometer -->
+                            <div class="col-12 col-md-6 col-lg-3">
+                                <div class="service-touch-card" onclick="openModal('modal-echometer')">
+                                    <img src="img/gallery-img-04.jpg" alt="Diagnóstico Echometer" class="service-card-img">
+                                    <div class="service-card-body">
+                                        <div>
+                                            <h3 class="service-card-title">Diagnóstico Echometer</h3>
+                                            <p class="service-card-text text-muted small">Medir profundidad de nivel de liquido medianto el uso del ECHOMETER.</p>
+                                        </div>
+                                        <button class="btn-tech-outline w-100 mt-2">Ver Detalles</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- SECCIÓN 3: PETROLIA -->
+                <li data-page-no="3" class="px-3">
+                    <div class="page-width-1 h-100 d-flex align-items-center justify-content-center">
+                        <div class="glass-card p-5 text-center w-100">
+                            <span class="badge-tech mb-3 d-inline-block">Plataforma Digital</span>
+                            <h2 class="mb-4 fw-bold display-5">PetrolIA</h2>
+                            <p class="fs-5 mb-4 mx-auto text-muted" style="max-width: 750px; line-height: 1.6;">
+                                Sistema centralizado de monitoreo operacional, gestión telemetrada de pozos y analítica avanzada para la toma de decisiones estratégicas en tiempo real.
+                            </p>
+                            <a href="http://ruta-o-ip-de-petrolia" target="_blank" class="btn-tech mt-2 px-5 py-3 fs-5">
+                                Iniciar Sesión en PetrolIA ⚡
+                            </a>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- SECCIÓN 4: EDUTECH -->
+                <li data-page-no="4" class="px-3">
+                    <div class="page-width-1 h-100 d-flex align-items-center justify-content-center">
+                        <div class="glass-card p-5 text-center w-100">
+                            <span class="badge-tech mb-3 d-inline-block">Capacitación Especializada</span>
+                            <h2 class="mb-4 fw-bold display-5">EduTech</h2>
+                            <p class="fs-5 mb-4 mx-auto text-muted" style="max-width: 750px; line-height: 1.6;">
+                                Centro de aprendizaje y certificación técnica continua diseñado para perfeccionar las competencias del personal de ingeniería y operaciones de campo.
+                            </p>
+                            <a href="http://ruta-o-ip-de-edutech" target="_blank" class="btn-tech mt-2 px-5 py-3 fs-5">
+                                Acceder a Portal EduTech 🎓
+                            </a>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- SECCIÓN 5: EQUIPO Y CONTACTO -->
+                <li data-page-no="5" class="px-3">
+                    <div class="page-width-1 h-100 d-flex align-items-center">
+                        <div class="row g-4 w-100">
+                            <div class="col-md-6">
+                                <div class="glass-card p-4 p-md-5 h-100">
+                                    <span class="badge-tech mb-3 d-inline-block">Talento Humano</span>
+                                    <h3 class="mb-3 fw-bold">Personal Altamente Calificado</h3>
+                                    <p class="mb-4 fs-6 text-muted">
+                                        Nuestro equipo está conformado por ingenieros y especialistas con sólida experiencia en redes industriales, instrumentación y optimización de pruebas de pozo.
+                                    </p>
+                                    <div class="tech-list-item">Ingeniería Informática, Redes y Soporte</div>
+                                    <div class="tech-list-item">Especialistas Certificados en Caudalímetros Flexim</div>
+                                    <div class="tech-list-item">Operadores en Ecogramas y Diagnóstico Echometer</div>
+                                    <div class="tech-list-item">Analistas de Datos en Tiempo Real (PetrolIA)</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">                  
+                                <div class="glass-card p-4 p-md-5 h-100">
+                                    <span class="badge-tech mb-3 d-inline-block">Ubicación & Soporte</span>
+                                    <h3 class="mb-3 fw-bold">Contacto Directo</h3>
+                                    <p class="mb-2 fs-6 text-muted"><strong>Oficina:</strong> Anaco - Anzoátegui, Venezuela</p>
+                                    <p class="mb-2 fs-6 text-muted"><strong>Email:</strong> <a href="mailto:ventas@aictech.net" class="text-primary fw-semibold text-decoration-none">ventas@aictech.net</a></p>
+                                    <p class="mb-4 fs-6 text-muted"><strong>Línea de Atención:</strong> <a href="tel:+584148366073" class="text-primary fw-semibold text-decoration-none">+58 414 8366073</a></p>
+                                    
+                                    <div class="rounded-3 overflow-hidden border border-secondary shadow-sm">
+                                        <iframe width="100%" height="210" id="gmap-canvas"
+                                            src="https://maps.google.com/maps?q=9.447929573272631,-64.46658166186569&hl=es&z=15&output=embed"
+                                            frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <footer class="text-center text-muted py-3 position-absolute bottom-0 w-100" style="background: rgba(255,255,255,0.8); backdrop-filter: blur(5px);">
+            <small>© 2026 AIC TECH, C.A. - Soluciones Tecnológicas Industriales. Todos los derechos reservados.</small>
+        </footer>
+    </div>
+</div>
 
 <!-- MODAL DEDICADO: CONOCER EQUIPOS CONVENCIONALES -->
 <div id="modal-convencional" class="service-modal">
     <div class="modal-content-tech" style="max-width: 1000px; width: 92%;">
-        
-        <!-- ENCABEZADO -->
         <div class="d-flex justify-content-between align-items-center mb-3">
             <span class="badge-tech">Sección Interactiva: Conocer el Equipo</span>
             <div class="modal-close-btn" onclick="closeModal('modal-convencional')">✕</div>
@@ -759,7 +870,6 @@
         <h2 class="fw-bold mb-2">Separadores de Producción y Pruebas</h2>
         <p class="text-muted mb-4">Aprende a diferenciar, identificar y operar los equipos bifásicos y trifásicos en campo.</p>
 
-        <!-- BLOQUE 1: COMPARATIVA BIFÁSICO VS TRIFÁSICO -->
         <div class="row g-4 mb-4">
             <div class="col-md-6">
                 <div class="p-3 border rounded-3 bg-light h-100 d-flex flex-column justify-content-between">
@@ -794,7 +904,6 @@
             </div>
         </div>
 
-        <!-- BLOQUE 2: USO E IDENTIFICACIÓN EN CAMPO -->
         <div class="row g-3 mb-4">
             <div class="col-md-6">
                 <h5 class="fw-bold">¿Para qué sirven y cómo los usamos?</h5>
@@ -813,13 +922,11 @@
 
         <hr class="my-4">
 
-        <!-- BLOQUE 3: DEMOSTRACIÓN 3D INTERACTIVA -->
         <div class="text-center mb-3">
             <h4 class="fw-bold mb-1">Demostración Interactiva de Funcionamiento</h4>
             <p class="small text-muted">Haz clic sobre el equipo para explorar su interior en 3D...</p>
         </div>
 
-        <!-- CONTENEDOR FOTO SEMI-3D CON EFECTOS -->
         <div id="demo-3d-trigger" class="demo-3d-container">
             <img src="img/trifasico-3d.jpg" id="demo-3d-img" alt="Demostración Equipo Abierto" onerror="this.src='img/gallery-img-01.jpg'">
 
@@ -834,27 +941,23 @@
             </div>
         </div>
 
-        <!-- BOTÓN DE CIERRE -->
         <div class="text-center text-md-end mt-4">
             <button class="btn-tech-outline" onclick="closeModal('modal-convencional')">Cerrar Ventana</button>
         </div>
     </div>
 </div>
 
-  <!-- MODAL 2: EQUIPOS MULTIFÁSICOS (MPFM) - ENFOQUE OPERATIVO Y DE CAMPO -->
+<!-- MODAL 2: EQUIPOS MULTIFÁSICOS (MPFM) -->
 <div id="modal-multifasico" class="service-modal">
     <div class="modal-content-tech">
-        <!-- Header con Badge Técnico y Cierre -->
         <div class="d-flex justify-content-between align-items-center mb-3">
             <span class="badge-tech">TECNOLOGÍA MPFM EN TIEMPO REAL</span>
             <div class="modal-close-btn" onclick="closeModal('modal-multifasico')">✕</div>
         </div>
 
-        <!-- Título y Descripción Enfocada a Ingeniería de Yacimientos/Producción -->
         <h2 class="fw-bold mb-2">Prueba de Pozo con Equipos Multifásicos (MPFM)</h2>
         <p class="fs-6 text-muted mb-4">Determinación continua e instantánea de tasas de Petróleo, Agua y Gas a condiciones de línea, sin requerir separación física de fases ni paradas de producción.</p>
 
-        <!-- Tarjetas de Impacto Operativo (KPIs Técnicos) -->
         <div class="row g-2 mb-4">
             <div class="col-4">
                 <div class="p-2 text-center rounded-3 bg-light border">
@@ -876,7 +979,6 @@
             </div>
         </div>
 
-        <!-- Galería Fotográfica de Campo -->
         <div class="row g-2 mb-4">
             <div class="col-md-4">
                 <img src="img/gallery-img-02.jpg" onerror="this.src='img/gallery-img-02.jpg'" class="img-fluid rounded-3 border w-100" style="height: 110px; object-fit: cover;" alt="Unidad Móvil MPFM Skid">
@@ -889,7 +991,6 @@
             </div>
         </div>
 
-        <!-- Especificaciones Operativas de Campo -->
         <div class="mb-4">
             <h6 class="text-uppercase text-secondary fw-bold mb-2" style="font-size: 0.8rem; letter-spacing: 1px;">Puntos Clave de Operación</h6>
             <div class="tech-list-item d-flex align-items-start mb-2">
@@ -906,7 +1007,6 @@
             </div>
         </div>
 
-        <!-- Footer / Cierre del Modal -->
         <div class="d-flex justify-content-between align-items-center pt-3 border-top">
             <span class="text-muted small">Aplicación: Conexión directa en línea de flujo</span>
             <button class="btn-tech-outline" onclick="closeModal('modal-multifasico')">Cerrar Ventana</button>
@@ -914,20 +1014,17 @@
     </div>
 </div>
 
-  <!-- MODAL 3: CAUDALÍMETRO FLEXIM (IMAGEN ÚNICA Y PERFIL EJECUTIVO) -->
+<!-- MODAL 3: CAUDALÍMETRO FLEXIM -->
 <div id="modal-flexim" class="service-modal">
     <div class="modal-content-tech">
-        <!-- Header con Badge Técnico y Cierre -->
         <div class="d-flex justify-content-between align-items-center mb-3">
             <span class="badge-tech">TECNOLOGÍA ULTRASÓNICA CLAMP-ON</span>
             <div class="modal-close-btn" onclick="closeModal('modal-flexim')">✕</div>
         </div>
 
-        <!-- Título y Descripción Operativa -->
         <h2 class="fw-bold mb-2">Caudalímetro No Invasivo Flexim</h2>
         <p class="fs-6 text-muted mb-4">Aforo y cuantificación ultrasónica de tasa de flujo en tiempo real (gas y líquidos) montado sobre la superficie externa de la tubería, garantizando continuidad operacional absoluta.</p>
 
-        <!-- Tarjetas de Impacto Operativo (KPIs Técnicos) -->
         <div class="row g-2 mb-4">
             <div class="col-4">
                 <div class="p-2 text-center rounded-3 bg-light border">
@@ -949,12 +1046,10 @@
             </div>
         </div>
 
-        <!-- Imagen Única Prominente -->
         <div class="mb-4 text-center">
             <img src="img/flexim-1.jpg" onerror="this.src='img/gallery-img-03.jpg'" class="img-fluid rounded-3 border w-100" style="max-height: 230px; object-fit: cover;" alt="Caudalímetro Ultrasónico Flexim Clamp-On">
         </div>
 
-        <!-- Puntos Clave de Despliegue Técnico -->
         <div class="mb-4">
             <h6 class="text-uppercase text-secondary fw-bold mb-2" style="font-size: 0.8rem; letter-spacing: 1px;">Puntos Clave de Despliegue en Campo</h6>
             <div class="tech-list-item d-flex align-items-start mb-2">
@@ -971,7 +1066,6 @@
             </div>
         </div>
 
-        <!-- Footer / Cierre del Modal -->
         <div class="d-flex justify-content-between align-items-center pt-3 border-top">
             <span class="text-muted small">Aplicación: Líneas de flujo de gas y líquidos en superficie</span>
             <button class="btn-tech-outline" onclick="closeModal('modal-flexim')">Cerrar Ventana</button>
@@ -979,20 +1073,17 @@
     </div>
 </div>
 
-  <!-- MODAL 4: ECHOMETER (DIAGNÓSTICO ACÚSTICO Y OPTIMIZACIÓN DE POZOS) -->
+<!-- MODAL 4: ECHOMETER -->
 <div id="modal-echometer" class="service-modal">
     <div class="modal-content-tech">
-        <!-- Header con Badge Técnico y Cierre -->
         <div class="d-flex justify-content-between align-items-center mb-3">
             <span class="badge-tech">DIAGNÓSTICO ACÚSTICO Y DE SUBSUELO</span>
             <div class="modal-close-btn" onclick="closeModal('modal-echometer')">✕</div>
         </div>
 
-        <!-- Título y Descripción Operativa -->
         <h2 class="fw-bold mb-2">Medición de Nivel y Presión con Echometer</h2>
         <p class="fs-6 text-muted mb-4">Determinación telemétrica del nivel dinámico de fluido anular, cálculo de presión de fondo fluyente (Pwf) y diagnóstico de eficiencia operacional en Sistemas de Levantamiento Artificial (SLA).</p>
 
-        <!-- Tarjetas de Impacto Operativo (KPIs Técnicos) -->
         <div class="row g-2 mb-4">
             <div class="col-4">
                 <div class="p-2 text-center rounded-3 bg-light border">
@@ -1014,12 +1105,10 @@
             </div>
         </div>
 
-        <!-- Imagen Única Prominente (Ajustada Completa) -->
         <div class="mb-4 text-center rounded-3 border bg-light p-1">
             <img src="img/echometer-1.jpg" onerror="this.src='img/gallery-img-04.jpg'" class="img-fluid rounded-3 w-100" style="max-height: 320px; object-fit: contain;" alt="Diagnóstico Acústico Echometer">
         </div>
 
-        <!-- Puntos Clave de Despliegue Técnico -->
         <div class="mb-4">
             <h6 class="text-uppercase text-secondary fw-bold mb-2" style="font-size: 0.8rem; letter-spacing: 1px;">Puntos Clave de Operación en Campo</h6>
             <div class="tech-list-item d-flex align-items-start mb-2">
@@ -1036,7 +1125,6 @@
             </div>
         </div>
 
-        <!-- Footer / Cierre del Modal -->
         <div class="d-flex justify-content-between align-items-center pt-3 border-top">
             <span class="text-muted small">Aplicación: Pozos productores e inyectores (Anular / Tubing)</span>
             <button class="btn-tech-outline" onclick="closeModal('modal-echometer')">Cerrar Ventana</button>
@@ -1044,21 +1132,21 @@
     </div>
 </div>
 
-  <!-- Preloader -->
-  <div id="loader-wrapper">            
+<!-- Preloader -->
+<div id="loader-wrapper">            
     <div id="loader"></div>
     <div class="loader-section section-left"></div>
     <div class="loader-section section-right"></div>
-  </div>  
+</div>  
 
-  <!-- Scripts JS -->
-  <script src="js/jquery-3.5.1.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/slick.js"></script>
-  <script src="js/templatemo-script.js"></script>
+<!-- Scripts JS -->
+<script src="js/jquery-3.5.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/slick.js"></script>
+<script src="js/templatemo-script.js"></script>
 
-  <!-- LÓGICA TÁCTIL Y MANEJO DE MODALES -->
-  <script>
+<!-- LÓGICA TÁCTIL Y MANEJO DE MODALES -->
+<script>
     function openModal(id) {
         document.getElementById(id).classList.add('active');
     }
@@ -1082,83 +1170,115 @@
             });
         }
     });
-  </script>
+</script>
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    const card = document.getElementById('demo-3d-trigger');
-    const img = document.getElementById('demo-3d-img');
-    const overlay = document.getElementById('demo-3d-overlay');
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuToggle = document.getElementById('menu-toggle');
+        const wrapper = document.getElementById('wrapper');
+        
+        if (menuToggle) {
+            menuToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                wrapper.classList.toggle('toggled');
+            });
+        }
 
-    if (!card || !img) return;
-
-    let isZoomed = false;
-
-    // 1. EFECTO TILT 3D (Inclinación al mover el mouse)
-    card.addEventListener('mousemove', (e) => {
-        if (isZoomed || img.classList.contains('zoom-activo')) return;
-
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left - (rect.width / 2);
-        const y = e.clientY - rect.top - (rect.height / 2);
-
-        const tiltX = (y / rect.height) * -10;
-        const tiltY = (x / rect.width) * 10;
-
-        card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(1.02, 1.02, 1.02)`;
-        card.style.transition = 'transform 0.1s ease-out';
-    });
-
-    card.addEventListener('mouseleave', () => {
-        if (!isZoomed && !img.classList.contains('zoom-activo')) {
-            card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
-            card.style.transition = 'transform 0.5s ease';
+        const navLinks = document.querySelectorAll('#sidebar .nav-link');
+        if (window.innerWidth < 992) {
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    wrapper.classList.remove('toggled');
+                });
+            });
         }
     });
+</script>
 
-    // 2. EFECTO CLIC (AGUA MARIO 64 + GELATINA + ZOOM)
-    card.addEventListener('click', function (e) {
-        if (isZoomed || img.classList.contains('zoom-activo')) return;
-        isZoomed = true;
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const card = document.getElementById('demo-3d-trigger');
+        const img = document.getElementById('demo-3d-img');
+        const overlay = document.getElementById('demo-3d-overlay');
 
-        // Limpiar estilos del Tilt para NO bloquear la animación de Gelatina
-        card.style.transform = '';
+        if (!card || !img) return;
 
-        // A) Calcular posición exactita del toque
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+        let isZoomed = false;
 
-        // B) Crear la Onda de Agua estilo Mario 64
-        const ripple = document.createElement('div');
-        ripple.classList.add('water-ripple');
-        ripple.style.left = `${x}px`;
-        ripple.style.top = `${y}px`;
-        card.appendChild(ripple);
+        card.addEventListener('mousemove', (e) => {
+            if (isZoomed || img.classList.contains('zoom-activo')) return;
 
-        setTimeout(() => ripple.remove(), 700);
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left - (rect.width / 2);
+            const y = e.clientY - rect.top - (rect.height / 2);
 
-        // C) Disparar Rebote de Gelatina
-        card.classList.add('liquid-wobble');
-        setTimeout(() => card.classList.remove('liquid-wobble'), 600);
+            const tiltX = (y / rect.height) * -10;
+            const tiltY = (x / rect.width) * 10;
 
-        // D) Disparar el Mega Zoom
-        setTimeout(() => {
-            img.classList.add('zoom-activo');
-            if (overlay) overlay.classList.add('activo');
+            card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(1.02, 1.02, 1.02)`;
+            card.style.transition = 'transform 0.1s ease-out';
+        });
 
-            console.log("¡Entrando al agua 3D! Ejecutando simulador...");
+        card.addEventListener('mouseleave', () => {
+            if (!isZoomed && !img.classList.contains('zoom-activo')) {
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+                card.style.transition = 'transform 0.5s ease';
+            }
+        });
 
-            // (Opcional) Restaurar todo tras 5 segundos
+        card.addEventListener('click', function (e) {
+            if (isZoomed || img.classList.contains('zoom-activo')) return;
+            isZoomed = true;
+
+            card.style.transform = '';
+
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const ripple = document.createElement('div');
+            ripple.classList.add('water-ripple');
+            ripple.style.left = `${x}px`;
+            ripple.style.top = `${y}px`;
+            card.appendChild(ripple);
+
+            setTimeout(() => ripple.remove(), 700);
+
+            card.classList.add('liquid-wobble');
+            setTimeout(() => card.classList.remove('liquid-wobble'), 600);
+
             setTimeout(() => {
-                img.classList.remove('zoom-activo');
-                if (overlay) overlay.classList.remove('activo');
-                isZoomed = false;
-            }, 5000);
+                img.classList.add('zoom-activo');
+                if (overlay) overlay.classList.add('activo');
 
-        }, 300); // 300ms de delay para disfrutar el impacto de agua
+                setTimeout(() => {
+                    img.classList.remove('zoom-activo');
+                    if (overlay) overlay.classList.remove('activo');
+                    isZoomed = false;
+                }, 5000);
+
+            }, 300);
+        });
     });
-});
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const trigger = document.getElementById('easter-egg-trigger');
+        const jefeImg = document.getElementById('jefe-pop');
+
+        if (trigger && jefeImg) {
+            trigger.addEventListener('dblclick', () => {
+                if (jefeImg.classList.contains('active')) return;
+
+                jefeImg.classList.add('active');
+
+                setTimeout(() => {
+                    jefeImg.classList.remove('active');
+                }, 2500);
+            });
+        }
+    });
 </script>
 </body>
 </html>

@@ -15,6 +15,9 @@ function closeMenu() {
 function highlightMenu(no) {
   $(".navbar .navbar-nav > .nav-item").removeClass('selected');
   $(".navbar .navbar-nav > .nav-item > .nav-link[data-no='" + no + "']").parent().addClass('selected');
+
+  $(".sidebar-nav-custom .nav-link").removeClass('selected active');
+  $(".sidebar-nav-custom .nav-link[data-no='" + no + "']").addClass('selected active');
 }
 
 function setupGallery() {
@@ -47,14 +50,13 @@ function setupGallery() {
           slidesToScroll: 2
         }
       }
-      // You can unslick at a given breakpoint now by adding:
-      // settings: "unslick"
-      // instead of a settings object
     ]
   });
 }
 
 function openPage(no) {
+  if(!no) return;
+
   if(no == 2) {
     if(gallery == undefined) {
       setupGallery();
@@ -64,28 +66,37 @@ function openPage(no) {
     }    
   }
 
-  $('.cd-hero-slider li').hide();
-  $('.cd-hero-slider li[data-page-no="' + no + '"]')
-    .fadeIn();
+  $('.cd-hero-slider > li').hide().removeClass('selected');
+  $('.cd-hero-slider > li[data-page-no="' + no + '"]')
+    .stop(true, true)
+    .fadeIn(300)
+    .addClass('selected');
 }
 
 $(window).on('load', function() {
   $('body').addClass('loaded');
   openPage(1);
+  highlightMenu(1);
 });
 
 jQuery(function() {
-    $('.tm-page-link').on('click', function(){
+    $(document).on('click', '.tm-page-link', function(e){
+      e.preventDefault();
       var pageNo = $(this).data('page-no');
-      openPage(pageNo);
-      highlightMenu(pageNo);
+      if(pageNo) {
+        openPage(pageNo);
+        highlightMenu(pageNo);
+      }
     });
 
-    $(".navbar .navbar-nav > .nav-item > a.nav-link").on('click', function(e){
-      var pageNo = $(this).data('no');
+    $(document).on('click', ".sidebar-nav-custom .nav-link, .navbar .navbar-nav > .nav-item > a.nav-link", function(e){
+      e.preventDefault();
+      var pageNo = $(this).attr('data-no') || $(this).data('no');
 
-      openPage(pageNo);
-      highlightMenu(pageNo);
+      if (pageNo) {
+        openPage(pageNo);
+        highlightMenu(pageNo);
+      }
       closeMenu();     
     });
 

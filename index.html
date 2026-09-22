@@ -817,23 +817,239 @@
             pointer-events: none;
         }
 
-        /* Estrellas de fondo */
-        #globe-intro-overlay::before {
+        /* Estrellas y Cometas de Fondo */
+        .stars {
+            width: 1px;
+            height: 1px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: white;
+            box-shadow: 2vw 5vh 2px white, 10vw 8vh 2px white, 15vw 15vh 1px white,
+                22vw 22vh 1px white, 28vw 12vh 2px white, 32vw 32vh 1px white,
+                38vw 18vh 2px white, 42vw 35vh 1px white, 48vw 25vh 2px white,
+                53vw 42vh 1px white, 58vw 15vh 2px white, 63vw 38vh 1px white,
+                68vw 28vh 2px white, 73vw 45vh 1px white, 78vw 32vh 2px white,
+                83vw 48vh 1px white, 88vw 20vh 2px white, 93vw 52vh 1px white,
+                98vw 35vh 2px white, 5vw 60vh 1px white, 12vw 65vh 2px white,
+                18vw 72vh 1px white, 25vw 78vh 2px white, 30vw 85vh 1px white,
+                35vw 68vh 2px white, 40vw 82vh 1px white, 45vw 92vh 2px white,
+                50vw 75vh 1px white, 55vw 88vh 2px white, 60vw 95vh 1px white,
+                65vw 72vh 2px white, 70vw 85vh 1px white, 75vw 78vh 2px white,
+                80vw 92vh 1px white, 85vw 82vh 2px white, 90vw 88vh 1px white,
+                95vw 75vh 2px white;
+            animation: twinkle 8s infinite linear;
+            pointer-events: none;
+        }
+
+        .stars::after {
+            content: "";
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            background: white;
+            box-shadow: 8vw 12vh 2px white, 16vw 18vh 1px white, 24vw 25vh 2px white,
+                33vw 15vh 1px white, 41vw 28vh 2px white, 49vw 35vh 1px white,
+                57vw 22vh 2px white, 65vw 42vh 1px white, 73vw 28vh 2px white,
+                81vw 48vh 1px white, 89vw 32vh 2px white, 97vw 45vh 1px white,
+                3vw 68vh 2px white, 11vw 75vh 1px white, 19vw 82vh 2px white,
+                27vw 88vh 1px white, 35vw 72vh 2px white, 43vw 85vh 1px white,
+                51vw 92vh 2px white, 59vw 78vh 1px white;
+            animation: twinkle 6s infinite linear reverse;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.9; transform: scale(1); }
+            50% { opacity: 0.3; transform: scale(0.8); }
+        }
+
+        /* COMETAS Y ESTRELLAS FUGACES MEJORADAS */
+        .shooting-star {
+            position: absolute;
+            height: 2px;
+            pointer-events: none;
+            border-radius: 100px;
+            filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.8));
+        }
+
+        .shooting-star::before {
             content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 0 10px 4px rgba(255, 255, 255, 0.9);
+        }
+
+        /* Variaciones de Cometas Corporativos AIC */
+        .comet-cyan {
+            width: 170px;
+            background: linear-gradient(90deg, #38b6ff, rgba(56, 182, 255, 0.4), transparent);
+            animation: shootCyan 3.2s infinite cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .comet-cyan::before {
+            left: 0;
+            background: #ffffff;
+            box-shadow: 0 0 14px 6px rgba(56, 182, 255, 0.95);
+        }
+
+        .comet-gold {
+            width: 150px;
+            background: linear-gradient(90deg, #ffaf03, rgba(255, 175, 3, 0.4), transparent);
+            animation: shootGold 4.1s infinite cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .comet-gold::before {
+            left: 0;
+            background: #ffffff;
+            box-shadow: 0 0 14px 6px rgba(255, 175, 3, 0.95);
+        }
+
+        .comet-white {
+            width: 130px;
+            background: linear-gradient(90deg, #ffffff, rgba(255, 255, 255, 0.3), transparent);
+            animation: shootWhite 2.8s infinite cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .comet-white::before {
+            left: 0;
+            box-shadow: 0 0 12px 5px rgba(255, 255, 255, 0.9);
+        }
+
+        .shooting-star:nth-child(2) { top: 15%; left: -150px; animation-delay: 0s; }
+        .shooting-star:nth-child(3) { top: 32%; left: -150px; animation-delay: 1.2s; }
+        .shooting-star:nth-child(4) { top: 48%; left: -150px; animation-delay: 2.3s; }
+        .shooting-star:nth-child(5) { top: 68%; left: -150px; animation-delay: 0.7s; }
+        .shooting-star:nth-child(6) { top: 82%; left: -150px; animation-delay: 3.1s; }
+
+        @keyframes shootCyan {
+            0%   { transform: translateX(0) translateY(0) rotate(22deg); opacity: 0; }
+            10%  { opacity: 1; }
+            70%  { opacity: 1; }
+            100% { transform: translateX(130vw) translateY(60vh) rotate(22deg); opacity: 0; }
+        }
+
+        @keyframes shootGold {
+            0%   { transform: translateX(0) translateY(0) rotate(32deg); opacity: 0; }
+            15%  { opacity: 1; }
+            65%  { opacity: 1; }
+            100% { transform: translateX(120vw) translateY(75vh) rotate(32deg); opacity: 0; }
+        }
+
+        @keyframes shootWhite {
+            0%   { transform: translateX(0) translateY(0) rotate(15deg); opacity: 0; }
+            12%  { opacity: 1; }
+            80%  { opacity: 1; }
+            100% { transform: translateX(140vw) translateY(45vh) rotate(15deg); opacity: 0; }
+        }
+
+        /* ===== COMETAS DE FONDO PERMANENTES PARA NAVEGACIÓN (EN EL INICIO Y NAVEGACIÓN) ===== */
+        #global-comets-bg {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 5; /* Visible sobre el fondo del inicio y la interfaz */
+            overflow: hidden;
+            opacity: 0.85;
+        }
+
+        .bg-stars-calm {
             position: absolute;
             inset: 0;
             background-image:
-                radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.8) 0%, transparent 100%),
-                radial-gradient(1px 1px at 25% 65%, rgba(255,255,255,0.6) 0%, transparent 100%),
-                radial-gradient(1.5px 1.5px at 40% 10%, rgba(255,255,255,0.7) 0%, transparent 100%),
-                radial-gradient(1px 1px at 55% 80%, rgba(255,255,255,0.9) 0%, transparent 100%),
-                radial-gradient(1px 1px at 70% 35%, rgba(255,255,255,0.5) 0%, transparent 100%),
-                radial-gradient(1.5px 1.5px at 85% 55%, rgba(255,255,255,0.7) 0%, transparent 100%),
-                radial-gradient(1px 1px at 15% 90%, rgba(255,255,255,0.6) 0%, transparent 100%),
-                radial-gradient(1px 1px at 90% 15%, rgba(255,255,255,0.8) 0%, transparent 100%),
-                radial-gradient(1px 1px at 60% 50%, rgba(255,255,255,0.4) 0%, transparent 100%),
-                radial-gradient(1.5px 1.5px at 35% 40%, rgba(255,255,255,0.5) 0%, transparent 100%);
+                radial-gradient(1px 1px at 15% 25%, rgba(255,255,255,0.7) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 35% 70%, rgba(56,182,255,0.8) 0%, transparent 100%),
+                radial-gradient(1px 1px at 60% 15%, rgba(255,255,255,0.6) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 80% 85%, rgba(255,175,3,0.7) 0%, transparent 100%),
+                radial-gradient(1px 1px at 92% 30%, rgba(255,255,255,0.8) 0%, transparent 100%);
+            animation: calmStarPulse 10s infinite alternate ease-in-out;
+        }
+
+        @keyframes calmStarPulse {
+            0%   { opacity: 0.4; }
+            100% { opacity: 0.8; }
+        }
+
+        .bg-comet {
+            position: absolute;
+            height: 2px;
             pointer-events: none;
+            border-radius: 50px;
+            filter: blur(0.5px) drop-shadow(0 0 8px rgba(56, 182, 255, 0.8));
+        }
+
+        .bg-comet::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 0 12px 4px rgba(255, 255, 255, 0.95);
+        }
+
+        .bg-comet-cyan-slow {
+            width: 260px;
+            top: 12%;
+            left: -280px;
+            background: linear-gradient(90deg, #38b6ff, rgba(56, 182, 255, 0.4), transparent);
+            animation: shootCalmCyan 9s infinite ease-in-out 0s;
+        }
+
+        .bg-comet-gold-slow {
+            width: 240px;
+            top: 42%;
+            left: -260px;
+            background: linear-gradient(90deg, #ffaf03, rgba(255, 175, 3, 0.4), transparent);
+            animation: shootCalmGold 12s infinite ease-in-out 3s;
+        }
+
+        .bg-comet-cyan-gentle {
+            width: 220px;
+            top: 68%;
+            left: -240px;
+            background: linear-gradient(90deg, #38b6ff, rgba(56, 182, 255, 0.35), transparent);
+            animation: shootCalmCyanGentle 10s infinite ease-in-out 6s;
+        }
+
+        .bg-comet-gold-gentle {
+            width: 230px;
+            top: 25%;
+            left: -250px;
+            background: linear-gradient(90deg, #ffaf03, rgba(255, 175, 3, 0.35), transparent);
+            animation: shootCalmGoldGentle 14s infinite ease-in-out 1.5s;
+        }
+
+        @keyframes shootCalmCyan {
+            0%   { transform: translateX(0) translateY(0) rotate(18deg); opacity: 0; }
+            15%  { opacity: 0.95; }
+            70%  { opacity: 0.95; }
+            100% { transform: translateX(135vw) translateY(45vh) rotate(18deg); opacity: 0; }
+        }
+
+        @keyframes shootCalmGold {
+            0%   { transform: translateX(0) translateY(0) rotate(24deg); opacity: 0; }
+            12%  { opacity: 0.9; }
+            65%  { opacity: 0.9; }
+            100% { transform: translateX(125vw) translateY(55vh) rotate(24deg); opacity: 0; }
+        }
+
+        @keyframes shootCalmCyanGentle {
+            0%   { transform: translateX(0) translateY(0) rotate(14deg); opacity: 0; }
+            20%  { opacity: 0.85; }
+            80%  { opacity: 0.85; }
+            100% { transform: translateX(140vw) translateY(35vh) rotate(14deg); opacity: 0; }
+        }
+
+        @keyframes shootCalmGoldGentle {
+            0%   { transform: translateX(0) translateY(0) rotate(28deg); opacity: 0; }
+            10%  { opacity: 0.85; }
+            75%  { opacity: 0.85; }
+            100% { transform: translateX(130vw) translateY(65vh) rotate(28deg); opacity: 0; }
         }
 
         #globe-canvas-wrapper {
@@ -841,10 +1057,31 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            cursor: grab;
             /* Empieza desde la posición del logo en el sidebar */
             transform: translate(-46vw, -42vh) scale(0.08);
             opacity: 0;
             animation: globeIntroAnim 4.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s forwards;
+        }
+
+        #globe-canvas-wrapper:active {
+            cursor: grabbing;
+        }
+
+        #globe-intro-canvas {
+            position: relative;
+            z-index: 2;
+            cursor: grab;
+            border-radius: 50%;
+            box-shadow:
+                0 0 60px 20px rgba(13, 71, 161, 0.7),
+                0 0 120px 50px rgba(2, 132, 199, 0.4),
+                0 0 200px 80px rgba(13, 71, 161, 0.2);
+            animation: globePulseGlow 2s ease-in-out 1.5s infinite alternate;
+        }
+
+        #globe-intro-canvas:active {
+            cursor: grabbing;
         }
 
         @keyframes globeIntroAnim {
@@ -859,28 +1096,24 @@
             100% { transform: translate(-46vw, -42vh) scale(0.08); opacity: 0; }
         }
 
-        #globe-intro-canvas {
-            border-radius: 50%;
-            box-shadow:
-                0 0 60px 20px rgba(13, 71, 161, 0.7),
-                0 0 120px 50px rgba(2, 132, 199, 0.4),
-                0 0 200px 80px rgba(13, 71, 161, 0.2);
-            animation: globePulseGlow 2s ease-in-out 1.5s infinite alternate;
-        }
-
         @keyframes globePulseGlow {
             from { box-shadow: 0 0 60px 20px rgba(13,71,161,0.7), 0 0 120px 50px rgba(2,132,199,0.4), 0 0 200px 80px rgba(13,71,161,0.2); }
             to   { box-shadow: 0 0 80px 35px rgba(56,182,255,0.9), 0 0 150px 70px rgba(13,71,161,0.6), 0 0 250px 100px rgba(56,182,255,0.25); }
         }
 
-        /* Anillo orbital dorado */
+        /* Anillos orbitales centrados exactamente sobre la esfera */
         .globe-ring {
             position: absolute;
+            top: 50%;
+            left: 50%;
             width: 340px;
             height: 340px;
+            margin-top: -170px;
+            margin-left: -170px;
             border-radius: 50%;
             border: 3px solid transparent;
             pointer-events: none;
+            z-index: 3;
             animation: globeRingIntro 4.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s forwards;
         }
 
@@ -895,17 +1128,17 @@
         .globe-ring-gold {
             border-color: #ffaf03;
             box-shadow: 0 0 20px rgba(255, 175, 3, 0.6), inset 0 0 20px rgba(255, 175, 3, 0.1);
-            transform: rotateX(70deg);
             animation: globeRingIntro 4.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s forwards,
                        ringRotate 3s linear 1.5s infinite;
         }
 
         .globe-ring-blue {
-            border-color: rgba(56, 182, 255, 0.6);
+            border-color: rgba(56, 182, 255, 0.7);
             border-style: dashed;
             width: 380px;
             height: 380px;
-            transform: rotateX(50deg) rotateZ(45deg);
+            margin-top: -190px;
+            margin-left: -190px;
             animation: globeRingIntro 4.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s forwards,
                        ringRotateReverse 4s linear 1.5s infinite;
         }
@@ -1001,8 +1234,25 @@
 </head>
 <body>
 
+<!-- FONDO GLOBAL DE COMETAS Y ESTRELLAS SUAVES PARA TODA LA INTERFAZ -->
+<div id="global-comets-bg">
+    <div class="stars"></div>
+    <div class="bg-stars-calm"></div>
+    <div class="bg-comet bg-comet-cyan-slow"></div>
+    <div class="bg-comet bg-comet-gold-slow"></div>
+    <div class="bg-comet bg-comet-cyan-gentle"></div>
+    <div class="bg-comet bg-comet-gold-gentle"></div>
+</div>
+
 <!-- OVERLAY ANIMACIÓN DE ENTRADA: GLOBO 3D AICTECH -->
 <div id="globe-intro-overlay">
+    <div class="stars"></div>
+    <div class="shooting-star comet-cyan"></div>
+    <div class="shooting-star comet-gold"></div>
+    <div class="shooting-star comet-white"></div>
+    <div class="shooting-star comet-cyan"></div>
+    <div class="shooting-star comet-gold"></div>
+
     <div id="globe-canvas-wrapper">
         <canvas id="globe-intro-canvas" width="280" height="280"></canvas>
         <div class="globe-ring globe-ring-gold"></div>
@@ -1034,7 +1284,7 @@
                 <i class="fas fa-cogs me-3 fs-5"></i> Servicios
             </a>
             <a href="#0" class="list-group-item list-group-item-action bg-transparent text-white fw-bold py-3 px-4 d-flex align-items-center nav-link" data-no="3">
-                <i class="fas fa-chart-network me-3 fs-5"></i> PetrolIA
+                <i class="fas fa-oil-well me-3 fs-5"></i> PetrolIA
             </a>
             <a href="#0" class="list-group-item list-group-item-action bg-transparent text-white fw-bold py-3 px-4 d-flex align-items-center nav-link" data-no="4">
                 <i class="fas fa-graduation-cap me-3 fs-5"></i> EduTech
@@ -2133,7 +2383,7 @@
         animateParticles();
 
         // ==========================================
-        // MOTOR DE ANIMACIÓN 3D DE ENTRADA: GLOBO TERRAQUEO
+        // MOTOR DE ANIMACIÓN 3D DE ENTRADA: GLOBO TERRAQUEO TÁCTIL
         // ==========================================
         const globeCanvas = document.getElementById('globe-intro-canvas');
         if (globeCanvas) {
@@ -2142,7 +2392,11 @@
             const gHeight = globeCanvas.height;
             const radius = gWidth / 2 - 10;
             let rotationAngle = 0;
+            let pitchAngle = 0; // Inclinación Y
+            let isDragging = false;
+            let startPointer = { x: 0, y: 0 };
             let animationFrameId;
+            let dismissTimeoutId;
 
             // Dibujo 3D del globo estilo AICTECH (azul industrial con retícula de continentes)
             function draw3DGlobe() {
@@ -2153,7 +2407,7 @@
 
                 // 1. Esfera base con gradiente radial 3D (sombra e iluminación)
                 const sphereGrad = gCtx.createRadialGradient(
-                    cx - radius * 0.35, cy - radius * 0.35, radius * 0.1,
+                    cx - radius * 0.35, cy - radius * 0.35 + pitchAngle * 20, radius * 0.1,
                     cx, cy, radius
                 );
                 sphereGrad.addColorStop(0, '#38b6ff');   // Brillo cyan superior
@@ -2178,10 +2432,10 @@
 
                 const parallels = [-0.7, -0.4, -0.15, 0.15, 0.4, 0.7];
                 parallels.forEach(offset => {
-                    const py = cy + offset * radius;
-                    const pRadius = Math.sqrt(radius * radius - (offset * radius) * (offset * radius));
+                    const py = cy + (offset * radius * Math.cos(pitchAngle)) - (pitchAngle * radius * 0.3);
+                    const pRadius = Math.max(5, Math.sqrt(Math.max(0, radius * radius - (offset * radius) * (offset * radius))));
                     gCtx.beginPath();
-                    gCtx.ellipse(cx, py, pRadius, pRadius * 0.3, 0, 0, Math.PI * 2);
+                    gCtx.ellipse(cx, py, pRadius, Math.max(1, pRadius * 0.3 * Math.cos(pitchAngle)), 0, 0, Math.PI * 2);
                     gCtx.stroke();
                 });
 
@@ -2197,7 +2451,7 @@
                     // Solo dibujar si está en la cara frontal
                     if (Math.sin(angle) > -0.2) {
                         gCtx.beginPath();
-                        gCtx.ellipse(cx, cy, radius * Math.abs(cosA), radius, 0, 0, Math.PI * 2);
+                        gCtx.ellipse(cx, cy, radius * Math.abs(cosA), radius, pitchAngle * 0.4, 0, Math.PI * 2);
                         gCtx.strokeStyle = `rgba(255, 255, 255, ${0.15 + 0.35 * Math.sin(angle)})`;
                         gCtx.stroke();
                     }
@@ -2221,7 +2475,7 @@
                     
                     if (z > 0) { // Cara frontal visible
                         const lx = cx + Math.cos(lonAngle) * radius * 0.82;
-                        const ly = cy + land.lat * radius;
+                        const ly = cy + (land.lat * radius * Math.cos(pitchAngle)) - (pitchAngle * radius * 0.3);
                         const scale = 0.5 + 0.5 * z;
 
                         // Brillo del nodo continente
@@ -2250,17 +2504,64 @@
 
                 gCtx.restore();
 
-                // Incrementar ángulo de rotación 3D
-                rotationAngle += 0.025;
+                // Auto-rotación si no se está arrastrando libremente
+                if (!isDragging) {
+                    rotationAngle += 0.02;
+                }
                 animationFrameId = requestAnimationFrame(draw3DGlobe);
             }
 
             draw3DGlobe();
 
+            // CONTROL TÁCTIL (DRAG TO ROTATE DE GLOBO TERRAQUEO)
+            function onPointerDown(e) {
+                isDragging = true;
+                const pageX = e.touches ? e.touches[0].pageX : e.pageX;
+                const pageY = e.touches ? e.touches[0].pageY : e.pageY;
+                startPointer = { x: pageX, y: pageY };
+                if (dismissTimeoutId) clearTimeout(dismissTimeoutId);
+            }
+
+            function onPointerMove(e) {
+                if (!isDragging) return;
+                const pageX = e.touches ? e.touches[0].pageX : e.pageX;
+                const pageY = e.touches ? e.touches[0].pageY : e.pageY;
+                const deltaX = pageX - startPointer.x;
+                const deltaY = pageY - startPointer.y;
+
+                rotationAngle += deltaX * 0.012;
+                pitchAngle += deltaY * 0.008;
+
+                // Limitar la inclinación para evitar inversión brusca
+                pitchAngle = Math.max(-0.6, Math.min(0.6, pitchAngle));
+
+                startPointer = { x: pageX, y: pageY };
+            }
+
+            function onPointerUp() {
+                if (isDragging) {
+                    isDragging = false;
+                    // Extender el tiempo de visualización si el usuario interactuó
+                    if (dismissTimeoutId) clearTimeout(dismissTimeoutId);
+                    dismissTimeoutId = setTimeout(closeGlobeIntro, 5000);
+                }
+            }
+
+            const canvasWrapper = document.getElementById('globe-canvas-wrapper');
+            if (canvasWrapper) {
+                canvasWrapper.addEventListener('mousedown', onPointerDown);
+                window.addEventListener('mousemove', onPointerMove);
+                window.addEventListener('mouseup', onPointerUp);
+
+                canvasWrapper.addEventListener('touchstart', onPointerDown, { passive: true });
+                window.addEventListener('touchmove', onPointerMove, { passive: true });
+                window.addEventListener('touchend', onPointerUp);
+            }
+
             // Función para cerrar el intro
             function closeGlobeIntro() {
                 const overlay = document.getElementById('globe-intro-overlay');
-                if (overlay) {
+                if (overlay && !isDragging) {
                     overlay.classList.add('hidden');
                     setTimeout(() => {
                         cancelAnimationFrame(animationFrameId);
@@ -2268,10 +2569,10 @@
                 }
             }
 
-            // Omitir automáticamente después de completada la animación (4.5s)
-            setTimeout(closeGlobeIntro, 4600);
+            // Omitir automáticamente después de la animación inicial si no hay interacción
+            dismissTimeoutId = setTimeout(closeGlobeIntro, 5500);
 
-            // Botón Skip o Click en cualquier parte del overlay
+            // Botón Skip o Click fuera del globo en el overlay
             const skipBtn = document.getElementById('globe-skip-btn');
             if (skipBtn) {
                 skipBtn.addEventListener('click', (e) => {
@@ -2282,10 +2583,14 @@
 
             const overlay = document.getElementById('globe-intro-overlay');
             if (overlay) {
-                overlay.addEventListener('click', closeGlobeIntro);
+                overlay.addEventListener('click', (e) => {
+                    if (!e.target.closest('#globe-canvas-wrapper')) {
+                        closeGlobeIntro();
+                    }
+                });
             }
 
-            // RE-ACTIVAR ANIMACIÓN 3D AL HACER CLICK EN EL LOGO DEL SIDEBAR
+            // RE-ACTIVAR ANIMACIÓN 3D Y CONTROL TÁCTIL AL HACER CLICK EN EL LOGO DEL SIDEBAR
             const sidebarLogo = document.querySelector('.sidebar-heading img');
             if (sidebarLogo) {
                 sidebarLogo.style.cursor = 'pointer';
@@ -2294,7 +2599,6 @@
                     if (overlay) {
                         overlay.classList.remove('hidden');
                         
-                        // Reiniciar animación CSS del wrapper y elementos
                         const wrapper = document.getElementById('globe-canvas-wrapper');
                         const label = document.getElementById('globe-intro-label');
                         const rings = document.querySelectorAll('.globe-ring');
@@ -2321,7 +2625,6 @@
                             }
                         });
 
-                        // Reproducir sonido si la Web Audio API está disponible
                         if (typeof playSoundFX === 'function') {
                             playSoundFX('scan');
                         }
@@ -2329,7 +2632,8 @@
                         cancelAnimationFrame(animationFrameId);
                         draw3DGlobe();
 
-                        setTimeout(closeGlobeIntro, 4600);
+                        if (dismissTimeoutId) clearTimeout(dismissTimeoutId);
+                        dismissTimeoutId = setTimeout(closeGlobeIntro, 5500);
                     }
                 });
             }

@@ -57,14 +57,15 @@
             --bg-light: #f0f4f8;
             --text-dark: #0f172a;
             --text-muted: #475569;
-            --card-border: #e2e8f0;
-            --card-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
+            --card-border: rgba(255, 255, 255, 0.7);
+            --card-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
         }
 
         body {
             font-family: 'Inter', sans-serif;
             color: var(--text-dark);
-            background: linear-gradient(180deg, #0d47a1 0px, #0d47a1 380px, #f0f4f8 380px, #f0f4f8 100%);
+            /* FONDO OSCURO CÓSMICO INDUSTRIAL CON ESTRELLAS Y COMETAS */
+            background: radial-gradient(ellipse at 50% 25%, #0c204c 0%, #050d21 65%, #020610 100%) !important;
             background-attachment: fixed;
             user-select: none;
             -webkit-user-select: none;
@@ -295,14 +296,16 @@
         }
 
         .glass-card {
-            background: rgba(255, 255, 255, 0.97) !important;
-            backdrop-filter: blur(8px) !important;
-            border: 1px solid var(--card-border) !important;
+            background: rgba(255, 255, 255, 0.91) !important;
+            backdrop-filter: blur(20px) saturate(190%) !important;
+            -webkit-backdrop-filter: blur(20px) saturate(190%) !important;
+            border: 1px solid rgba(255, 255, 255, 0.8) !important;
             border-radius: 28px !important;
-            box-shadow: var(--card-shadow) !important;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45), 0 0 35px rgba(56, 182, 255, 0.12) !important;
             color: var(--text-dark) !important;
             width: 100%;
             contain: paint;
+            transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
         }
 
         .glass-card h2, .glass-card h3, .glass-card strong {
@@ -337,37 +340,39 @@
             height: 260px;
             object-fit: cover;
             border-radius: 18px;
-            border: 1px solid #cbd5e1;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
             transition: transform 0.25s ease;
             will-change: transform;
         }
 
         .intro-right img:hover {
-            transform: scale(1.015);
+            transform: scale(1.02);
         }
 
-        /* TARJETAS DE SERVICIOS OPTIMIZADAS */
+        /* TARJETAS DE SERVICIOS GLASSMORPHISM */
         .service-touch-card {
-            background: #ffffff !important;
-            border: 1px solid var(--card-border) !important;
-            border-radius: 22px !important;
+            background: rgba(255, 255, 255, 0.92) !important;
+            backdrop-filter: blur(16px) saturate(180%) !important;
+            -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+            border: 1px solid rgba(255, 255, 255, 0.75) !important;
+            border-radius: 24px !important;
             overflow: hidden;
             display: flex;
             flex-direction: column;
             height: 100%;
             min-height: 430px;
             cursor: pointer;
-            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-            box-shadow: var(--card-shadow) !important;
+            transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.28s ease, border-color 0.28s ease;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35), 0 0 20px rgba(56, 182, 255, 0.08) !important;
             will-change: transform;
         }
 
         .service-touch-card:hover,
         .service-touch-card:active {
-            transform: translateY(-4px);
-            border-color: var(--brand-blue) !important;
-            box-shadow: 0 16px 32px rgba(13, 71, 161, 0.14) !important;
+            transform: translateY(-6px) scale(1.015);
+            border-color: #38b6ff !important;
+            box-shadow: 0 22px 50px rgba(13, 71, 161, 0.3), 0 0 30px rgba(56, 182, 255, 0.25) !important;
         }
 
         .service-card-img {
@@ -1113,9 +1118,240 @@
             color: #ffaf03;
             border-color: #ffaf03;
         }
+
+        /* ===== EFECTOS EXPLOSIVOS 5D & SHOCKWAVE COMPACTO ===== */
+        .cosmic-shockwave-ring {
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99998;
+            transform: translate(-50%, -50%) scale(0);
+            border: 1.5px solid rgba(56, 182, 255, 0.85);
+            box-shadow: 0 0 12px rgba(56, 182, 255, 0.5), inset 0 0 8px rgba(56, 182, 255, 0.25);
+            animation: cosmicShockwaveAnim 0.45s cubic-bezier(0.1, 0.8, 0.2, 1) forwards;
+        }
+
+        @keyframes cosmicShockwaveAnim {
+            0% {
+                width: 0px;
+                height: 0px;
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(0);
+            }
+            60% {
+                opacity: 0.75;
+            }
+            100% {
+                width: 95px;
+                height: 95px;
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        .cosmic-particle-spark {
+            position: fixed;
+            pointer-events: none;
+            border-radius: 50%;
+            z-index: 99999;
+            will-change: transform, opacity;
+            animation: cosmicSparkBurst var(--spark-dur, 0.7s) cubic-bezier(0.1, 0.9, 0.3, 1) forwards;
+        }
+
+        @keyframes cosmicSparkBurst {
+            0% {
+                transform: translate(0, 0) scale(1.4);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--dx), var(--dy)) scale(0);
+                opacity: 0;
+            }
+        }
+
+        /* EFECTO DE SALTO HIPERESPACIAL 5D (WARP WAVE EN TRANSICIÓN) */
+        #warp-5d-overlay {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 99990;
+            opacity: 0;
+            background: radial-gradient(circle at center, rgba(56, 182, 255, 0.3) 0%, rgba(13, 71, 161, 0.15) 45%, transparent 75%);
+            transition: opacity 0.35s ease;
+        }
+
+        #warp-5d-overlay.warp-active {
+            opacity: 1;
+            animation: warpSpeedFlash 0.5s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+        }
+
+        @keyframes warpSpeedFlash {
+            0% {
+                opacity: 0;
+                transform: scale(0.6);
+            }
+            40% {
+                opacity: 0.85;
+                transform: scale(1.15);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(1.4);
+            }
+        }
+
+        /* ===== MINIJUEGO DEL PETRÓLEO AICTECH ===== */
+        #oil-minigame-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 100005;
+            background: radial-gradient(ellipse at center, rgba(12, 28, 62, 0.96) 0%, rgba(3, 8, 20, 0.98) 100%);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.35s ease, visibility 0.35s ease, transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+            transform: scale(0.92);
+            user-select: none;
+        }
+
+        #oil-minigame-overlay.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: scale(1);
+        }
+
+        .minigame-card {
+            background: rgba(15, 23, 42, 0.9);
+            border: 2px solid rgba(56, 182, 255, 0.5);
+            border-radius: 32px;
+            padding: 28px 36px;
+            max-width: 480px;
+            width: 92%;
+            text-align: center;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(56, 182, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .oil-barrel-wrapper {
+            position: relative;
+            width: 140px;
+            height: 190px;
+            margin: 18px auto;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 4px solid #475569;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.8), 0 10px 25px rgba(0,0,0,0.5);
+            cursor: pointer;
+            transition: transform 0.08s ease;
+        }
+
+        .oil-barrel-wrapper:active {
+            transform: scale(0.95);
+        }
+
+        .oil-barrel-rib {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.15);
+            border-top: 1px solid rgba(255, 255, 255, 0.25);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+            z-index: 3;
+        }
+        .oil-barrel-rib-1 { top: 25%; }
+        .oil-barrel-rib-2 { top: 70%; }
+
+        .oil-liquid-fill {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0%;
+            background: linear-gradient(180deg, #2a2a2a 0%, #111111 40%, #000000 100%);
+            border-top: 3px solid #ffaf03;
+            box-shadow: 0 0 15px rgba(255, 175, 3, 0.6);
+            transition: height 0.1s ease-out;
+            z-index: 2;
+        }
+
+        .oil-splash-drop {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #111;
+            border: 1px solid #ffaf03;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 10;
+            animation: splashFly 0.45s ease-out forwards;
+        }
+
+        @keyframes splashFly {
+            0% { transform: translate(0, 0) scale(1); opacity: 1; }
+            100% { transform: translate(var(--sx), var(--sy)) scale(0.3); opacity: 0; }
+        }
+
+        .minigame-rocket {
+            position: fixed;
+            font-size: 2.4rem;
+            pointer-events: none;
+            z-index: 100010;
+            animation: rocketLaunch 1.4s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+        }
+
+        @keyframes rocketLaunch {
+            0% { transform: translate(var(--rx), 100vh) scale(0.6); opacity: 1; }
+            70% { transform: translate(var(--rx), var(--ry)) scale(1.3); opacity: 1; }
+            100% { transform: translate(var(--rx), var(--ry)) scale(2.2); opacity: 0; }
+        }
     </style>
 </head>
 <body>
+
+<!-- OVERLAY MINIJUEGO DEL PETRÓLEO AICTECH -->
+<div id="oil-minigame-overlay">
+    <div class="minigame-card">
+        <button id="minigame-close-btn" class="btn btn-sm btn-outline-light rounded-circle position-absolute top-0 end-0 m-3 px-2 py-1" style="font-size: 0.8rem; z-index: 10;">✕</button>
+        <span class="badge bg-warning text-dark px-3 py-1 rounded-pill mb-2 fw-bold" style="letter-spacing: 0.05em;">🛢️ DESAFÍO TÁCTIL AICTECH</span>
+        <h3 class="text-white fw-bold mb-1 fs-4">¡LLENA EL BARRIL DE CRUDO!</h3>
+        <p class="text-white-50 small mb-2">Toca la pantalla o el barril repetidamente para bombear producción</p>
+
+        <div class="oil-barrel-wrapper" id="minigame-barrel">
+            <div class="oil-barrel-rib oil-barrel-rib-1"></div>
+            <div class="oil-barrel-rib oil-barrel-rib-2"></div>
+            <div class="oil-liquid-fill" id="minigame-oil-fill"></div>
+            <div class="position-absolute top-50 start-50 translate-middle text-white fw-bold text-center" style="z-index: 4; text-shadow: 0 2px 5px rgba(0,0,0,0.9); font-size: 1.05rem;">
+                <span id="minigame-percent-text">0%</span>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-between text-white-50 small px-3 mb-3">
+            <span>Presión: <b class="text-info" id="minigame-psi-text">0 PSI</b></span>
+            <span>Volumen: <b class="text-warning" id="minigame-bpd-text">0 / 42 Gal</b></span>
+        </div>
+
+        <button id="minigame-pump-btn" class="btn btn-warning w-100 rounded-pill py-2 fw-bold text-dark shadow-lg">
+            <i class="fas fa-hand-pointer me-2"></i> ¡BOMBEAR CRUDO!
+        </button>
+        
+        <div id="minigame-win-banner" class="d-none mt-3 p-2 rounded-3 bg-success bg-opacity-25 border border-success text-success fw-bold">
+            <p style="color:white;">🚀 ¡PRODUCCIÓN AL 100%! +1,000 BPD</p>
+        </div>
+    </div>
+</div>
+
+<!-- OVERLAY DE SALTO HIPERESPACIAL 5D -->
+<div id="warp-5d-overlay"></div>
 
 <!-- FONDO GLOBAL DE COMETAS Y ESTRELLAS PERMANENTES -->
 <div id="global-comets-bg">
@@ -1166,7 +1402,7 @@
                 <i class="fas fa-cogs me-3 fs-5"></i> Servicios
             </a>
             <a href="#0" class="list-group-item list-group-item-action bg-transparent text-white fw-bold py-3 px-4 d-flex align-items-center nav-link" data-no="3">
-                <i class="fas fa-oil-well me-3 fs-5"></i> PetrolIA
+                <i class="fas fa-oil-well me-3 fs-5" style="color: #38b6ff; filter: drop-shadow(0 0 6px rgba(56, 182, 255, 0.7));"></i> PetrolIA
             </a>
             <a href="#0" class="list-group-item list-group-item-action bg-transparent text-white fw-bold py-3 px-4 d-flex align-items-center nav-link" data-no="4">
                 <i class="fas fa-graduation-cap me-3 fs-5"></i> EduTech
@@ -1179,27 +1415,11 @@
             </a>
         </div>
 
-        <!-- HUD DE ESTADO SCADA EN VIVO & AUDIO FX EN SIDEBAR -->
-        <div class="mt-auto p-3 mx-3 mb-3 rounded-4" style="background: rgba(0, 18, 48, 0.55); border: 1px solid rgba(255, 255, 255, 0.12); backdrop-filter: blur(6px);">
-            <div class="d-flex justify-content-between align-items-center mb-2">
-                <span class="badge bg-success bg-opacity-25 text-success border border-success border-opacity-25 d-inline-flex align-items-center gap-1" style="font-size: 0.72rem; padding: 4px 8px;">
-                    <span class="live-dot"></span> SCADA ONLINE
-                </span>
-                <span id="live-scada-clock" class="text-white-50 font-monospace" style="font-size: 0.74rem;">--:--:-- UTC</span>
-            </div>
-            <div class="d-flex justify-content-between text-white-50" style="font-size: 0.72rem;">
-                <span>Telemetría:</span>
-                <strong class="text-info">24/7 Activa</strong>
-            </div>
-            <div class="d-flex justify-content-between text-white-50 mt-1" style="font-size: 0.72rem;">
-                <span>Latencia:</span>
-                <strong class="text-success"><span id="live-scada-ping">12</span> ms</strong>
-            </div>
-            <div class="mt-2 pt-2 border-top border-white border-opacity-10 text-center">
-                <button id="btn-sound-toggle" class="btn btn-sm btn-outline-light w-100 rounded-pill py-1 d-flex align-items-center justify-content-center gap-2" style="font-size: 0.72rem; opacity: 0.88;">
-                    <i class="fas fa-volume-up" id="sound-icon"></i> <span id="sound-text">Audio Táctil: ON</span>
-                </button>
-            </div>
+        <!-- BOTÓN DE AUDIO TÁCTIL EN SIDEBAR (LIMPIO Y ESTILIZADO) -->
+        <div class="mt-auto p-3 text-center">
+            <button id="btn-sound-toggle" class="btn btn-sm btn-outline-light w-100 rounded-pill py-2 d-flex align-items-center justify-content-center gap-2" style="font-size: 0.8rem; background: rgba(0, 18, 48, 0.5); border: 1px solid rgba(255, 255, 255, 0.2); backdrop-filter: blur(8px); transition: all 0.3s ease;">
+                <i class="fas fa-volume-up" id="sound-icon"></i> <span id="sound-text">Audio Táctil: ON</span>
+            </button>
         </div>
     </div>
     <!-- /FIN SIDEBAR -->
@@ -2043,11 +2263,95 @@
                 gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
                 osc.start(now);
                 osc.stop(now + 0.18);
+            } else if (type === 'warp') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(180, now);
+                osc.frequency.exponentialRampToValueAtTime(950, now + 0.15);
+                osc.frequency.exponentialRampToValueAtTime(220, now + 0.35);
+                gain.gain.setValueAtTime(0.08, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+                osc.start(now);
+                osc.stop(now + 0.35);
+            } else if (type === 'explode') {
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(320, now);
+                osc.frequency.exponentialRampToValueAtTime(60, now + 0.25);
+                gain.gain.setValueAtTime(0.09, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+                osc.start(now);
+                osc.stop(now + 0.25);
             }
         } catch (e) {}
     }
 
+    /* 2. MOTOR DE EFECTOS EXPLOSIVOS 5D, ANTI-LAG Y MINIJUEGO DEL PETRÓLEO */
     document.addEventListener('DOMContentLoaded', () => {
+        const colors = ['#38b6ff', '#ffaf03', '#ffffff', '#00e5ff', '#ffcc00'];
+        let lastExplosionTime = 0;
+
+        function triggerCosmicExplosion(x, y) {
+            const now = performance.now();
+            if (now - lastExplosionTime < 180) return; // Cooldown anti-lag optimizado
+            lastExplosionTime = now;
+
+            // Onda de Choque Anular Compacta
+            const ring = document.createElement('div');
+            ring.className = 'cosmic-shockwave-ring';
+            ring.style.left = `${x}px`;
+            ring.style.top = `${y}px`;
+            document.body.appendChild(ring);
+            setTimeout(() => ring.remove(), 450);
+
+            // Ráfaga Fina de Chispas Cósmicas (Radio compacto y elegante)
+            const particleCount = 7;
+            for (let i = 0; i < particleCount; i++) {
+                const spark = document.createElement('div');
+                spark.className = 'cosmic-particle-spark';
+
+                const size = Math.random() * 3.5 + 2;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                const angle = (i / particleCount) * Math.PI * 2 + (Math.random() - 0.5) * 0.35;
+                const distance = Math.random() * 28 + 12; // Radio corto y no invasivo
+                const dx = Math.cos(angle) * distance;
+                const dy = Math.sin(angle) * distance;
+                const duration = Math.random() * 0.2 + 0.3;
+
+                spark.style.width = `${size}px`;
+                spark.style.height = `${size}px`;
+                spark.style.backgroundColor = color;
+                spark.style.boxShadow = `0 0 6px 1px ${color}`;
+                spark.style.left = `${x}px`;
+                spark.style.top = `${y}px`;
+                spark.style.setProperty('--dx', `${dx}px`);
+                spark.style.setProperty('--dy', `${dy}px`);
+                spark.style.setProperty('--spark-dur', `${duration}s`);
+
+                document.body.appendChild(spark);
+                setTimeout(() => spark.remove(), duration * 1000);
+            }
+        }
+
+        // Activar explosión en clicks/toques
+        window.addEventListener('click', (e) => {
+            if (e.target.closest('#oil-minigame-overlay')) return;
+            triggerCosmicExplosion(e.clientX, e.clientY);
+        });
+
+        // EFECTO DE SALTO HIPERESPACIAL 5D (WARP WAVE EN NAVEGACIÓN)
+        const warpOverlay = document.getElementById('warp-5d-overlay');
+        document.querySelectorAll('.nav-link, .tm-page-link, [data-no], [data-page-no]').forEach(link => {
+            link.addEventListener('click', () => {
+                if (warpOverlay) {
+                    warpOverlay.classList.remove('warp-active');
+                    void warpOverlay.offsetWidth;
+                    warpOverlay.classList.add('warp-active');
+                    playAudioFx('warp');
+                    setTimeout(() => warpOverlay.classList.remove('warp-active'), 550);
+                }
+            });
+        });
+
+        // Configuración botón de sonido
         const soundBtn = document.getElementById('btn-sound-toggle');
         const soundIcon = document.getElementById('sound-icon');
         const soundText = document.getElementById('sound-text');
@@ -2058,7 +2362,7 @@
                 if (audioFxEnabled) {
                     soundIcon.className = 'fas fa-volume-up';
                     soundText.textContent = 'Audio Táctil: ON';
-                    soundBtn.style.opacity = '0.88';
+                    soundBtn.style.opacity = '1';
                     playAudioFx('success');
                 } else {
                     soundIcon.className = 'fas fa-volume-mute';
@@ -2068,31 +2372,175 @@
             });
         }
 
-        document.querySelectorAll('.nav-link, .btn-tech, .btn-tech-outline, .product-3d-card, .service-touch-card').forEach(el => {
-            el.addEventListener('click', () => playAudioFx('click'));
+        document.querySelectorAll('.btn-tech, .btn-tech-outline, .well-select-btn').forEach(el => {
+            el.addEventListener('click', () => playAudioFx('explode'));
         });
-    });
 
-    /* 2. RELOJ SCADA UTC & LATENCIA DINÁMICA */
-    document.addEventListener('DOMContentLoaded', () => {
-        const clockEl = document.getElementById('live-scada-clock');
-        const pingEl = document.getElementById('live-scada-ping');
+        // ==========================================
+        // MINIJUEGO DEL PETRÓLEO: MODO "TEST YOUR MIGHT"
+        // ==========================================
+        const minigameOverlay = document.getElementById('oil-minigame-overlay');
+        const minigameBarrel = document.getElementById('minigame-barrel');
+        const minigameOilFill = document.getElementById('minigame-oil-fill');
+        const minigamePercentText = document.getElementById('minigame-percent-text');
+        const minigamePsiText = document.getElementById('minigame-psi-text');
+        const minigameBpdText = document.getElementById('minigame-bpd-text');
+        const minigamePumpBtn = document.getElementById('minigame-pump-btn');
+        const minigameWinBanner = document.getElementById('minigame-win-banner');
+        const minigameCloseBtn = document.getElementById('minigame-close-btn');
 
-        function updateClock() {
-            const now = new Date();
-            const hours = String(now.getUTCHours()).padStart(2, '0');
-            const minutes = String(now.getUTCMinutes()).padStart(2, '0');
-            const seconds = String(now.getUTCSeconds()).padStart(2, '0');
-            if (clockEl) clockEl.textContent = `${hours}:${minutes}:${seconds} UTC`;
+        let tapHistory = [];
+        let oilLevel = 0;
+        let isMinigameActive = false;
+        let isCelebrating = false;
+        let decayInterval = null;
+
+        function openOilMinigame() {
+            if (isMinigameActive || !minigameOverlay) return;
+            isMinigameActive = true;
+            oilLevel = 0;
+            isCelebrating = false;
+            updateMinigameUI();
+            if (minigameWinBanner) minigameWinBanner.classList.add('d-none');
+            minigameOverlay.classList.add('active');
+            playAudioFx('warp');
+
+            // Bucle de Caída Continua Estilo Mortal Kombat "Test Your Might"
+            if (decayInterval) clearInterval(decayInterval);
+            decayInterval = setInterval(() => {
+                if (!isMinigameActive || isCelebrating) return;
+                if (oilLevel > 0) {
+                    oilLevel = Math.max(0, oilLevel - 0.58); // La barra baja si dejas de tipear
+                    updateMinigameUI();
+                }
+            }, 40);
         }
-        setInterval(updateClock, 1000);
-        updateClock();
 
-        setInterval(() => {
-            if (pingEl) {
-                pingEl.textContent = Math.floor(Math.random() * 6) + 11;
+        function closeOilMinigame() {
+            if (!minigameOverlay) return;
+            if (decayInterval) {
+                clearInterval(decayInterval);
+                decayInterval = null;
             }
-        }, 3000);
+            minigameOverlay.classList.remove('active');
+            isMinigameActive = false;
+            isCelebrating = false;
+            oilLevel = 0;
+            updateMinigameUI();
+        }
+
+        if (minigameCloseBtn) {
+            minigameCloseBtn.addEventListener('click', closeOilMinigame);
+        }
+
+        // DETECCIÓN: Requiere 9 toques rápidos para abrir el minijuego
+        function registerTapOrKey() {
+            if (isMinigameActive) return;
+            const now = Date.now();
+            tapHistory.push(now);
+            // Mantener solo toques en los últimos 1.4 segundos
+            tapHistory = tapHistory.filter(t => now - t < 1400);
+
+            if (tapHistory.length >= 9) { // 9 toques rápidos consecutivos requeridos
+                tapHistory = [];
+                openOilMinigame();
+            }
+        }
+
+        window.addEventListener('click', registerTapOrKey);
+        window.addEventListener('keydown', registerTapOrKey);
+
+        function updateMinigameUI() {
+            if (minigameOilFill) minigameOilFill.style.height = `${oilLevel}%`;
+            if (minigamePercentText) minigamePercentText.textContent = `${Math.round(oilLevel)}%`;
+            if (minigamePsiText) minigamePsiText.textContent = `${Math.round(oilLevel * 24.5)} PSI`;
+            if (minigameBpdText) minigameBpdText.textContent = `${(oilLevel * 0.42).toFixed(1)} / 42 Gal`;
+        }
+
+        function pumpOil(e) {
+            if (!isMinigameActive || isCelebrating) return;
+            
+            // Cada toque suma +3.3%, requiriendo ritmo rápido contra la caída
+            oilLevel = Math.min(100, oilLevel + 3.3);
+            updateMinigameUI();
+            playAudioFx('scan');
+
+            // Salpicadura de petróleo
+            if (minigameBarrel && e) {
+                const rect = minigameBarrel.getBoundingClientRect();
+                const splash = document.createElement('div');
+                splash.className = 'oil-splash-drop';
+                splash.style.left = `${rect.width / 2}px`;
+                splash.style.top = `${rect.height - (oilLevel / 100 * rect.height)}px`;
+                splash.style.setProperty('--sx', `${(Math.random() - 0.5) * 50}px`);
+                splash.style.setProperty('--sy', `${(Math.random() - 1) * 35}px`);
+                minigameBarrel.appendChild(splash);
+                setTimeout(() => splash.remove(), 400);
+            }
+
+            // Victoria al llegar al 100%
+            if (oilLevel >= 100) {
+                triggerMinigameVictory();
+            }
+        }
+
+        function triggerMinigameVictory() {
+            isCelebrating = true;
+            if (decayInterval) {
+                clearInterval(decayInterval);
+                decayInterval = null;
+            }
+            if (minigameWinBanner) minigameWinBanner.classList.remove('d-none');
+            playAudioFx('success');
+
+            // Lanzamiento de Cohetes Espaciales y Fuegos Artificiales
+            const rocketIcons = ['🚀', '🎆', '✨', '🛢️', '⭐', '💥'];
+            for (let i = 0; i < 7; i++) {
+                setTimeout(() => {
+                    const rocket = document.createElement('div');
+                    rocket.className = 'minigame-rocket';
+                    rocket.textContent = rocketIcons[i % rocketIcons.length];
+                    const rx = (i + 1) * (window.innerWidth / 8) + (Math.random() - 0.5) * 60;
+                    const ry = Math.random() * (window.innerHeight * 0.45) + 60;
+
+                    rocket.style.left = `0px`;
+                    rocket.style.top = `0px`;
+                    rocket.style.setProperty('--rx', `${rx}px`);
+                    rocket.style.setProperty('--ry', `${ry}px`);
+                    document.body.appendChild(rocket);
+
+                    playAudioFx('explode');
+                    setTimeout(() => rocket.remove(), 1400);
+                }, i * 220);
+            }
+
+            // Auto-cierre y vuelta a la normalidad tras la celebración
+            setTimeout(() => {
+                closeOilMinigame();
+            }, 3200);
+        }
+
+        if (minigamePumpBtn) {
+            minigamePumpBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                pumpOil(e);
+            });
+        }
+
+        if (minigameBarrel) {
+            minigameBarrel.addEventListener('click', (e) => {
+                e.stopPropagation();
+                pumpOil(e);
+            });
+        }
+
+        if (minigameOverlay) {
+            minigameOverlay.addEventListener('click', (e) => {
+                if (!e.target.closest('#minigame-close-btn')) {
+                    pumpOil(e);
+                }
+            });
+        }
     });
 
     /* 3. SIMULADOR SCADA INTERACTIVO EN PETROLIA */

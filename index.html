@@ -1314,6 +1314,302 @@
             70% { transform: translate(var(--rx), var(--ry)) scale(1.3); opacity: 1; }
             100% { transform: translate(var(--rx), var(--ry)) scale(2.2); opacity: 0; }
         }
+        /* ==========================================================================
+           SECCIÓN INICIO: ESTILO SLB / SCHLUMBERGER CORPORATIVO CINEMATOGRÁFICO
+           ========================================================================== */
+        .hero-slb-container {
+            position: relative;
+            width: 100%;
+            min-height: 80vh;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(56, 182, 255, 0.25);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(8, 51, 117, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 3.5rem 3rem 2.5rem 3rem;
+            background: #060e1e;
+        }
+
+        .hero-video-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            z-index: 1;
+            opacity: 0.65;
+            filter: brightness(0.85) contrast(1.15) saturate(1.1);
+            pointer-events: none;
+        }
+
+        .hero-video-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(3, 12, 34, 0.92) 0%,
+                rgba(6, 22, 58, 0.78) 45%,
+                rgba(2, 6, 18, 0.88) 100%
+            );
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .hero-video-overlay::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 40%, rgba(56, 182, 255, 0.12) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero-slb-content {
+            position: relative;
+            z-index: 3;
+            max-width: 920px;
+        }
+
+        .hero-status-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(8, 51, 117, 0.6);
+            border: 1px solid rgba(56, 182, 255, 0.4);
+            backdrop-filter: blur(10px);
+            padding: 6px 16px;
+            border-radius: 50px;
+            color: #38b6ff;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-slb-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 3.1rem;
+            font-weight: 800;
+            line-height: 1.15;
+            color: #ffffff;
+            letter-spacing: -0.02em;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+            margin-bottom: 1.25rem;
+        }
+
+        .hero-slb-title span.highlight-gold {
+            color: #ffaf03;
+            text-shadow: 0 0 25px rgba(255, 175, 3, 0.4);
+        }
+
+        .hero-slb-title span.highlight-cyan {
+            color: #38b6ff;
+            text-shadow: 0 0 25px rgba(56, 182, 255, 0.4);
+        }
+
+        .hero-slb-subtitle {
+            font-size: 1.15rem;
+            line-height: 1.65;
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+            max-width: 780px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero-cta-group {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-slb-primary {
+            background: linear-gradient(135deg, #0d47a1 0%, #0044cc 100%);
+            color: #ffffff !important;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.03em;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(56, 182, 255, 0.5);
+            box-shadow: 0 8px 25px rgba(0, 68, 204, 0.45);
+            transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .btn-slb-primary:hover {
+            background: linear-gradient(135deg, #0044cc 0%, #38b6ff 100%);
+            color: #ffffff !important;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(56, 182, 255, 0.5);
+        }
+
+        .btn-slb-video {
+            background: rgba(15, 23, 42, 0.65);
+            color: #ffffff !important;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 14px 26px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-slb-video:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #ffaf03;
+            color: #ffaf03 !important;
+            transform: translateY(-2px);
+        }
+
+        .hero-slb-panels {
+            position: relative;
+            z-index: 3;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 2.5rem;
+        }
+
+        .slb-feature-card {
+            background: rgba(8, 22, 48, 0.65);
+            border: 1px solid rgba(56, 182, 255, 0.2);
+            backdrop-filter: blur(12px);
+            border-radius: 14px;
+            padding: 20px 22px;
+            transition: all 0.35s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+        }
+
+        .slb-feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #0044cc, #38b6ff);
+            opacity: 0.7;
+            transition: width 0.3s ease, opacity 0.3s ease;
+        }
+
+        .slb-feature-card:hover {
+            transform: translateY(-4px);
+            background: rgba(12, 32, 68, 0.85);
+            border-color: rgba(56, 182, 255, 0.6);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 182, 255, 0.2);
+        }
+
+        .slb-feature-card:hover::before {
+            width: 6px;
+            opacity: 1;
+        }
+
+        .slb-card-icon {
+            font-size: 1.4rem;
+            color: #38b6ff;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .slb-card-title {
+            color: #ffffff;
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .slb-card-title i.fa-arrow-right {
+            font-size: 0.8rem;
+            color: #ffaf03;
+            opacity: 0.7;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .slb-feature-card:hover .slb-card-title i.fa-arrow-right {
+            opacity: 1;
+            transform: translateX(4px);
+        }
+
+        .slb-card-desc {
+            color: #94a3b8;
+            font-size: 0.84rem;
+            line-height: 1.45;
+            margin-bottom: 0;
+        }
+
+        /* Modal Video SLB */
+        #video-modal-slb {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.88);
+            backdrop-filter: blur(12px);
+            z-index: 100020;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        #video-modal-slb.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .video-modal-dialog {
+            position: relative;
+            width: 100%;
+            max-width: 960px;
+            background: #050d21;
+            border-radius: 16px;
+            border: 1px solid rgba(56, 182, 255, 0.4);
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+        }
+
+        @media (max-width: 991px) {
+            .hero-slb-container {
+                padding: 2rem 1.5rem;
+                min-height: auto;
+            }
+            .hero-slb-title {
+                font-size: 2.1rem;
+            }
+            .hero-slb-subtitle {
+                font-size: 0.98rem;
+            }
+            .hero-slb-panels {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1441,31 +1737,70 @@
         <div class="container-fluid tm-content-container pt-5 pt-lg-0">
             <ul class="cd-hero-slider mb-0 py-3">
                 
-                <!-- SECCIÓN 1: INICIO -->
+                <!-- SECCIÓN 1: INICIO (ESTILO SLB CORPORATIVO INDUSTRIAL CON VIDEO) -->
                 <li class="px-3 selected" data-page-no="1">
                     <div class="page-width-1 h-100 d-flex align-items-center">
-                        <div class="intro-container glass-card p-4 p-md-5 w-100">
-                            <div class="intro-left">
-                                <h2 class="mb-3 fw-bold display-6">Soluciones de Automatización, Ingeniería y Control para operaciones Petroleras</h2>
-                                <p class="mb-3 leading-relaxed fs-5">
-                                    Somos <strong>
-                                        <span id="easter-egg-trigger" class="easter-egg-wrapper">
-                                            <b style="color:#083375">AIC</b> <b style="color:rgb(255, 175, 3)">TECH</b>
-                                            <img src="img/jefe.jpg" id="jefe-pop" class="jefe-easter-egg" alt="Easter Egg">
-                                        </span>
-                                        <b>, C.A</b>
-                                    </strong>, especialistas en la integración de ingeniería avanzada, análisis de datos en tiempo real y pruebas instrumentadas de pozo para optimizar operaciones en el sector petrolero.
+                        <div class="hero-slb-container w-100">
+                            <!-- Cinematic Background Video -->
+                            <video autoplay loop muted playsinline class="hero-video-bg" id="hero-main-video">
+                                <source src="video/15561206_1920_1080_25fps.mp4" type="video/mp4">
+                            </video>
+                            
+                            <!-- Dark Gradient & High-End Tech Overlay -->
+                            <div class="hero-video-overlay"></div>
+
+                            <!-- Hero Content Top / Center -->
+                            <div class="hero-slb-content">
+                                <div class="hero-status-tag">
+                                    <span class="live-dot"></span>
+                                    <span>CENTRO DE TELEMETRÍA & AUTOMATIZACIÓN ENERGÉTICA</span>
+                                </div>
+                                <h1 class="hero-slb-title">
+                                    Liderando la Innovación en <span class="highlight-cyan">Ingeniería</span>, Automatización y <span class="highlight-gold">Telemetría de Pozos</span>
+                                </h1>
+                                <p class="hero-slb-subtitle">
+                                    En <strong><span id="easter-egg-trigger" class="easter-egg-wrapper"><b style="color:#38b6ff">AIC</b> <b style="color:rgb(255, 175, 3)">TECH</b><img src="img/jefe.jpg" id="jefe-pop" class="jefe-easter-egg" alt="Easter Egg"></span>, C.A.</strong> desarrollamos soluciones integrales de alta ingeniería para optimizar la toma de datos críticos en tiempo real, medición multifásica y telemetría avanzada para yacimientos y operaciones petroleras de alta exigencia.
                                 </p>
-                                <!-- BOTÓN EXPLORAR SERVICIOS -->
-                                <div class="mt-4">
-                                    <a href="#0" data-page-no="2" class="btn-tech tm-page-link d-inline-block">
-                                        Leer Más ➔
+                                <div class="hero-cta-group">
+                                    <a href="#0" data-page-no="2" class="btn-slb-primary tm-page-link">
+                                        <span>Explorar Servicios</span>
+                                        <i class="fas fa-arrow-right"></i>
                                     </a>
+                                    <button type="button" class="btn-slb-video" id="open-slb-video-btn" onclick="openSlbVideoModal()">
+                                        <i class="fas fa-play" style="color: #ffaf03; font-size: 0.85rem;"></i>
+                                        <span>Ver Video Institucional</span>
+                                    </button>
                                 </div>
                             </div>
-                            <div class="intro-right d-none d-md-block">
-                                <img src="img/home-img-1.jpg" alt="AICTECH Operaciones" class="img-fluid rounded shadow-sm mb-3">
-                                <img src="img/home-img-2.jpg" alt="AICTECH Tecnología" class="img-fluid rounded shadow-sm">
+
+                            <!-- Bottom Industrial Capability Panels (Estilo SLB) -->
+                            <div class="hero-slb-panels">
+                                <a href="#0" data-page-no="2" class="slb-feature-card tm-page-link">
+                                    <i class="fas fa-satellite-dish slb-card-icon"></i>
+                                    <h4 class="slb-card-title">
+                                        <span>Telemetría & Pruebas</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </h4>
+                                    <p class="slb-card-desc">Monitoreo continuo de presión, temperatura y caudal en fondo y superficie 24/7.</p>
+                                </a>
+
+                                <a href="#0" data-page-no="2" class="slb-feature-card tm-page-link">
+                                    <i class="fas fa-wave-square slb-card-icon" style="color: #ffaf03;"></i>
+                                    <h4 class="slb-card-title">
+                                        <span>Medición Multifásica</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </h4>
+                                    <p class="slb-card-desc">Caracterización en tiempo real de petróleo, agua y gas sin separación física invasiva.</p>
+                                </a>
+
+                                <a href="#0" data-page-no="3" class="slb-feature-card tm-page-link">
+                                    <i class="fas fa-microchip slb-card-icon"></i>
+                                    <h4 class="slb-card-title">
+                                        <span>PetrolIA Predictiva</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </h4>
+                                    <p class="slb-card-desc">Algoritmos de IA para detección temprana de eventos anómalos y optimización de pozos.</p>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -2065,6 +2400,29 @@
     </div>
 </div>
 
+<!-- MODAL DE VIDEO CORPORATIVO INSTITUCIONAL SLB -->
+<div id="video-modal-slb" class="service-modal" onclick="if(event.target===this) closeSlbVideoModal()">
+    <div class="video-modal-dialog">
+        <div class="p-3 d-flex justify-content-between align-items-center" style="background: rgba(3, 12, 34, 0.95); border-bottom: 1px solid rgba(56, 182, 255, 0.3);">
+            <div class="d-flex align-items-center gap-2">
+                <span class="live-dot"></span>
+                <span class="text-white fw-bold small" style="letter-spacing: 0.05em;">AICTECH — VIDEO INSTITUCIONAL & OPERACIONES ENERGÉTICAS</span>
+            </div>
+            <button class="btn btn-sm btn-outline-light rounded-circle px-2 py-1" onclick="closeSlbVideoModal()" style="line-height: 1;">✕</button>
+        </div>
+        <div class="ratio ratio-16x9 bg-black position-relative">
+            <video id="slb-institutional-video" controls playsinline style="width: 100%; height: 100%; object-fit: cover;">
+                <source src="video/15561206_1920_1080_25fps.mp4" type="video/mp4">
+                Su navegador no soporta la reproducción de video HTML5.
+            </video>
+        </div>
+        <div class="p-3 d-flex justify-content-between align-items-center" style="background: rgba(3, 12, 34, 0.95); border-top: 1px solid rgba(255, 255, 255, 0.1);">
+            <span class="text-muted small">Tecnología de Telemetría, Medición de Flujo y Soluciones de Automatización</span>
+            <button class="btn btn-sm btn-primary rounded-pill px-4 fw-bold" onclick="closeSlbVideoModal()">Cerrar</button>
+        </div>
+    </div>
+</div>
+
 <!-- Preloader -->
 <div id="loader-wrapper">            
     <div id="loader"></div>
@@ -2088,6 +2446,29 @@
         document.getElementById(id).classList.remove('active');
     }
 
+    function openSlbVideoModal() {
+        const modal = document.getElementById('video-modal-slb');
+        const video = document.getElementById('slb-institutional-video');
+        if (modal) {
+            modal.classList.add('active');
+            if (video) {
+                video.currentTime = 0;
+                video.play().catch(e => console.log(e));
+            }
+        }
+    }
+
+    function closeSlbVideoModal() {
+        const modal = document.getElementById('video-modal-slb');
+        const video = document.getElementById('slb-institutional-video');
+        if (modal) {
+            modal.classList.remove('active');
+            if (video) {
+                video.pause();
+            }
+        }
+    }
+
     document.querySelectorAll('.service-modal').forEach(modal => {
         modal.addEventListener('click', function(e) {
             if (e.target === this) {
@@ -2101,6 +2482,7 @@
             document.querySelectorAll('.service-modal').forEach(modal => {
                 modal.classList.remove('active');
             });
+            closeSlbVideoModal();
         }
     });
 </script>

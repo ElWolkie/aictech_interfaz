@@ -21,54 +21,71 @@ function highlightMenu(no) {
 }
 
 function setupGallery() {
-  gallery = $('.gallery-slider').slick({
-    slidesToShow: 5,
-    slidesToScroll: 3,
-    dots: true,
-    arrows: false,
-    responsive: [
-      {
-        breakpoint: 992,
-        settings: {
-          slidesToShow: 4,
-          slidesToScroll: 4,
-          infinite: true,
-          dots: true
+  var $gallery = $('.gallery-slider');
+  if ($gallery.length && $gallery.children().length > 0) {
+    gallery = $gallery.slick({
+      slidesToShow: 5,
+      slidesToScroll: 3,
+      dots: true,
+      arrows: false,
+      responsive: [
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 767,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3
+          }
+        },
+        {
+          breakpoint: 575,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
         }
-      },
-      {
-        breakpoint: 767,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3
-        }
-      },
-      {
-        breakpoint: 575,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2
-        }
-      }
-    ]
-  });
+      ]
+    });
+  }
 }
 
 function openPage(no) {
   if(!no) return;
 
   if(no == 2) {
-    if(gallery == undefined) {
-      setupGallery();
-    } else {
+    if(gallery !== undefined && $('.gallery-slider').hasClass('slick-initialized')) {
       $('.gallery-slider').slick('unslick');
-      setupGallery();
-    }    
+    }
+    setupGallery();
   }
 
   $('.cd-hero-slider > li').removeClass('selected').hide();
   var $target = $('.cd-hero-slider > li[data-page-no="' + no + '"]');
-  $target.css('display', 'flex').hide().fadeIn(300).addClass('selected');
+  var displayMode = (no == 2) ? 'block' : 'flex';
+  $target.css('display', displayMode).hide().fadeIn(300).addClass('selected');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  var pageWrapper = document.getElementById('page-content-wrapper');
+  if (pageWrapper) {
+    pageWrapper.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  if (no == 2) {
+    if (typeof checkRevealElements === 'function') {
+      setTimeout(checkRevealElements, 100);
+      setTimeout(checkRevealElements, 400);
+    }
+    if (typeof playRoxarVideo === 'function') {
+      setTimeout(playRoxarVideo, 200);
+    }
+  }
 }
 
 $(window).on('load', function() {

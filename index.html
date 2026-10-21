@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="css/slick.css" type="text/css" /> 
     <link rel="stylesheet" href="css/templatemo-style.css">
 
-    <!-- CSS PALETA CORTADA: MITAD AZUL / MITAD BLANCO INDUSTRIAL OPTIMIZADO -->
+    <!-- CSS PALETA CORTADA: MITAD AZUL / MITAD BLANCO INDUSTRIAL OPTIMIZADOS -->
     <style>
         /* Partículas de Fondo Interactivas */
         #tech-particles-canvas {
@@ -1885,6 +1885,23 @@
             pointer-events: none;
         }
 
+        /* Ajuste de encuadre para bajar el video del equipo bifásico y apreciar los demás con claridad */
+        #bifasico-main-video {
+            object-position: center 25% !important;
+            top: 58% !important;
+        }
+
+        #flexim-main-video,
+        #echometer-main-video {
+            object-position: center 30% !important;
+        }
+
+        #servicio-bifasico-trifasico .roxar-hero-banner,
+        #servicio-flexim .roxar-hero-banner,
+        #servicio-echometer .roxar-hero-banner {
+            min-height: 420px;
+        }
+
         .roxar-video-overlay {
             position: absolute;
             inset: 0;
@@ -2308,7 +2325,7 @@
                                 
                                 <!-- Banner Superior con Video de Fondo y Letras Identificadoras -->
                                 <div class="roxar-hero-banner">
-                                    <video autoplay loop muted playsinline preload="auto" class="roxar-video-bg" id="roxar-main-video">
+                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="none" poster="img/multifasico-1.jpg" class="roxar-video-bg service-video-elem" id="roxar-main-video">
                                         <source src="video/roxar2600.mp4" type="video/mp4">
                                         <source src="roxar2600.mp4" type="video/mp4">
                                     </video>
@@ -2403,192 +2420,310 @@
                             </article>
 
                             <!-- 2. SERVICIO: EQUIPO BIFÁSICO Y TRIFÁSICO (CONVENCIONAL) -->
-                            <article class="service-feed-item reveal-on-scroll reveal-up" id="servicio-bifasico-trifasico">
-                                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-2">
-                                    <span class="service-feed-tag"><i class="fas fa-filter me-1"></i> 02. PRUEBAS CONVENCIONALES DE SEPARACIÓN</span>
-                                    <span class="text-muted small fw-medium">Separadores de Superficie</span>
-                                </div>
-                                <h3 class="service-feed-title reveal-on-scroll reveal-from-right">Separadores de Producción: Bifásicos y Trifásicos</h3>
-                                <p class="service-feed-lead reveal-on-scroll reveal-from-right">
-                                    Equipos de separación mecánica y estabilización termodinámica en superficie para la cuantificación fiscal y operativa de la producción de pozos.
-                                </p>
+                            <article class="roxar-showcase-container reveal-on-scroll reveal-up mt-4" id="servicio-bifasico-trifasico">
+                                <!-- Banner Superior con Video de Fondo -->
+                                <div class="roxar-hero-banner">
+                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="none" poster="img/trifasico.jpg" class="roxar-video-bg service-video-elem" id="bifasico-main-video">
+                                        <!-- Video de separadores bifásico y trifásico -->
+                                        <source src="video/bifasico-trifasico.mp4" type="video/mp4">
+                                        <source src="video/roxar2600.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="roxar-video-overlay"></div>
 
-                                <div class="row g-4 mb-4">
-                                    <div class="col-12 col-md-6 reveal-on-scroll reveal-from-left">
-                                        <div class="service-subcard">
-                                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                                <h4 class="fw-bold text-primary mb-0 fs-5">1. Equipo Bifásico</h4>
-                                                <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.72rem;">2 Fases</span>
-                                            </div>
-                                            <p class="small text-muted mb-3">
-                                                Diseñado para separar los fluidos provenientes del pozo en <strong>dos corrientes principales</strong>: Gas y Líquido total.
-                                            </p>
-                                            <div class="service-img-frame mb-3">
-                                                <img src="img/gallery-img-01.jpg" onerror="this.src='img/gallery-img-01.jpg'" class="service-feed-img" alt="Equipo Bifásico">
-                                            </div>
-                                            <div class="tech-list-item small mb-2">✔ 1 Entrada de mezcla / 2 Salidas calibradas (Gas y Líquido).</div>
-                                            <div class="tech-list-item small mb-0">✔ Ideal para pruebas rápidas de aforo y pozos con bajo corte de agua.</div>
+                                    <div class="roxar-hero-content">
+                                        <div class="roxar-tag">
+                                            <i class="fas fa-filter me-1"></i> 02. PRUEBAS CONVENCIONALES DE SEPARACIÓN
                                         </div>
-                                    </div>
-
-                                    <div class="col-12 col-md-6 reveal-on-scroll reveal-from-right">
-                                        <div class="service-subcard">
-                                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                                <h4 class="fw-bold text-primary mb-0 fs-5">2. Equipo Trifásico</h4>
-                                                <span class="badge bg-success bg-opacity-10 text-success px-2 py-1" style="font-size: 0.72rem;">3 Fases</span>
-                                            </div>
-                                            <p class="small text-muted mb-3">
-                                                Separador avanzado con bota y vertedero que segrega <strong>tres fases independientes</strong>: Petróleo, Agua y Gas.
-                                            </p>
-                                            <div class="service-img-frame mb-3">
-                                                <img src="img/trifasico.jpg" onerror="this.src='img/gallery-img-01.jpg'" class="service-feed-img" alt="Equipo Trifásico">
-                                            </div>
-                                            <div class="tech-list-item small mb-2">✔ 3 Salidas independientes: Gas, Petróleo libre y Agua efluente.</div>
-                                            <div class="tech-list-item small mb-0">✔ Indispensable para fiscalización, determinación de BS&W y RGP.</div>
-                                        </div>
+                                        <h2 class="roxar-title">Separadores de Producción: Bifásicos y Trifásicos</h2>
+                                        <p class="roxar-lead-text">
+                                            Equipos de separación mecánica y estabilización termodinámica en superficie para la cuantificación fiscal y operativa de la producción de pozos. Se instalan en la línea de flujo para estabilizar la contrapresión y registrar la producción volumétrica diaria con medidores de placa de orificio y turbinas de líquido.
+                                        </p>
                                     </div>
                                 </div>
 
-                                <div class="row g-3 mb-4">
-                                    <div class="col-md-6 reveal-on-scroll reveal-from-left">
-                                        <div class="p-3 bg-light border rounded">
-                                            <h6 class="fw-bold text-dark mb-1" style="font-size: 0.92rem;"><i class="fas fa-question-circle text-primary me-2"></i>¿Para qué sirven y cómo operan?</h6>
-                                            <p class="small text-muted mb-0">
-                                                Se instalan en la línea de flujo del pozo para estabilizar la contrapresión y registrar la producción volumétrica diaria con medidores de placa de orificio y turbinas de líquido.
-                                            </p>
+                                <!-- Sección Inferior: 2 Paneles Lado a Lado -->
+                                <div class="roxar-dual-section">
+                                    <div class="row g-4">
+                                        <!-- Panel Izquierdo: Equipo Bifásico -->
+                                        <div class="col-12 col-lg-6 reveal-on-scroll reveal-from-left">
+                                            <div class="roxar-panel-card">
+                                                <div>
+                                                    <div class="d-flex justify-content-between align-items-center mb-1">
+                                                        <span class="roxar-panel-badge"><i class="fas fa-layer-group me-1"></i> SEPARACIÓN DE 2 FASES</span>
+                                                        <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.72rem;">Gas / Líquido</span>
+                                                    </div>
+                                                    <h3 class="roxar-panel-title">1. Equipo Separador Bifásico</h3>
+                                                    <p class="roxar-panel-desc">
+                                                        Diseñado para separar los fluidos provenientes del pozo en <strong>dos corrientes principales</strong>: Gas y Líquido total. Ideal para pruebas rápidas de aforo y pozos con bajo corte de agua.
+                                                    </p>
+                                                    <div class="roxar-media-box">
+                                                        <img src="img/gallery-img-01.jpg" onerror="this.src='img/gallery-img-01.jpg'" alt="Equipo Bifásico de Superficie">
+                                                    </div>
+                                                </div>
+                                                <div class="mt-2">
+                                                    <div class="tech-list-item small mb-2"><i class="fas fa-check-circle text-primary me-1"></i> 1 Entrada de mezcla / 2 Salidas calibradas (Gas y Líquido).</div>
+                                                    <div class="tech-list-item small mb-3"><i class="fas fa-check-circle text-primary me-1"></i> Estabilización de contrapresión y aforo rápido en locación.</div>
+                                                    <button type="button" class="btn-tech-outline w-100 py-2 fw-semibold" onclick="scrollToService('servicio-flexim')">
+                                                        <i class="fas fa-arrow-down me-1"></i> Siguiente Servicio: Caudalímetro Flexim
+                                                    </button>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6 reveal-on-scroll reveal-from-right">
-                                        <div class="p-3 bg-light border rounded">
-                                            <h6 class="fw-bold text-dark mb-1" style="font-size: 0.92rem;"><i class="fas fa-eye text-primary me-2"></i>¿Cómo identificarlos en locación?</h6>
-                                            <p class="small text-muted mb-0">
-                                                <strong>Bifásico:</strong> Cuenta con 2 líneas de descarga (superior gas, inferior líquido). <strong>Trifásico:</strong> Cuenta con 3 descargas y doble compartimiento interno con visor de interfaz agua-crudo.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <!-- Demostración 3D Interactiva -->
-                                <div class="mt-4 pt-3 border-top reveal-on-scroll reveal-zoom">
-                                    <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap">
-                                        <h5 class="fw-bold text-dark mb-0 fs-6"><i class="fas fa-cube text-primary me-2"></i>Simulación de Funcionamiento Interno</h5>
-                                        <span class="text-muted small">Haz clic sobre el modelo para interactuar</span>
-                                    </div>
-                                    <div id="demo-3d-trigger" class="demo-3d-container" style="height: 380px; border-radius: 6px;">
-                                        <img src="img/trifasico-3d.jpg" id="demo-3d-img" alt="Demostración Equipo Abierto" onerror="this.src='img/gallery-img-01.jpg'">
-                                        <div class="demo-3d-badge">
-                                            🔍 Clic para inspección interna 3D
-                                        </div>
-                                        <div id="demo-3d-overlay" class="demo-3d-overlay">
-                                            <div class="spinner-border text-info mb-3" role="status" style="width: 2.5rem; height: 2.5rem;"></div>
-                                            <h4 class="fw-bold text-white m-0 fs-5">Iniciando Modelo 3D...</h4>
-                                            <p class="text-light small mt-1">Simulador de corte de separación de fluidos</p>
+                                        <!-- Panel Derecho: Equipo Trifásico & Simulación 3D -->
+                                        <div class="col-12 col-lg-6 reveal-on-scroll reveal-from-right">
+                                            <div class="roxar-panel-card roxar-interactive-card" id="demo-3d-trigger">
+                                                <div>
+                                                    <div class="d-flex justify-content-between align-items-center mb-1">
+                                                        <span class="roxar-panel-badge"><i class="fas fa-cubes me-1"></i> SEPARACIÓN DE 3 FASES</span>
+                                                        <span class="badge bg-success bg-opacity-10 text-success px-2 py-1" style="font-size: 0.72rem;">Petróleo / Agua / Gas</span>
+                                                    </div>
+                                                    <h3 class="roxar-panel-title">2. Equipo Separador Trifásico</h3>
+                                                    <p class="roxar-panel-desc">
+                                                        Separador avanzado con bota y vertedero que segrega <strong>tres fases independientes</strong>. Indispensable para fiscalización, determinación de BS&W y RGP.
+                                                    </p>
+                                                    <div class="roxar-media-box position-relative" style="background: radial-gradient(circle at center, #0e3a7a 0%, #030d22 100%);">
+                                                        <img src="img/trifasico-3d.jpg" id="demo-3d-img" onerror="this.src='img/trifasico.jpg'" alt="Separador Trifásico 3D" style="opacity: 0.88;">
+                                                        
+                                                        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column align-items-center justify-content-center p-3 text-center" style="background: rgba(3, 11, 28, 0.65); backdrop-filter: blur(2px);">
+                                                            <div class="p-3 rounded-circle mb-2" style="background: rgba(56, 182, 255, 0.2); border: 2px solid #38b6ff; box-shadow: 0 0 20px rgba(56, 182, 255, 0.4);">
+                                                                <i class="fas fa-cube text-white fs-4"></i>
+                                                            </div>
+                                                            <span class="badge bg-primary px-3 py-1 mb-1">SIMULADOR 3D INTERNO</span>
+                                                            <small class="text-light fw-semibold">Haz clic para inspección interna 3D</small>
+                                                        </div>
+
+                                                        <div id="demo-3d-overlay" class="demo-3d-overlay">
+                                                            <div class="spinner-border text-info mb-3" role="status" style="width: 2.5rem; height: 2.5rem;"></div>
+                                                            <h4 class="fw-bold text-white m-0 fs-5"><i class="fas fa-cube text-warning me-2"></i>Iniciando Modelo 3D...</h4>
+                                                            <p class="text-light small mt-1 mb-2">Simulador de corte de separación de fluidos en compartimiento interno</p>
+                                                            <span class="badge bg-success bg-opacity-25 text-success border border-success px-3 py-1">Modelo Trifásico Calibrado</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mt-2">
+                                                    <div class="tech-list-item small mb-2"><i class="fas fa-check-circle text-primary me-1"></i> 3 Salidas independientes: Gas, Petróleo libre y Agua efluente.</div>
+                                                    <div class="tech-list-item small mb-3"><i class="fas fa-check-circle text-primary me-1"></i> Doble compartimiento interno con visor de interfaz agua-crudo.</div>
+                                                    <button type="button" class="roxar-action-btn" id="btn-activar-trifasico-demo">
+                                                        <i class="fas fa-search-plus"></i>
+                                                        <span>Inspeccionar Modelo 3D de Separación</span>
+                                                    </button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </article>
 
                             <!-- 3. SERVICIO: CAUDALÍMETRO ULTRASÓNICO FLEXIM -->
-                            <article class="service-feed-item reveal-on-scroll reveal-up" id="servicio-flexim">
-                                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-2">
-                                    <span class="service-feed-tag"><i class="fas fa-wave-square me-1"></i> 03. MEDICIÓN ULTRASÓNICA CLAMP-ON</span>
-                                    <span class="text-muted small fw-medium">No Invasivo / Cero Parada</span>
-                                </div>
-                                <h3 class="service-feed-title reveal-on-scroll reveal-from-left">Caudalímetro No Invasivo Flexim</h3>
-                                <p class="service-feed-lead reveal-on-scroll reveal-from-left">
-                                    Aforo y cuantificación ultrasónica de tasa de flujo en tiempo real (gas y líquidos) montado sobre la superficie externa de la tubería, garantizando continuidad operacional absoluta sin corte ni interrupción de línea.
-                                </p>
+                            <article class="roxar-showcase-container reveal-on-scroll reveal-up mt-4" id="servicio-flexim">
+                                <!-- Banner Superior con Video de Fondo -->
+                                <div class="roxar-hero-banner">
+                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="none" poster="img/flexim-1.jpg" class="roxar-video-bg service-video-elem" id="flexim-main-video">
+                                        <!-- Placeholder para video del usuario (con fallbacks) -->
+                                        <source src="video/flexim.mp4" type="video/mp4">
+                                        <source src="video/15561206_1920_1080_25fps.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="roxar-video-overlay"></div>
 
-                                <div class="row g-3 mb-4 reveal-on-scroll reveal-up">
-                                    <div class="col-4">
-                                        <div class="service-kpi-box">
-                                            <div class="service-kpi-val">0 hrs</div>
-                                            <div class="service-kpi-label">Tiempo de Parada</div>
+                                    <div class="roxar-hero-content">
+                                        <div class="roxar-tag">
+                                            <i class="fas fa-wave-square me-1"></i> 03. MEDICIÓN ULTRASÓNICA CLAMP-ON
                                         </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="service-kpi-box">
-                                            <div class="service-kpi-val">ΔP = 0</div>
-                                            <div class="service-kpi-label">Caída de Presión</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="service-kpi-box">
-                                            <div class="service-kpi-val">ATEX</div>
-                                            <div class="service-kpi-label">Zonas Clasificadas</div>
-                                        </div>
+                                        <h2 class="roxar-title">Caudalímetro No Invasivo Flexim</h2>
+                                        <p class="roxar-lead-text">
+                                            Aforo y cuantificación ultrasónica de tasa de flujo en tiempo real (gas y líquidos) montado sobre la superficie externa de la tubería, garantizando continuidad operacional absoluta sin corte ni interrupción de línea (cero parada de producción).
+                                        </p>
                                     </div>
                                 </div>
 
-                                <div class="row g-3 align-items-center mb-4">
-                                    <div class="col-12 col-md-6 reveal-on-scroll reveal-from-left">
-                                        <div class="service-img-frame">
-                                            <img src="img/flexim-1.jpg" onerror="this.src='img/gallery-img-03.jpg'" class="service-feed-img" style="height: 280px;" alt="Caudalímetro Ultrasónico Flexim Clamp-On">
+                                <!-- Sección Inferior: 2 Paneles Lado a Lado -->
+                                <div class="roxar-dual-section">
+                                    <div class="row g-4">
+                                        <!-- Panel Izquierdo: Montaje Clamp-On y Especificaciones -->
+                                        <div class="col-12 col-lg-6 reveal-on-scroll reveal-from-left">
+                                            <div class="roxar-panel-card">
+                                                <div>
+                                                    <span class="roxar-panel-badge"><i class="fas fa-broadcast-tower me-1"></i> MONTAJE EXTERNO NO INVASIVO</span>
+                                                    <h3 class="roxar-panel-title">Flujometría Clamp-On Externa</h3>
+                                                    <p class="roxar-panel-desc">
+                                                        Instalación directa sobre la tubería sin contacto con fluidos abrasivos. Cero caída de presión (ΔP = 0) y cero riesgo de fugas de hidrocarburos.
+                                                    </p>
+                                                    
+                                                    <div class="row g-2 mb-3">
+                                                        <div class="col-4">
+                                                            <div class="service-kpi-box py-2">
+                                                                <div class="service-kpi-val fs-5">0 hrs</div>
+                                                                <div class="service-kpi-label" style="font-size:0.68rem;">Tiempo de Parada</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <div class="service-kpi-box py-2">
+                                                                <div class="service-kpi-val fs-5">ΔP = 0</div>
+                                                                <div class="service-kpi-label" style="font-size:0.68rem;">Caída Presión</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <div class="service-kpi-box py-2">
+                                                                <div class="service-kpi-val fs-5">ATEX</div>
+                                                                <div class="service-kpi-label" style="font-size:0.68rem;">Zonas Clasificadas</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="roxar-media-box">
+                                                        <img src="img/flexim-1.jpg" onerror="this.src='img/gallery-img-03.jpg'" alt="Caudalímetro Ultrasónico Flexim Clamp-On">
+                                                    </div>
+                                                </div>
+                                                <div class="mt-2">
+                                                    <button type="button" class="btn-tech-outline w-100 py-2 fw-semibold" onclick="scrollToService('servicio-echometer')">
+                                                        <i class="fas fa-arrow-down me-1"></i> Siguiente Servicio: Diagnóstico Echometer
+                                                    </button>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-12 col-md-6 reveal-on-scroll reveal-from-right">
-                                        <h6 class="text-uppercase text-secondary fw-semibold mb-2" style="font-size: 0.8rem; letter-spacing: 0.08em;">Puntos Clave de Despliegue en Campo:</h6>
-                                        <div class="tech-list-item">
-                                            <span><strong>Montaje Externo Clamp-On:</strong> Instalación directa sin cortar tubería, sin interrupción de flujo y sin riesgo de fuga de hidrocarburos.</span>
-                                        </div>
-                                        <div class="tech-list-item">
-                                            <span><strong>Integración de Datos Telemétricos:</strong> Transmisión continua compatible con PetrolIA para monitoreo y balances de masa en tiempo real.</span>
-                                        </div>
-                                        <div class="tech-list-item">
-                                            <span><strong>Operación en Condiciones Severas:</strong> Transductores con tolerancia a alta vibración, temperaturas extremas y fluidos abrasivos.</span>
+
+                                        <!-- Panel Derecho: Puntos de Despliegue y Telemetría -->
+                                        <div class="col-12 col-lg-6 reveal-on-scroll reveal-from-right">
+                                            <div class="roxar-panel-card">
+                                                <div>
+                                                    <span class="roxar-panel-badge"><i class="fas fa-network-wired me-1"></i> TELEMETRÍA Y CONTROL DE FLUJO</span>
+                                                    <h3 class="roxar-panel-title">Puntos Clave de Despliegue en Campo</h3>
+                                                    <p class="roxar-panel-desc">
+                                                        Transmisión continua de caudales instantáneos y acumulados compatible directamente con la plataforma PetrolIA para monitoreo y balances de masa en tiempo real.
+                                                    </p>
+
+                                                    <div class="tech-list-item mb-2">
+                                                        <span><strong>Montaje Externo Seguro:</strong> Instalación sin cortar tubería, sin interrupción de flujo y sin riesgo de fuga ambiental.</span>
+                                                    </div>
+                                                    <div class="tech-list-item mb-2">
+                                                        <span><strong>Condiciones Extremas:</strong> Transductores con tolerancia a alta vibración, temperaturas extremas y fluidos bifásicos complejos.</span>
+                                                    </div>
+                                                    <div class="tech-list-item mb-3">
+                                                        <span><strong>Integración SCADA:</strong> Salidas estándar Modbus RTU / 4-20mA hacia la estación de telemetría de pozo.</span>
+                                                    </div>
+                                                    
+                                                    <div class="roxar-media-box position-relative" style="background: radial-gradient(circle at center, #0e3a7a 0%, #030d22 100%); min-height: 180px;">
+                                                        <img src="img/gallery-img-03.jpg" alt="Flexim en Campo" style="opacity: 0.82;">
+                                                        <div class="position-absolute bottom-0 start-0 w-100 p-2 text-center" style="background: rgba(3, 11, 28, 0.75);">
+                                                            <small class="text-white fw-bold"><i class="fas fa-check-circle text-info me-1"></i> Compatible con Pozos Gasíferos y Crudos Medios/Pesados</small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mt-2">
+                                                    <button type="button" class="roxar-action-btn" onclick="scrollToService('servicio-echometer')">
+                                                        <i class="fas fa-chevron-circle-down"></i>
+                                                        <span>Continuar con Diagnóstico Acústico Echometer</span>
+                                                    </button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </article>
 
                             <!-- 4. SERVICIO: DIAGNÓSTICO ACÚSTICO ECHOMETER -->
-                            <article class="service-feed-item reveal-on-scroll reveal-up" id="servicio-echometer">
-                                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-2">
-                                    <span class="service-feed-tag"><i class="fas fa-bullseye me-1"></i> 04. DIAGNÓSTICO ACÚSTICO Y DE SUBSUELO</span>
-                                    <span class="text-muted small fw-medium">Sistemas de Levantamiento Artificial</span>
-                                </div>
-                                <h3 class="service-feed-title reveal-on-scroll reveal-from-right">Medición de Nivel y Presión con Echometer</h3>
-                                <p class="service-feed-lead reveal-on-scroll reveal-from-right">
-                                    Determinación telemétrica del nivel dinámico de fluido anular, cálculo de presión de fondo fluyente (Pwf) y diagnóstico de eficiencia operacional en pozos con Levantamiento Artificial (BM, BCP, BES y Gas Lift).
-                                </p>
+                            <article class="roxar-showcase-container reveal-on-scroll reveal-up mt-4" id="servicio-echometer">
+                                <!-- Banner Superior con Video de Fondo -->
+                                <div class="roxar-hero-banner">
+                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="none" poster="img/echometer-1.jpg" class="roxar-video-bg service-video-elem" id="echometer-main-video">
+                                        <!-- Placeholder para video del usuario (con fallbacks) -->
+                                        <source src="video/echometer.mp4" type="video/mp4">
+                                        <source src="video/roxar2600.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="roxar-video-overlay"></div>
 
-                                <div class="row g-3 mb-4 reveal-on-scroll reveal-up">
-                                    <div class="col-4">
-                                        <div class="service-kpi-box">
-                                            <div class="service-kpi-val">Pwf / Pws</div>
-                                            <div class="service-kpi-label">Presión de Fondo</div>
+                                    <div class="roxar-hero-content">
+                                        <div class="roxar-tag">
+                                            <i class="fas fa-bullseye me-1"></i> 04. DIAGNÓSTICO ACÚSTICO Y DE SUBSUELO
                                         </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="service-kpi-box">
-                                            <div class="service-kpi-val">Sumergencia</div>
-                                            <div class="service-kpi-label">Protección de Bomba</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="service-kpi-box">
-                                            <div class="service-kpi-val">SLA / ALS</div>
-                                            <div class="service-kpi-label">Optimización de Pozo</div>
-                                        </div>
+                                        <h2 class="roxar-title">Medición de Nivel y Presión con Echometer</h2>
+                                        <p class="roxar-lead-text">
+                                            Determinación telemétrica del nivel dinámico de fluido anular, cálculo de presión de fondo fluyente (Pwf/Pws) y diagnóstico de eficiencia operacional en pozos con Levantamiento Artificial (BM, BCP, BES y Gas Lift).
+                                        </p>
                                     </div>
                                 </div>
 
-                                <div class="row g-3 align-items-center mb-3">
-                                    <div class="col-12 col-md-6 reveal-on-scroll reveal-from-left">
-                                        <div class="service-img-frame text-center p-3" style="background: #ffffff; min-height: 280px; display: flex; align-items: center; justify-content: center;">
-                                            <img src="img/echometer-1.jpg" onerror="this.src='img/gallery-img-04.jpg'" class="img-fluid" style="max-height: 260px; width: auto; object-fit: contain;" alt="Diagnóstico Acústico Echometer">
+                                <!-- Sección Inferior: 2 Paneles Lado a Lado -->
+                                <div class="roxar-dual-section">
+                                    <div class="row g-4">
+                                        <!-- Panel Izquierdo: Gas Gun y Nivel Dinámico -->
+                                        <div class="col-12 col-lg-6 reveal-on-scroll reveal-from-left">
+                                            <div class="roxar-panel-card">
+                                                <div>
+                                                    <span class="roxar-panel-badge"><i class="fas fa-volume-up me-1"></i> GENERACIÓN ACÚSTICA GAS GUN</span>
+                                                    <h3 class="roxar-panel-title">Nivel Dinámico & Presión de Fondo</h3>
+                                                    <p class="roxar-panel-desc">
+                                                        Pulso acústico controlado mediante CO2 o gas del pozo acoplado a la válvula anular. Evaluación precisa para evitar cavitación en bombas mecánicas y electrosumergibles.
+                                                    </p>
+
+                                                    <div class="row g-2 mb-3">
+                                                        <div class="col-4">
+                                                            <div class="service-kpi-box py-2">
+                                                                <div class="service-kpi-val fs-5">Pwf / Pws</div>
+                                                                <div class="service-kpi-label" style="font-size:0.68rem;">Presión Fondo</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <div class="service-kpi-box py-2">
+                                                                <div class="service-kpi-val fs-5">Sumergencia</div>
+                                                                <div class="service-kpi-label" style="font-size:0.68rem;">Protección Bomba</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <div class="service-kpi-box py-2">
+                                                                <div class="service-kpi-val fs-5">SLA / ALS</div>
+                                                                <div class="service-kpi-label" style="font-size:0.68rem;">Optimización</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="roxar-media-box text-center p-3" style="background: #ffffff; min-height: 220px; display: flex; align-items: center; justify-content: center;">
+                                                        <img src="img/echometer-1.jpg" onerror="this.src='img/gallery-img-04.jpg'" style="max-height: 200px; width: auto; object-fit: contain;" alt="Diagnóstico Acústico Echometer">
+                                                    </div>
+                                                </div>
+                                                <div class="mt-2">
+                                                    <button type="button" class="btn-tech-outline w-100 py-2 fw-semibold" onclick="openPage(3); highlightMenu(3);">
+                                                        <i class="fas fa-desktop me-1"></i> Ir a Consola SCADA PetrolIA
+                                                    </button>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-12 col-md-6 reveal-on-scroll reveal-from-right">
-                                        <h6 class="text-uppercase text-secondary fw-semibold mb-2" style="font-size: 0.8rem; letter-spacing: 0.08em;">Puntos Clave de Operación en Campo:</h6>
-                                        <div class="tech-list-item">
-                                            <span><strong>Generación Acústica Segura (Gas Gun):</strong> Pulso acústico controlado mediante CO2 o gas del pozo acoplado a la válvula anular.</span>
-                                        </div>
-                                        <div class="tech-list-item">
-                                            <span><strong>Optimización del Levantamiento Artificial:</strong> Evaluación precisa para evitar cavitación en bombas y ajustar la frecuencia o carrera.</span>
-                                        </div>
-                                        <div class="tech-list-item">
-                                            <span><strong>Integración de Datos Telemétricos:</strong> Exportación rápida de ecogramas e historial de niveles directo al ecosistema PetrolIA.</span>
+
+                                        <!-- Panel Derecho: Ecogramas y Optimización -->
+                                        <div class="col-12 col-lg-6 reveal-on-scroll reveal-from-right">
+                                            <div class="roxar-panel-card">
+                                                <div>
+                                                    <span class="roxar-panel-badge"><i class="fas fa-chart-line me-1"></i> ECOGRAMAS Y DIAGNÓSTICO PREDICTIVO</span>
+                                                    <h3 class="roxar-panel-title">Operación & Sincronización Telemétrica</h3>
+                                                    <p class="roxar-panel-desc">
+                                                        Exportación rápida de ecogramas e historial de niveles directo al ecosistema PetrolIA para optimizar la carrera de bomba, frecuencia de variador y tiempos de ciclo.
+                                                    </p>
+
+                                                    <div class="tech-list-item mb-2">
+                                                        <span><strong>Pared de Tubing & Collares:</strong> Detección acústica exacta de uniones de tubería (collares) para cálculo ultrapreciso de profundidad.</span>
+                                                    </div>
+                                                    <div class="tech-list-item mb-2">
+                                                        <span><strong>Protección de Bomba:</strong> Prevención de golpes de fluido y sobrecalentamiento en sistemas BCP y BES.</span>
+                                                    </div>
+                                                    <div class="tech-list-item mb-3">
+                                                        <span><strong>Reporte Dinámico:</strong> Cálculos automáticos de gradiente de gas libre y columna hidrostática anular.</span>
+                                                    </div>
+
+                                                    <div class="roxar-media-box position-relative" style="background: radial-gradient(circle at center, #0e3a7a 0%, #030d22 100%); min-height: 180px;">
+                                                        <img src="img/gallery-img-04.jpg" alt="Echometer en Campo" style="opacity: 0.82;">
+                                                        <div class="position-absolute bottom-0 start-0 w-100 p-2 text-center" style="background: rgba(3, 11, 28, 0.75);">
+                                                            <small class="text-white fw-bold"><i class="fas fa-check-circle text-warning me-1"></i> Diagnóstico en Tiempo Real para Todo Método de Producción</small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mt-2">
+                                                    <button type="button" class="roxar-action-btn" onclick="openPage(3); highlightMenu(3);">
+                                                        <i class="fas fa-satellite-dish"></i>
+                                                        <span>Ver Datos en Centro de Control PetrolIA</span>
+                                                    </button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -2800,12 +2935,7 @@
     </div>
 </div>
 
-<!-- Preloader -->
-<div id="loader-wrapper">            
-    <div id="loader"></div>
-    <div class="loader-section section-left"></div>
-    <div class="loader-section section-right"></div>
-</div>  
+
 
 <!-- Scripts JS -->
 <script src="js/jquery-3.5.1.min.js"></script>
@@ -2841,20 +2971,112 @@
         }, 250);
     }
 
-    // CONTROLADOR DE REPRODUCCIÓN DEL VIDEO DE FONDO ROXAR 2600
-    function playRoxarVideo() {
-        const roxarVideo = document.getElementById('roxar-main-video');
-        if (roxarVideo) {
-            roxarVideo.muted = true;
-            roxarVideo.playsInline = true;
-            const playPromise = roxarVideo.play();
-            if (playPromise !== undefined) {
-                playPromise.catch(() => {
-                    // Si el navegador bloqueó la reproducción automática, reintentar silenciado
-                    roxarVideo.muted = true;
-                    roxarVideo.play().catch(e => console.log('Roxar video autoplay handled:', e));
+    // =========================================================================
+    // CONTROLADOR ULTRA-OPTIMIZADO DE VIDEOS EN SERVICIOS (ANTI-LAG RIGUROSO)
+    // =========================================================================
+    let isVideoSyncScheduled = false;
+
+    // Pausar o reproducir videos de acuerdo a la página activa
+    function handlePageVideoPlayback(pageNo) {
+        const heroVideo = document.getElementById('hero-main-video');
+        const serviceVideos = document.querySelectorAll('video.service-video-elem');
+
+        if (pageNo == 1) {
+            // PANTALLA INICIAL: reanudar video inicial y pausar todos los de servicios
+            if (heroVideo) {
+                heroVideo.muted = true;
+                heroVideo.playsInline = true;
+                heroVideo.play().catch(e => console.log('Hero video play:', e));
+            }
+            serviceVideos.forEach(v => {
+                if (!v.paused) v.pause();
+            });
+        } else {
+            // CUALQUIER OTRA PANTALLA: pausar video inicial para liberar GPU/CPU
+            if (heroVideo && !heroVideo.paused) {
+                try { heroVideo.pause(); } catch(e) {}
+            }
+
+            if (pageNo == 2) {
+                // PANTALLA DE SERVICIOS: sincronizar de inmediato
+                syncServiceVideosOnPage();
+            } else {
+                // PANTALLAS 3 Y 4: pausar absolutamente todos los videos
+                serviceVideos.forEach(v => {
+                    if (!v.paused) v.pause();
                 });
             }
+        }
+    }
+
+    // Sincronizar videos de servicios: MÁXIMO 1 VIDEO REPRODUCIÉNDOSE A LA VEZ
+    function syncServiceVideosOnPage() {
+        const page2 = document.querySelector('.cd-hero-slider > li[data-page-no="2"]');
+        if (!page2 || !page2.classList.contains('selected')) {
+            document.querySelectorAll('video.service-video-elem').forEach(v => {
+                if (!v.paused) v.pause();
+            });
+            return;
+        }
+
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        const serviceArticles = document.querySelectorAll('.roxar-showcase-container');
+
+        let activeVideo = null;
+        let maxVisiblePixels = 0;
+
+        serviceArticles.forEach(article => {
+            const banner = article.querySelector('.roxar-hero-banner');
+            const video = article.querySelector('video.service-video-elem');
+            if (!video || !banner) return;
+
+            const rect = banner.getBoundingClientRect();
+
+            // Calcular exactamente qué porción del banner está dentro de la ventana visible
+            const visibleTop = Math.max(0, rect.top);
+            const visibleBottom = Math.min(windowHeight, rect.bottom);
+            const visiblePixels = Math.max(0, visibleBottom - visibleTop);
+
+            // Se considera que el servicio está a la vista si al menos 140px del banner son visibles
+            if (visiblePixels >= 140) {
+                // Priorizar el banner más cercano al centro de la visión
+                const bannerCenter = (rect.top + rect.bottom) / 2;
+                const screenCenter = windowHeight / 2;
+                const distancePenalty = Math.abs(bannerCenter - screenCenter) * 0.3;
+                const score = visiblePixels - distancePenalty;
+
+                if (score > maxVisiblePixels) {
+                    maxVisiblePixels = score;
+                    activeVideo = video;
+                }
+            }
+        });
+
+        // APLICACIÓN ESTRICTA: Solo el video visible enfocado se reproduce;
+        // todo video que se pierda de vista o no sea el principal se pausa INMEDIATAMENTE
+        document.querySelectorAll('video.service-video-elem').forEach(video => {
+            if (video === activeVideo) {
+                if (video.paused) {
+                    video.muted = true;
+                    video.playsInline = true;
+                    video.play().catch(e => console.log('Service video play handled:', e));
+                }
+            } else {
+                if (!video.paused) {
+                    video.pause();
+                }
+            }
+        });
+    }
+
+    function onScrollOptimized() {
+        if (!isVideoSyncScheduled) {
+            isVideoSyncScheduled = true;
+            requestAnimationFrame(() => {
+                syncServiceVideosOnPage();
+                checkRevealElements();
+                isVideoSyncScheduled = false;
+            });
         }
     }
 
@@ -2864,7 +3086,6 @@
         const windowHeight = window.innerHeight;
         reveals.forEach(el => {
             const rect = el.getBoundingClientRect();
-            // Si el elemento entra en la ventana visible
             if (rect.top <= windowHeight - 40 && rect.bottom >= 0) {
                 el.classList.add('is-revealed');
             }
@@ -2872,25 +3093,53 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-        // Ejecución inmediata y con scroll en page-content-wrapper y window
         const pageWrapper = document.getElementById('page-content-wrapper');
         if (pageWrapper) {
-            pageWrapper.addEventListener('scroll', checkRevealElements, { passive: true });
+            pageWrapper.addEventListener('scroll', onScrollOptimized, { passive: true });
         }
-        window.addEventListener('scroll', checkRevealElements, { passive: true });
+        window.addEventListener('scroll', onScrollOptimized, { passive: true });
+        document.addEventListener('scroll', onScrollOptimized, { passive: true });
 
-        // Intentar reproducción en carga inicial
-        playRoxarVideo();
+        // Verificación de guardia periódica en segundo plano para asegurar que jamás se solapen 2 videos
+        setInterval(() => {
+            if (document.hidden) return;
+            const page2 = document.querySelector('.cd-hero-slider > li[data-page-no="2"]');
+            if (page2 && page2.classList.contains('selected')) {
+                syncServiceVideosOnPage();
+            }
+        }, 500);
 
-        // IntersectionObserver para compatibilidad fluida
+        // Page Visibility API: Pausar todos los videos al cambiar de pestaña para máximo ahorro de CPU/GPU
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                document.querySelectorAll('video').forEach(v => {
+                    if (!v.paused) {
+                        try { v.pause(); } catch(e) {}
+                    }
+                });
+            } else {
+                const selectedPage = document.querySelector('.cd-hero-slider > li.selected');
+                const pageNo = selectedPage ? selectedPage.getAttribute('data-page-no') : 1;
+                handlePageVideoPlayback(pageNo);
+            }
+        });
+
+        // Manejo resiliente de errores en videos para futuros archivos
+        document.querySelectorAll('video.service-video-elem').forEach(v => {
+            v.addEventListener('error', () => {
+                console.log('Fallback automático activo para video:', v.id);
+            }, true);
+        });
+
+        // Control inicial de pantalla 1
+        handlePageVideoPlayback(1);
+
+        // IntersectionObserver para reveal de elementos
         if ('IntersectionObserver' in window) {
             const revealObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('is-revealed');
-                        if (entry.target.id === 'servicio-multifasico' || entry.target.contains(document.getElementById('roxar-main-video'))) {
-                            playRoxarVideo();
-                        }
                     }
                 });
             }, {
@@ -2904,32 +3153,46 @@
             });
         }
 
-        // Chequeo inicial
         setTimeout(checkRevealElements, 300);
         setTimeout(checkRevealElements, 800);
-        setTimeout(playRoxarVideo, 500);
+        setTimeout(syncServiceVideosOnPage, 600);
     });
 
     function openSlbVideoModal() {
         const modal = document.getElementById('video-modal-slb');
-        const video = document.getElementById('slb-institutional-video');
+        const instVideo = document.getElementById('slb-institutional-video');
+        const heroVideo = document.getElementById('hero-main-video');
+
+        // Pausar video de fondo inicial mientras corre el video institucional
+        if (heroVideo) {
+            try { heroVideo.pause(); } catch(e) {}
+        }
+
         if (modal) {
             modal.classList.add('active');
-            if (video) {
-                video.currentTime = 0;
-                video.play().catch(e => console.log(e));
+            if (instVideo) {
+                instVideo.currentTime = 0;
+                instVideo.play().catch(e => console.log(e));
             }
         }
     }
 
     function closeSlbVideoModal() {
         const modal = document.getElementById('video-modal-slb');
-        const video = document.getElementById('slb-institutional-video');
+        const instVideo = document.getElementById('slb-institutional-video');
+        const heroVideo = document.getElementById('hero-main-video');
+
         if (modal) {
             modal.classList.remove('active');
-            if (video) {
-                video.pause();
+            if (instVideo) {
+                instVideo.pause();
             }
+        }
+
+        // Si seguimos en la pantalla inicial, reanudar video inicial
+        const page1 = document.querySelector('.cd-hero-slider > li[data-page-no="1"]');
+        if (page1 && page1.classList.contains('selected') && heroVideo) {
+            heroVideo.play().catch(e => console.log(e));
         }
     }
 
@@ -3321,9 +3584,12 @@
             minigameCloseBtn.addEventListener('click', closeOilMinigame);
         }
 
-        // DETECCIÓN: Requiere 9 toques rápidos para abrir el minijuego
-        function registerTapOrKey() {
+        // DETECCIÓN: Requiere 9 clicks o toques rápidos deliberados para abrir el minijuego (no teclas)
+        function registerTapOnly(e) {
             if (isMinigameActive) return;
+            // Ignorar clicks dentro de modales o controles del minijuego
+            if (e && e.target && e.target.closest('#oil-minigame-overlay')) return;
+
             const now = Date.now();
             tapHistory.push(now);
             // Mantener solo toques en los últimos 1.4 segundos
@@ -3335,8 +3601,25 @@
             }
         }
 
-        window.addEventListener('click', registerTapOrKey);
-        window.addEventListener('keydown', registerTapOrKey);
+        // Solo activar mediante clicks táctiles o de ratón continuos, nunca por mantener teclas
+        window.addEventListener('click', registerTapOnly);
+
+        // Control con teclado DENTRO del minijuego: requiere pulsaciones deliberadas (prohibido dejar presionado)
+        window.addEventListener('keydown', (e) => {
+            if (!isMinigameActive || isCelebrating) return;
+
+            // ANTI-REPEAT: Si el usuario deja la tecla presionada, se ignora por completo
+            if (e.repeat) {
+                e.preventDefault();
+                return;
+            }
+
+            // Solo bombear con Espacio, Enter o la tecla B
+            if (e.code === 'Space' || e.key === ' ' || e.key === 'Enter' || e.key.toLowerCase() === 'b') {
+                e.preventDefault();
+                pumpOil(null);
+            }
+        });
 
         function updateMinigameUI() {
             if (minigameOilFill) minigameOilFill.style.height = `${oilLevel}%`;

@@ -77,12 +77,32 @@ function openPage(no) {
     pageWrapper.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  // OPTIMIZACIÓN DE RENDIMIENTO DE VIDEOS POR PANTALLA
+  if (typeof handlePageVideoPlayback === 'function') {
+    handlePageVideoPlayback(no);
+  } else {
+    var heroVideo = document.getElementById('hero-main-video');
+    if (no == 1) {
+      if (heroVideo) {
+        heroVideo.muted = true;
+        heroVideo.playsInline = true;
+        heroVideo.play().catch(function(e) {});
+      }
+    } else {
+      if (heroVideo) {
+        try { heroVideo.pause(); } catch(e) {}
+      }
+    }
+  }
+
   if (no == 2) {
     if (typeof checkRevealElements === 'function') {
       setTimeout(checkRevealElements, 100);
       setTimeout(checkRevealElements, 400);
     }
-    if (typeof playRoxarVideo === 'function') {
+    if (typeof syncServiceVideosOnPage === 'function') {
+      setTimeout(syncServiceVideosOnPage, 200);
+    } else if (typeof playRoxarVideo === 'function') {
       setTimeout(playRoxarVideo, 200);
     }
   }

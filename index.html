@@ -276,7 +276,8 @@
             display: flex !important;
         }
 
-        .cd-hero-slider > li[data-page-no="2"].selected {
+        .cd-hero-slider > li[data-page-no="2"].selected,
+        .cd-hero-slider > li[data-page-no="5"].selected {
             display: block !important;
             justify-content: flex-start !important;
             align-items: stretch !important;
@@ -1631,7 +1632,8 @@
         }
 
         /* Override para que la Sección 2 fluya en scroll vertical sin centrado forzado ni desbordamiento */
-        .cd-hero-slider > li[data-page-no="2"] {
+        .cd-hero-slider > li[data-page-no="2"],
+        .cd-hero-slider > li[data-page-no="5"] {
             display: none;
             width: 100% !important;
             min-height: auto !important;
@@ -1639,12 +1641,14 @@
             padding: 20px 15px 80px 15px !important;
         }
 
-        .cd-hero-slider > li[data-page-no="2"].selected {
+        .cd-hero-slider > li[data-page-no="2"].selected,
+        .cd-hero-slider > li[data-page-no="5"].selected {
             display: block !important;
             height: auto !important;
         }
 
-        .cd-hero-slider > li[data-page-no="2"] .page-width-1 {
+        .cd-hero-slider > li[data-page-no="2"] .page-width-1,
+        .cd-hero-slider > li[data-page-no="5"] .page-width-1 {
             display: block !important;
             max-width: 1240px !important;
             height: auto !important;
@@ -1891,15 +1895,39 @@
             top: 58% !important;
         }
 
-        #flexim-main-video,
-        #echometer-main-video {
+        #flexim-main-video {
             object-position: center 30% !important;
         }
 
+        /* Encuadre centrado y preciso para Echometer: evita corte superior e inferior */
+        #echometer-main-video {
+            object-fit: cover !important;
+            object-position: center 48% !important;
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
+            min-width: 100% !important;
+            min-height: 100% !important;
+        }
+
         #servicio-bifasico-trifasico .roxar-hero-banner,
-        #servicio-flexim .roxar-hero-banner,
-        #servicio-echometer .roxar-hero-banner {
+        #servicio-flexim .roxar-hero-banner {
             min-height: 420px;
+        }
+
+        /* Banner de Echometer con altura generosa (530px) para apreciar equipo completo */
+        #servicio-echometer .roxar-hero-banner {
+            min-height: 530px !important;
+            background: #040c1e !important;
+        }
+
+        #servicio-echometer .roxar-video-overlay {
+            background: linear-gradient(
+                180deg,
+                rgba(3, 11, 28, 0.20) 0%,
+                rgba(4, 15, 38, 0.45) 50%,
+                rgba(3, 11, 28, 0.88) 100%
+            ) !important;
         }
 
         .roxar-video-overlay {
@@ -2112,6 +2140,237 @@
                 font-size: 1.85rem;
             }
         }
+    
+        /* ==========================================================================
+           SECCIÓN 5: CATÁLOGO DE PRODUCTOS EMERSON & SERVICIOS DE INGENIERÍA AIC TECH
+           ========================================================================== */
+        .catalog-hero-box {
+            background: #ffffff;
+            border-radius: 12px;
+            border: 1px solid #cbd5e1;
+            border-top: 5px solid var(--brand-blue);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            padding: 2.2rem 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .emerson-badge-pill {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(135deg, #0e3a7a 0%, #001f4d 100%);
+            color: #ffffff;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 30px;
+            box-shadow: 0 3px 10px rgba(14, 58, 122, 0.25);
+        }
+
+        .upstream-flow-ribbon {
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px 12px;
+            font-size: 0.8rem;
+            color: #334155;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .flow-step-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #1e293b;
+        }
+
+        .flow-step-arrow {
+            color: var(--brand-blue);
+            font-size: 0.75rem;
+        }
+
+        /* Barra de Filtros Dinámicos */
+        .catalog-filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+
+        .catalog-filter-btn {
+            background: #ffffff;
+            color: #334155;
+            border: 1px solid #cbd5e1;
+            padding: 8px 16px;
+            border-radius: 24px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            white-space: nowrap;
+        }
+
+        .catalog-filter-btn:hover {
+            background: #f8fafc;
+            border-color: #94a3b8;
+            color: var(--brand-blue);
+            transform: translateY(-1px);
+        }
+
+        .catalog-filter-btn.active {
+            background: linear-gradient(135deg, var(--brand-blue) 0%, #003366 100%);
+            color: #ffffff;
+            border-color: var(--brand-blue);
+            box-shadow: 0 4px 12px rgba(0, 51, 102, 0.25);
+        }
+
+        /* Tarjetas de Áreas de Proceso */
+        .process-area-card {
+            background: #ffffff;
+            border-radius: 12px;
+            border: 1px solid #cbd5e1;
+            border-left: 5px solid var(--brand-blue);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+            padding: 2rem 2.2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .process-area-card:hover {
+            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.10);
+            border-left-color: #38b6ff;
+        }
+
+        .process-area-card.hidden-category {
+            display: none !important;
+        }
+
+        .area-header-badge {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: var(--brand-blue);
+            background: rgba(0, 51, 102, 0.08);
+            padding: 4px 12px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        .area-challenge-box {
+            background: #f8fafc;
+            border-left: 3px solid #0284c7;
+            padding: 10px 14px;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.86rem;
+            color: #334155;
+            margin-bottom: 1.2rem;
+        }
+
+        /* Sub-tarjetas de Instrumentos Emerson */
+        .instrument-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-bottom: 1.2rem;
+        }
+
+        .instrument-subcard {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 14px 16px;
+            transition: all 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .instrument-subcard:hover {
+            border-color: #93c5fd;
+            background: #fafcff;
+            box-shadow: 0 6px 16px rgba(14, 58, 122, 0.07);
+            transform: translateY(-2px);
+        }
+
+        .instrument-brand-tag {
+            font-size: 0.70rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: #e0f2fe;
+            color: #0369a1;
+            display: inline-block;
+            margin-bottom: 6px;
+        }
+
+        .instrument-name {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 6px;
+        }
+
+        .instrument-features {
+            font-size: 0.81rem;
+            color: #475569;
+            padding-left: 16px;
+            margin-bottom: 8px;
+        }
+
+        .instrument-features li {
+            margin-bottom: 4px;
+        }
+
+        /* Bloque de Servicios de Ingeniería y Soldadura */
+        .engineering-special-box {
+            background: linear-gradient(145deg, #071936 0%, #030d22 100%);
+            border-radius: 14px;
+            border: 1px solid rgba(56, 182, 255, 0.35);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+            color: #ffffff;
+            padding: 2.5rem 2.2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .engineering-pillar-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 10px;
+            padding: 18px 20px;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .engineering-pillar-card:hover {
+            background: rgba(255, 255, 255, 0.09);
+            border-color: rgba(56, 182, 255, 0.6);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .pillar-icon-circle {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: rgba(56, 182, 255, 0.15);
+            color: #38b6ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            margin-bottom: 14px;
+        }
+    
     </style>
 </head>
 <body>
@@ -2571,8 +2830,8 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="roxar-media-box">
-                                                        <img src="img/flexim-1.jpg" onerror="this.src='img/gallery-img-03.jpg'" alt="Caudalímetro Ultrasónico Flexim Clamp-On">
+                                                    <div class="roxar-media-box position-relative" style="background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%); min-height: 240px; border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 12px; overflow: hidden;">
+                                                        <img src="img/flexim-1.jpg" onerror="this.src='img/gallery-img-03.jpg'" style="max-height: 215px; width: 100%; object-fit: contain; filter: drop-shadow(0 6px 14px rgba(0,0,0,0.12));" alt="Caudalímetro Ultrasónico Flexim Clamp-On">
                                                     </div>
                                                 </div>
                                                 <div class="mt-2">
@@ -2634,8 +2893,13 @@
                                     <div class="roxar-video-overlay"></div>
 
                                     <div class="roxar-hero-content">
-                                        <div class="roxar-tag">
-                                            <i class="fas fa-bullseye me-1"></i> 04. DIAGNÓSTICO ACÚSTICO Y DE SUBSUELO
+                                        <div class="d-flex align-items-center flex-wrap gap-2 mb-2">
+                                            <div class="roxar-tag mb-0">
+                                                <i class="fas fa-bullseye me-1"></i> 04. DIAGNÓSTICO ACÚSTICO Y DE SUBSUELO
+                                            </div>
+                                            <button type="button" class="btn btn-sm btn-outline-light rounded-pill px-3 py-1 text-nowrap" onclick="openEchometerVideoModal()" style="font-size: 0.8rem; border-color: rgba(255,255,255,0.45); backdrop-filter: blur(4px);">
+                                                <i class="fas fa-expand me-1 text-info"></i> Ver Video Completo en HD
+                                            </button>
                                         </div>
                                         <h2 class="roxar-title">Medición de Nivel y Presión con Echometer</h2>
                                         <p class="roxar-lead-text">
@@ -2678,8 +2942,8 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="roxar-media-box text-center p-3" style="background: #ffffff; min-height: 220px; display: flex; align-items: center; justify-content: center;">
-                                                        <img src="img/echometer-1.jpg" onerror="this.src='img/gallery-img-04.jpg'" style="max-height: 200px; width: auto; object-fit: contain;" alt="Diagnóstico Acústico Echometer">
+                                                    <div class="roxar-media-box text-center" style="background: linear-gradient(145deg, #ffffff 0%, #edf2f7 100%); min-height: 250px; border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 8px; overflow: hidden;">
+                                                        <img src="img/echometer-1.jpg" onerror="this.src='img/gallery-img-04.jpg'" style="max-height: 235px; width: 95%; object-fit: contain; filter: drop-shadow(0 8px 18px rgba(0,0,0,0.18));" alt="Diagnóstico Acústico Echometer">
                                                     </div>
                                                 </div>
                                                 <div class="mt-2">
@@ -2710,9 +2974,9 @@
                                                         <span><strong>Reporte Dinámico:</strong> Cálculos automáticos de gradiente de gas libre y columna hidrostática anular.</span>
                                                     </div>
 
-                                                    <div class="roxar-media-box position-relative" style="background: radial-gradient(circle at center, #0e3a7a 0%, #030d22 100%); min-height: 180px;">
-                                                        <img src="img/gallery-img-04.jpg" alt="Echometer en Campo" style="opacity: 0.82;">
-                                                        <div class="position-absolute bottom-0 start-0 w-100 p-2 text-center" style="background: rgba(3, 11, 28, 0.75);">
+                                                    <div class="roxar-media-box position-relative" style="background: radial-gradient(circle at center, #11346d 0%, #040c1e 100%); min-height: 250px; border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 10px; overflow: hidden;">
+                                                        <img src="img/echometer-2.png" alt="Echometer en Campo" style="max-height: 200px; width: auto; object-fit: contain; opacity: 0.95; filter: drop-shadow(0 8px 20px rgba(0,0,0,0.4)); margin-bottom: 25px;">
+                                                        <div class="position-absolute bottom-0 start-0 w-100 p-2 text-center" style="background: rgba(3, 11, 28, 0.85); border-top: 1px solid rgba(255,255,255,0.1);">
                                                             <small class="text-white fw-bold"><i class="fas fa-check-circle text-warning me-1"></i> Diagnóstico en Tiempo Real para Todo Método de Producción</small>
                                                         </div>
                                                     </div>
@@ -2783,81 +3047,838 @@
                     </div>
                 </li>
 
-                <!-- SECCIÓN 5: PRODUCTOS (CATÁLOGO INTERACTIVO 3D) -->
+                                <!-- SECCIÓN 5: PRODUCTOS & SERVICIOS DE INGENIERÍA (PORTAFOLIO EMERSON & METALMECÁNICA) -->
                 <li data-page-no="5" class="px-3">
-                    <div class="page-width-1 h-100 d-flex align-items-center justify-content-center">
-                        <div class="glass-card p-4 p-md-5 w-100 shadow-lg">
-                            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
-                                <span class="badge-tech"><i class="fas fa-boxes-stacked me-1"></i> EQUIPOS Y SOLUCIONES DE CAMPO</span>
-                                <span class="text-muted small fw-semibold"><i class="fas fa-shield-halved text-primary me-1"></i> Certificación Industrial ATEX / IECEx</span>
-                            </div>
-                            
-                            <div class="text-center mb-4">
-                                <h2 class="fw-bold display-6 mb-2">Catálogo de Productos y Soluciones</h2>
-                                <p class="text-muted mx-auto" style="max-width: 750px;">
-                                    Tecnología de última generación para adquisición y análisis de fluidos en tiempo real.
+                    <div class="page-width-1 h-100">
+                        <div class="services-feed-wrapper">
+
+                            <!-- ENCABEZADO INSTITUCIONAL: ALIANZA EMERSON & AIC TECH -->
+                            <div class="catalog-hero-box reveal-on-scroll reveal-up">
+                                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+                                    <span class="emerson-badge-pill">
+                                        <i class="fas fa-handshake me-2"></i> ALIANZA ESTRATÉGICA • INSTRUMENTACIÓN EMERSON
+                                    </span>
+                                    <span class="text-muted small fw-semibold">
+                                        <i class="fas fa-shield-halved text-primary me-1"></i> Certificaciones ATEX / IECEx / SIL 2 &amp; SIL 3 / ASME
+                                    </span>
+                                </div>
+                                <h1 class="fw-bold display-6 text-dark mb-2">Instrumentación de Medición &amp; Servicios de Ingeniería</h1>
+                                <p class="text-muted fs-6 mb-3" style="line-height: 1.7; max-width: 950px;">
+                                    Como <strong>patrocinantes y representantes autorizados de tecnología EMERSON</strong> (marcas líderes <em>Rosemount™, Micro Motion™, Roxar™ y Flexim™</em>), <strong>AIC TECH, C.A.</strong> suministra e integra instrumentación de medición analítica y de caudal para cada punto crítico de la cadena de valor petrolera (Upstream). Complementamos el suministro con <strong>servicios especializados de ingeniería de detalle, soldadura homologada de alta presión, montaje de patines (skids) y calibración metrológica en campo</strong>.
                                 </p>
-                            </div>
 
-                            <!-- TARJETAS DE PRODUCTOS INTERACTIVAS -->
-                            <div class="row g-4 text-start">
-                                <div class="col-12 col-md-4">
-                                    <div class="product-3d-card" onclick="scrollToService('servicio-flexim')">
-                                        <div>
-                                            <div class="product-icon-box">
-                                                <i class="fas fa-wave-pulse"></i>
-                                            </div>
-                                            <span class="badge bg-primary bg-opacity-10 text-primary mb-2 px-3 py-1 rounded" style="font-size: 0.75rem; font-weight: 600;">MEDICIÓN ULTRASÓNICA</span>
-                                            <h4 class="fw-bold text-dark fs-5 mb-2">Caudalímetro Flexim Clamp-On</h4>
-                                            <p class="text-muted small mb-3">Aforo ultrasónico no invasivo de gas y líquidos sin interrupción de la línea de flujo.</p>
-                                            <ul class="text-muted small ps-3 mb-0">
-                                                <li>Instalación externa sin corte</li>
-                                                <li>Presión nominal: Hasta 15,000 PSI</li>
-                                                <li>Compatible con PetrolIA</li>
-                                            </ul>
-                                        </div>
-                                        <button class="btn-tech-outline mt-3 w-100">Ver Servicio & Detalles ➔</button>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-md-4">
-                                    <div class="product-3d-card" onclick="scrollToService('servicio-multifasico')">
-                                        <div>
-                                            <div class="product-icon-box">
-                                                <i class="fas fa-tachograph-digital"></i>
-                                            </div>
-                                            <span class="badge bg-success bg-opacity-10 text-success mb-2 px-3 py-1 rounded" style="font-size: 0.75rem; font-weight: 600;">PRUEBA DE POZO</span>
-                                            <h4 class="fw-bold text-dark fs-5 mb-2">Unidad Móvil MPFM Skid</h4>
-                                            <p class="text-muted small mb-3">Cuantificación multifásica instantánea (Petróleo/Agua/Gas) sin tanques de retención.</p>
-                                            <ul class="text-muted small ps-3 mb-0">
-                                                <li>Determinación continua de GOR & BSW</li>
-                                                <li>Transmisión telemétrica 4G/Satélite</li>
-                                                <li>Cero venteo/quema de gas</li>
-                                            </ul>
-                                        </div>
-                                        <button class="btn-tech-outline mt-3 w-100">Ver Servicio & Detalles ➔</button>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-md-4">
-                                    <div class="product-3d-card" onclick="scrollToService('servicio-echometer')">
-                                        <div>
-                                            <div class="product-icon-box">
-                                                <i class="fas fa-bullseye"></i>
-                                            </div>
-                                            <span class="badge bg-info bg-opacity-10 text-info mb-2 px-3 py-1 rounded" style="font-size: 0.75rem; font-weight: 600;">DIAGNÓSTICO ACÚSTICO</span>
-                                            <h4 class="fw-bold text-dark fs-5 mb-2">Echometer Gas Gun Sensor</h4>
-                                            <p class="text-muted small mb-3">Medición precisa del nivel de líquido anular y cálculo de presión de fondo fluyente (Pwf).</p>
-                                            <ul class="text-muted small ps-3 mb-0">
-                                                <li>Generación de pulso con CO2/Gas</li>
-                                                <li>Evaluación y protección de bombas</li>
-                                                <li>Cálculo dinámico de sumergencia</li>
-                                            </ul>
-                                        </div>
-                                        <button class="btn-tech-outline mt-3 w-100">Ver Servicio & Detalles ➔</button>
-                                    </div>
+                                <!-- CINTA DE LA CADENA DE VALOR UPSTREAM -->
+                                <div class="upstream-flow-ribbon">
+                                    <span class="text-primary fw-bold text-uppercase" style="font-size: 0.72rem; letter-spacing: 0.5px;">Cadena de Valor:</span>
+                                    <div class="flow-step-item"><i class="fas fa-oil-well text-primary"></i> 1. Cabezales</div>
+                                    <span class="flow-step-arrow">➔</span>
+                                    <div class="flow-step-item"><i class="fas fa-wind text-info"></i> 2. Gas Lift</div>
+                                    <span class="flow-step-arrow">➔</span>
+                                    <div class="flow-step-item"><i class="fas fa-filter text-success"></i> 3. Separadores</div>
+                                    <span class="flow-step-arrow">➔</span>
+                                    <div class="flow-step-item"><i class="fas fa-fire-flame-curved text-danger"></i> 4. Calentadores</div>
+                                    <span class="flow-step-arrow">➔</span>
+                                    <div class="flow-step-item"><i class="fas fa-database text-warning"></i> 5. Tanques</div>
+                                    <span class="flow-step-arrow">➔</span>
+                                    <div class="flow-step-item"><i class="fas fa-receipt text-primary"></i> 6. Custodia LACT</div>
+                                    <span class="flow-step-arrow">➔</span>
+                                    <div class="flow-step-item"><i class="fas fa-network-wired text-info"></i> 7. Gasoductos</div>
+                                    <span class="flow-step-arrow">|</span>
+                                    <div class="flow-step-item"><i class="fas fa-shield-virus text-danger"></i> 8. Seguridad</div>
+                                    <span class="flow-step-arrow">|</span>
+                                    <div class="flow-step-item"><i class="fas fa-screwdriver-wrench text-dark"></i> 9. Ingeniería &amp; Soldadura</div>
                                 </div>
                             </div>
+
+                            <!-- BARRA DE FILTROS DINÁMICOS POR ÁREA DE PROCESO -->
+                            <div class="catalog-filter-bar reveal-on-scroll reveal-up">
+                                <button type="button" class="catalog-filter-btn active" onclick="filterCatalog('all', this)">
+                                    <i class="fas fa-th-large me-1"></i> Todos los Procesos
+                                </button>
+                                <button type="button" class="catalog-filter-btn" onclick="filterCatalog('cabezales', this)">
+                                    <i class="fas fa-oil-well me-1"></i> Cabezales de Pozo
+                                </button>
+                                <button type="button" class="catalog-filter-btn" onclick="filterCatalog('gas-lift', this)">
+                                    <i class="fas fa-wind me-1"></i> Gas Lift
+                                </button>
+                                <button type="button" class="catalog-filter-btn" onclick="filterCatalog('separadores', this)">
+                                    <i class="fas fa-filter me-1"></i> Separadores
+                                </button>
+                                <button type="button" class="catalog-filter-btn" onclick="filterCatalog('calentadores', this)">
+                                    <i class="fas fa-fire me-1"></i> Tratadores Térmicos
+                                </button>
+                                <button type="button" class="catalog-filter-btn" onclick="filterCatalog('tanques', this)">
+                                    <i class="fas fa-database me-1"></i> Tanques de Crudo y Agua
+                                </button>
+                                <button type="button" class="catalog-filter-btn" onclick="filterCatalog('lact', this)">
+                                    <i class="fas fa-receipt me-1"></i> Custodia Fiscal LACT
+                                </button>
+                                <button type="button" class="catalog-filter-btn" onclick="filterCatalog('gas-ventas', this)">
+                                    <i class="fas fa-network-wired me-1"></i> Venta de Gas &amp; Gasoductos
+                                </button>
+                                <button type="button" class="catalog-filter-btn" onclick="filterCatalog('seguridad', this)">
+                                    <i class="fas fa-shield-heart me-1"></i> Seguridad de Planta
+                                </button>
+                                <button type="button" class="catalog-filter-btn" onclick="filterCatalog('ingenieria', this)" style="border-color: #0284c7; color: #0284c7;">
+                                    <i class="fas fa-wrench me-1"></i> Ingeniería &amp; Soldadura
+                                </button>
+                            </div>
+
+                            <!-- ÁREA 1: CABEZALES DE POZO Y MACROPERAS -->
+                            <div class="process-area-card reveal-on-scroll reveal-up" data-category="cabezales">
+                                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-2">
+                                    <span class="area-header-badge"><i class="fas fa-oil-well me-1"></i> ÁREA 01 • PROCESO UPSTREAM</span>
+                                    <span class="badge bg-light text-dark border"><i class="fas fa-tag text-primary me-1"></i> Well Pad &amp; Individual Wellheads</span>
+                                </div>
+                                <h3 class="fw-bold text-dark fs-4 mb-2">Cabezales de Pozo y Macroperas de Producción</h3>
+                                <div class="area-challenge-box">
+                                    <strong><i class="fas fa-circle-exclamation text-primary me-1"></i> Desafío Operacional:</strong> Primera interfaz crítica entre el yacimiento y la superficie. Excursiones abruptas de presión, fluidos corrosivos con H₂S y CO₂, presencia de arena abrasiva que erosiona estranguladores y necesidad de monitoreo telemétrico en macroperas extensas sin incurrir en altos costos de cableado.
+                                </div>
+                                
+                                <div class="instrument-grid">
+                                    <div class="instrument-subcard">
+                                        <div>
+                                            <span class="instrument-brand-tag">ROSEMOUNT™</span>
+                                            <div class="instrument-name">Transmisor 4051S &amp; 3051S Wireless</div>
+                                            <ul class="instrument-features">
+                                                <li>Exactitud de referencia: 0.025% del span</li>
+                                                <li>Estabilidad comprobada en campo a 20 años</li>
+                                                <li>Medición rápida en tubería (tubing), casing y flowline</li>
+                                                <li>Enlace inalámbrico WirelessHART® vía Gateway 1410S</li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-muted"><i class="fas fa-microchip me-1 text-primary"></i> Telemetría sin cables de trinchera</small>
+                                    </div>
+
+                                    <div class="instrument-subcard">
+                                        <div>
+                                            <span class="instrument-brand-tag">ROSEMOUNT™ X-WELL™</span>
+                                            <div class="instrument-name">Transmisor de Temperatura 3144S</div>
+                                            <ul class="instrument-features">
+                                                <li>Medición no invasiva a través de la pared del tubo</li>
+                                                <li>Elimina termopozos, perforaciones y puntos de fuga</li>
+                                                <li>Exactitud metrológica líder de 0.05°C con RTD</li>
+                                                <li>Conectividad Bluetooth® para diagnóstico seguro</li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-muted"><i class="fas fa-shield-alt me-1 text-success"></i> Cero riesgo mecánico de fuga</small>
+                                    </div>
+
+                                    <div class="instrument-subcard">
+                                        <div>
+                                            <span class="instrument-brand-tag">ROXAR™</span>
+                                            <div class="instrument-name">Medidor Multifásico Roxar 2600</div>
+                                            <ul class="instrument-features">
+                                                <li>Medición simultánea de Petróleo, Agua y Gas en línea</li>
+                                                <li>Sin separador de prueba ni retrasos en toma de muestra</li>
+                                                <li>Tecnología combinada: impedancia, venturi y gamma</li>
+                                                <li>Versiones para superficie (topside) y submarinas</li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-muted"><i class="fas fa-tachometer-alt me-1 text-info"></i> Asignación fiscal continua de pozo</small>
+                                    </div>
+
+                                    <div class="instrument-subcard">
+                                        <div>
+                                            <span class="instrument-brand-tag">ROSEMOUNT™ INTEGRITY</span>
+                                            <div class="instrument-name">Monitor de Arena SAM42 &amp; ET410</div>
+                                            <ul class="instrument-features">
+                                                <li>SAM42: Sensor acústico no intrusivo de arena en flujo</li>
+                                                <li>ET410: Transmisor ultrasónico de corrosión y erosión</li>
+                                                <li>Medición continua de pérdida de espesor de pared metálica</li>
+                                                <li>Prevención de fallas catastróficas en chokes y tuberías</li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-muted"><i class="fas fa-bell me-1 text-danger"></i> Detección preventiva de abrasión</small>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 pt-2 border-top">
+                                    <div class="text-muted small">
+                                        <strong>Servicio AIC TECH:</strong> Montaje de manifold de pozo, tendido de tubing en acero inoxidable y calibración en sitio.
+                                    </div>
+                                    <button type="button" class="btn-tech-outline px-4 py-2" onclick="scrollToService('servicio-multifasico')">
+                                        Ver Tecnología Multifásica ➔
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- ÁREA 2: LEVANTAMIENTO ARTIFICIAL POR GAS (GAS LIFT) -->
+                            <div class="process-area-card reveal-on-scroll reveal-up" data-category="gas-lift">
+                                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-2">
+                                    <span class="area-header-badge"><i class="fas fa-wind me-1"></i> ÁREA 02 • PROCESO UPSTREAM</span>
+                                    <span class="badge bg-light text-dark border"><i class="fas fa-tag text-primary me-1"></i> Gas Lift Optimization</span>
+                                </div>
+                                <h3 class="fw-bold text-dark fs-4 mb-2">Levantamiento Artificial por Gas (Gas Lift)</h3>
+                                <div class="area-challenge-box">
+                                    <strong><i class="fas fa-circle-exclamation text-primary me-1"></i> Desafío Operacional:</strong> La medición exacta del gas inyectado por pozo es fundamental para maximizar el recobro de crudo. El sobre-consumo desperdicia capacidad de compresión y la sub-inyección estrangula la producción. El gas contiene trazas agresivas de sulfuro de hidrógeno (H₂S gas agrio) y oscilaciones extremas de presión.
+                                </div>
+
+                                <div class="instrument-grid">
+                                    <div class="instrument-subcard" style="border-left: 3px solid #0284c7;">
+                                        <div>
+                                            <span class="instrument-brand-tag" style="background:#dbeafe; color:#1e40af;">FLEXIM™ FLUXUS G831 / G731</span>
+                                            <div class="instrument-name">Caudalímetro Ultrasónico Clamp-On</div>
+                                            <ul class="instrument-features">
+                                                <li><strong>No invasivo:</strong> Transductores instalados en el exterior del tubo</li>
+                                                <li>Inmune a gas agrio (H₂S), corrosión y partículas líquidas</li>
+                                                <li>Función <em>Dynamic Gas Meter</em> compensa compresibilidad</li>
+                                                <li>Medición precisa de volumen estándar y tasa de inyección</li>
+                                                <li>Cero caída de presión (ΔP = 0) y sin cortar la línea</li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-primary fw-semibold"><i class="fas fa-check-circle me-1"></i> Ideal para auditoría y balance de inyección</small>
+                                    </div>
+
+                                    <div class="instrument-subcard">
+                                        <div>
+                                            <span class="instrument-brand-tag">ROSEMOUNT™</span>
+                                            <div class="instrument-name">Transmisor Multivariable 4088</div>
+                                            <ul class="instrument-features">
+                                                <li>Cálculo directo de flujo compensado en tiempo real</li>
+                                                <li>Mide presión estática, diferencial y temperatura en 1 equipo</li>
+                                                <li>Excelente rango dinámico ante picos de inyección</li>
+                                                <li>Integración directa a sistemas de plunger lift y RTU</li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-muted"><i class="fas fa-calculator me-1 text-primary"></i> Corrección instantánea de flujo</small>
+                                    </div>
+
+                                    <div class="instrument-subcard">
+                                        <div>
+                                            <span class="instrument-brand-tag">MICRO MOTION™</span>
+                                            <div class="instrument-name">Medidor Másico Coriolis Serie F</div>
+                                            <ul class="instrument-features">
+                                                <li>Medición directa de flujo másico y densidad del gas</li>
+                                                <li>Transmisor 4700 con conectividad Bluetooth®</li>
+                                                <li>Alta tolerancia a cambios de presión en línea de inyección</li>
+                                                <li>Sin partes móviles sometidas a desgaste por gas</li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-muted"><i class="fas fa-balance-scale me-1 text-success"></i> Máxima precisión de balance másico</small>
+                                    </div>
+
+                                    <div class="instrument-subcard">
+                                        <div>
+                                            <span class="instrument-brand-tag">EMERSON™ AUTOMATION</span>
+                                            <div class="instrument-name">Manómetro Wireless &amp; Sistema AGLS</div>
+                                            <ul class="instrument-features">
+                                                <li><strong>Rosemount Wireless Pressure Gauge:</strong> Hasta 10 años sin mantenimiento</li>
+                                                <li>Resistente a sobrepresiones de bombeo sin tubo Bourdon frágil</li>
+                                                <li><strong>Sistema Adaptativo AGLS:</strong> Válvula eléctrica motorizada</li>
+                                                <li>Control continuo de choke sin intervención de pozo (wireline)</li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-muted"><i class="fas fa-sliders me-1 text-warning"></i> Optimización telemétrica activa</small>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 pt-2 border-top">
+                                    <div class="text-muted small">
+                                        <strong>Servicio AIC TECH:</strong> Auditorías de aforo con Flexim, soldadura de tomas de gas, montaje de transmisores e integración a PetrolIA.
+                                    </div>
+                                    <button type="button" class="btn-tech-outline px-4 py-2" onclick="scrollToService('servicio-flexim')">
+                                        Ver Servicio Flexim en Acción ➔
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- ÁREA 3: SEPARADORES DE PRODUCCIÓN Y PRUEBA -->
+                            <div class="process-area-card reveal-on-scroll reveal-up" data-category="separadores">
+                                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-2">
+                                    <span class="area-header-badge"><i class="fas fa-filter me-1"></i> ÁREA 03 • PROCESO UPSTREAM</span>
+                                    <span class="badge bg-light text-dark border"><i class="fas fa-tag text-primary me-1"></i> Production &amp; Test Separators</span>
+                                </div>
+                                <h3 class="fw-bold text-dark fs-4 mb-2">Separadores de Producción (Bifásicos y Trifásicos)</h3>
+                                <div class="area-challenge-box">
+                                    <strong><i class="fas fa-circle-exclamation text-primary me-1"></i> Desafío Operacional:</strong> Recepción y segregación de tres fases (petróleo, agua y gas). Si el control de interfase falla, se produce arrastre de crudo en la línea de agua de descarte o arrastre de líquido en los compresores de gas. La sedimentación de arena satura el volumen útil de la vasija y atasca válvulas.
+                                </div>
+
+                                <div class="instrument-grid">
+                                    <div class="instrument-subcard">
+                                        <div>
+                                            <span class="instrument-brand-tag">ROSEMOUNT™</span>
+                                            <div class="instrument-name">Radar de Onda Guiada 5300 &amp; 9930</div>
+                                            <ul class="instrument-features">
+                                                <li>Medición continua y simultánea de nivel total e interfase</li>
+                                                <li>Certificación de seguridad funcional SIL 2</li>
+                                                <li>Inmune a condensados, espuma y cambios de densidad</li>
+                                                <li>Indicador magnético 9930 para verificación visual en sitio</li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-muted"><i class="fas fa-layer-group me-1 text-primary"></i> Control riguroso de interfase agua-aceite</small>
+                                    </div>
+
+                                    <div class="instrument-subcard">
+                                        <div>
+                                            <span class="instrument-brand-tag">ROSEMOUNT™</span>
+                                            <div class="instrument-name">Interruptor de Horquilla 2140</div>
+                                            <ul class="instrument-features">
+                                                <li>Diferencia con precisión entre agua y arena acumulada</li>
+                                                <li>Detección temprana de acumulación de sedimentos en fondo</li>
+                                                <li>Alerta programada para apertura de purgas y desarenado</li>
+                                                <li>Previene taponamiento de las líneas de descarga</li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-muted"><i class="fas fa-exclamation-triangle me-1 text-warning"></i> Alerta temprana de sedimentación</small>
+                                    </div>
+
+                                    <div class="instrument-subcard">
+                                        <div>
+                                            <span class="instrument-brand-tag">MICRO MOTION™</span>
+                                            <div class="instrument-name">Coriolis F-Series (Pierna de Petróleo)</div>
+                                            <ul class="instrument-features">
+                                                <li>Transmisor 4700 con APM (Medición Avanzada de Fases)</li>
+                                                <li>Detecta gas entrampado y cuantifica arrastre de agua</li>
+                                                <li>Medición másica ultraestable para crudo pesado y liviano</li>
+                                                <li>Conectividad Bluetooth® para calibración de campo</li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-muted"><i class="fas fa-tint me-1 text-success"></i> Medición limpia en descarga de crudo</small>
+                                    </div>
+
+                                    <div class="instrument-subcard">
+                                        <div>
+                                            <span class="instrument-brand-tag">EMERSON™ &amp; FLEXIM™</span>
+                                            <div class="instrument-name">Magmeter Serie 9000 &amp; Flexim F731PW</div>
+                                            <ul class="instrument-features">
+                                                <li>Medición continua del caudal de agua de producción</li>
+                                                <li>Transmisor Rosemount 9732 con sensor electromagnético 9205</li>
+                                                <li>Alternativa Flexim F731PW ultrasónica permanente clamp-on</li>
+                                                <li>Monitoreo acústico Rosemount 708 en válvulas de alivio PRV</li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-muted"><i class="fas fa-water me-1 text-info"></i> Cumplimiento ambiental y balance hídrico</small>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 pt-2 border-top">
+                                    <div class="text-muted small">
+                                        <strong>Servicio AIC TECH:</strong> Fabricación metalmecánica de patines de prueba, pruebas hidrostáticas a 15,000 PSI y montaje de instrumentación.
+                                    </div>
+                                    <button type="button" class="btn-tech-outline px-4 py-2" onclick="scrollToService('servicio-bifasico-trifasico')">
+                                        Ver Servicios de Separación ➔
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- ÁREA 4: TRATADORES TÉRMICOS Y CALENTADORES -->
+                            <div class="process-area-card reveal-on-scroll reveal-up" data-category="calentadores">
+                                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-2">
+                                    <span class="area-header-badge"><i class="fas fa-fire me-1"></i> ÁREA 04 • PROCESO UPSTREAM</span>
+                                    <span class="badge bg-light text-dark border"><i class="fas fa-tag text-primary me-1"></i> Heater Treaters &amp; Thermal Separation</span>
+                                </div>
+                                <h3 class="fw-bold text-dark fs-4 mb-2">Tratadores Térmicos y Calentadores de Crudo</h3>
+                                <div class="area-challenge-box">
+                                    <strong><i class="fas fa-circle-exclamation text-primary me-1"></i> Desafío Operacional:</strong> Vasijas a presión equipadas con tubos de fuego (firetubes) para romper emulsiones rebeldes mediante calor controlado. Un control térmico deficiente genera sobreconsumo de gas combustible, degradación del crudo o aperturas imprevistas de válvulas de seguridad con pérdidas económicas y emisiones a la atmósfera.
+                                </div>
+
+                                <div class="instrument-grid">
+                                    <div class="instrument-subcard">
+                                        <div>
+                                            <span class="instrument-brand-tag">ROSEMOUNT™</span>
+                                            <div class="instrument-name">Transmisor 3144S + RTD 214C + 114C</div>
+                                            <ul class="instrument-features">
+                                                <li>Conjunto sensor RTD con termopozo de alta resistencia</li>
+                                                <li>Tecnología ReadyConnect™ para fácil sustitución en campo</li>
+                                                <li>Reconversión automática de 4 a 3 hilos ante daño de cable</li>
+                                                <li>Previene paradas no programadas por rotura de sensor</li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-muted"><i class="fas fa-temperature-high me-1 text-danger"></i> Control térmico continuo sin interrupciones</small>
+                                    </div>
+
+                                    <div class="instrument-subcard">
+                                        <div>
+                                            <span class="instrument-brand-tag">MICRO MOTION™</span>
+                                            <div class="instrument-name">Coriolis F-Series (Fuel Gas)</div>
+                                            <ul class="instrument-features">
+                                                <li>Medición másica del gas combustible de alimentación</li>
+                                                <li>Refleja el verdadero aporte calorífico (energía) del gas</li>
+                                                <li>Inmune a variaciones de densidad o peso molecular</li>
+                                                <li>Transmisor 4700 de fácil integración al SCADA de planta</li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-muted"><i class="fas fa-chart-pie me-1 text-primary"></i> Control de eficiencia energética del quemador</small>
+                                    </div>
+
+                                    <div class="instrument-subcard">
+                                        <div>
+                                            <span class="instrument-brand-tag">ROSEMOUNT™ WIRELESS</span>
+                                            <div class="instrument-name">Transmisor Acústico 708 para PRVs</div>
+                                            <ul class="instrument-features">
+                                                <li>Montaje externo clamp-on en la tubería de descarga de PRV</li>
+                                                <li>Detecta aperturas por sobrepresión y fugas imperceptibles</li>
+                                                <li>Integrado a la app Plantweb Insight™ para cálculo de gas</li>
+                                                <li>Convierte eventos de riesgo en datos numéricos de pérdida</li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-muted"><i class="fas fa-ear-listen me-1 text-warning"></i> Reducción de emisiones y pérdidas de producto</small>
+                                    </div>
+
+                                    <div class="instrument-subcard">
+                                        <div>
+                                            <span class="instrument-brand-tag">ROSEMOUNT™</span>
+                                            <div class="instrument-name">Radar 5300 &amp; Manómetros Digitales</div>
+                                            <ul class="instrument-features">
+                                                <li>Control continuo del lecho de emulsión tratada</li>
+                                                <li>Monitoreo de presión de vasija con Rosemount Wireless Gauge</li>
+                                                <li>Interruptor 2140 para protección de nivel máximo y mínimo</li>
+                                                <li>Robusta construcción apta para alta temperatura ambiental</li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-muted"><i class="fas fa-gauge me-1 text-info"></i> Monitoreo integral de parámetros de proceso</small>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 pt-2 border-top">
+                                    <div class="text-muted small">
+                                        <strong>Servicio AIC TECH:</strong> Soldadura de boquillas y cuellos, montaje de termopozos, conexionado NEMA 7 y comisionamiento de lazos térmicos.
+                                    </div>
+                                    <button type="button" class="btn-tech-outline px-4 py-2" onclick="openPage(6); highlightMenu(6);">
+                                        Solicitar Asesoría de Campo ➔
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- ÁREA 5: TANQUES DE ALMACENAMIENTO DE CRUDO Y AGUA -->
+                            <div class="process-area-card reveal-on-scroll reveal-up" data-category="tanques">
+                                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-2">
+                                    <span class="area-header-badge"><i class="fas fa-database me-1"></i> ÁREA 05 • PROCESO UPSTREAM</span>
+                                    <span class="badge bg-light text-dark border"><i class="fas fa-tag text-primary me-1"></i> Crude Oil &amp; Produced Water Storage</span>
+                                </div>
+                                <h3 class="fw-bold text-dark fs-4 mb-2">Patios de Tanques de Almacenamiento (Crudo y Agua)</h3>
+                                <div class="area-challenge-box">
+                                    <strong><i class="fas fa-circle-exclamation text-primary me-1"></i> Desafío Operacional:</strong> Almacenamiento previo al despacho y tratamiento de agua efluente. Errores de medición conllevan riesgos financieros directos, pérdidas de regalías y contingencias ambientales severas por sobrellenado. Presencia de vapores volátiles, espumas densas, químicos demulsificantes y condiciones meteorológicas adversas.
+                                </div>
+
+                                <div class="instrument-grid">
+                                    <div class="instrument-subcard">
+                                        <div>
+                                            <span class="instrument-brand-tag">ROSEMOUNT™</span>
+                                            <div class="instrument-name">Radar Sin Contacto 3408</div>
+                                            <ul class="instrument-features">
+                                                <li>Tecnología de onda continua con <em>Smart Echo Supervision™</em></li>
+                                                <li>Excelente rendimiento ante vapores densos, espuma y turbulencia</li>
+                                                <li>Instalación superior sin contacto con el producto químico</li>
+                                                <li>Sin partes móviles ni riesgo de ensuciamiento de sonda</li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-muted"><i class="fas fa-wifi me-1 text-primary"></i> Aforo confiable de nivel total</small>
+                                    </div>
+
+                                    <div class="instrument-subcard">
+                                        <div>
+                                            <span class="instrument-brand-tag">ROSEMOUNT™</span>
+                                            <div class="instrument-name">Radar de Onda Guiada 5300 (Corte)</div>
+                                            <ul class="instrument-features">
+                                                <li>Medición exacta de la interfase agua/aceite de fondo</li>
+                                                <li>Optimización de purgas y drenajes de agua (dewatering)</li>
+                                                <li>Certificación SIL 2 para aplicaciones críticas de seguridad</li>
+                                                <li>Historial trazable de niveles para contabilidad de producción</li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-muted"><i class="fas fa-layer-group me-1 text-info"></i> Control de purga de agua sin pérdida de crudo</small>
+                                    </div>
+
+                                    <div class="instrument-subcard">
+                                        <div>
+                                            <span class="instrument-brand-tag">ROSEMOUNT™ SAFETY</span>
+                                            <div class="instrument-name">Interruptores de Nivel 2120 / 2140</div>
+                                            <ul class="instrument-features">
+                                                <li>Protección independiente contra sobrellenado (Overfill Prevention)</li>
+                                                <li>Enlazado al sistema de Parada de Emergencia (ESD)</li>
+                                                <li>Autodiagnóstico continuo con prueba de pulsos electrónicos</li>
+                                                <li>Inmune a cambios de densidad, conductividad o dieléctrico</li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-muted"><i class="fas fa-shield-halved me-1 text-danger"></i> Protección máxima contra derrames</small>
+                                    </div>
+
+                                    <div class="instrument-subcard">
+                                        <div>
+                                            <span class="instrument-brand-tag">EMERSON™ &amp; FLEXIM™</span>
+                                            <div class="instrument-name">Control de Despacho &amp; Gas de Manto</div>
+                                            <ul class="instrument-features">
+                                                <li>Medidor Coriolis Micro Motion en líneas de venta y achique</li>
+                                                <li>Flexim FLUXUS G731 para gas de manto (blanket gas)</li>
+                                                <li>Transmisor Multivariable 4088 en sistemas de venteo / VRU</li>
+                                                <li>Magmeter Serie 9000 en bombeo de agua salada a inyección</li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-muted"><i class="fas fa-arrows-split-up-and-left me-1 text-success"></i> Monitoreo integral de entradas y salidas</small>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 pt-2 border-top">
+                                    <div class="text-muted small">
+                                        <strong>Servicio AIC TECH:</strong> Montaje de bridas de techo, instalación de transmisores de nivel, pruebas de lazo ESD y calibración de aforo.
+                                    </div>
+                                    <button type="button" class="btn-tech-outline px-4 py-2" onclick="openPage(6); highlightMenu(6);">
+                                        Solicitar Cotización de Radares ➔
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- ÁREA 6: TRANSFERENCIA DE CUSTODIA FISCAL LACT -->
+                            <div class="process-area-card reveal-on-scroll reveal-up" data-category="lact">
+                                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-2">
+                                    <span class="area-header-badge"><i class="fas fa-receipt me-1"></i> ÁREA 06 • PROCESO UPSTREAM</span>
+                                    <span class="badge bg-light text-dark border"><i class="fas fa-tag text-primary me-1"></i> Lease Automatic Custody Transfer</span>
+                                </div>
+                                <h3 class="fw-bold text-dark fs-4 mb-2">Unidades LACT (Transferencia de Custodia Fiscal de Crudo)</h3>
+                                <div class="area-challenge-box">
+                                    <strong><i class="fas fa-circle-exclamation text-primary me-1"></i> Desafío Operacional:</strong> El punto fiscal de mayor impacto financiero en operaciones petroleras: cada barril transferido determina facturación inmediata y regalías. Se requiere precisión absoluta trazable, discriminación instantánea de corte de agua (BSW) y medición continua de densidad API compensada por presión y temperatura.
+                                </div>
+
+                                <div class="instrument-grid">
+                                    <div class="instrument-subcard" style="border-left: 3px solid #003366;">
+                                        <div>
+                                            <span class="instrument-brand-tag" style="background:#dbeafe; color:#003366;">MICRO MOTION™ ELITE</span>
+                                            <div class="instrument-name">Coriolis Fiscal de Máximo Rendimiento</div>
+                                            <ul class="instrument-features">
+                                                <li>Estándar global indiscutido para fiscalización de crudo</li>
+                                                <li>Exactitud de masa líquida de ±0.05% y densidad de ±0.0002 g/cm³</li>
+                                                <li>Transmisor 5700 con algoritmo de Petróleo Neto (Net Oil)</li>
+                                                <li>Detección inmediata de gas entrampado y corte de agua</li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-primary fw-semibold"><i class="fas fa-award me-1"></i> Patrón metrológico certificado API MPMS</small>
+                                    </div>
+
+                                    <div class="instrument-subcard">
+                                        <div>
+                                            <span class="instrument-brand-tag">EMERSON™ SOLUTIONS</span>
+                                            <div class="instrument-name">Skids Integrados LACT Llave en Mano</div>
+                                            <ul class="instrument-features">
+                                                <li>Patines de medición fabricados a medida según especificación</li>
+                                                <li>Incluye lazo de probador (proving loop) y muestreador automático</li>
+                                                <li>Desgasificador integrado, filtros dobles y válvulas de control</li>
+                                                <li>Computador de flujo homologado con registro fiscal seguro</li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-muted"><i class="fas fa-cubes me-1 text-success"></i> Solución completa probada en fábrica</small>
+                                    </div>
+
+                                    <div class="instrument-subcard">
+                                        <div>
+                                            <span class="instrument-brand-tag">ROSEMOUNT™</span>
+                                            <div class="instrument-name">Presión y Temperatura Fiscal (4051S / 3144S)</div>
+                                            <ul class="instrument-features">
+                                                <li>Transmisor de presión 4051S de clase fiscal</li>
+                                                <li>Transmisor de temperatura 3144S con sensor RTD clase A</li>
+                                                <li>Cálculo exacto de factores de corrección por volumen Ctl y Cpl</li>
+                                                <li>Calibración trazable con patrones acreditados de laboratorio</li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-muted"><i class="fas fa-check-double me-1 text-info"></i> Corrección volumétrica según normas internacionales</small>
+                                    </div>
+
+                                    <div class="instrument-subcard">
+                                        <div>
+                                            <span class="instrument-brand-tag">ROSEMOUNT™ WIRELESS</span>
+                                            <div class="instrument-name">Manómetros &amp; Sensores de Verificación</div>
+                                            <ul class="instrument-features">
+                                                <li>Manómetros digitales Rosemount para verificación de bombas</li>
+                                                <li>Detección de diferencial de presión en cestas filtrantes</li>
+                                                <li>Transmisores de interfase y nivel para vasija desaireadora</li>
+                                                <li>Sincronización de datos fiscales hacia sistemas ERP corporativos</li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-muted"><i class="fas fa-desktop me-1 text-warning"></i> Control operativo y auditoría 24/7</small>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 pt-2 border-top">
+                                    <div class="text-muted small">
+                                        <strong>Servicio AIC TECH:</strong> Fabricación metalmecánica de skid LACT, soldadura calificada ASME IX, calibración de lazo y puesta en marcha.
+                                    </div>
+                                    <button type="button" class="btn-tech-outline px-4 py-2" onclick="openPage(6); highlightMenu(6);">
+                                        Consultar Proyectos LACT ➔
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- ÁREA 7: VENTA Y GASODUCTOS DE GAS NATURAL -->
+                            <div class="process-area-card reveal-on-scroll reveal-up" data-category="gas-ventas">
+                                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-2">
+                                    <span class="area-header-badge"><i class="fas fa-network-wired me-1"></i> ÁREA 07 • PROCESO UPSTREAM</span>
+                                    <span class="badge bg-light text-dark border"><i class="fas fa-tag text-primary me-1"></i> Natural Gas Sales to Pipelines</span>
+                                </div>
+                                <h3 class="fw-bold text-dark fs-4 mb-2">Venta de Gas Natural y Gasoductos de Transporte</h3>
+                                <div class="area-challenge-box">
+                                    <strong><i class="fas fa-circle-exclamation text-primary me-1"></i> Desafío Operacional:</strong> La medición fiscal de gas natural rige los contratos de entrega entre operadoras y transportistas midstream. Las transacciones se liquidan por energía entregada (BTU o Joules), por lo que una medición inexacta de volumen o una falla en el análisis cromatográfico genera millones en gas no contabilizado (LAUF - Lost and Unaccounted For Gas).
+                                </div>
+
+                                <div class="instrument-grid">
+                                    <div class="instrument-subcard">
+                                        <div>
+                                            <span class="instrument-brand-tag">ROSEMOUNT™</span>
+                                            <div class="instrument-name">Caudalímetro Ultrasónico Serie 3410</div>
+                                            <ul class="instrument-features">
+                                                <li>Medidor ultrasónico de gas multiruta de alta velocidad</li>
+                                                <li>Compensa automáticamente perturbaciones en el perfil de flujo</li>
+                                                <li>Electrónica avanzada Serie 3410 con diagnóstico predictivo</li>
+                                                <li>Software <em>MeterLink™</em> para detección de fouling o bloqueo</li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-muted"><i class="fas fa-wave-square me-1 text-primary"></i> Estándar de transferencia fiscal de gas AGA 9</small>
+                                    </div>
+
+                                    <div class="instrument-subcard">
+                                        <div>
+                                            <span class="instrument-brand-tag">ROSEMOUNT™ ANALYTICAL</span>
+                                            <div class="instrument-name">Cromatógrafo de Gas 470XA</div>
+                                            <ul class="instrument-features">
+                                                <li>Análisis cromatográfico en línea continuo de gas natural (C6+)</li>
+                                                <li>Cálculo en tiempo real de poder calorífico BTU y factor Z</li>
+                                                <li>Determinación exacta de gravedad específica y contenido de CO₂/N₂</li>
+                                                <li>Liquidación contractual y facturación por energía real</li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-muted"><i class="fas fa-flask-vial me-1 text-success"></i> Análisis continuo conforme a normas GPA / ISO</small>
+                                    </div>
+
+                                    <div class="instrument-subcard">
+                                        <div>
+                                            <span class="instrument-brand-tag">MICRO MOTION™</span>
+                                            <div class="instrument-name">ELITE Coriolis para Gas a Alta Presión</div>
+                                            <ul class="instrument-features">
+                                                <li>Medición directa de caudal másico sin necesidad de computador Z</li>
+                                                <li>Excelente comportamiento en condiciones de alta presión</li>
+                                                <li>Inmune a perturbaciones provocadas por válvulas de control</li>
+                                                <li>Diagnóstico Smart Meter Verification para validación in situ</li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-muted"><i class="fas fa-check-circle me-1 text-info"></i> Comprobación metrológica sin desmontar</small>
+                                    </div>
+
+                                    <div class="instrument-subcard">
+                                        <div>
+                                            <span class="instrument-brand-tag">FLEXIM™</span>
+                                            <div class="instrument-name">FLUXUS G831 (Gasoducto Clamp-On)</div>
+                                            <ul class="instrument-features">
+                                                <li>Medición ultrasónica externa sin despresurizar el gasoducto</li>
+                                                <li>Ideal como medidor de verificación (check meter) de respaldo</li>
+                                                <li>Operativo en gasoductos de hasta 48 pulgadas de diámetro</li>
+                                                <li>Aprobado para atmósferas explosivas Clase I División 1</li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-muted"><i class="fas fa-shield-alt me-1 text-warning"></i> Verificación independiente no intrusiva</small>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 pt-2 border-top">
+                                    <div class="text-muted small">
+                                        <strong>Servicio AIC TECH:</strong> Montaje de puentes de regulación, calibración de cromatógrafos con gases patrón certificados y tendido de gasoductos.
+                                    </div>
+                                    <button type="button" class="btn-tech-outline px-4 py-2" onclick="openPage(6); highlightMenu(6);">
+                                        Consultar Sistemas de Gas ➔
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- ÁREA 8: SEGURIDAD INTEGRAL DE PLANTA E INSTALACIONES -->
+                            <div class="process-area-card reveal-on-scroll reveal-up" data-category="seguridad">
+                                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-2">
+                                    <span class="area-header-badge"><i class="fas fa-shield-heart me-1"></i> ÁREA 08 • SEGURIDAD INDUSTRIAL</span>
+                                    <span class="badge bg-light text-dark border"><i class="fas fa-tag text-primary me-1"></i> Facility-Wide Safety &amp; Gas Detection</span>
+                                </div>
+                                <h3 class="fw-bold text-dark fs-4 mb-2">Seguridad Integral de Planta (Detección de Fuego y Gas)</h3>
+                                <div class="area-challenge-box">
+                                    <strong><i class="fas fa-circle-exclamation text-primary me-1"></i> Desafío Operacional:</strong> Los gases inflamables y letales (como el H₂S) están presentes en cada fase de la explotación. Una fuga no detectada puede derivar en pérdidas de contención catastróficas. Se requiere detección instantánea de fugas presurizadas y fuego, con alta inmunidad a falsas alarmas causadas por radiación solar o trabajos de soldadura.
+                                </div>
+
+                                <div class="instrument-grid">
+                                    <div class="instrument-subcard">
+                                        <div>
+                                            <span class="instrument-brand-tag">ROSEMOUNT™ WIRELESS</span>
+                                            <div class="instrument-name">Monitor de Gas Inalámbrico 928</div>
+                                            <ul class="instrument-features">
+                                                <li>Detección continua de gases tóxicos (H₂S, CO) e hidrocarburos</li>
+                                                <li>Tecnología WirelessHART® con baterías de ultra-larga duración</li>
+                                                <li>Instalación inmediata en áreas remotas sin cableado</li>
+                                                <li>Sensores inteligentes precalibrados intercambiables en caliente</li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-muted"><i class="fas fa-wifi me-1 text-primary"></i> Cobertura rápida de perímetros de riesgo</small>
+                                    </div>
+
+                                    <div class="instrument-subcard">
+                                        <div>
+                                            <span class="instrument-brand-tag">ROSEMOUNT™ ACOUSTIC</span>
+                                            <div class="instrument-name">Detector Ultrasónico de Fugas Incus</div>
+                                            <ul class="instrument-features">
+                                                <li>Escucha el sonido ultrasónico emitido por escapes de gas presurizado</li>
+                                                <li><strong>Inmune al clima:</strong> No depende de que el viento empuje el gas al sensor</li>
+                                                <li>Detecta fugas instantáneamente a decenas de metros de distancia</li>
+                                                <li>Operativo bajo lluvia extrema, viento o niebla densa</li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-muted"><i class="fas fa-ear-listen me-1 text-danger"></i> Detección acústica inmediata de fugas de gas</small>
+                                    </div>
+
+                                    <div class="instrument-subcard">
+                                        <div>
+                                            <span class="instrument-brand-tag">ROSEMOUNT™ FLAME</span>
+                                            <div class="instrument-name">Detector de Llama 975 QuadSense™</div>
+                                            <ul class="instrument-features">
+                                                <li>Matriz de 4 sensores infrarrojos independientes (QuadSense™)</li>
+                                                <li>Detección de fuego de hidrocarburos en fracciones de segundo</li>
+                                                <li><strong>Inmune a falsas alarmas:</strong> No lo activan arcos de soldadura, sol ni relámpagos</li>
+                                                <li>Calefactor de óptica integrado para evitar condensación</li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-muted"><i class="fas fa-fire me-1 text-warning"></i> Confiabilidad extrema para parada de emergencia</small>
+                                    </div>
+
+                                    <div class="instrument-subcard">
+                                        <div>
+                                            <span class="instrument-brand-tag">ROSEMOUNT™ OPTICAL</span>
+                                            <div class="instrument-name">Detectores Open Path 935 / 936</div>
+                                            <ul class="instrument-features">
+                                                <li>Detección de gases inflamables por haz de trayectoria abierta</li>
+                                                <li>Cobertura de hasta 200 metros de línea de vista</li>
+                                                <li>Ideal para linderos de batería de tanques y plantas de gas</li>
+                                                <li>Protección perimetral con mínimo número de dispositivos</li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-muted"><i class="fas fa-arrows-left-right me-1 text-info"></i> Máxima cobertura perimetral en macroperas</small>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 pt-2 border-top">
+                                    <div class="text-muted small">
+                                        <strong>Servicio AIC TECH:</strong> Auditorías de seguridad F&amp;G, instalación de sistemas de alarma sonora/visual y conexionado a tableros ESD.
+                                    </div>
+                                    <button type="button" class="btn-tech-outline px-4 py-2" onclick="openPage(6); highlightMenu(6);">
+                                        Consultar Sistemas de Seguridad F&amp;G ➔
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- SECCIÓN ESPECIAL: SERVICIOS DE INGENIERÍA ESPECIALIZADA, SOLDADURA Y METALMECÁNICA -->
+                            <div class="engineering-special-box reveal-on-scroll reveal-up" data-category="ingenieria" id="area-ingenieria">
+                                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+                                    <span class="badge bg-info bg-opacity-25 text-info px-3 py-1 rounded-pill fw-bold" style="letter-spacing: 0.5px;">
+                                        <i class="fas fa-screwdriver-wrench me-1"></i> CAPACIDAD TÉCNICA E INDUSTRIAL PROPIA
+                                    </span>
+                                    <span class="text-white-50 small">
+                                        <i class="fas fa-certificate text-warning me-1"></i> Procedimientos Calificados ASME IX / AWS D1.1 / API 1104
+                                    </span>
+                                </div>
+
+                                <h2 class="fw-bold text-white display-6 mb-3">Servicios de Ingeniería Especializada, Soldadura y Metalmecánica</h2>
+                                <p class="text-white-50 fs-6 mb-4" style="line-height: 1.7; max-width: 980px;">
+                                    En <strong>AIC TECH, C.A.</strong> ofrecemos un ecosistema integral: no solo suministramos los instrumentos más avanzados del mundo, sino que contamos con <strong>talleres metalmecánicos propios, personal de soldadura homologado e ingenieros de campo</strong> para ejecutar montajes mecánicos, interconexiones de alta presión, tendido de instrumentación y comisionamiento integral de plantas y pozos.
+                                </p>
+
+                                <div class="row g-4 mb-4">
+                                    <!-- Pilar 1: Soldadura Calificada -->
+                                    <div class="col-12 col-md-6 col-lg-3">
+                                        <div class="engineering-pillar-card">
+                                            <div class="pillar-icon-circle">
+                                                <i class="fas fa-fire-burner"></i>
+                                            </div>
+                                            <h4 class="fw-bold text-white fs-5 mb-2">Soldadura Especializada</h4>
+                                            <p class="text-white-50 small mb-3">
+                                                Soldadores calificados y procedimientos homologados bajo códigos <strong>ASME Sección IX, AWS D1.1 y API 1104</strong>.
+                                            </p>
+                                            <ul class="text-white-50 small ps-3 mb-0">
+                                                <li>Procesos TIG (GTAW), SMAW y GMAW</li>
+                                                <li>Líneas de alta presión hasta 15,000 PSI</li>
+                                                <li>Aceros al carbono, 316L, Dúplex y aleaciones</li>
+                                                <li>Inspección NDT: Tintes, Ultrasonido y Rayos X</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <!-- Pilar 2: Fabricación de Skids -->
+                                    <div class="col-12 col-md-6 col-lg-3">
+                                        <div class="engineering-pillar-card">
+                                            <div class="pillar-icon-circle">
+                                                <i class="fas fa-cubes-stacked"></i>
+                                            </div>
+                                            <h4 class="fw-bold text-white fs-5 mb-2">Fabricación de Skids</h4>
+                                            <p class="text-white-50 small mb-3">
+                                                Diseño estructural, ensamblaje y montaje metalmecánico de patines de medición y proceso según norma.
+                                            </p>
+                                            <ul class="text-white-50 small ps-3 mb-0">
+                                                <li>Skids móviles de medición multifásica (MPFM)</li>
+                                                <li>Patines de fiscalización LACT de crudo</li>
+                                                <li>Bypass estructurales y manifolds de prueba</li>
+                                                <li>Granallado (sandblasting) y pintura epóxica marina</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <!-- Pilar 3: Tubing & Instrumentación -->
+                                    <div class="col-12 col-md-6 col-lg-3">
+                                        <div class="engineering-pillar-card">
+                                            <div class="pillar-icon-circle">
+                                                <i class="fas fa-network-wired"></i>
+                                            </div>
+                                            <h4 class="fw-bold text-white fs-5 mb-2">Tubing &amp; Montaje</h4>
+                                            <p class="text-white-50 small mb-3">
+                                                Instalación rigurosa de líneas de señal e instrumentación de campo para ambientes hostiles.
+                                            </p>
+                                            <ul class="text-white-50 small ps-3 mb-0">
+                                                <li>Tendido y doblado de tubing SS 316 (1/4" a 1")</li>
+                                                <li>Montaje de manifolds de 2, 3 y 5 válvulas</li>
+                                                <li>Canalizaciones NEMA 7 / ATEX a prueba de explosión</li>
+                                                <li>Sistemas de sellos remotos y purgas de toma</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <!-- Pilar 4: Calibración & Comisionamiento -->
+                                    <div class="col-12 col-md-6 col-lg-3">
+                                        <div class="engineering-pillar-card">
+                                            <div class="pillar-icon-circle">
+                                                <i class="fas fa-check-double"></i>
+                                            </div>
+                                            <h4 class="fw-bold text-white fs-5 mb-2">Comisionamiento &amp; QA</h4>
+                                            <p class="text-white-50 small mb-3">
+                                                Aseguramiento metrológico y puesta en servicio con presencia de especialistas certificados 24/7.
+                                            </p>
+                                            <ul class="text-white-50 small ps-3 mb-0">
+                                                <li>Pruebas hidrostáticas certificadas hasta 15,000 PSI</li>
+                                                <li>Calibración HART® / AMS Trex en campo</li>
+                                                <li>Pruebas funcionales de lazo (Loop Check)</li>
+                                                <li>Integración telemétrica directa a PetrolIA</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="p-3 rounded-3 d-flex justify-content-between align-items-center flex-wrap gap-3" style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15);">
+                                    <div>
+                                        <div class="text-white fw-bold fs-6">¿Requiere proyectos metalmecánicos o soldadura calificada en sus instalaciones?</div>
+                                        <small class="text-white-50">Nuestro equipo de ingenieros y soldadores homologados se despliega en cualquier campo o refinería nacional.</small>
+                                    </div>
+                                    <button type="button" class="btn-tech px-4 py-2" onclick="openPage(6); highlightMenu(6);" style="font-size: 0.95rem;">
+                                        Contactar a Ingeniería AIC TECH ➔
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- BANNER FINAL: ATENCIÓN TÉCNICA Y COTIZACIONES -->
+                            <div class="catalog-hero-box text-center reveal-on-scroll reveal-up">
+                                <span class="area-header-badge mb-2"><i class="fas fa-headset me-1"></i> ASESORÍA Y SUMINISTRO TÉCNICO</span>
+                                <h3 class="fw-bold text-dark fs-4 mb-2">¿Necesita Instrumentación Emerson o Servicios de Soldadura para su Proyecto?</h3>
+                                <p class="text-muted mx-auto mb-4" style="max-width: 720px; font-size: 0.95rem;">
+                                    Consulte con nuestros ingenieros de aplicaciones para dimensionar la instrumentación exacta de su pozo, separador o gasoducto, o solicite presupuesto para fabricación de skids y soldadura calificada.
+                                </p>
+                                <div class="d-flex justify-content-center flex-wrap gap-3">
+                                    <button type="button" class="btn-tech px-4 py-2 fw-semibold" onclick="openPage(6); highlightMenu(6);">
+                                        <i class="fas fa-envelope me-1"></i> Contactar a Ventas Técnicas
+                                    </button>
+                                    <a href="https://wa.me/584148366073?text=Hola,%20deseo%20información%20sobre%20instrumentación%20Emerson%20y%20servicios%20de%20ingeniería%20AIC%20TECH" target="_blank" class="btn-tech-outline px-4 py-2 fw-semibold text-decoration-none">
+                                        <i class="fab fa-whatsapp me-1 text-success"></i> WhatsApp Directo (+58 414 8366073)
+                                    </a>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </li>
@@ -4103,5 +5124,92 @@
         }
     });
 </script>
+
+<!-- MODAL DE VIDEO ECHOMETER PANTALLA COMPLETA -->
+<div id="video-modal-echometer" class="service-modal" onclick="if(event.target===this) closeEchometerVideoModal()">
+    <div class="video-modal-dialog" style="max-width: 950px;">
+        <div class="p-3 d-flex justify-content-between align-items-center" style="background: rgba(3, 12, 34, 0.95); border-bottom: 1px solid rgba(56, 182, 255, 0.3);">
+            <div class="d-flex align-items-center gap-2">
+                <span class="live-dot"></span>
+                <span class="text-white fw-bold fs-6"><i class="fas fa-bullseye text-info me-1"></i> Echometer Gas Gun &amp; Diagnóstico Acústico en Pozo</span>
+            </div>
+            <button type="button" class="btn btn-sm text-white" onclick="closeEchometerVideoModal()" style="font-size: 1.3rem; line-height: 1;">&times;</button>
+        </div>
+        <div class="position-relative" style="background: #000; min-height: 420px; display: flex; align-items: center; justify-content: center;">
+            <video id="echometer-modal-video" controls playsinline style="width: 100%; max-height: 75vh; object-fit: contain; background: #000;">
+                <source src="video/echometer.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="p-3 d-flex justify-content-between align-items-center flex-wrap gap-2" style="background: rgba(3, 12, 34, 0.95); border-top: 1px solid rgba(255, 255, 255, 0.1);">
+            <small class="text-white-50"><i class="fas fa-check-circle text-info me-1"></i> Visualización completa sin recortes del disparo acústico y nivel de fluido en boca de pozo</small>
+            <button type="button" class="btn btn-sm btn-outline-light px-3 py-1" onclick="closeEchometerVideoModal()">Cerrar</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Filtro interactivo de catálogo de productos
+    function filterCatalog(category, btnElem) {
+        // Actualizar botones de filtro
+        document.querySelectorAll('.catalog-filter-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        if (btnElem) {
+            btnElem.classList.add('active');
+        }
+
+        // Filtrar tarjetas
+        const cards = document.querySelectorAll('.process-area-card, .engineering-special-box');
+        cards.forEach(card => {
+            const cardCat = card.getAttribute('data-category');
+            if (category === 'all' || cardCat === category) {
+                card.style.display = 'block';
+                card.classList.add('is-revealed');
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        // Desplazamiento suave hacia la primera tarjeta si es filtro individual
+        if (category !== 'all') {
+            const firstVisible = Array.from(cards).find(c => c.style.display !== 'none');
+            if (firstVisible) {
+                firstVisible.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    }
+
+    // Modal de Video HD de Echometer
+    function openEchometerVideoModal() {
+        const modal = document.getElementById('video-modal-echometer');
+        const modalVideo = document.getElementById('echometer-modal-video');
+        const mainVideo = document.getElementById('echometer-main-video');
+        if (mainVideo && !mainVideo.paused) {
+            try { mainVideo.pause(); } catch(e) {}
+        }
+        if (modal) {
+            modal.classList.add('active');
+            if (modalVideo) {
+                modalVideo.currentTime = 0;
+                modalVideo.play().catch(e => console.log(e));
+            }
+        }
+    }
+
+    function closeEchometerVideoModal() {
+        const modal = document.getElementById('video-modal-echometer');
+        const modalVideo = document.getElementById('echometer-modal-video');
+        if (modal) {
+            modal.classList.remove('active');
+            if (modalVideo) {
+                modalVideo.pause();
+            }
+        }
+        if (typeof syncServiceVideosOnPage === 'function') {
+            syncServiceVideosOnPage();
+        }
+    }
+</script>
+
 </body>
 </html>

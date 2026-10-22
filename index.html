@@ -2333,42 +2333,100 @@
 
         /* Bloque de Servicios de Ingeniería y Soldadura */
         .engineering-special-box {
-            background: linear-gradient(145deg, #071936 0%, #030d22 100%);
+            background: #ffffff;
             border-radius: 14px;
-            border: 1px solid rgba(56, 182, 255, 0.35);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
-            color: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-top: 5px solid var(--brand-blue);
+            box-shadow: 0 14px 35px rgba(0, 0, 0, 0.07);
+            color: var(--text-dark);
             padding: 2.5rem 2.2rem;
             margin-bottom: 2.5rem;
         }
 
         .engineering-pillar-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
             border-radius: 10px;
-            padding: 18px 20px;
+            padding: 20px 22px;
             height: 100%;
             transition: all 0.3s ease;
+            color: #1e293b;
         }
 
         .engineering-pillar-card:hover {
-            background: rgba(255, 255, 255, 0.09);
-            border-color: rgba(56, 182, 255, 0.6);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+            background: #ffffff;
+            border-color: #0284c7;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(2, 132, 199, 0.12);
         }
 
         .pillar-icon-circle {
-            width: 44px;
-            height: 44px;
-            border-radius: 10px;
-            background: rgba(56, 182, 255, 0.15);
-            color: #38b6ff;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(0, 51, 102, 0.08);
+            color: var(--brand-blue);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.25rem;
+            font-size: 1.35rem;
             margin-bottom: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .engineering-pillar-card:hover .pillar-icon-circle {
+            background: linear-gradient(135deg, var(--brand-blue) 0%, #0284c7 100%);
+            color: #ffffff;
+            box-shadow: 0 6px 16px rgba(0, 51, 102, 0.25);
+        }
+
+        /* Emerson Product Card Enhancements */
+        .emerson-product-item {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 18px 20px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .emerson-product-item:hover {
+            border-color: #38b6ff;
+            box-shadow: 0 10px 24px rgba(14, 58, 122, 0.10);
+            transform: translateY(-3px);
+            background: #fafcff;
+        }
+
+        .emerson-prod-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .emerson-prod-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, rgba(0, 51, 102, 0.08) 0%, rgba(56, 182, 255, 0.12) 100%);
+            color: var(--brand-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15rem;
+            flex-shrink: 0;
+            border: 1px solid rgba(0, 51, 102, 0.1);
+        }
+
+        .emerson-product-item:hover .emerson-prod-icon {
+            background: linear-gradient(135deg, var(--brand-blue) 0%, #0284c7 100%);
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 51, 102, 0.2);
         }
     
     </style>
@@ -2830,8 +2888,8 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="roxar-media-box position-relative" style="background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%); min-height: 240px; border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 12px; overflow: hidden;">
-                                                        <img src="img/flexim-1.jpg" onerror="this.src='img/gallery-img-03.jpg'" style="max-height: 215px; width: 100%; object-fit: contain; filter: drop-shadow(0 6px 14px rgba(0,0,0,0.12));" alt="Caudalímetro Ultrasónico Flexim Clamp-On">
+                                                    <div class="roxar-media-box position-relative" style="background: #ffffff; min-height: 330px; height: 330px; border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 12px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
+                                                        <img src="img/flexim-1.jpg" onerror="this.src='img/gallery-img-03.jpg'" style="max-height: 310px; width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 8px 22px rgba(0,0,0,0.12));" alt="Caudalímetro Ultrasónico Flexim Clamp-On">
                                                     </div>
                                                 </div>
                                                 <div class="mt-2">
@@ -2942,8 +3000,8 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="roxar-media-box text-center" style="background: linear-gradient(145deg, #ffffff 0%, #edf2f7 100%); min-height: 250px; border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 8px; overflow: hidden;">
-                                                        <img src="img/echometer-1.jpg" onerror="this.src='img/gallery-img-04.jpg'" style="max-height: 235px; width: 95%; object-fit: contain; filter: drop-shadow(0 8px 18px rgba(0,0,0,0.18));" alt="Diagnóstico Acústico Echometer">
+                                                    <div class="roxar-media-box text-center" style="background: #ffffff; min-height: 330px; height: 330px; border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 10px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
+                                                        <img src="img/echometer-1.jpg" onerror="this.src='img/gallery-img-04.jpg'" style="max-height: 315px; width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 8px 22px rgba(0,0,0,0.15));" alt="Diagnóstico Acústico Echometer">
                                                     </div>
                                                 </div>
                                                 <div class="mt-2">
@@ -2974,17 +3032,311 @@
                                                         <span><strong>Reporte Dinámico:</strong> Cálculos automáticos de gradiente de gas libre y columna hidrostática anular.</span>
                                                     </div>
 
-                                                    <div class="roxar-media-box position-relative" style="background: radial-gradient(circle at center, #11346d 0%, #040c1e 100%); min-height: 250px; border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 10px; overflow: hidden;">
-                                                        <img src="img/echometer-2.png" alt="Echometer en Campo" style="max-height: 200px; width: auto; object-fit: contain; opacity: 0.95; filter: drop-shadow(0 8px 20px rgba(0,0,0,0.4)); margin-bottom: 25px;">
-                                                        <div class="position-absolute bottom-0 start-0 w-100 p-2 text-center" style="background: rgba(3, 11, 28, 0.85); border-top: 1px solid rgba(255,255,255,0.1);">
-                                                            <small class="text-white fw-bold"><i class="fas fa-check-circle text-warning me-1"></i> Diagnóstico en Tiempo Real para Todo Método de Producción</small>
+                                                    <div class="roxar-media-box position-relative" style="background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); min-height: 330px; height: 330px; border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 10px 10px 42px 10px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
+                                                        <img src="img/echometer-2.png" alt="Echometer en Campo" style="max-height: 275px; width: 100%; height: 100%; object-fit: contain; opacity: 0.98; filter: drop-shadow(0 10px 24px rgba(0, 51, 102, 0.18));">
+                                                        <div class="position-absolute bottom-0 start-0 w-100 p-2 text-center" style="background: rgba(241, 245, 249, 0.96); border-top: 1px solid #cbd5e1;">
+                                                            <small class="text-dark fw-bold"><i class="fas fa-check-circle text-primary me-1"></i> Diagnóstico en Tiempo Real para Todo Método de Producción</small>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="mt-2">
-                                                    <button type="button" class="roxar-action-btn" onclick="openPage(3); highlightMenu(3);">
-                                                        <i class="fas fa-satellite-dish"></i>
-                                                        <span>Ver Datos en Centro de Control PetrolIA</span>
+                                                    <button type="button" class="roxar-action-btn" onclick="scrollToService('servicio-trasegado')">
+                                                        <i class="fas fa-chevron-circle-down"></i>
+                                                        <span>Continuar con Trasegado o Acarreo de Fluidos</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- 5. SERVICIO: TRASEGADO O ACARREO DE FLUIDOS -->
+                            <article class="roxar-showcase-container reveal-on-scroll reveal-up mt-4" id="servicio-trasegado">
+                                <!-- Banner Superior -->
+                                <div class="roxar-hero-banner" style="background: linear-gradient(135deg, #0b2246 0%, #030d22 100%);">
+                                    <div class="roxar-video-overlay" style="background: linear-gradient(180deg, rgba(3, 11, 28, 0.45) 0%, rgba(5, 18, 48, 0.85) 100%);"></div>
+                                    <div class="roxar-hero-content">
+                                        <div class="roxar-tag">
+                                            <i class="fas fa-truck-droplet me-1"></i> 05. TRANSPORTE Y MANEJO DE FLUIDOS
+                                        </div>
+                                        <h2 class="roxar-title">Trasegado o Acarreo de Fluidos</h2>
+                                        <p class="roxar-lead-text">
+                                            Transporte, manejo y transferencia segura de crudo, emulsiones, agua de producción y condensados entre pozos, baterías de recolección y estaciones de flujo, respaldado con flota pesada especializada, bombas de transferencia de alto caudal y tanques portátiles de 500 Bls.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Sección Inferior: 2 Paneles Lado a Lado -->
+                                <div class="roxar-dual-section">
+                                    <div class="row g-4">
+                                        <!-- Panel Izquierdo: Flota Pesada y Unidades de Carretera -->
+                                        <div class="col-12 col-lg-6 reveal-on-scroll reveal-from-left">
+                                            <div class="roxar-panel-card">
+                                                <div>
+                                                    <span class="roxar-panel-badge"><i class="fas fa-truck-moving me-1"></i> LOGÍSTICA &amp; FLOTA PESADA CERTIFICADA</span>
+                                                    <h3 class="roxar-panel-title">Acarreo Especializado de Hidrocarburos</h3>
+                                                    <p class="roxar-panel-desc">
+                                                        Unidades de carga pesada acondicionadas y certificadas bajo estrictas normas de seguridad industrial y ambiental para movilización continua de hidrocarburos y efluentes.
+                                                    </p>
+
+                                                    <div class="row g-2 mb-3">
+                                                        <div class="col-4">
+                                                            <div class="service-kpi-box py-2">
+                                                                <div class="service-kpi-val fs-5">Chutos</div>
+                                                                <div class="service-kpi-label" style="font-size:0.68rem;">Con Batea y Cisterna</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <div class="service-kpi-box py-2">
+                                                                <div class="service-kpi-val fs-5">Vacuum</div>
+                                                                <div class="service-kpi-label" style="font-size:0.68rem;">Succión &amp; Limpieza</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <div class="service-kpi-box py-2">
+                                                                <div class="service-kpi-val fs-5">24/7</div>
+                                                                <div class="service-kpi-label" style="font-size:0.68rem;">Despliegue Continuo</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="roxar-media-box position-relative" style="background: #ffffff; min-height: 280px; height: 280px; border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 10px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
+                                                        <img src="img/home-img-1.jpg" onerror="this.src='img/gallery-img-01.jpg'" style="max-height: 260px; width: 100%; height: 100%; object-fit: cover; border-radius: 6px;" alt="Acarreo y Trasegado de Fluidos AIC TECH">
+                                                    </div>
+                                                </div>
+                                                <div class="mt-2">
+                                                    <button type="button" class="btn-tech-outline w-100 py-2 fw-semibold" onclick="scrollToService('servicio-soldadura-taller')">
+                                                        <i class="fas fa-arrow-down me-1"></i> Siguiente Servicio: Soldadura y Fabricación
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Panel Derecho: Bombas de Transferencia y Tanques de 500 Bls -->
+                                        <div class="col-12 col-lg-6 reveal-on-scroll reveal-from-right">
+                                            <div class="roxar-panel-card">
+                                                <div>
+                                                    <span class="roxar-panel-badge"><i class="fas fa-database me-1"></i> BOMBEO &amp; ALMACENAMIENTO TEMPORAL</span>
+                                                    <h3 class="roxar-panel-title">Bombas de Transferencia &amp; Tanques de 500 Bls</h3>
+                                                    <p class="roxar-panel-desc">
+                                                        Infraestructura móvil de soporte operacional diseñada para pruebas prolongadas de pozos, desahogo de tanques de superficie y contingencias operativas.
+                                                    </p>
+
+                                                    <div class="tech-list-item mb-2">
+                                                        <span><strong>Bombas de Transferencia:</strong> Equipos de alto caudal (bombas centrífugas, de tornillo y desplazamiento positivo) para crudos pesados, medianos y livianos.</span>
+                                                    </div>
+                                                    <div class="tech-list-item mb-2">
+                                                        <span><strong>Tanques de 500 Bls:</strong> Tanques móviles cilíndricos horizontales para almacenamiento temporal, aforo volumétrico y separación primaria.</span>
+                                                    </div>
+                                                    <div class="tech-list-item mb-3">
+                                                        <span><strong>Mangueras &amp; Accesorios:</strong> Líneas flexibles certificadas de alta presión resistentes a hidrocarburos y acoples rápidos herméticos.</span>
+                                                    </div>
+
+                                                    <div class="roxar-media-box position-relative" style="background: #ffffff; min-height: 220px; height: 220px; border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 10px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
+                                                        <img src="img/gallery-img-01.jpg" onerror="this.src='img/aic.jpg'" style="max-height: 200px; width: 100%; height: 100%; object-fit: cover; border-radius: 6px;" alt="Tanques y Bombas de Transferencia">
+                                                    </div>
+                                                </div>
+                                                <div class="mt-2">
+                                                    <button type="button" class="roxar-action-btn" onclick="scrollToService('servicio-soldadura-taller')">
+                                                        <i class="fas fa-chevron-circle-down"></i>
+                                                        <span>Continuar con Soldadura y Fabricación en Taller y Sitio</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- 6. SERVICIO: SOLDADURA Y FABRICACIÓN EN TALLER Y EN SITIO -->
+                            <article class="roxar-showcase-container reveal-on-scroll reveal-up mt-4" id="servicio-soldadura-taller">
+                                <!-- Banner Superior -->
+                                <div class="roxar-hero-banner" style="background: linear-gradient(135deg, #0e3a7a 0%, #021a38 100%);">
+                                    <div class="roxar-video-overlay" style="background: linear-gradient(180deg, rgba(3, 11, 28, 0.45) 0%, rgba(5, 18, 48, 0.85) 100%);"></div>
+                                    <div class="roxar-hero-content">
+                                        <div class="roxar-tag">
+                                            <i class="fas fa-fire-burner me-1"></i> 06. INGENIERÍA METALMECÁNICA &amp; FABRICACIÓN
+                                        </div>
+                                        <h2 class="roxar-title">Servicio de Soldadura y Fabricación en Taller y en Sitio</h2>
+                                        <p class="roxar-lead-text">
+                                            Fabricación metalmecánica, reparación estructural, ensamble de líneas de alta presión y spooling de tuberías bajo normas internacionales ASME Sección IX, AWS D1.1 y API 1104, con talleres en Anaco y cuadrillas especializadas para ejecución directa en sitio.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Sección Inferior: 2 Paneles Lado a Lado -->
+                                <div class="roxar-dual-section">
+                                    <div class="row g-4">
+                                        <!-- Panel Izquierdo: Soldadura Calificada -->
+                                        <div class="col-12 col-lg-6 reveal-on-scroll reveal-from-left">
+                                            <div class="roxar-panel-card">
+                                                <div>
+                                                    <span class="roxar-panel-badge"><i class="fas fa-certificate me-1"></i> PROCEDIMIENTOS HOMOLOGADOS WPS / PQR</span>
+                                                    <h3 class="roxar-panel-title">Soldadura Especializada de Alta Presión</h3>
+                                                    <p class="roxar-panel-desc">
+                                                        Soldadores calificados en procesos TIG (GTAW), SMAW y GMAW para líneas de proceso, manifolds de recolección y tuberías sometidas a severas exigencias de presión.
+                                                    </p>
+
+                                                    <div class="row g-2 mb-3">
+                                                        <div class="col-4">
+                                                            <div class="service-kpi-box py-2">
+                                                                <div class="service-kpi-val fs-5">15k PSI</div>
+                                                                <div class="service-kpi-label" style="font-size:0.68rem;">Líneas de Presión</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <div class="service-kpi-box py-2">
+                                                                <div class="service-kpi-val fs-5">ASME IX</div>
+                                                                <div class="service-kpi-label" style="font-size:0.68rem;">AWS / API 1104</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <div class="service-kpi-box py-2">
+                                                                <div class="service-kpi-val fs-5">NDT</div>
+                                                                <div class="service-kpi-label" style="font-size:0.68rem;">Ensayos No Destructivos</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="roxar-media-box position-relative" style="background: #ffffff; min-height: 280px; height: 280px; border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 10px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
+                                                        <img src="img/multifasico-1.jpg" onerror="this.src='img/aic.jpg'" style="max-height: 260px; width: 100%; height: 100%; object-fit: cover; border-radius: 6px;" alt="Soldadura Calificada en Taller y Campo">
+                                                    </div>
+                                                </div>
+                                                <div class="mt-2">
+                                                    <button type="button" class="btn-tech-outline w-100 py-2 fw-semibold" onclick="scrollToService('servicio-asistencia-tecnica')">
+                                                        <i class="fas fa-arrow-down me-1"></i> Siguiente Servicio: Asistencia Técnica Industrial
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Panel Derecho: Fabricación de Skids y Sandblasting -->
+                                        <div class="col-12 col-lg-6 reveal-on-scroll reveal-from-right">
+                                            <div class="roxar-panel-card">
+                                                <div>
+                                                    <span class="roxar-panel-badge"><i class="fas fa-cubes-stacked me-1"></i> METALMECÁNICA &amp; TRATAMIENTO SUPERFICIAL</span>
+                                                    <h3 class="roxar-panel-title">Fabricación de Skids, Spooling &amp; Sandblasting</h3>
+                                                    <p class="roxar-panel-desc">
+                                                        Ensamblaje de estructuras portantes, patines de medición, separadores, cabezales de pozo y tratamiento anticorrosivo de alta durabilidad en taller propio.
+                                                    </p>
+
+                                                    <div class="tech-list-item mb-2">
+                                                        <span><strong>Fabricación de Skids:</strong> Diseño y construcción estructural de patines de prueba, skids LACT y puentes de regulación de flujo.</span>
+                                                    </div>
+                                                    <div class="tech-list-item mb-2">
+                                                        <span><strong>Sandblasting &amp; Pintura:</strong> Limpieza abrasiva y aplicación de esquemas de pintura epóxica marina de alta resistencia química e intemperie.</span>
+                                                    </div>
+                                                    <div class="tech-list-item mb-3">
+                                                        <span><strong>Pruebas Hidrostáticas:</strong> Presurización y registro certificado de estanqueidad hasta 15,000 PSI con cartas Barton trazables.</span>
+                                                    </div>
+
+                                                    <div class="roxar-media-box position-relative" style="background: #ffffff; min-height: 220px; height: 220px; border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 10px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
+                                                        <img src="img/home-img-2.jpg" onerror="this.src='img/trifasico-3d.jpg'" style="max-height: 200px; width: 100%; height: 100%; object-fit: cover; border-radius: 6px;" alt="Fabricación de Skids y Metalmecánica">
+                                                    </div>
+                                                </div>
+                                                <div class="mt-2">
+                                                    <button type="button" class="roxar-action-btn" onclick="scrollToService('servicio-asistencia-tecnica')">
+                                                        <i class="fas fa-chevron-circle-down"></i>
+                                                        <span>Continuar con Asistencia Técnica en Servicios Industriales</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- 7. SERVICIO: ASISTENCIA TÉCNICA EN SERVICIOS INDUSTRIALES -->
+                            <article class="roxar-showcase-container reveal-on-scroll reveal-up mt-4" id="servicio-asistencia-tecnica">
+                                <!-- Banner Superior -->
+                                <div class="roxar-hero-banner" style="background: linear-gradient(135deg, #021a38 0%, #073b6c 100%);">
+                                    <div class="roxar-video-overlay" style="background: linear-gradient(180deg, rgba(3, 11, 28, 0.45) 0%, rgba(5, 18, 48, 0.85) 100%);"></div>
+                                    <div class="roxar-hero-content">
+                                        <div class="roxar-tag">
+                                            <i class="fas fa-screwdriver-wrench me-1"></i> 07. SOPORTE DE CAMPO &amp; AUTOMATIZACIÓN
+                                        </div>
+                                        <h2 class="roxar-title">Asistencia Técnica en Servicios Industriales</h2>
+                                        <p class="roxar-lead-text">
+                                            Servicios especializados de ingeniería, automatización, instrumentación, electricidad industrial, mantenimiento de sistemas y proyectos llave en mano para optimizar el rendimiento y la disponibilidad operativa en pozos, estaciones y plantas.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Sección Inferior: 2 Paneles Lado a Lado -->
+                                <div class="roxar-dual-section">
+                                    <div class="row g-4">
+                                        <!-- Panel Izquierdo: Instrumentación y Control -->
+                                        <div class="col-12 col-lg-6 reveal-on-scroll reveal-from-left">
+                                            <div class="roxar-panel-card">
+                                                <div>
+                                                    <span class="roxar-panel-badge"><i class="fas fa-microchip me-1"></i> AUTOMATIZACIÓN &amp; CONTROL DE PROCESOS</span>
+                                                    <h3 class="roxar-panel-title">Instrumentación, Calibración &amp; Lazos de Control</h3>
+                                                    <p class="roxar-panel-desc">
+                                                        Comisionamiento y calibración metrológica en campo con comunicadores HART 475 y AMS Trex, verificación de lazos de control (Loop Check) y canalizaciones en áreas clasificadas.
+                                                    </p>
+
+                                                    <div class="row g-2 mb-3">
+                                                        <div class="col-4">
+                                                            <div class="service-kpi-box py-2">
+                                                                <div class="service-kpi-val fs-5">HART/Trex</div>
+                                                                <div class="service-kpi-label" style="font-size:0.68rem;">Calibración de Campo</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <div class="service-kpi-box py-2">
+                                                                <div class="service-kpi-val fs-5">NEMA 7</div>
+                                                                <div class="service-kpi-label" style="font-size:0.68rem;">Clase I Div 1/2</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <div class="service-kpi-box py-2">
+                                                                <div class="service-kpi-val fs-5">24/7</div>
+                                                                <div class="service-kpi-label" style="font-size:0.68rem;">Soporte en Sitio</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="roxar-media-box position-relative" style="background: #ffffff; min-height: 280px; height: 280px; border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 10px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
+                                                        <img src="img/aic.jpg" onerror="this.src='img/gallery-img-02.jpg'" style="max-height: 260px; width: 100%; height: 100%; object-fit: cover; border-radius: 6px;" alt="Asistencia Técnica e Instrumentación AIC TECH">
+                                                    </div>
+                                                </div>
+                                                <div class="mt-2">
+                                                    <button type="button" class="btn-tech-outline w-100 py-2 fw-semibold" onclick="openPage(5); highlightMenu(5);">
+                                                        <i class="fas fa-boxes-stacked me-1"></i> Explorar Catálogo de Productos EMERSON
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Panel Derecho: Mantenimiento y Proyectos Llave en Mano -->
+                                        <div class="col-12 col-lg-6 reveal-on-scroll reveal-from-right">
+                                            <div class="roxar-panel-card">
+                                                <div>
+                                                    <span class="roxar-panel-badge"><i class="fas fa-clipboard-check me-1"></i> MANTENIMIENTO INTEGRAL &amp; LLAVE EN MANO</span>
+                                                    <h3 class="roxar-panel-title">Mantenimiento de Sistemas &amp; Acondicionamiento</h3>
+                                                    <p class="roxar-panel-desc">
+                                                        Mantenimiento preventivo y correctivo de facilidades de superficie, sistemas de parada de emergencia (ESD), detección de fuego y gas, y acondicionamiento integral de estaciones.
+                                                    </p>
+
+                                                    <div class="tech-list-item mb-2">
+                                                        <span><strong>Mantenimiento Predictivo:</strong> Monitoreo continuo de vibración, termografía y pruebas de operatividad en plantas activas.</span>
+                                                    </div>
+                                                    <div class="tech-list-item mb-2">
+                                                        <span><strong>Proyectos Llave en Mano:</strong> Ingeniería, procura, construcción y puesta en marcha con garantía integral de funcionamiento.</span>
+                                                    </div>
+                                                    <div class="tech-list-item mb-3">
+                                                        <span><strong>Integración PetrolIA:</strong> Sincronización telemétrica de datos de campo directo a la plataforma de monitoreo en tiempo real.</span>
+                                                    </div>
+
+                                                    <div class="roxar-media-box position-relative" style="background: #ffffff; min-height: 220px; height: 220px; border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 10px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
+                                                        <img src="img/gallery-img-02.jpg" onerror="this.src='img/home-img-1.jpg'" style="max-height: 200px; width: 100%; height: 100%; object-fit: cover; border-radius: 6px;" alt="Mantenimiento Industrial y Proyectos Llave en Mano">
+                                                    </div>
+                                                </div>
+                                                <div class="mt-2">
+                                                    <button type="button" class="roxar-action-btn" onclick="openPage(5); highlightMenu(5);">
+                                                        <i class="fas fa-arrow-right"></i>
+                                                        <span>Ver Portafolio de Productos EMERSON</span>
                                                     </button>
                                                 </div>
                                             </div>
@@ -3136,10 +3488,14 @@
                                 </div>
                                 
                                 <div class="instrument-grid">
-                                    <div class="instrument-subcard">
+                                    <div class="emerson-product-item">
                                         <div>
-                                            <span class="instrument-brand-tag">ROSEMOUNT™</span>
+                                            <div class="emerson-prod-top">
+                                                <span class="instrument-brand-tag">ROSEMOUNT™</span>
+                                                <div class="emerson-prod-icon"><i class="fas fa-gauge-high"></i></div>
+                                            </div>
                                             <div class="instrument-name">Transmisor 4051S &amp; 3051S Wireless</div>
+                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> 0.025% Span • WirelessHART®</span></div>
                                             <ul class="instrument-features">
                                                 <li>Exactitud de referencia: 0.025% del span</li>
                                                 <li>Estabilidad comprobada en campo a 20 años</li>
@@ -3147,13 +3503,20 @@
                                                 <li>Enlace inalámbrico WirelessHART® vía Gateway 1410S</li>
                                             </ul>
                                         </div>
-                                        <small class="text-muted"><i class="fas fa-microchip me-1 text-primary"></i> Telemetría sin cables de trinchera</small>
+                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
+                                            <small class="text-muted"><i class="fas fa-microchip me-1 text-primary"></i> Telemetría sin cables de trinchera</small>
+                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                        </div>
                                     </div>
 
-                                    <div class="instrument-subcard">
+                                    <div class="emerson-product-item">
                                         <div>
-                                            <span class="instrument-brand-tag">ROSEMOUNT™ X-WELL™</span>
+                                            <div class="emerson-prod-top">
+                                                <span class="instrument-brand-tag">ROSEMOUNT™ X-WELL™</span>
+                                                <div class="emerson-prod-icon"><i class="fas fa-temperature-half"></i></div>
+                                            </div>
                                             <div class="instrument-name">Transmisor de Temperatura 3144S</div>
+                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> No Intrusivo • 0.05°C RTD</span></div>
                                             <ul class="instrument-features">
                                                 <li>Medición no invasiva a través de la pared del tubo</li>
                                                 <li>Elimina termopozos, perforaciones y puntos de fuga</li>
@@ -3161,13 +3524,20 @@
                                                 <li>Conectividad Bluetooth® para diagnóstico seguro</li>
                                             </ul>
                                         </div>
-                                        <small class="text-muted"><i class="fas fa-shield-alt me-1 text-success"></i> Cero riesgo mecánico de fuga</small>
+                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
+                                            <small class="text-muted"><i class="fas fa-shield-alt me-1 text-success"></i> Cero riesgo mecánico de fuga</small>
+                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                        </div>
                                     </div>
 
-                                    <div class="instrument-subcard">
+                                    <div class="emerson-product-item">
                                         <div>
-                                            <span class="instrument-brand-tag">ROXAR™</span>
+                                            <div class="emerson-prod-top">
+                                                <span class="instrument-brand-tag">ROXAR™</span>
+                                                <div class="emerson-prod-icon"><i class="fas fa-cubes"></i></div>
+                                            </div>
                                             <div class="instrument-name">Medidor Multifásico Roxar 2600</div>
+                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> Multifásico en Línea • Petróleo/Agua/Gas</span></div>
                                             <ul class="instrument-features">
                                                 <li>Medición simultánea de Petróleo, Agua y Gas en línea</li>
                                                 <li>Sin separador de prueba ni retrasos en toma de muestra</li>
@@ -3175,13 +3545,20 @@
                                                 <li>Versiones para superficie (topside) y submarinas</li>
                                             </ul>
                                         </div>
-                                        <small class="text-muted"><i class="fas fa-tachometer-alt me-1 text-info"></i> Asignación fiscal continua de pozo</small>
+                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
+                                            <small class="text-muted"><i class="fas fa-tachometer-alt me-1 text-info"></i> Asignación fiscal continua de pozo</small>
+                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                        </div>
                                     </div>
 
-                                    <div class="instrument-subcard">
+                                    <div class="emerson-product-item">
                                         <div>
-                                            <span class="instrument-brand-tag">ROSEMOUNT™ INTEGRITY</span>
+                                            <div class="emerson-prod-top">
+                                                <span class="instrument-brand-tag">ROSEMOUNT™ INTEGRITY</span>
+                                                <div class="emerson-prod-icon"><i class="fas fa-shield-virus"></i></div>
+                                            </div>
                                             <div class="instrument-name">Monitor de Arena SAM42 &amp; ET410</div>
+                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> Monitoreo Acústico • Erosión &amp; Corrosión</span></div>
                                             <ul class="instrument-features">
                                                 <li>SAM42: Sensor acústico no intrusivo de arena en flujo</li>
                                                 <li>ET410: Transmisor ultrasónico de corrosión y erosión</li>
@@ -3189,7 +3566,10 @@
                                                 <li>Prevención de fallas catastróficas en chokes y tuberías</li>
                                             </ul>
                                         </div>
-                                        <small class="text-muted"><i class="fas fa-bell me-1 text-danger"></i> Detección preventiva de abrasión</small>
+                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
+                                            <small class="text-muted"><i class="fas fa-bell me-1 text-danger"></i> Detección preventiva de abrasión</small>
+                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -3215,10 +3595,14 @@
                                 </div>
 
                                 <div class="instrument-grid">
-                                    <div class="instrument-subcard" style="border-left: 3px solid #0284c7;">
+                                    <div class="emerson-product-item" style="border-left: 3px solid #0284c7;">
                                         <div>
-                                            <span class="instrument-brand-tag" style="background:#dbeafe; color:#1e40af;">FLEXIM™ FLUXUS G831 / G731</span>
+                                            <div class="emerson-prod-top">
+                                                <span class="instrument-brand-tag" style="background:#dbeafe; color:#1e40af;">FLEXIM™ FLUXUS G831 / G731</span>
+                                                <div class="emerson-prod-icon"><i class="fas fa-wave-pulse"></i></div>
+                                            </div>
                                             <div class="instrument-name">Caudalímetro Ultrasónico Clamp-On</div>
+                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> No Invasivo • Inmune a H₂S / Gas Agrio</span></div>
                                             <ul class="instrument-features">
                                                 <li><strong>No invasivo:</strong> Transductores instalados en el exterior del tubo</li>
                                                 <li>Inmune a gas agrio (H₂S), corrosión y partículas líquidas</li>
@@ -3241,13 +3625,20 @@
                                                 <li>Integración directa a sistemas de plunger lift y RTU</li>
                                             </ul>
                                         </div>
-                                        <small class="text-muted"><i class="fas fa-calculator me-1 text-primary"></i> Corrección instantánea de flujo</small>
+                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
+                                            <small class="text-muted"><i class="fas fa-calculator me-1 text-primary"></i> Corrección instantánea de flujo</small>
+                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                        </div>
                                     </div>
 
-                                    <div class="instrument-subcard">
+                                    <div class="emerson-product-item">
                                         <div>
-                                            <span class="instrument-brand-tag">MICRO MOTION™</span>
+                                            <div class="emerson-prod-top">
+                                                <span class="instrument-brand-tag">MICRO MOTION™</span>
+                                                <div class="emerson-prod-icon"><i class="fas fa-atom"></i></div>
+                                            </div>
                                             <div class="instrument-name">Medidor Másico Coriolis Serie F</div>
+                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> Flujo Másico y Densidad • Bluetooth®</span></div>
                                             <ul class="instrument-features">
                                                 <li>Medición directa de flujo másico y densidad del gas</li>
                                                 <li>Transmisor 4700 con conectividad Bluetooth®</li>
@@ -3255,13 +3646,20 @@
                                                 <li>Sin partes móviles sometidas a desgaste por gas</li>
                                             </ul>
                                         </div>
-                                        <small class="text-muted"><i class="fas fa-balance-scale me-1 text-success"></i> Máxima precisión de balance másico</small>
+                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
+                                            <small class="text-muted"><i class="fas fa-balance-scale me-1 text-success"></i> Máxima precisión de balance másico</small>
+                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                        </div>
                                     </div>
 
-                                    <div class="instrument-subcard">
+                                    <div class="emerson-product-item">
                                         <div>
-                                            <span class="instrument-brand-tag">EMERSON™ AUTOMATION</span>
+                                            <div class="emerson-prod-top">
+                                                <span class="instrument-brand-tag">EMERSON™ AUTOMATION</span>
+                                                <div class="emerson-prod-icon"><i class="fas fa-sliders"></i></div>
+                                            </div>
                                             <div class="instrument-name">Manómetro Wireless &amp; Sistema AGLS</div>
+                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> 10 Años Autonomía • Válvula AGLS</span></div>
                                             <ul class="instrument-features">
                                                 <li><strong>Rosemount Wireless Pressure Gauge:</strong> Hasta 10 años sin mantenimiento</li>
                                                 <li>Resistente a sobrepresiones de bombeo sin tubo Bourdon frágil</li>
@@ -3269,7 +3667,10 @@
                                                 <li>Control continuo de choke sin intervención de pozo (wireline)</li>
                                             </ul>
                                         </div>
-                                        <small class="text-muted"><i class="fas fa-sliders me-1 text-warning"></i> Optimización telemétrica activa</small>
+                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
+                                            <small class="text-muted"><i class="fas fa-sliders me-1 text-warning"></i> Optimización telemétrica activa</small>
+                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -3295,10 +3696,14 @@
                                 </div>
 
                                 <div class="instrument-grid">
-                                    <div class="instrument-subcard">
+                                    <div class="emerson-product-item">
                                         <div>
-                                            <span class="instrument-brand-tag">ROSEMOUNT™</span>
+                                            <div class="emerson-prod-top">
+                                                <span class="instrument-brand-tag">ROSEMOUNT™</span>
+                                                <div class="emerson-prod-icon"><i class="fas fa-water-ladder"></i></div>
+                                            </div>
                                             <div class="instrument-name">Radar de Onda Guiada 5300 &amp; 9930</div>
+                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> SIL 2 • Nivel Total e Interfase</span></div>
                                             <ul class="instrument-features">
                                                 <li>Medición continua y simultánea de nivel total e interfase</li>
                                                 <li>Certificación de seguridad funcional SIL 2</li>
@@ -3306,13 +3711,20 @@
                                                 <li>Indicador magnético 9930 para verificación visual en sitio</li>
                                             </ul>
                                         </div>
-                                        <small class="text-muted"><i class="fas fa-layer-group me-1 text-primary"></i> Control riguroso de interfase agua-aceite</small>
+                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
+                                            <small class="text-muted"><i class="fas fa-layer-group me-1 text-primary"></i> Control riguroso de interfase agua-aceite</small>
+                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                        </div>
                                     </div>
 
-                                    <div class="instrument-subcard">
+                                    <div class="emerson-product-item">
                                         <div>
-                                            <span class="instrument-brand-tag">ROSEMOUNT™</span>
+                                            <div class="emerson-prod-top">
+                                                <span class="instrument-brand-tag">ROSEMOUNT™</span>
+                                                <div class="emerson-prod-icon"><i class="fas fa-bell"></i></div>
+                                            </div>
                                             <div class="instrument-name">Interruptor de Horquilla 2140</div>
+                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> Detección de Arena en Fondo • Alertas</span></div>
                                             <ul class="instrument-features">
                                                 <li>Diferencia con precisión entre agua y arena acumulada</li>
                                                 <li>Detección temprana de acumulación de sedimentos en fondo</li>
@@ -3320,13 +3732,20 @@
                                                 <li>Previene taponamiento de las líneas de descarga</li>
                                             </ul>
                                         </div>
-                                        <small class="text-muted"><i class="fas fa-exclamation-triangle me-1 text-warning"></i> Alerta temprana de sedimentación</small>
+                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
+                                            <small class="text-muted"><i class="fas fa-exclamation-triangle me-1 text-warning"></i> Alerta temprana de sedimentación</small>
+                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                        </div>
                                     </div>
 
-                                    <div class="instrument-subcard">
+                                    <div class="emerson-product-item">
                                         <div>
-                                            <span class="instrument-brand-tag">MICRO MOTION™</span>
+                                            <div class="emerson-prod-top">
+                                                <span class="instrument-brand-tag">MICRO MOTION™</span>
+                                                <div class="emerson-prod-icon"><i class="fas fa-oil-can"></i></div>
+                                            </div>
                                             <div class="instrument-name">Coriolis F-Series (Pierna de Petróleo)</div>
+                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> Algoritmo APM • Detección de Gas Libre</span></div>
                                             <ul class="instrument-features">
                                                 <li>Transmisor 4700 con APM (Medición Avanzada de Fases)</li>
                                                 <li>Detecta gas entrampado y cuantifica arrastre de agua</li>
@@ -3334,13 +3753,20 @@
                                                 <li>Conectividad Bluetooth® para calibración de campo</li>
                                             </ul>
                                         </div>
-                                        <small class="text-muted"><i class="fas fa-tint me-1 text-success"></i> Medición limpia en descarga de crudo</small>
+                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
+                                            <small class="text-muted"><i class="fas fa-tint me-1 text-success"></i> Medición limpia en descarga de crudo</small>
+                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                        </div>
                                     </div>
 
-                                    <div class="instrument-subcard">
+                                    <div class="emerson-product-item">
                                         <div>
-                                            <span class="instrument-brand-tag">EMERSON™ &amp; FLEXIM™</span>
+                                            <div class="emerson-prod-top">
+                                                <span class="instrument-brand-tag">EMERSON™ &amp; FLEXIM™</span>
+                                                <div class="emerson-prod-icon"><i class="fas fa-water"></i></div>
+                                            </div>
                                             <div class="instrument-name">Magmeter Serie 9000 &amp; Flexim F731PW</div>
+                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> Agua de Producción • ±1% Lectura</span></div>
                                             <ul class="instrument-features">
                                                 <li>Medición continua del caudal de agua de producción</li>
                                                 <li>Transmisor Rosemount 9732 con sensor electromagnético 9205</li>
@@ -3348,7 +3774,10 @@
                                                 <li>Monitoreo acústico Rosemount 708 en válvulas de alivio PRV</li>
                                             </ul>
                                         </div>
-                                        <small class="text-muted"><i class="fas fa-water me-1 text-info"></i> Cumplimiento ambiental y balance hídrico</small>
+                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
+                                            <small class="text-muted"><i class="fas fa-water me-1 text-info"></i> Cumplimiento ambiental y balance hídrico</small>
+                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -3374,10 +3803,14 @@
                                 </div>
 
                                 <div class="instrument-grid">
-                                    <div class="instrument-subcard">
+                                    <div class="emerson-product-item">
                                         <div>
-                                            <span class="instrument-brand-tag">ROSEMOUNT™</span>
+                                            <div class="emerson-prod-top">
+                                                <span class="instrument-brand-tag">ROSEMOUNT™</span>
+                                                <div class="emerson-prod-icon"><i class="fas fa-temperature-arrow-up"></i></div>
+                                            </div>
                                             <div class="instrument-name">Transmisor 3144S + RTD 214C + 114C</div>
+                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> ReadyConnect™ • Respaldo 4 a 3 Hilos</span></div>
                                             <ul class="instrument-features">
                                                 <li>Conjunto sensor RTD con termopozo de alta resistencia</li>
                                                 <li>Tecnología ReadyConnect™ para fácil sustitución en campo</li>
@@ -3385,13 +3818,20 @@
                                                 <li>Previene paradas no programadas por rotura de sensor</li>
                                             </ul>
                                         </div>
-                                        <small class="text-muted"><i class="fas fa-temperature-high me-1 text-danger"></i> Control térmico continuo sin interrupciones</small>
+                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
+                                            <small class="text-muted"><i class="fas fa-temperature-high me-1 text-danger"></i> Control térmico continuo sin interrupciones</small>
+                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                        </div>
                                     </div>
 
-                                    <div class="instrument-subcard">
+                                    <div class="emerson-product-item">
                                         <div>
-                                            <span class="instrument-brand-tag">MICRO MOTION™</span>
+                                            <div class="emerson-prod-top">
+                                                <span class="instrument-brand-tag">MICRO MOTION™</span>
+                                                <div class="emerson-prod-icon"><i class="fas fa-fire-burner"></i></div>
+                                            </div>
                                             <div class="instrument-name">Coriolis F-Series (Fuel Gas)</div>
+                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> Aporte Energético BTU • Gas Combustible</span></div>
                                             <ul class="instrument-features">
                                                 <li>Medición másica del gas combustible de alimentación</li>
                                                 <li>Refleja el verdadero aporte calorífico (energía) del gas</li>
@@ -3399,13 +3839,20 @@
                                                 <li>Transmisor 4700 de fácil integración al SCADA de planta</li>
                                             </ul>
                                         </div>
-                                        <small class="text-muted"><i class="fas fa-chart-pie me-1 text-primary"></i> Control de eficiencia energética del quemador</small>
+                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
+                                            <small class="text-muted"><i class="fas fa-chart-pie me-1 text-primary"></i> Control de eficiencia energética del quemador</small>
+                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                        </div>
                                     </div>
 
-                                    <div class="instrument-subcard">
+                                    <div class="emerson-product-item">
                                         <div>
-                                            <span class="instrument-brand-tag">ROSEMOUNT™ WIRELESS</span>
+                                            <div class="emerson-prod-top">
+                                                <span class="instrument-brand-tag">ROSEMOUNT™ WIRELESS</span>
+                                                <div class="emerson-prod-icon"><i class="fas fa-ear-listen"></i></div>
+                                            </div>
                                             <div class="instrument-name">Transmisor Acústico 708 para PRVs</div>
+                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> Plantweb Insight™ • Fugas en Alivio</span></div>
                                             <ul class="instrument-features">
                                                 <li>Montaje externo clamp-on en la tubería de descarga de PRV</li>
                                                 <li>Detecta aperturas por sobrepresión y fugas imperceptibles</li>
@@ -3413,13 +3860,20 @@
                                                 <li>Convierte eventos de riesgo en datos numéricos de pérdida</li>
                                             </ul>
                                         </div>
-                                        <small class="text-muted"><i class="fas fa-ear-listen me-1 text-warning"></i> Reducción de emisiones y pérdidas de producto</small>
+                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
+                                            <small class="text-muted"><i class="fas fa-ear-listen me-1 text-warning"></i> Reducción de emisiones y pérdidas de producto</small>
+                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                        </div>
                                     </div>
 
-                                    <div class="instrument-subcard">
+                                    <div class="emerson-product-item">
                                         <div>
-                                            <span class="instrument-brand-tag">ROSEMOUNT™</span>
+                                            <div class="emerson-prod-top">
+                                                <span class="instrument-brand-tag">ROSEMOUNT™</span>
+                                                <div class="emerson-prod-icon"><i class="fas fa-gauge"></i></div>
+                                            </div>
                                             <div class="instrument-name">Radar 5300 &amp; Manómetros Digitales</div>
+                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> Monitoreo de Vasija • Alta Temperatura</span></div>
                                             <ul class="instrument-features">
                                                 <li>Control continuo del lecho de emulsión tratada</li>
                                                 <li>Monitoreo de presión de vasija con Rosemount Wireless Gauge</li>
@@ -3427,7 +3881,10 @@
                                                 <li>Robusta construcción apta para alta temperatura ambiental</li>
                                             </ul>
                                         </div>
-                                        <small class="text-muted"><i class="fas fa-gauge me-1 text-info"></i> Monitoreo integral de parámetros de proceso</small>
+                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
+                                            <small class="text-muted"><i class="fas fa-gauge me-1 text-info"></i> Monitoreo integral de parámetros de proceso</small>
+                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -3453,10 +3910,14 @@
                                 </div>
 
                                 <div class="instrument-grid">
-                                    <div class="instrument-subcard">
+                                    <div class="emerson-product-item">
                                         <div>
-                                            <span class="instrument-brand-tag">ROSEMOUNT™</span>
+                                            <div class="emerson-prod-top">
+                                                <span class="instrument-brand-tag">ROSEMOUNT™</span>
+                                                <div class="emerson-prod-icon"><i class="fas fa-tower-broadcast"></i></div>
+                                            </div>
                                             <div class="instrument-name">Radar Sin Contacto 3408</div>
+                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> Smart Echo Supervision™ • Vapores y Espuma</span></div>
                                             <ul class="instrument-features">
                                                 <li>Tecnología de onda continua con <em>Smart Echo Supervision™</em></li>
                                                 <li>Excelente rendimiento ante vapores densos, espuma y turbulencia</li>
@@ -3464,13 +3925,20 @@
                                                 <li>Sin partes móviles ni riesgo de ensuciamiento de sonda</li>
                                             </ul>
                                         </div>
-                                        <small class="text-muted"><i class="fas fa-wifi me-1 text-primary"></i> Aforo confiable de nivel total</small>
+                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
+                                            <small class="text-muted"><i class="fas fa-wifi me-1 text-primary"></i> Aforo confiable de nivel total</small>
+                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                        </div>
                                     </div>
 
-                                    <div class="instrument-subcard">
+                                    <div class="emerson-product-item">
                                         <div>
-                                            <span class="instrument-brand-tag">ROSEMOUNT™</span>
+                                            <div class="emerson-prod-top">
+                                                <span class="instrument-brand-tag">ROSEMOUNT™</span>
+                                                <div class="emerson-prod-icon"><i class="fas fa-layer-group"></i></div>
+                                            </div>
                                             <div class="instrument-name">Radar de Onda Guiada 5300 (Corte)</div>
+                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> Corte de Agua • Drenaje Dewatering</span></div>
                                             <ul class="instrument-features">
                                                 <li>Medición exacta de la interfase agua/aceite de fondo</li>
                                                 <li>Optimización de purgas y drenajes de agua (dewatering)</li>
@@ -3478,13 +3946,20 @@
                                                 <li>Historial trazable de niveles para contabilidad de producción</li>
                                             </ul>
                                         </div>
-                                        <small class="text-muted"><i class="fas fa-layer-group me-1 text-info"></i> Control de purga de agua sin pérdida de crudo</small>
+                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
+                                            <small class="text-muted"><i class="fas fa-layer-group me-1 text-info"></i> Control de purga de agua sin pérdida de crudo</small>
+                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                        </div>
                                     </div>
 
-                                    <div class="instrument-subcard">
+                                    <div class="emerson-product-item">
                                         <div>
-                                            <span class="instrument-brand-tag">ROSEMOUNT™ SAFETY</span>
+                                            <div class="emerson-prod-top">
+                                                <span class="instrument-brand-tag">ROSEMOUNT™ SAFETY</span>
+                                                <div class="emerson-prod-icon"><i class="fas fa-shield-halved"></i></div>
+                                            </div>
                                             <div class="instrument-name">Interruptores de Nivel 2120 / 2140</div>
+                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> Overfill Prevention • Disparo Lazo ESD</span></div>
                                             <ul class="instrument-features">
                                                 <li>Protección independiente contra sobrellenado (Overfill Prevention)</li>
                                                 <li>Enlazado al sistema de Parada de Emergencia (ESD)</li>
@@ -3492,13 +3967,20 @@
                                                 <li>Inmune a cambios de densidad, conductividad o dieléctrico</li>
                                             </ul>
                                         </div>
-                                        <small class="text-muted"><i class="fas fa-shield-halved me-1 text-danger"></i> Protección máxima contra derrames</small>
+                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
+                                            <small class="text-muted"><i class="fas fa-shield-halved me-1 text-danger"></i> Protección máxima contra derrames</small>
+                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                        </div>
                                     </div>
 
-                                    <div class="instrument-subcard">
+                                    <div class="emerson-product-item">
                                         <div>
-                                            <span class="instrument-brand-tag">EMERSON™ &amp; FLEXIM™</span>
+                                            <div class="emerson-prod-top">
+                                                <span class="instrument-brand-tag">EMERSON™ &amp; FLEXIM™</span>
+                                                <div class="emerson-prod-icon"><i class="fas fa-arrows-split-up-and-left"></i></div>
+                                            </div>
                                             <div class="instrument-name">Control de Despacho &amp; Gas de Manto</div>
+                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> Despacho de Crudo • Venteo / VRU</span></div>
                                             <ul class="instrument-features">
                                                 <li>Medidor Coriolis Micro Motion en líneas de venta y achique</li>
                                                 <li>Flexim FLUXUS G731 para gas de manto (blanket gas)</li>
@@ -3506,7 +3988,10 @@
                                                 <li>Magmeter Serie 9000 en bombeo de agua salada a inyección</li>
                                             </ul>
                                         </div>
-                                        <small class="text-muted"><i class="fas fa-arrows-split-up-and-left me-1 text-success"></i> Monitoreo integral de entradas y salidas</small>
+                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
+                                            <small class="text-muted"><i class="fas fa-arrows-split-up-and-left me-1 text-success"></i> Monitoreo integral de entradas y salidas</small>
+                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -3532,10 +4017,14 @@
                                 </div>
 
                                 <div class="instrument-grid">
-                                    <div class="instrument-subcard" style="border-left: 3px solid #003366;">
+                                    <div class="emerson-product-item" style="border-left: 3px solid #003366;">
                                         <div>
-                                            <span class="instrument-brand-tag" style="background:#dbeafe; color:#003366;">MICRO MOTION™ ELITE</span>
+                                            <div class="emerson-prod-top">
+                                                <span class="instrument-brand-tag" style="background:#dbeafe; color:#003366;">MICRO MOTION™ ELITE</span>
+                                                <div class="emerson-prod-icon"><i class="fas fa-award"></i></div>
+                                            </div>
                                             <div class="instrument-name">Coriolis Fiscal de Máximo Rendimiento</div>
+                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> Fiscal ±0.05% • Net Oil / API MPMS</span></div>
                                             <ul class="instrument-features">
                                                 <li>Estándar global indiscutido para fiscalización de crudo</li>
                                                 <li>Exactitud de masa líquida de ±0.05% y densidad de ±0.0002 g/cm³</li>
@@ -3557,13 +4046,20 @@
                                                 <li>Computador de flujo homologado con registro fiscal seguro</li>
                                             </ul>
                                         </div>
-                                        <small class="text-muted"><i class="fas fa-cubes me-1 text-success"></i> Solución completa probada en fábrica</small>
+                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
+                                            <small class="text-muted"><i class="fas fa-cubes me-1 text-success"></i> Solución completa probada en fábrica</small>
+                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                        </div>
                                     </div>
 
-                                    <div class="instrument-subcard">
+                                    <div class="emerson-product-item">
                                         <div>
-                                            <span class="instrument-brand-tag">ROSEMOUNT™</span>
+                                            <div class="emerson-prod-top">
+                                                <span class="instrument-brand-tag">ROSEMOUNT™</span>
+                                                <div class="emerson-prod-icon"><i class="fas fa-check-double"></i></div>
+                                            </div>
                                             <div class="instrument-name">Presión y Temperatura Fiscal (4051S / 3144S)</div>
+                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> Corrección Volumétrica Ctl / Cpl</span></div>
                                             <ul class="instrument-features">
                                                 <li>Transmisor de presión 4051S de clase fiscal</li>
                                                 <li>Transmisor de temperatura 3144S con sensor RTD clase A</li>
@@ -3571,13 +4067,20 @@
                                                 <li>Calibración trazable con patrones acreditados de laboratorio</li>
                                             </ul>
                                         </div>
-                                        <small class="text-muted"><i class="fas fa-check-double me-1 text-info"></i> Corrección volumétrica según normas internacionales</small>
+                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
+                                            <small class="text-muted"><i class="fas fa-check-double me-1 text-info"></i> Corrección volumétrica según normas internacionales</small>
+                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                        </div>
                                     </div>
 
-                                    <div class="instrument-subcard">
+                                    <div class="emerson-product-item">
                                         <div>
-                                            <span class="instrument-brand-tag">ROSEMOUNT™ WIRELESS</span>
+                                            <div class="emerson-prod-top">
+                                                <span class="instrument-brand-tag">ROSEMOUNT™ WIRELESS</span>
+                                                <div class="emerson-prod-icon"><i class="fas fa-desktop"></i></div>
+                                            </div>
                                             <div class="instrument-name">Manómetros &amp; Sensores de Verificación</div>
+                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> Telemetría WirelessHART • Auditoría 24/7</span></div>
                                             <ul class="instrument-features">
                                                 <li>Manómetros digitales Rosemount para verificación de bombas</li>
                                                 <li>Detección de diferencial de presión en cestas filtrantes</li>
@@ -3585,7 +4088,10 @@
                                                 <li>Sincronización de datos fiscales hacia sistemas ERP corporativos</li>
                                             </ul>
                                         </div>
-                                        <small class="text-muted"><i class="fas fa-desktop me-1 text-warning"></i> Control operativo y auditoría 24/7</small>
+                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
+                                            <small class="text-muted"><i class="fas fa-desktop me-1 text-warning"></i> Control operativo y auditoría 24/7</small>
+                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -3611,10 +4117,14 @@
                                 </div>
 
                                 <div class="instrument-grid">
-                                    <div class="instrument-subcard">
+                                    <div class="emerson-product-item">
                                         <div>
-                                            <span class="instrument-brand-tag">ROSEMOUNT™</span>
+                                            <div class="emerson-prod-top">
+                                                <span class="instrument-brand-tag">ROSEMOUNT™</span>
+                                                <div class="emerson-prod-icon"><i class="fas fa-wind"></i></div>
+                                            </div>
                                             <div class="instrument-name">Caudalímetro Ultrasónico Serie 3410</div>
+                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> Fiscal Multiruta • Software MeterLink™</span></div>
                                             <ul class="instrument-features">
                                                 <li>Medidor ultrasónico de gas multiruta de alta velocidad</li>
                                                 <li>Compensa automáticamente perturbaciones en el perfil de flujo</li>
@@ -3622,13 +4132,20 @@
                                                 <li>Software <em>MeterLink™</em> para detección de fouling o bloqueo</li>
                                             </ul>
                                         </div>
-                                        <small class="text-muted"><i class="fas fa-wave-square me-1 text-primary"></i> Estándar de transferencia fiscal de gas AGA 9</small>
+                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
+                                            <small class="text-muted"><i class="fas fa-wave-square me-1 text-primary"></i> Estándar de transferencia fiscal de gas AGA 9</small>
+                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                        </div>
                                     </div>
 
-                                    <div class="instrument-subcard">
+                                    <div class="emerson-product-item">
                                         <div>
-                                            <span class="instrument-brand-tag">ROSEMOUNT™ ANALYTICAL</span>
+                                            <div class="emerson-prod-top">
+                                                <span class="instrument-brand-tag">ROSEMOUNT™ ANALYTICAL</span>
+                                                <div class="emerson-prod-icon"><i class="fas fa-flask-vial"></i></div>
+                                            </div>
                                             <div class="instrument-name">Cromatógrafo de Gas 470XA</div>
+                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> C6+ BTU en Línea • Balance LAUF</span></div>
                                             <ul class="instrument-features">
                                                 <li>Análisis cromatográfico en línea continuo de gas natural (C6+)</li>
                                                 <li>Cálculo en tiempo real de poder calorífico BTU y factor Z</li>
@@ -3636,13 +4153,20 @@
                                                 <li>Liquidación contractual y facturación por energía real</li>
                                             </ul>
                                         </div>
-                                        <small class="text-muted"><i class="fas fa-flask-vial me-1 text-success"></i> Análisis continuo conforme a normas GPA / ISO</small>
+                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
+                                            <small class="text-muted"><i class="fas fa-flask-vial me-1 text-success"></i> Análisis continuo conforme a normas GPA / ISO</small>
+                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                        </div>
                                     </div>
 
-                                    <div class="instrument-subcard">
+                                    <div class="emerson-product-item">
                                         <div>
-                                            <span class="instrument-brand-tag">MICRO MOTION™</span>
+                                            <div class="emerson-prod-top">
+                                                <span class="instrument-brand-tag">MICRO MOTION™</span>
+                                                <div class="emerson-prod-icon"><i class="fas fa-compress"></i></div>
+                                            </div>
                                             <div class="instrument-name">ELITE Coriolis para Gas a Alta Presión</div>
+                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> Flujo Másico Directo • Alta Presión</span></div>
                                             <ul class="instrument-features">
                                                 <li>Medición directa de caudal másico sin necesidad de computador Z</li>
                                                 <li>Excelente comportamiento en condiciones de alta presión</li>
@@ -3650,13 +4174,20 @@
                                                 <li>Diagnóstico Smart Meter Verification para validación in situ</li>
                                             </ul>
                                         </div>
-                                        <small class="text-muted"><i class="fas fa-check-circle me-1 text-info"></i> Comprobación metrológica sin desmontar</small>
+                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
+                                            <small class="text-muted"><i class="fas fa-check-circle me-1 text-info"></i> Comprobación metrológica sin desmontar</small>
+                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                        </div>
                                     </div>
 
-                                    <div class="instrument-subcard">
+                                    <div class="emerson-product-item">
                                         <div>
-                                            <span class="instrument-brand-tag">FLEXIM™</span>
+                                            <div class="emerson-prod-top">
+                                                <span class="instrument-brand-tag">FLEXIM™</span>
+                                                <div class="emerson-prod-icon"><i class="fas fa-magnifying-glass-chart"></i></div>
+                                            </div>
                                             <div class="instrument-name">FLUXUS G831 (Gasoducto Clamp-On)</div>
+                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> Check Meter • Tuberías hasta 48"</span></div>
                                             <ul class="instrument-features">
                                                 <li>Medición ultrasónica externa sin despresurizar el gasoducto</li>
                                                 <li>Ideal como medidor de verificación (check meter) de respaldo</li>
@@ -3664,7 +4195,10 @@
                                                 <li>Aprobado para atmósferas explosivas Clase I División 1</li>
                                             </ul>
                                         </div>
-                                        <small class="text-muted"><i class="fas fa-shield-alt me-1 text-warning"></i> Verificación independiente no intrusiva</small>
+                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
+                                            <small class="text-muted"><i class="fas fa-shield-alt me-1 text-warning"></i> Verificación independiente no intrusiva</small>
+                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -3690,10 +4224,14 @@
                                 </div>
 
                                 <div class="instrument-grid">
-                                    <div class="instrument-subcard">
+                                    <div class="emerson-product-item">
                                         <div>
-                                            <span class="instrument-brand-tag">ROSEMOUNT™ WIRELESS</span>
+                                            <div class="emerson-prod-top">
+                                                <span class="instrument-brand-tag">ROSEMOUNT™ WIRELESS</span>
+                                                <div class="emerson-prod-icon"><i class="fas fa-wifi"></i></div>
+                                            </div>
                                             <div class="instrument-name">Monitor de Gas Inalámbrico 928</div>
+                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> Gases Tóxicos H₂S • Sensores Hot-Swap</span></div>
                                             <ul class="instrument-features">
                                                 <li>Detección continua de gases tóxicos (H₂S, CO) e hidrocarburos</li>
                                                 <li>Tecnología WirelessHART® con baterías de ultra-larga duración</li>
@@ -3701,13 +4239,20 @@
                                                 <li>Sensores inteligentes precalibrados intercambiables en caliente</li>
                                             </ul>
                                         </div>
-                                        <small class="text-muted"><i class="fas fa-wifi me-1 text-primary"></i> Cobertura rápida de perímetros de riesgo</small>
+                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
+                                            <small class="text-muted"><i class="fas fa-wifi me-1 text-primary"></i> Cobertura rápida de perímetros de riesgo</small>
+                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                        </div>
                                     </div>
 
-                                    <div class="instrument-subcard">
+                                    <div class="emerson-product-item">
                                         <div>
-                                            <span class="instrument-brand-tag">ROSEMOUNT™ ACOUSTIC</span>
+                                            <div class="emerson-prod-top">
+                                                <span class="instrument-brand-tag">ROSEMOUNT™ ACOUSTIC</span>
+                                                <div class="emerson-prod-icon"><i class="fas fa-volume-high"></i></div>
+                                            </div>
                                             <div class="instrument-name">Detector Ultrasónico de Fugas Incus</div>
+                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> Acústico Inmune a Viento • Fugas de Gas</span></div>
                                             <ul class="instrument-features">
                                                 <li>Escucha el sonido ultrasónico emitido por escapes de gas presurizado</li>
                                                 <li><strong>Inmune al clima:</strong> No depende de que el viento empuje el gas al sensor</li>
@@ -3715,13 +4260,20 @@
                                                 <li>Operativo bajo lluvia extrema, viento o niebla densa</li>
                                             </ul>
                                         </div>
-                                        <small class="text-muted"><i class="fas fa-ear-listen me-1 text-danger"></i> Detección acústica inmediata de fugas de gas</small>
+                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
+                                            <small class="text-muted"><i class="fas fa-ear-listen me-1 text-danger"></i> Detección acústica inmediata de fugas de gas</small>
+                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                        </div>
                                     </div>
 
-                                    <div class="instrument-subcard">
+                                    <div class="emerson-product-item">
                                         <div>
-                                            <span class="instrument-brand-tag">ROSEMOUNT™ FLAME</span>
+                                            <div class="emerson-prod-top">
+                                                <span class="instrument-brand-tag">ROSEMOUNT™ FLAME</span>
+                                                <div class="emerson-prod-icon"><i class="fas fa-fire"></i></div>
+                                            </div>
                                             <div class="instrument-name">Detector de Llama 975 QuadSense™</div>
+                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> Tecnología 4-IR • Inmune a Soldadura</span></div>
                                             <ul class="instrument-features">
                                                 <li>Matriz de 4 sensores infrarrojos independientes (QuadSense™)</li>
                                                 <li>Detección de fuego de hidrocarburos en fracciones de segundo</li>
@@ -3729,13 +4281,20 @@
                                                 <li>Calefactor de óptica integrado para evitar condensación</li>
                                             </ul>
                                         </div>
-                                        <small class="text-muted"><i class="fas fa-fire me-1 text-warning"></i> Confiabilidad extrema para parada de emergencia</small>
+                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
+                                            <small class="text-muted"><i class="fas fa-fire me-1 text-warning"></i> Confiabilidad extrema para parada de emergencia</small>
+                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                        </div>
                                     </div>
 
-                                    <div class="instrument-subcard">
+                                    <div class="emerson-product-item">
                                         <div>
-                                            <span class="instrument-brand-tag">ROSEMOUNT™ OPTICAL</span>
+                                            <div class="emerson-prod-top">
+                                                <span class="instrument-brand-tag">ROSEMOUNT™ OPTICAL</span>
+                                                <div class="emerson-prod-icon"><i class="fas fa-arrows-left-right-to-line"></i></div>
+                                            </div>
                                             <div class="instrument-name">Detectores Open Path 935 / 936</div>
+                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> Línea de Vista 200m • Perimetral</span></div>
                                             <ul class="instrument-features">
                                                 <li>Detección de gases inflamables por haz de trayectoria abierta</li>
                                                 <li>Cobertura de hasta 200 metros de línea de vista</li>
@@ -3743,7 +4302,10 @@
                                                 <li>Protección perimetral con mínimo número de dispositivos</li>
                                             </ul>
                                         </div>
-                                        <small class="text-muted"><i class="fas fa-arrows-left-right me-1 text-info"></i> Máxima cobertura perimetral en macroperas</small>
+                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
+                                            <small class="text-muted"><i class="fas fa-arrows-left-right me-1 text-info"></i> Máxima cobertura perimetral en macroperas</small>
+                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -3760,17 +4322,17 @@
                             <!-- SECCIÓN ESPECIAL: SERVICIOS DE INGENIERÍA ESPECIALIZADA, SOLDADURA Y METALMECÁNICA -->
                             <div class="engineering-special-box reveal-on-scroll reveal-up" data-category="ingenieria" id="area-ingenieria">
                                 <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
-                                    <span class="badge bg-info bg-opacity-25 text-info px-3 py-1 rounded-pill fw-bold" style="letter-spacing: 0.5px;">
+                                    <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-pill fw-bold" style="letter-spacing: 0.5px;">
                                         <i class="fas fa-screwdriver-wrench me-1"></i> CAPACIDAD TÉCNICA E INDUSTRIAL PROPIA
                                     </span>
-                                    <span class="text-white-50 small">
+                                    <span class="text-muted small fw-semibold">
                                         <i class="fas fa-certificate text-warning me-1"></i> Procedimientos Calificados ASME IX / AWS D1.1 / API 1104
                                     </span>
                                 </div>
 
-                                <h2 class="fw-bold text-white display-6 mb-3">Servicios de Ingeniería Especializada, Soldadura y Metalmecánica</h2>
-                                <p class="text-white-50 fs-6 mb-4" style="line-height: 1.7; max-width: 980px;">
-                                    En <strong>AIC TECH, C.A.</strong> ofrecemos un ecosistema integral: no solo suministramos los instrumentos más avanzados del mundo, sino que contamos con <strong>talleres metalmecánicos propios, personal de soldadura homologado e ingenieros de campo</strong> para ejecutar montajes mecánicos, interconexiones de alta presión, tendido de instrumentación y comisionamiento integral de plantas y pozos.
+                                <h2 class="fw-bold text-dark display-6 mb-3">Servicios de Ingeniería Especializada, Soldadura y Metalmecánica</h2>
+                                <p class="text-muted fs-6 mb-4" style="line-height: 1.7; max-width: 980px;">
+                                    En <strong>AIC TECH, C.A.</strong> ofrecemos un ecosistema integral: no solo suministramos los instrumentos de medición más avanzados del mundo (EMERSON), sino que contamos con <strong>talleres metalmecánicos propios en Anaco, personal de soldadura homologado e ingenieros de campo</strong> para ejecutar montajes mecánicos, interconexiones de alta presión, tendido de instrumentación y comisionamiento integral de plantas y pozos.
                                 </p>
 
                                 <div class="row g-4 mb-4">
@@ -3780,11 +4342,11 @@
                                             <div class="pillar-icon-circle">
                                                 <i class="fas fa-fire-burner"></i>
                                             </div>
-                                            <h4 class="fw-bold text-white fs-5 mb-2">Soldadura Especializada</h4>
-                                            <p class="text-white-50 small mb-3">
+                                            <h4 class="fw-bold text-dark fs-5 mb-2">Soldadura Especializada</h4>
+                                            <p class="text-muted small mb-3">
                                                 Soldadores calificados y procedimientos homologados bajo códigos <strong>ASME Sección IX, AWS D1.1 y API 1104</strong>.
                                             </p>
-                                            <ul class="text-white-50 small ps-3 mb-0">
+                                            <ul class="text-muted small ps-3 mb-0">
                                                 <li>Procesos TIG (GTAW), SMAW y GMAW</li>
                                                 <li>Líneas de alta presión hasta 15,000 PSI</li>
                                                 <li>Aceros al carbono, 316L, Dúplex y aleaciones</li>
@@ -3799,11 +4361,11 @@
                                             <div class="pillar-icon-circle">
                                                 <i class="fas fa-cubes-stacked"></i>
                                             </div>
-                                            <h4 class="fw-bold text-white fs-5 mb-2">Fabricación de Skids</h4>
-                                            <p class="text-white-50 small mb-3">
+                                            <h4 class="fw-bold text-dark fs-5 mb-2">Fabricación de Skids</h4>
+                                            <p class="text-muted small mb-3">
                                                 Diseño estructural, ensamblaje y montaje metalmecánico de patines de medición y proceso según norma.
                                             </p>
-                                            <ul class="text-white-50 small ps-3 mb-0">
+                                            <ul class="text-muted small ps-3 mb-0">
                                                 <li>Skids móviles de medición multifásica (MPFM)</li>
                                                 <li>Patines de fiscalización LACT de crudo</li>
                                                 <li>Bypass estructurales y manifolds de prueba</li>
@@ -3818,11 +4380,11 @@
                                             <div class="pillar-icon-circle">
                                                 <i class="fas fa-network-wired"></i>
                                             </div>
-                                            <h4 class="fw-bold text-white fs-5 mb-2">Tubing &amp; Montaje</h4>
-                                            <p class="text-white-50 small mb-3">
+                                            <h4 class="fw-bold text-dark fs-5 mb-2">Tubing &amp; Montaje</h4>
+                                            <p class="text-muted small mb-3">
                                                 Instalación rigurosa de líneas de señal e instrumentación de campo para ambientes hostiles.
                                             </p>
-                                            <ul class="text-white-50 small ps-3 mb-0">
+                                            <ul class="text-muted small ps-3 mb-0">
                                                 <li>Tendido y doblado de tubing SS 316 (1/4" a 1")</li>
                                                 <li>Montaje de manifolds de 2, 3 y 5 válvulas</li>
                                                 <li>Canalizaciones NEMA 7 / ATEX a prueba de explosión</li>
@@ -3837,11 +4399,11 @@
                                             <div class="pillar-icon-circle">
                                                 <i class="fas fa-check-double"></i>
                                             </div>
-                                            <h4 class="fw-bold text-white fs-5 mb-2">Comisionamiento &amp; QA</h4>
-                                            <p class="text-white-50 small mb-3">
+                                            <h4 class="fw-bold text-dark fs-5 mb-2">Comisionamiento &amp; QA</h4>
+                                            <p class="text-muted small mb-3">
                                                 Aseguramiento metrológico y puesta en servicio con presencia de especialistas certificados 24/7.
                                             </p>
-                                            <ul class="text-white-50 small ps-3 mb-0">
+                                            <ul class="text-muted small ps-3 mb-0">
                                                 <li>Pruebas hidrostáticas certificadas hasta 15,000 PSI</li>
                                                 <li>Calibración HART® / AMS Trex en campo</li>
                                                 <li>Pruebas funcionales de lazo (Loop Check)</li>
@@ -3851,10 +4413,10 @@
                                     </div>
                                 </div>
 
-                                <div class="p-3 rounded-3 d-flex justify-content-between align-items-center flex-wrap gap-3" style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15);">
+                                <div class="p-3 rounded-3 d-flex justify-content-between align-items-center flex-wrap gap-3" style="background: #f8fafc; border: 1px solid #cbd5e1;">
                                     <div>
-                                        <div class="text-white fw-bold fs-6">¿Requiere proyectos metalmecánicos o soldadura calificada en sus instalaciones?</div>
-                                        <small class="text-white-50">Nuestro equipo de ingenieros y soldadores homologados se despliega en cualquier campo o refinería nacional.</small>
+                                        <div class="text-dark fw-bold fs-6">¿Requiere proyectos metalmecánicos o soldadura calificada en sus instalaciones?</div>
+                                        <small class="text-muted">Nuestro equipo de ingenieros y soldadores homologados se despliega en cualquier campo o refinería nacional.</small>
                                     </div>
                                     <button type="button" class="btn-tech px-4 py-2" onclick="openPage(6); highlightMenu(6);" style="font-size: 0.95rem;">
                                         Contactar a Ingeniería AIC TECH ➔

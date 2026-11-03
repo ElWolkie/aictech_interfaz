@@ -1863,11 +1863,11 @@
 
         .roxar-hero-banner {
             position: relative;
-            min-height: 380px;
+            min-height: clamp(340px, 32vw, 440px);
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 3rem 2.8rem;
+            padding: clamp(2rem, 3.5vw, 3.2rem) clamp(1.5rem, 3.5vw, 2.8rem);
             overflow: hidden;
             background: #060e1e;
         }
@@ -1911,8 +1911,22 @@
         }
 
         #servicio-bifasico-trifasico .roxar-hero-banner,
-        #servicio-flexim .roxar-hero-banner {
-            min-height: 420px;
+        #servicio-flexim .roxar-hero-banner,
+        #servicio-trasegado .roxar-hero-banner,
+        #servicio-soldadura-taller .roxar-hero-banner,
+        #servicio-asistencia-tecnica .roxar-hero-banner {
+            min-height: clamp(380px, 34vw, 450px);
+        }
+
+        #trasegado-main-video,
+        #soldadura-main-video {
+            object-fit: cover !important;
+            object-position: center center !important;
+        }
+
+        #servicio-asistencia-tecnica .roxar-hero-banner img.roxar-video-bg {
+            object-fit: cover !important;
+            object-position: center 40% !important;
         }
 
         /* Banner de Echometer con altura generosa (530px) para apreciar equipo completo */
@@ -1987,7 +2001,7 @@
         .roxar-dual-section {
             position: relative;
             z-index: 3;
-            padding: 2.2rem 2.8rem 2.8rem 2.8rem;
+            padding: clamp(1.5rem, 2.5vw, 2.6rem);
             background: #ffffff;
             border-top: 1px solid #e2e8f0;
         }
@@ -2085,6 +2099,33 @@
 
         .roxar-interactive-card:hover {
             border-color: #38b6ff !important;
+        }
+
+        .interactive-hover-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(3, 11, 28, 0.68);
+            backdrop-filter: blur(2px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            text-align: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.35s ease, visibility 0.35s ease;
+            z-index: 4;
+            pointer-events: none;
+        }
+
+        .roxar-media-box:hover .interactive-hover-overlay,
+        .roxar-interactive-card:hover .interactive-hover-overlay {
+            opacity: 1;
+            visibility: visible;
         }
 
         .roxar-action-btn {
@@ -2642,7 +2683,7 @@
                                 
                                 <!-- Banner Superior con Video de Fondo y Letras Identificadoras -->
                                 <div class="roxar-hero-banner">
-                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="none" poster="img/multifasico-1.jpg" class="roxar-video-bg service-video-elem" id="roxar-main-video">
+                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="none" poster="multifasico.jpeg" class="roxar-video-bg service-video-elem" id="roxar-main-video">
                                         <source src="video/roxar2600.mp4" type="video/mp4">
                                         <source src="roxar2600.mp4" type="video/mp4">
                                     </video>
@@ -2675,7 +2716,7 @@
 
                                                     <!-- Contenedor para Imagen o Video del 5726MT -->
                                                     <div class="roxar-media-box">
-                                                        <img src="img/multifasico-1.jpg" onerror="this.src='img/gallery-img-02.jpg'" alt="Computador 5726MT - Unidad de Procesamiento" id="computador-5726mt-media">
+                                                        <img src="img/multifasico.jpeg" onerror="this.src='img/gallery-img-02.jpg'" alt="Computador 5726MT - Unidad de Procesamiento" id="computador-5726mt-media">
                                                     </div>
                                                 </div>
 
@@ -2702,11 +2743,11 @@
                                                     </p>
 
                                                     <!-- Recuadro con Fondo Bonito y Clic para Activar Simulador .exe -->
-                                                    <div class="roxar-media-box position-relative" style="background: radial-gradient(circle at center, #0e3a7a 0%, #030d22 100%);">
-                                                        <img src="img/multifasico-2.jpg" onerror="this.src='img/gallery-img-02.jpg'" alt="Gemelo Digital Roxar 2600" id="roxar-gemelo-img" style="opacity: 0.85;">
+                                                    <div class="roxar-media-box position-relative" style="background: #ffffff; border: 1px solid #cbd5e1;">
+                                                        <img src="img/gemelodigital.jpg" onerror="this.src='img/gallery-img-02.jpg'" alt="Gemelo Digital Roxar 2600" id="roxar-gemelo-img" style="width: 100%; height: 100%; object-fit: cover;">
                                                         
-                                                        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column align-items-center justify-content-center p-3 text-center" style="background: rgba(3, 11, 28, 0.65); backdrop-filter: blur(2px);">
-                                                            <div class="p-3 rounded-circle mb-2" style="background: rgba(56, 182, 255, 0.2); border: 2px solid #38b6ff; box-shadow: 0 0 20px rgba(56, 182, 255, 0.4);">
+                                                        <div class="interactive-hover-overlay">
+                                                            <div class="p-3 rounded-circle mb-2" style="background: rgba(56, 182, 255, 0.25); border: 2px solid #38b6ff; box-shadow: 0 0 20px rgba(56, 182, 255, 0.5);">
                                                                 <i class="fas fa-play text-white fs-4"></i>
                                                             </div>
                                                             <span class="badge bg-primary px-3 py-1 mb-1">MÓDULO INTERACTIVO .EXE</span>
@@ -2765,9 +2806,8 @@
                                         <div class="col-12 col-lg-6 reveal-on-scroll reveal-from-left">
                                             <div class="roxar-panel-card">
                                                 <div>
-                                                    <div class="d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="mb-1">
                                                         <span class="roxar-panel-badge"><i class="fas fa-layer-group me-1"></i> SEPARACIÓN DE 2 FASES</span>
-                                                        <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.72rem;">Gas / Líquido</span>
                                                     </div>
                                                     <h3 class="roxar-panel-title">1. Equipo Separador Bifásico</h3>
                                                     <p class="roxar-panel-desc">
@@ -2791,19 +2831,18 @@
                                         <div class="col-12 col-lg-6 reveal-on-scroll reveal-from-right">
                                             <div class="roxar-panel-card roxar-interactive-card" id="demo-3d-trigger">
                                                 <div>
-                                                    <div class="d-flex justify-content-between align-items-center mb-1">
+                                                    <div class="mb-1">
                                                         <span class="roxar-panel-badge"><i class="fas fa-cubes me-1"></i> SEPARACIÓN DE 3 FASES</span>
-                                                        <span class="badge bg-success bg-opacity-10 text-success px-2 py-1" style="font-size: 0.72rem;">Petróleo / Agua / Gas</span>
                                                     </div>
                                                     <h3 class="roxar-panel-title">2. Equipo Separador Trifásico</h3>
                                                     <p class="roxar-panel-desc">
                                                         Separador avanzado con bota y vertedero que segrega <strong>tres fases independientes</strong>. Indispensable para fiscalización, determinación de BS&W y RGP.
                                                     </p>
-                                                    <div class="roxar-media-box position-relative" style="background: radial-gradient(circle at center, #0e3a7a 0%, #030d22 100%);">
-                                                        <img src="img/trifasico-3d.jpg" id="demo-3d-img" onerror="this.src='img/trifasico.jpg'" alt="Separador Trifásico 3D" style="opacity: 0.88;">
+                                                    <div class="roxar-media-box position-relative" style="background: #ffffff; border: 1px solid #cbd5e1;">
+                                                        <img src="img/trifasico-3d.jpg" id="demo-3d-img" onerror="this.src='img/trifasico.jpg'" alt="Separador Trifásico 3D" style="width: 100%; height: 100%; object-fit: cover;">
                                                         
-                                                        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column align-items-center justify-content-center p-3 text-center" style="background: rgba(3, 11, 28, 0.65); backdrop-filter: blur(2px);">
-                                                            <div class="p-3 rounded-circle mb-2" style="background: rgba(56, 182, 255, 0.2); border: 2px solid #38b6ff; box-shadow: 0 0 20px rgba(56, 182, 255, 0.4);">
+                                                        <div class="interactive-hover-overlay">
+                                                            <div class="p-3 rounded-circle mb-2" style="background: rgba(56, 182, 255, 0.25); border: 2px solid #38b6ff; box-shadow: 0 0 20px rgba(56, 182, 255, 0.5);">
                                                                 <i class="fas fa-cube text-white fs-4"></i>
                                                             </div>
                                                             <span class="badge bg-primary px-3 py-1 mb-1">SIMULADOR 3D INTERNO</span>
@@ -3053,9 +3092,12 @@
 
                             <!-- 5. SERVICIO: TRASEGADO O ACARREO DE FLUIDOS -->
                             <article class="roxar-showcase-container reveal-on-scroll reveal-up mt-4" id="servicio-trasegado">
-                                <!-- Banner Superior -->
-                                <div class="roxar-hero-banner" style="background: linear-gradient(135deg, #0b2246 0%, #030d22 100%);">
-                                    <div class="roxar-video-overlay" style="background: linear-gradient(180deg, rgba(3, 11, 28, 0.45) 0%, rgba(5, 18, 48, 0.85) 100%);"></div>
+                                <!-- Banner Superior con Video de Fondo -->
+                                <div class="roxar-hero-banner">
+                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="none" poster="img/tanque.jpeg" class="roxar-video-bg service-video-elem" id="trasegado-main-video">
+                                        <source src="video/tanque.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="roxar-video-overlay"></div>
                                     <div class="roxar-hero-content">
                                         <div class="roxar-tag">
                                             <i class="fas fa-truck-droplet me-1"></i> 05. TRANSPORTE Y MANEJO DE FLUIDOS
@@ -3101,8 +3143,8 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="roxar-media-box position-relative" style="background: #ffffff; min-height: 280px; height: 280px; border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 10px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
-                                                        <img src="img/home-img-1.jpg" onerror="this.src='img/gallery-img-01.jpg'" style="max-height: 260px; width: 100%; height: 100%; object-fit: cover; border-radius: 6px;" alt="Acarreo y Trasegado de Fluidos AIC TECH">
+                                                    <div class="roxar-media-box position-relative" style="background: #ffffff; min-height: 260px; height: clamp(240px, 25vw, 290px); border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 8px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
+                                                        <img src="img/acarreopozos.jpg" onerror="this.src='img/home-img-1.jpg'" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px;" alt="Acarreo y Trasegado de Fluidos AIC TECH">
                                                     </div>
                                                 </div>
                                                 <div class="mt-2">
@@ -3133,8 +3175,8 @@
                                                         <span><strong>Mangueras &amp; Accesorios:</strong> Líneas flexibles certificadas de alta presión resistentes a hidrocarburos y acoples rápidos herméticos.</span>
                                                     </div>
 
-                                                    <div class="roxar-media-box position-relative" style="background: #ffffff; min-height: 220px; height: 220px; border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 10px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
-                                                        <img src="img/gallery-img-01.jpg" onerror="this.src='img/aic.jpg'" style="max-height: 200px; width: 100%; height: 100%; object-fit: cover; border-radius: 6px;" alt="Tanques y Bombas de Transferencia">
+                                                    <div class="roxar-media-box position-relative" style="background: #ffffff; min-height: 240px; height: clamp(240px, 25vw, 290px); border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 8px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
+                                                        <img src="img/tanque.jpeg" onerror="this.src='img/gallery-img-01.jpg'" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px;" alt="Tanques y Bombas de Transferencia">
                                                     </div>
                                                 </div>
                                                 <div class="mt-2">
@@ -3151,9 +3193,12 @@
 
                             <!-- 6. SERVICIO: SOLDADURA Y FABRICACIÓN EN TALLER Y EN SITIO -->
                             <article class="roxar-showcase-container reveal-on-scroll reveal-up mt-4" id="servicio-soldadura-taller">
-                                <!-- Banner Superior -->
-                                <div class="roxar-hero-banner" style="background: linear-gradient(135deg, #0e3a7a 0%, #021a38 100%);">
-                                    <div class="roxar-video-overlay" style="background: linear-gradient(180deg, rgba(3, 11, 28, 0.45) 0%, rgba(5, 18, 48, 0.85) 100%);"></div>
+                                <!-- Banner Superior con Video de Fondo -->
+                                <div class="roxar-hero-banner">
+                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="none" poster="img/soldadura.jpg" class="roxar-video-bg service-video-elem" id="soldadura-main-video">
+                                        <source src="video/soldadura.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="roxar-video-overlay"></div>
                                     <div class="roxar-hero-content">
                                         <div class="roxar-tag">
                                             <i class="fas fa-fire-burner me-1"></i> 06. INGENIERÍA METALMECÁNICA &amp; FABRICACIÓN
@@ -3199,8 +3244,8 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="roxar-media-box position-relative" style="background: #ffffff; min-height: 280px; height: 280px; border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 10px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
-                                                        <img src="img/multifasico-1.jpg" onerror="this.src='img/aic.jpg'" style="max-height: 260px; width: 100%; height: 100%; object-fit: cover; border-radius: 6px;" alt="Soldadura Calificada en Taller y Campo">
+                                                    <div class="roxar-media-box position-relative" style="background: #ffffff; min-height: 260px; height: clamp(240px, 25vw, 290px); border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 8px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
+                                                        <img src="img/soldadura.jpg" onerror="this.src='img/gallery-img-03.jpg'" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px;" alt="Soldadura Calificada en Taller y Campo">
                                                     </div>
                                                 </div>
                                                 <div class="mt-2">
@@ -3231,8 +3276,8 @@
                                                         <span><strong>Pruebas Hidrostáticas:</strong> Presurización y registro certificado de estanqueidad hasta 15,000 PSI con cartas Barton trazables.</span>
                                                     </div>
 
-                                                    <div class="roxar-media-box position-relative" style="background: #ffffff; min-height: 220px; height: 220px; border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 10px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
-                                                        <img src="img/home-img-2.jpg" onerror="this.src='img/trifasico-3d.jpg'" style="max-height: 200px; width: 100%; height: 100%; object-fit: cover; border-radius: 6px;" alt="Fabricación de Skids y Metalmecánica">
+                                                    <div class="roxar-media-box position-relative" style="background: #ffffff; min-height: 240px; height: clamp(240px, 25vw, 290px); border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 8px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
+                                                        <img src="img/taller.jpeg" onerror="this.src='img/home-img-2.jpg'" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px;" alt="Fabricación de Skids y Metalmecánica">
                                                     </div>
                                                 </div>
                                                 <div class="mt-2">
@@ -3249,9 +3294,10 @@
 
                             <!-- 7. SERVICIO: ASISTENCIA TÉCNICA EN SERVICIOS INDUSTRIALES -->
                             <article class="roxar-showcase-container reveal-on-scroll reveal-up mt-4" id="servicio-asistencia-tecnica">
-                                <!-- Banner Superior -->
-                                <div class="roxar-hero-banner" style="background: linear-gradient(135deg, #021a38 0%, #073b6c 100%);">
-                                    <div class="roxar-video-overlay" style="background: linear-gradient(180deg, rgba(3, 11, 28, 0.45) 0%, rgba(5, 18, 48, 0.85) 100%);"></div>
+                                <!-- Banner Superior con Imagen de Fondo AIC -->
+                                <div class="roxar-hero-banner">
+                                    <img src="img/aic.jpg" class="roxar-video-bg" style="object-fit: cover; object-position: center center; width: 100%; height: 100%; opacity: 0.62;" alt="AIC TECH Asistencia Técnica">
+                                    <div class="roxar-video-overlay" style="background: linear-gradient(180deg, rgba(3, 11, 28, 0.45) 0%, rgba(5, 18, 48, 0.88) 100%);"></div>
                                     <div class="roxar-hero-content">
                                         <div class="roxar-tag">
                                             <i class="fas fa-screwdriver-wrench me-1"></i> 07. SOPORTE DE CAMPO &amp; AUTOMATIZACIÓN
@@ -3297,8 +3343,8 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="roxar-media-box position-relative" style="background: #ffffff; min-height: 280px; height: 280px; border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 10px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
-                                                        <img src="img/aic.jpg" onerror="this.src='img/gallery-img-02.jpg'" style="max-height: 260px; width: 100%; height: 100%; object-fit: cover; border-radius: 6px;" alt="Asistencia Técnica e Instrumentación AIC TECH">
+                                                    <div class="roxar-media-box position-relative" style="background: #ffffff; min-height: 260px; height: clamp(240px, 25vw, 290px); border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 8px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
+                                                        <img src="img/calibracion.jpg" onerror="this.src='img/aic.jpg'" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px;" alt="Calibración e Instrumentación Industrial AIC TECH">
                                                     </div>
                                                 </div>
                                                 <div class="mt-2">
@@ -3329,8 +3375,8 @@
                                                         <span><strong>Integración PetrolIA:</strong> Sincronización telemétrica de datos de campo directo a la plataforma de monitoreo en tiempo real.</span>
                                                     </div>
 
-                                                    <div class="roxar-media-box position-relative" style="background: #ffffff; min-height: 220px; height: 220px; border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 10px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
-                                                        <img src="img/gallery-img-02.jpg" onerror="this.src='img/home-img-1.jpg'" style="max-height: 200px; width: 100%; height: 100%; object-fit: cover; border-radius: 6px;" alt="Mantenimiento Industrial y Proyectos Llave en Mano">
+                                                    <div class="roxar-media-box position-relative" style="background: #ffffff; min-height: 240px; height: clamp(240px, 25vw, 290px); border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 8px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
+                                                        <img src="img/yeferson.jpg" onerror="this.src='img/yefersion.jpg'; this.onerror=function(){this.src='img/gallery-img-02.jpg';};" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px;" alt="Ingeniería y Soporte en Campo AIC TECH">
                                                     </div>
                                                 </div>
                                                 <div class="mt-2">
@@ -4848,6 +4894,15 @@
                 card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
             }
         });
+
+        const btnTrifasicoDemo = document.getElementById('btn-activar-trifasico-demo');
+        if (btnTrifasicoDemo) {
+            btnTrifasicoDemo.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                card.click();
+            });
+        }
 
         card.addEventListener('click', function (e) {
             if (isZoomed || img.classList.contains('zoom-activo')) return;

@@ -1690,9 +1690,7 @@
         }
 
         .service-feed-item {
-            background: rgba(255, 255, 255, 0.96) !important;
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            background: #ffffff !important;
             border: 1px solid #cbd5e1;
             border-left: 6px solid var(--brand-blue);
             border-radius: 6px;
@@ -1844,9 +1842,7 @@
            ========================================================================== */
         .roxar-showcase-container {
             position: relative;
-            background: rgba(255, 255, 255, 0.96) !important;
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            background: #ffffff !important;
             border: 1px solid #cbd5e1;
             border-left: 6px solid var(--brand-blue);
             border-radius: 6px;
@@ -1863,11 +1859,11 @@
 
         .roxar-hero-banner {
             position: relative;
-            min-height: clamp(340px, 32vw, 440px);
+            min-height: clamp(260px, 24vw, 340px);
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: clamp(2rem, 3.5vw, 3.2rem) clamp(1.5rem, 3.5vw, 2.8rem);
+            padding: clamp(1.4rem, 2.4vw, 2.2rem) clamp(1.4rem, 2.6vw, 2.2rem);
             overflow: hidden;
             background: #060e1e;
         }
@@ -1913,9 +1909,51 @@
         #servicio-bifasico-trifasico .roxar-hero-banner,
         #servicio-flexim .roxar-hero-banner,
         #servicio-trasegado .roxar-hero-banner,
-        #servicio-soldadura-taller .roxar-hero-banner,
+        #servicio-soldadura-taller .roxar-hero-banner {
+            min-height: clamp(260px, 25vw, 340px);
+        }
+
         #servicio-asistencia-tecnica .roxar-hero-banner {
-            min-height: clamp(380px, 34vw, 450px);
+            min-height: clamp(280px, 28vw, 360px) !important;
+            background: #030a18 !important;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        #servicio-asistencia-tecnica img.roxar-video-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            min-width: 100%;
+            min-height: 100%;
+            transform: translate(-50%, -50%);
+            object-fit: cover !important;
+            object-position: center 46% !important;
+            z-index: 1;
+            opacity: 0.88;
+            filter: brightness(0.95) contrast(1.1);
+            pointer-events: none;
+        }
+
+        #servicio-asistencia-tecnica .roxar-video-overlay {
+            background: linear-gradient(
+                180deg,
+                rgba(3, 11, 28, 0.25) 0%,
+                rgba(4, 15, 38, 0.50) 45%,
+                rgba(3, 11, 28, 0.92) 100%
+            ) !important;
+            z-index: 2;
+        }
+
+        #servicio-asistencia-tecnica .roxar-hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 980px;
         }
 
         #trasegado-main-video,
@@ -1924,14 +1962,9 @@
             object-position: center center !important;
         }
 
-        #servicio-asistencia-tecnica .roxar-hero-banner img.roxar-video-bg {
-            object-fit: cover !important;
-            object-position: center 40% !important;
-        }
-
         /* Banner de Echometer con altura generosa (530px) para apreciar equipo completo */
         #servicio-echometer .roxar-hero-banner {
-            min-height: 530px !important;
+            min-height: clamp(280px, 27vw, 360px) !important;
             background: #040c1e !important;
         }
 
@@ -1981,18 +2014,18 @@
 
         .roxar-title {
             font-family: 'Outfit', sans-serif;
-            font-size: 2.3rem;
+            font-size: clamp(1.5rem, 2.1vw, 1.95rem);
             font-weight: 700;
             color: #ffffff;
             letter-spacing: -0.02em;
-            margin-bottom: 1rem;
-            line-height: 1.2;
+            margin-bottom: 0.65rem;
+            line-height: 1.25;
         }
 
         .roxar-lead-text {
             color: #e2e8f0;
-            font-size: 1.12rem;
-            line-height: 1.75;
+            font-size: clamp(0.92rem, 1.05vw, 1.02rem);
+            line-height: 1.6;
             margin-bottom: 0;
             text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
         }
@@ -2001,7 +2034,7 @@
         .roxar-dual-section {
             position: relative;
             z-index: 3;
-            padding: clamp(1.5rem, 2.5vw, 2.6rem);
+            padding: clamp(1.2rem, 2vw, 1.8rem);
             background: #ffffff;
             border-top: 1px solid #e2e8f0;
         }
@@ -2010,7 +2043,7 @@
             background: #f8fafc;
             border: 1px solid #cbd5e1;
             border-radius: 4px;
-            padding: 24px 26px;
+            padding: clamp(16px, 1.6vw, 20px);
             height: 100%;
             display: flex;
             flex-direction: column;
@@ -2066,7 +2099,7 @@
         .roxar-media-box {
             position: relative;
             width: 100%;
-            height: 250px;
+            height: clamp(210px, 20vw, 260px);
             border-radius: 4px;
             overflow: hidden;
             border: 1px solid #cbd5e1;
@@ -2074,8 +2107,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
         }
 
         .roxar-media-box img,
@@ -2522,7 +2555,7 @@
 </div>
 
 <!-- OVERLAY ANIMACIÓN DE ENTRADA: GLOBO 3D AICTECH -->
-<div id="globe-intro-overlay">
+<div id="globe-intro-overlay" class="hidden">
     <div class="stars"></div>
     <div class="shooting-star comet-cyan"></div>
     <div class="shooting-star comet-gold"></div>
@@ -2611,10 +2644,6 @@
 
                             <!-- Hero Content Top / Center -->
                             <div class="hero-slb-content">
-                                <div class="hero-status-tag">
-                                    <span class="live-dot"></span>
-                                    <span>CENTRO DE TELEMETRÍA & AUTOMATIZACIÓN ENERGÉTICA</span>
-                                </div>
                                 <h1 class="hero-slb-title">
                                     Liderando la Innovación en <span class="highlight-cyan">Ingeniería</span>, Automatización y <span class="highlight-gold">Telemetría de Pozos</span>
                                 </h1>
@@ -2683,7 +2712,7 @@
                                 
                                 <!-- Banner Superior con Video de Fondo y Letras Identificadoras -->
                                 <div class="roxar-hero-banner">
-                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="none" poster="multifasico.jpeg" class="roxar-video-bg service-video-elem" id="roxar-main-video">
+                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="none" poster="img/multifasico5726.jpeg" class="roxar-video-bg service-video-elem" id="roxar-main-video">
                                         <source src="video/roxar2600.mp4" type="video/mp4">
                                         <source src="roxar2600.mp4" type="video/mp4">
                                     </video>
@@ -2715,8 +2744,14 @@
                                                     </p>
 
                                                     <!-- Contenedor para Imagen o Video del 5726MT -->
-                                                    <div class="roxar-media-box">
-                                                        <img src="img/multifasico.jpeg" onerror="this.src='img/gallery-img-02.jpg'" alt="Computador 5726MT - Unidad de Procesamiento" id="computador-5726mt-media">
+                                                    <div class="roxar-media-box roxar-media-box-5726mt position-relative" style="background: radial-gradient(circle at center, #0e2a54 0%, #030a17 100%); min-height: 290px; height: clamp(280px, 30vw, 380px); border: 1px solid #1e3a66; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.12);">
+                                                        <!-- Fondo difuminado de ambiente que elimina bordes blancos -->
+                                                        <img src="img/multifasico5726.jpeg" aria-hidden="true" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; filter: blur(16px) brightness(0.38) saturate(1.2); opacity: 0.6; pointer-events: none; transform: scale(1.15);">
+                                                        <!-- Imagen del equipo vertical centrada, nítida y completa -->
+                                                        <img src="img/multifasico5726.jpeg" onerror="this.src='img/gallery-img-02.jpg'" alt="Computador de Flujo Multifásico 5726MT" id="computador-5726mt-media" style="position: relative; z-index: 2; height: 96%; max-height: 96%; width: auto; max-width: 95%; object-fit: contain; filter: drop-shadow(0 8px 24px rgba(0,0,0,0.65)); border-radius: 4px; transition: transform 0.4s ease;">
+                                                        <div style="position: absolute; bottom: 8px; right: 10px; z-index: 3; background: rgba(3, 15, 38, 0.85); backdrop-filter: blur(4px); border: 1px solid rgba(56, 182, 255, 0.4); border-radius: 4px; padding: 3px 10px; font-size: 0.7rem; color: #38b6ff; font-weight: 600;">
+                                                            <i class="fas fa-microchip me-1"></i> RACK MULTIFÁSICO 5726MT
+                                                        </div>
                                                     </div>
                                                 </div>
 
@@ -2743,7 +2778,7 @@
                                                     </p>
 
                                                     <!-- Recuadro con Fondo Bonito y Clic para Activar Simulador .exe -->
-                                                    <div class="roxar-media-box position-relative" style="background: #ffffff; border: 1px solid #cbd5e1;">
+                                                    <div class="roxar-media-box position-relative" style="background: #ffffff; min-height: 290px; height: clamp(280px, 30vw, 380px); border: 1px solid #cbd5e1;">
                                                         <img src="img/gemelodigital.jpg" onerror="this.src='img/gallery-img-02.jpg'" alt="Gemelo Digital Roxar 2600" id="roxar-gemelo-img" style="width: 100%; height: 100%; object-fit: cover;">
                                                         
                                                         <div class="interactive-hover-overlay">
@@ -2927,8 +2962,8 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="roxar-media-box position-relative" style="background: #ffffff; min-height: 330px; height: 330px; border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 12px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
-                                                        <img src="img/flexim-1.jpg" onerror="this.src='img/gallery-img-03.jpg'" style="max-height: 310px; width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 8px 22px rgba(0,0,0,0.12));" alt="Caudalímetro Ultrasónico Flexim Clamp-On">
+                                                    <div class="roxar-media-box position-relative" style="background: #ffffff; min-height: 300px; height: clamp(260px, 30vw, 380px); border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 10px; overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,0.06);">
+                                                        <img src="img/flexim-1.jpg" onerror="this.src='img/gallery-img-03.jpg'" style="max-height: 350px; width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 8px 22px rgba(0,0,0,0.12));" alt="Caudalímetro Ultrasónico Flexim Clamp-On">
                                                     </div>
                                                 </div>
                                                 <div class="mt-2">
@@ -3039,8 +3074,8 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="roxar-media-box text-center" style="background: #ffffff; min-height: 330px; height: 330px; border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 10px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
-                                                        <img src="img/echometer-1.jpg" onerror="this.src='img/gallery-img-04.jpg'" style="max-height: 315px; width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 8px 22px rgba(0,0,0,0.15));" alt="Diagnóstico Acústico Echometer">
+                                                    <div class="roxar-media-box text-center" style="background: #ffffff; min-height: 320px; height: clamp(300px, 35vw, 420px); border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 10px; overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,0.06);">
+                                                        <img src="img/echometer-1.jpg" onerror="this.src='img/gallery-img-04.jpg'" style="max-height: 245px; width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 8px 22px rgba(0,0,0,0.15));" alt="Diagnóstico Acústico Echometer">
                                                     </div>
                                                 </div>
                                                 <div class="mt-2">
@@ -3071,8 +3106,8 @@
                                                         <span><strong>Reporte Dinámico:</strong> Cálculos automáticos de gradiente de gas libre y columna hidrostática anular.</span>
                                                     </div>
 
-                                                    <div class="roxar-media-box position-relative" style="background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); min-height: 330px; height: 330px; border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 10px 10px 42px 10px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
-                                                        <img src="img/echometer-2.png" alt="Echometer en Campo" style="max-height: 275px; width: 100%; height: 100%; object-fit: contain; opacity: 0.98; filter: drop-shadow(0 10px 24px rgba(0, 51, 102, 0.18));">
+                                                    <div class="roxar-media-box position-relative" style="background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); min-height: 300px; height: clamp(260px, 30vw, 380px); border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 10px 10px 38px 10px; overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,0.06);">
+                                                        <img src="img/echometer-2.png" alt="Echometer en Campo" style="max-height: 225px; width: 100%; height: 100%; object-fit: contain; opacity: 0.98; filter: drop-shadow(0 10px 24px rgba(0, 51, 102, 0.18));">
                                                         <div class="position-absolute bottom-0 start-0 w-100 p-2 text-center" style="background: rgba(241, 245, 249, 0.96); border-top: 1px solid #cbd5e1;">
                                                             <small class="text-dark fw-bold"><i class="fas fa-check-circle text-primary me-1"></i> Diagnóstico en Tiempo Real para Todo Método de Producción</small>
                                                         </div>
@@ -3294,10 +3329,11 @@
 
                             <!-- 7. SERVICIO: ASISTENCIA TÉCNICA EN SERVICIOS INDUSTRIALES -->
                             <article class="roxar-showcase-container reveal-on-scroll reveal-up mt-4" id="servicio-asistencia-tecnica">
-                                <!-- Banner Superior con Imagen de Fondo AIC -->
+                                <!-- Banner Superior con Fondo Completo Panorámico AIC TECH -->
                                 <div class="roxar-hero-banner">
-                                    <img src="img/aic.jpg" class="roxar-video-bg" style="object-fit: cover; object-position: center center; width: 100%; height: 100%; opacity: 0.62;" alt="AIC TECH Asistencia Técnica">
-                                    <div class="roxar-video-overlay" style="background: linear-gradient(180deg, rgba(3, 11, 28, 0.45) 0%, rgba(5, 18, 48, 0.88) 100%);"></div>
+                                    <img src="img/aic-banner.jpg" class="roxar-video-bg" alt="AIC TECH Asistencia Técnica">
+                                    <div class="roxar-video-overlay"></div>
+
                                     <div class="roxar-hero-content">
                                         <div class="roxar-tag">
                                             <i class="fas fa-screwdriver-wrench me-1"></i> 07. SOPORTE DE CAMPO &amp; AUTOMATIZACIÓN
@@ -5458,6 +5494,13 @@
         const mouseDistSq = 160 * 160;
 
         function animateParticles() {
+            // Optimización de rendimiento: Si no estamos en la página inicial o la pestaña está oculta, pausar partículas
+            const page1Active = document.querySelector('.cd-hero-slider > li[data-page-no="1"].selected');
+            if (document.hidden || !page1Active) {
+                requestAnimationFrame(animateParticles);
+                return;
+            }
+
             ctx.clearRect(0, 0, width, height);
 
             for (let i = 0; i < particles.length; i++) {
@@ -5622,7 +5665,8 @@
                 animationFrameId = requestAnimationFrame(draw3DGlobe);
             }
 
-            draw3DGlobe();
+            // La animación de la esfera solo se inicia cuando el usuario hace clic en el logo
+            // draw3DGlobe();
 
             function onPointerDown(e) {
                 isDragging = true;
@@ -5675,7 +5719,7 @@
                 }
             }
 
-            dismissTimeoutId = setTimeout(closeGlobeIntro, 5200);
+            // dismissTimeoutId = setTimeout(closeGlobeIntro, 5200);
 
             const skipBtn = document.getElementById('globe-skip-btn');
             if (skipBtn) {

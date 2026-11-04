@@ -1377,8 +1377,8 @@
             inset: 0;
             background: linear-gradient(
                 135deg,
-                rgba(3, 12, 34, 0.92) 0%,
-                rgba(6, 22, 58, 0.78) 45%,
+                rgba(3, 12, 34, 0.72) 0%,
+                rgba(6, 22, 58, 0.52) 45%,
                 rgba(2, 6, 18, 0.88) 100%
             );
             z-index: 2;
@@ -1424,6 +1424,7 @@
             line-height: 1.15;
             color: #ffffff;
             letter-spacing: -0.02em;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.92);
             text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
             margin-bottom: 1.25rem;
         }
@@ -1679,6 +1680,7 @@
             font-weight: 700;
             color: #ffffff;
             letter-spacing: -0.02em;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.92);
             margin-bottom: 8px;
         }
 
@@ -1880,8 +1882,8 @@
             object-fit: cover;
             object-position: center center;
             z-index: 1;
-            opacity: 0.75;
-            filter: brightness(0.9) contrast(1.1);
+            opacity: 0.92;
+            filter: brightness(1.05) contrast(1.08);
             pointer-events: none;
         }
 
@@ -1943,9 +1945,9 @@
         #servicio-asistencia-tecnica .roxar-video-overlay {
             background: linear-gradient(
                 180deg,
-                rgba(3, 11, 28, 0.25) 0%,
-                rgba(4, 15, 38, 0.50) 45%,
-                rgba(3, 11, 28, 0.92) 100%
+                rgba(3, 11, 28, 0.12) 0%,
+                rgba(4, 15, 38, 0.35) 45%,
+                rgba(3, 11, 28, 0.75) 100%
             ) !important;
             z-index: 2;
         }
@@ -1971,9 +1973,9 @@
         #servicio-echometer .roxar-video-overlay {
             background: linear-gradient(
                 180deg,
-                rgba(3, 11, 28, 0.20) 0%,
-                rgba(4, 15, 38, 0.45) 50%,
-                rgba(3, 11, 28, 0.88) 100%
+                rgba(3, 11, 28, 0.10) 0%,
+                rgba(4, 15, 38, 0.30) 45%,
+                rgba(3, 11, 28, 0.72) 100%
             ) !important;
         }
 
@@ -1982,9 +1984,9 @@
             inset: 0;
             background: linear-gradient(
                 180deg,
-                rgba(3, 11, 28, 0.55) 0%,
-                rgba(5, 18, 48, 0.85) 65%,
-                rgba(3, 11, 28, 0.95) 100%
+                rgba(3, 11, 28, 0.15) 0%,
+                rgba(4, 15, 38, 0.38) 48%,
+                rgba(3, 11, 28, 0.78) 100%
             );
             z-index: 2;
             pointer-events: none;
@@ -2018,6 +2020,7 @@
             font-weight: 700;
             color: #ffffff;
             letter-spacing: -0.02em;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.92);
             margin-bottom: 0.65rem;
             line-height: 1.25;
         }
@@ -2712,7 +2715,7 @@
                                 
                                 <!-- Banner Superior con Video de Fondo y Letras Identificadoras -->
                                 <div class="roxar-hero-banner">
-                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="none" poster="img/multifasico5726.jpeg" class="roxar-video-bg service-video-elem" id="roxar-main-video">
+                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="none" poster="img/multifasico-real.jpg" class="roxar-video-bg service-video-elem" id="roxar-main-video">
                                         <source src="video/roxar2600.mp4" type="video/mp4">
                                         <source src="roxar2600.mp4" type="video/mp4">
                                     </video>
@@ -2738,19 +2741,16 @@
                                             <div class="roxar-panel-card">
                                                 <div>
                                                     <span class="roxar-panel-badge"><i class="fas fa-server me-1"></i> HARDWARE & TELEMETRÍA</span>
-                                                    <h3 class="roxar-panel-title">Actualización Más Reciente: Computador 5726MT</h3>
+                                                    <h3 class="roxar-panel-title">Medidor Multifásico Roxar 2600 en Skid de Campo</h3>
                                                     <p class="roxar-panel-desc">
-                                                        Unidad de procesamiento de datos de alta velocidad diseñada para la integración de instrumentación multifásica y telemetría continua de campo.
+                                                        Unidad Skid de medición multifásica instalada directamente en línea de producción para determinación precisa de caudales de crudo, agua y gas en tiempo real.
                                                     </p>
 
-                                                    <!-- Contenedor para Imagen o Video del 5726MT -->
-                                                    <div class="roxar-media-box roxar-media-box-5726mt position-relative" style="background: radial-gradient(circle at center, #0e2a54 0%, #030a17 100%); min-height: 290px; height: clamp(280px, 30vw, 380px); border: 1px solid #1e3a66; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.12);">
-                                                        <!-- Fondo difuminado de ambiente que elimina bordes blancos -->
-                                                        <img src="img/multifasico5726.jpeg" aria-hidden="true" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; filter: blur(16px) brightness(0.38) saturate(1.2); opacity: 0.6; pointer-events: none; transform: scale(1.15);">
-                                                        <!-- Imagen del equipo vertical centrada, nítida y completa -->
-                                                        <img src="img/multifasico5726.jpeg" onerror="this.src='img/gallery-img-02.jpg'" alt="Computador de Flujo Multifásico 5726MT" id="computador-5726mt-media" style="position: relative; z-index: 2; height: 96%; max-height: 96%; width: auto; max-width: 95%; object-fit: contain; filter: drop-shadow(0 8px 24px rgba(0,0,0,0.65)); border-radius: 4px; transition: transform 0.4s ease;">
+                                                    <!-- Contenedor para Imagen del Medidor Multifásico Real -->
+                                                    <div class="roxar-media-box roxar-media-box-5726mt position-relative" style="background: #020712; min-height: 290px; height: clamp(280px, 30vw, 380px); border: 1px solid #1e3a66; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 0; box-shadow: 0 4px 16px rgba(0,0,0,0.12);">
+                                                        <img src="img/multifasico-real.jpg" alt="Medidor Multifásico Roxar 2600 en Skid Operacional" id="computador-5726mt-media" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px; transition: transform 0.4s ease;">
                                                         <div style="position: absolute; bottom: 8px; right: 10px; z-index: 3; background: rgba(3, 15, 38, 0.85); backdrop-filter: blur(4px); border: 1px solid rgba(56, 182, 255, 0.4); border-radius: 4px; padding: 3px 10px; font-size: 0.7rem; color: #38b6ff; font-weight: 600;">
-                                                            <i class="fas fa-microchip me-1"></i> RACK MULTIFÁSICO 5726MT
+                                                            <i class="fas fa-cube me-1"></i> SKID ROXAR 2600 EN CAMPO
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2760,9 +2760,7 @@
                                                         <span><i class="fas fa-info-circle text-primary me-1"></i> Protocolo de Comunicación</span>
                                                         <span class="text-dark fw-bold">Modbus / TCP-IP / 4G</span>
                                                     </div>
-                                                    <button type="button" class="btn-tech-outline w-100 py-2 fw-semibold" onclick="scrollToService('servicio-bifasico-trifasico')">
-                                                        <i class="fas fa-arrow-down me-1"></i> Continuar Explorando Servicios
-                                                    </button>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -2779,7 +2777,7 @@
 
                                                     <!-- Recuadro con Fondo Bonito y Clic para Activar Simulador .exe -->
                                                     <div class="roxar-media-box position-relative" style="background: #ffffff; min-height: 290px; height: clamp(280px, 30vw, 380px); border: 1px solid #cbd5e1;">
-                                                        <img src="img/gemelodigital.jpg" onerror="this.src='img/gallery-img-02.jpg'" alt="Gemelo Digital Roxar 2600" id="roxar-gemelo-img" style="width: 100%; height: 100%; object-fit: cover;">
+                                                        <img src="img/gemelodigital.jpg" onerror="this.src='img/gemelodigital.jpg'" alt="Gemelo Digital Roxar 2600" id="roxar-gemelo-img" style="width: 100%; height: 100%; object-fit: cover;">
                                                         
                                                         <div class="interactive-hover-overlay">
                                                             <div class="p-3 rounded-circle mb-2" style="background: rgba(56, 182, 255, 0.25); border: 2px solid #38b6ff; box-shadow: 0 0 20px rgba(56, 182, 255, 0.5);">
@@ -2855,9 +2853,7 @@
                                                 <div class="mt-2">
                                                     <div class="tech-list-item small mb-2"><i class="fas fa-check-circle text-primary me-1"></i> 1 Entrada de mezcla / 2 Salidas calibradas (Gas y Líquido).</div>
                                                     <div class="tech-list-item small mb-3"><i class="fas fa-check-circle text-primary me-1"></i> Estabilización de contrapresión y aforo rápido en locación.</div>
-                                                    <button type="button" class="btn-tech-outline w-100 py-2 fw-semibold" onclick="scrollToService('servicio-flexim')">
-                                                        <i class="fas fa-arrow-down me-1"></i> Siguiente Servicio: Caudalímetro Flexim
-                                                    </button>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -2921,7 +2917,7 @@
                                         <div class="roxar-tag">
                                             <i class="fas fa-wave-square me-1"></i> 03. MEDICIÓN ULTRASÓNICA CLAMP-ON
                                         </div>
-                                        <h2 class="roxar-title">Caudalímetro No Invasivo Flexim</h2>
+                                        <h2 class="roxar-title">Caudalímetro Portátil Ultrasónico Flexim FLUXUS G608</h2>
                                         <p class="roxar-lead-text">
                                             Aforo y cuantificación ultrasónica de tasa de flujo en tiempo real (gas y líquidos) montado sobre la superficie externa de la tubería, garantizando continuidad operacional absoluta sin corte ni interrupción de línea (cero parada de producción).
                                         </p>
@@ -2935,10 +2931,10 @@
                                         <div class="col-12 col-lg-6 reveal-on-scroll reveal-from-left">
                                             <div class="roxar-panel-card">
                                                 <div>
-                                                    <span class="roxar-panel-badge"><i class="fas fa-broadcast-tower me-1"></i> MONTAJE EXTERNO NO INVASIVO</span>
-                                                    <h3 class="roxar-panel-title">Flujometría Clamp-On Externa</h3>
+                                                    <span class="roxar-panel-badge"><i class="fas fa-shield-halved me-1"></i> FM CLASS I DIV 2 / ATEX</span>
+                                                    <h3 class="roxar-panel-title">Caudalímetro Portátil FLUXUS G608</h3>
                                                     <p class="roxar-panel-desc">
-                                                        Instalación directa sobre la tubería sin contacto con fluidos abrasivos. Cero caída de presión (ΔP = 0) y cero riesgo de fugas de hidrocarburos.
+                                                        Diseñado para áreas de peligro (FM Class I Div 2 / ATEX). Medición no invasiva clamp-on para gases y líquidos en condiciones operacionales exigentes sin cortes ni paradas.
                                                     </p>
                                                     
                                                     <div class="row g-2 mb-3">
@@ -2963,14 +2959,10 @@
                                                     </div>
 
                                                     <div class="roxar-media-box position-relative" style="background: #ffffff; min-height: 300px; height: clamp(260px, 30vw, 380px); border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 10px; overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,0.06);">
-                                                        <img src="img/flexim-1.jpg" onerror="this.src='img/gallery-img-03.jpg'" style="max-height: 350px; width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 8px 22px rgba(0,0,0,0.12));" alt="Caudalímetro Ultrasónico Flexim Clamp-On">
+                                                        <img src="img/flexim-1.jpg" onerror="this.src='img/flexim-1.jpg'" style="object-fit: contain; filter: drop-shadow(0 8px 20px rgba(0,0,0,0.15));" alt="Caudalímetro Ultrasónico Portátil FLUXUS G608 de Flexim">
                                                     </div>
                                                 </div>
-                                                <div class="mt-2">
-                                                    <button type="button" class="btn-tech-outline w-100 py-2 fw-semibold" onclick="scrollToService('servicio-echometer')">
-                                                        <i class="fas fa-arrow-down me-1"></i> Siguiente Servicio: Diagnóstico Echometer
-                                                    </button>
-                                                </div>
+                                                
                                             </div>
                                         </div>
 
@@ -2994,19 +2986,14 @@
                                                         <span><strong>Integración SCADA:</strong> Salidas estándar Modbus RTU / 4-20mA hacia la estación de telemetría de pozo.</span>
                                                     </div>
                                                     
-                                                    <div class="roxar-media-box position-relative" style="background: radial-gradient(circle at center, #0e3a7a 0%, #030d22 100%); min-height: 180px;">
-                                                        <img src="img/gallery-img-03.jpg" alt="Flexim en Campo" style="opacity: 0.82;">
-                                                        <div class="position-absolute bottom-0 start-0 w-100 p-2 text-center" style="background: rgba(3, 11, 28, 0.75);">
-                                                            <small class="text-white fw-bold"><i class="fas fa-check-circle text-info me-1"></i> Compatible con Pozos Gasíferos y Crudos Medios/Pesados</small>
+                                                    <div class="roxar-media-box position-relative" style="background: #ffffff; min-height: 240px; height: clamp(230px, 24vw, 290px); border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 0; box-shadow: 0 4px 14px rgba(0,0,0,0.06);">
+                                                        <img src="img/gallery-img-03.jpg" alt="Flexim FLUXUS G608 en Campo" style="width: 100%; height: 100%; object-fit: cover; object-position: center center; filter: contrast(1.04);">
+                                                        <div class="position-absolute bottom-0 start-0 w-100 p-2 text-center" style="background: rgba(241, 245, 249, 0.96); border-top: 1px solid #cbd5e1;">
+                                                            <small class="text-dark fw-bold"><i class="fas fa-check-circle text-primary me-1"></i> Compatible con Pozos Gasíferos y Crudos Medios/Pesados</small>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="mt-2">
-                                                    <button type="button" class="roxar-action-btn" onclick="scrollToService('servicio-echometer')">
-                                                        <i class="fas fa-chevron-circle-down"></i>
-                                                        <span>Continuar con Diagnóstico Acústico Echometer</span>
-                                                    </button>
-                                                </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -3017,7 +3004,7 @@
                             <article class="roxar-showcase-container reveal-on-scroll reveal-up mt-4" id="servicio-echometer">
                                 <!-- Banner Superior con Video de Fondo -->
                                 <div class="roxar-hero-banner">
-                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="none" poster="img/echometer-1.jpg" class="roxar-video-bg service-video-elem" id="echometer-main-video">
+                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="none" poster="img/echometer-1.png" class="roxar-video-bg service-video-elem" id="echometer-main-video">
                                         <!-- Placeholder para video del usuario (con fallbacks) -->
                                         <source src="video/echometer.mp4" type="video/mp4">
                                         <source src="video/roxar2600.mp4" type="video/mp4">
@@ -3027,15 +3014,15 @@
                                     <div class="roxar-hero-content">
                                         <div class="d-flex align-items-center flex-wrap gap-2 mb-2">
                                             <div class="roxar-tag mb-0">
-                                                <i class="fas fa-bullseye me-1"></i> 04. DIAGNÓSTICO ACÚSTICO Y DE SUBSUELO
+                                                <i class="fas fa-wifi me-1"></i> 04. DIAGNÓSTICO ACÚSTICO Y DE SUBSUELO WIRELESS
                                             </div>
                                             <button type="button" class="btn btn-sm btn-outline-light rounded-pill px-3 py-1 text-nowrap" onclick="openEchometerVideoModal()" style="font-size: 0.8rem; border-color: rgba(255,255,255,0.45); backdrop-filter: blur(4px);">
                                                 <i class="fas fa-expand me-1 text-info"></i> Ver Video Completo en HD
                                             </button>
                                         </div>
-                                        <h2 class="roxar-title">Medición de Nivel y Presión con Echometer</h2>
+                                        <h2 class="roxar-title">Medición de Nivel y Presión con Echometer Wireless</h2>
                                         <p class="roxar-lead-text">
-                                            Determinación telemétrica del nivel dinámico de fluido anular, cálculo de presión de fondo fluyente (Pwf/Pws) y diagnóstico de eficiencia operacional en pozos con Levantamiento Artificial (BM, BCP, BES y Gas Lift).
+                                            Determinación telemétrica 100% inalámbrica del nivel dinámico de fluido anular, cálculo de presión de fondo fluyente (Pwf/Pws) y diagnóstico de eficiencia operacional sin cables en cabezal de pozo.
                                         </p>
                                     </div>
                                 </div>
@@ -3047,10 +3034,10 @@
                                         <div class="col-12 col-lg-6 reveal-on-scroll reveal-from-left">
                                             <div class="roxar-panel-card">
                                                 <div>
-                                                    <span class="roxar-panel-badge"><i class="fas fa-volume-up me-1"></i> GENERACIÓN ACÚSTICA GAS GUN</span>
-                                                    <h3 class="roxar-panel-title">Nivel Dinámico & Presión de Fondo</h3>
+                                                    <span class="roxar-panel-badge"><i class="fas fa-wifi me-1"></i> SISTEMA ECHOMETER WIRELESS</span>
+                                                    <h3 class="roxar-panel-title">Adquisición Acústica Inalámbrica (Wireless)</h3>
                                                     <p class="roxar-panel-desc">
-                                                        Pulso acústico controlado mediante CO2 o gas del pozo acoplado a la válvula anular. Evaluación precisa para evitar cavitación en bombas mecánicas y electrosumergibles.
+                                                        Sistema inalámbrico (sin cables en pozo) que integra Gas Gun automático y transductor de presión wireless de alta frecuencia para cálculo preciso de Pwf/Pws y nivel dinámico.
                                                     </p>
 
                                                     <div class="row g-2 mb-3">
@@ -3075,7 +3062,7 @@
                                                     </div>
 
                                                     <div class="roxar-media-box text-center" style="background: #ffffff; min-height: 320px; height: clamp(300px, 35vw, 420px); border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 10px; overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,0.06);">
-                                                        <img src="img/echometer-1.jpg" onerror="this.src='img/gallery-img-04.jpg'" style="max-height: 245px; width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 8px 22px rgba(0,0,0,0.15));" alt="Diagnóstico Acústico Echometer">
+                                                        <img src="img/echometer-1.png" onerror="this.src='img/echometer-1.png'" style="max-height: 245px; width: auto; max-width: 95%; object-fit: contain; filter: drop-shadow(0 8px 22px rgba(0,0,0,0.15));" alt="Sistema Echometer Wireless">
                                                     </div>
                                                 </div>
                                                 <div class="mt-2">
@@ -3106,19 +3093,14 @@
                                                         <span><strong>Reporte Dinámico:</strong> Cálculos automáticos de gradiente de gas libre y columna hidrostática anular.</span>
                                                     </div>
 
-                                                    <div class="roxar-media-box position-relative" style="background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); min-height: 300px; height: clamp(260px, 30vw, 380px); border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 10px 10px 38px 10px; overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,0.06);">
-                                                        <img src="img/echometer-2.png" alt="Echometer en Campo" style="max-height: 225px; width: 100%; height: 100%; object-fit: contain; opacity: 0.98; filter: drop-shadow(0 10px 24px rgba(0, 51, 102, 0.18));">
+                                                    <div class="roxar-media-box position-relative" style="background: #ffffff; min-height: 320px; height: clamp(290px, 32vw, 410px); border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 10px 10px 42px 10px; overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,0.06);">
+                                                        <img src="img/echometer-2.png" alt="Echometer en Campo" style="max-height: 295px; width: 100%; height: 100%; object-fit: contain; opacity: 1; filter: drop-shadow(0 12px 28px rgba(0, 51, 102, 0.22)); transition: transform 0.3s ease;">
                                                         <div class="position-absolute bottom-0 start-0 w-100 p-2 text-center" style="background: rgba(241, 245, 249, 0.96); border-top: 1px solid #cbd5e1;">
                                                             <small class="text-dark fw-bold"><i class="fas fa-check-circle text-primary me-1"></i> Diagnóstico en Tiempo Real para Todo Método de Producción</small>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="mt-2">
-                                                    <button type="button" class="roxar-action-btn" onclick="scrollToService('servicio-trasegado')">
-                                                        <i class="fas fa-chevron-circle-down"></i>
-                                                        <span>Continuar con Trasegado o Acarreo de Fluidos</span>
-                                                    </button>
-                                                </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -3182,11 +3164,7 @@
                                                         <img src="img/acarreopozos.jpg" onerror="this.src='img/home-img-1.jpg'" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px;" alt="Acarreo y Trasegado de Fluidos AIC TECH">
                                                     </div>
                                                 </div>
-                                                <div class="mt-2">
-                                                    <button type="button" class="btn-tech-outline w-100 py-2 fw-semibold" onclick="scrollToService('servicio-soldadura-taller')">
-                                                        <i class="fas fa-arrow-down me-1"></i> Siguiente Servicio: Soldadura y Fabricación
-                                                    </button>
-                                                </div>
+                                                
                                             </div>
                                         </div>
 
@@ -3214,12 +3192,7 @@
                                                         <img src="img/tanque.jpeg" onerror="this.src='img/gallery-img-01.jpg'" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px;" alt="Tanques y Bombas de Transferencia">
                                                     </div>
                                                 </div>
-                                                <div class="mt-2">
-                                                    <button type="button" class="roxar-action-btn" onclick="scrollToService('servicio-soldadura-taller')">
-                                                        <i class="fas fa-chevron-circle-down"></i>
-                                                        <span>Continuar con Soldadura y Fabricación en Taller y Sitio</span>
-                                                    </button>
-                                                </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -3283,11 +3256,7 @@
                                                         <img src="img/soldadura.jpg" onerror="this.src='img/gallery-img-03.jpg'" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px;" alt="Soldadura Calificada en Taller y Campo">
                                                     </div>
                                                 </div>
-                                                <div class="mt-2">
-                                                    <button type="button" class="btn-tech-outline w-100 py-2 fw-semibold" onclick="scrollToService('servicio-asistencia-tecnica')">
-                                                        <i class="fas fa-arrow-down me-1"></i> Siguiente Servicio: Asistencia Técnica Industrial
-                                                    </button>
-                                                </div>
+                                                
                                             </div>
                                         </div>
 
@@ -3315,12 +3284,7 @@
                                                         <img src="img/taller.jpeg" onerror="this.src='img/home-img-2.jpg'" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px;" alt="Fabricación de Skids y Metalmecánica">
                                                     </div>
                                                 </div>
-                                                <div class="mt-2">
-                                                    <button type="button" class="roxar-action-btn" onclick="scrollToService('servicio-asistencia-tecnica')">
-                                                        <i class="fas fa-chevron-circle-down"></i>
-                                                        <span>Continuar con Asistencia Técnica en Servicios Industriales</span>
-                                                    </button>
-                                                </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -3412,7 +3376,7 @@
                                                     </div>
 
                                                     <div class="roxar-media-box position-relative" style="background: #ffffff; min-height: 240px; height: clamp(240px, 25vw, 290px); border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; padding: 8px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
-                                                        <img src="img/yeferson.jpg" onerror="this.src='img/yefersion.jpg'; this.onerror=function(){this.src='img/gallery-img-02.jpg';};" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px;" alt="Ingeniería y Soporte en Campo AIC TECH">
+                                                        <img src="img/yeferson.jpg" onerror="this.src='img/yefersion.jpg'; this.onerror=function(){this.src='img/yeferson.jpg';};" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px;" alt="Ingeniería y Soporte en Campo AIC TECH">
                                                     </div>
                                                 </div>
                                                 <div class="mt-2">

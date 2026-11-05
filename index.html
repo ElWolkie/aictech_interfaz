@@ -1360,15 +1360,14 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
+            width: 100%;
+            height: 100%;
             transform: translate(-50%, -50%);
-            object-fit: cover;
+            object-fit: contain;
+            object-position: center center;
             z-index: 1;
-            opacity: 0.65;
-            filter: brightness(0.85) contrast(1.15) saturate(1.1);
+            opacity: 0.95;
+            filter: brightness(1.06) contrast(1.05) saturate(1.08);
             pointer-events: none;
         }
 
@@ -1377,9 +1376,9 @@
             inset: 0;
             background: linear-gradient(
                 135deg,
-                rgba(3, 12, 34, 0.72) 0%,
-                rgba(6, 22, 58, 0.52) 45%,
-                rgba(2, 6, 18, 0.88) 100%
+                rgba(3, 12, 34, 0.42) 0%,
+                rgba(6, 22, 58, 0.20) 45%,
+                rgba(2, 6, 18, 0.52) 100%
             );
             z-index: 2;
             pointer-events: none;
@@ -2345,11 +2344,64 @@
         .area-challenge-box {
             background: #f8fafc;
             border-left: 3px solid #0284c7;
-            padding: 10px 14px;
-            border-radius: 0 6px 6px 0;
-            font-size: 0.86rem;
+            padding: 14px 16px;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.88rem;
             color: #334155;
             margin-bottom: 1.2rem;
+        }
+
+        /* Banner de Presentación Arquitectónica del Módulo de Proceso */
+        .area-module-hero {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 14px 16px;
+            margin-bottom: 1.35rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+        }
+
+        .area-hero-img-wrap {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #1e2530;
+            border: 1px solid rgba(56, 182, 255, 0.25);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 220px;
+        }
+
+        .area-hero-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #25282a;
+            transition: transform 0.35s ease;
+        }
+
+        .area-hero-img-wrap:hover .area-hero-img {
+            transform: scale(1.03);
+        }
+
+        .area-hero-overlay-tag {
+            position: absolute;
+            bottom: 8px;
+            left: 8px;
+            background: rgba(15, 23, 42, 0.88);
+            backdrop-filter: blur(6px);
+            color: #38b6ff;
+            font-size: 0.68rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 4px;
+            border: 1px solid rgba(56, 182, 255, 0.3);
+            pointer-events: none;
+            display: inline-flex;
+            align-items: center;
+            letter-spacing: 0.3px;
         }
 
         /* Sub-tarjetas de Instrumentos Emerson */
@@ -3664,9 +3716,29 @@
                                     <span class="area-header-badge"><i class="fas fa-oil-well me-1"></i> ÁREA 01 • PROCESO UPSTREAM</span>
                                     <span class="badge bg-light text-dark border"><i class="fas fa-tag text-primary me-1"></i> Well Pad &amp; Individual Wellheads</span>
                                 </div>
-                                <h3 class="fw-bold text-dark fs-4 mb-2">Plataformas de Pozos (Well Pads) y Cabezales Individuales</h3>
-                                <div class="area-challenge-box">
-                                    <strong><i class="fas fa-circle-exclamation text-primary me-1"></i> Desafío Operacional:</strong> Primera interfaz crítica entre el yacimiento y la superficie. Excursiones abruptas de presión, fluidos corrosivos con H₂S y CO₂, presencia de arena abrasiva que erosiona estranguladores y necesidad de monitoreo telemétrico en plataformas de pozos (well pads) extensas sin incurrir en altos costos de cableado.
+                                <h3 class="fw-bold text-dark fs-4 mb-3">Plataformas de Pozos (Well Pads) y Cabezales Individuales</h3>
+                                
+                                <!-- Banner de Presentación de Proceso: Arquitectura Well Pad -->
+                                <div class="area-module-hero">
+                                    <div class="row g-3 align-items-center">
+                                        <div class="col-lg-5 col-md-5">
+                                            <div class="area-hero-img-wrap">
+                                                <img src="img/wellpad.png" alt="Arquitectura de Cabezales y Plataformas de Pozos (Well Pads)" class="area-hero-img">
+                                                <span class="area-hero-overlay-tag"><i class="fas fa-layer-group me-1"></i> Arquitectura de Proceso Emerson</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-7 col-md-7">
+                                            <div class="area-challenge-box h-100 m-0 d-flex flex-column justify-content-center">
+                                                <div class="fw-bold text-dark mb-2 d-flex align-items-center gap-2">
+                                                    <span class="badge bg-primary text-white px-2 py-1" style="font-size: 0.72rem;"><i class="fas fa-triangle-exclamation me-1"></i> DESAFÍO OPERACIONAL</span>
+                                                    <span class="text-secondary small fw-semibold">Well Pad &amp; Individual Wellheads</span>
+                                                </div>
+                                                <p class="text-secondary mb-0" style="font-size: 0.88rem; line-height: 1.55;">
+                                                    Primera interfaz crítica entre el yacimiento y la superficie. Excursiones abruptas de presión, fluidos corrosivos con H₂S y CO₂, presencia de arena abrasiva que erosiona estranguladores y necesidad de monitoreo telemétrico en plataformas de pozos (well pads) extensas sin incurrir en altos costos de cableado.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 
                                 <div class="instrument-grid">
@@ -3883,87 +3955,225 @@
                                     <span class="area-header-badge"><i class="fas fa-wind me-1"></i> ÁREA 02 • PROCESO UPSTREAM</span>
                                     <span class="badge bg-light text-dark border"><i class="fas fa-tag text-primary me-1"></i> Gas Lift Optimization</span>
                                 </div>
-                                <h3 class="fw-bold text-dark fs-4 mb-2">Levantamiento Artificial por Gas (Gas Lift)</h3>
-                                <div class="area-challenge-box">
-                                    <strong><i class="fas fa-circle-exclamation text-primary me-1"></i> Desafío Operacional:</strong> La medición exacta del gas inyectado por pozo es fundamental para maximizar el recobro de crudo. El sobre-consumo desperdicia capacidad de compresión y la sub-inyección estrangula la producción. El gas contiene trazas agresivas de sulfuro de hidrógeno (H₂S gas agrio) y oscilaciones extremas de presión.
+                                <h3 class="fw-bold text-dark fs-4 mb-3">Levantamiento Artificial por Gas (Gas Lift)</h3>
+                                
+                                <!-- Banner de Presentación de Proceso: Arquitectura Gas Lift -->
+                                <div class="area-module-hero">
+                                    <div class="row g-3 align-items-center">
+                                        <div class="col-lg-5 col-md-5">
+                                            <div class="area-hero-img-wrap">
+                                                <img src="img/gaslift.png" alt="Arquitectura de Levantamiento Artificial por Gas (Gas Lift)" class="area-hero-img">
+                                                <span class="area-hero-overlay-tag"><i class="fas fa-layer-group me-1"></i> Arquitectura de Proceso Emerson</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-7 col-md-7">
+                                            <div class="area-challenge-box h-100 m-0 d-flex flex-column justify-content-center">
+                                                <div class="fw-bold text-dark mb-2 d-flex align-items-center gap-2">
+                                                    <span class="badge bg-primary text-white px-2 py-1" style="font-size: 0.72rem;"><i class="fas fa-triangle-exclamation me-1"></i> DESAFÍO OPERACIONAL</span>
+                                                    <span class="text-secondary small fw-semibold">Inyección y Optimización de Gas Lift</span>
+                                                </div>
+                                                <p class="text-secondary mb-0" style="font-size: 0.88rem; line-height: 1.55;">
+                                                    La medición exacta del gas inyectado por pozo es fundamental para maximizar el recobro de crudo. El sobre-consumo desperdicia capacidad de compresión y la sub-inyección estrangula la producción. El gas contiene trazas agresivas de sulfuro de hidrógeno (H₂S gas agrio) y oscilaciones extremas de presión.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="instrument-grid">
-                                    <div class="emerson-product-item" style="border-left: 3px solid #0284c7;">
-                                        <div>
-                                            <div class="emerson-prod-top">
-                                                <span class="instrument-brand-tag" style="background:#dbeafe; color:#1e40af;">FLEXIM™ FLUXUS G831 / G731</span>
-                                                <div class="emerson-prod-icon"><i class="fas fa-wave-pulse"></i></div>
+                                    <!-- PRODUCTO 1: CAUDALÍMETRO ULTRASÓNICO CLAMP-ON FLEXIM (FLIP CARD) -->
+                                    <div class="emerson-flip-card" onclick="this.classList.toggle('is-flipped')">
+                                        <div class="emerson-flip-inner">
+                                            <!-- CARA FRONTAL: Imagen + Título -->
+                                            <div class="emerson-flip-front">
+                                                <div>
+                                                    <div class="emerson-prod-top">
+                                                        <span class="instrument-brand-tag" style="background:#dbeafe; color:#1e40af;">FLEXIM™ FLUXUS G831 / G731</span>
+                                                        <div class="emerson-prod-icon"><i class="fas fa-wave-pulse"></i></div>
+                                                    </div>
+                                                    <div class="emerson-flip-img-wrap">
+                                                        <img src="img/FLUXUS-631-transducers_3-4.jpg" alt="Caudalímetro Ultrasónico Clamp-On Flexim Fluxus">
+                                                    </div>
+                                                    <div class="instrument-name">Caudalímetro Ultrasónico Clamp-On</div>
+                                                    <div class="mb-1"><span class="badge bg-light text-primary border" style="font-size: 0.70rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> No Invasivo • Inmune a H₂S</span></div>
+                                                </div>
+                                                <div>
+                                                    <div class="emerson-flip-btn">
+                                                        <i class="fas fa-rotate"></i> <span>Toca para ver especificaciones</span>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="instrument-name">Caudalímetro Ultrasónico Clamp-On</div>
-                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> No Invasivo • Inmune a H₂S / Gas Agrio</span></div>
-                                            <ul class="instrument-features">
-                                                <li><strong>No invasivo:</strong> Transductores instalados en el exterior del tubo</li>
-                                                <li>Inmune a gas agrio (H₂S), corrosión y partículas líquidas</li>
-                                                <li>Función <em>Dynamic Gas Meter</em> compensa compresibilidad</li>
-                                                <li>Medición precisa de volumen estándar y tasa de inyección</li>
-                                                <li>Cero caída de presión (ΔP = 0) y sin cortar la línea</li>
-                                            </ul>
-                                        </div>
-                                        <small class="text-primary fw-semibold"><i class="fas fa-check-circle me-1"></i> Ideal para auditoría y balance de inyección</small>
-                                    </div>
 
-                                    <div class="instrument-subcard">
-                                        <div>
-                                            <span class="instrument-brand-tag">ROSEMOUNT™</span>
-                                            <div class="instrument-name">Transmisor Multivariable 4088</div>
-                                            <ul class="instrument-features">
-                                                <li>Cálculo directo de flujo compensado en tiempo real</li>
-                                                <li>Mide presión estática, diferencial y temperatura en 1 equipo</li>
-                                                <li>Excelente rango dinámico ante picos de inyección</li>
-                                                <li>Integración directa a sistemas de plunger lift y RTU</li>
-                                            </ul>
-                                        </div>
-                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
-                                            <small class="text-muted"><i class="fas fa-calculator me-1 text-primary"></i> Corrección instantánea de flujo</small>
-                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="emerson-product-item">
-                                        <div>
-                                            <div class="emerson-prod-top">
-                                                <span class="instrument-brand-tag">MICRO MOTION™</span>
-                                                <div class="emerson-prod-icon"><i class="fas fa-atom"></i></div>
+                                            <!-- CARA TRASERA: Especificaciones y Detalles -->
+                                            <div class="emerson-flip-back">
+                                                <div>
+                                                    <div class="d-flex justify-content-between align-items-center mb-2 pb-1 border-bottom">
+                                                        <span class="fw-bold text-dark small"><i class="fas fa-wave-pulse text-primary me-1"></i> FLUXUS G831 / G731</span>
+                                                        <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">FLEXIM</span>
+                                                    </div>
+                                                    <ul class="instrument-features">
+                                                        <li><strong>No Invasivo:</strong> Transductores instalados en el exterior del tubo (clamp-on).</li>
+                                                        <li><strong>Inmunidad Total:</strong> Inmune a gas agrio (H₂S), corrosión y partículas líquidas.</li>
+                                                        <li><strong>Dynamic Gas Meter:</strong> Compensa compresibilidad de gas en tiempo real.</li>
+                                                        <li><strong>Cero Pérdida:</strong> ΔP = 0, sin corte de flujo ni fugas en línea.</li>
+                                                    </ul>
+                                                </div>
+                                                <div>
+                                                    <div class="pt-2 border-top d-flex justify-content-between align-items-center mb-1">
+                                                        <small class="text-muted"><i class="fas fa-check-circle me-1 text-primary"></i> Auditoría y balance de inyección</small>
+                                                    </div>
+                                                    <div class="emerson-flip-btn-back">
+                                                        <i class="fas fa-arrow-rotate-left"></i> <span>Volver a la imagen</span>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="instrument-name">Medidor Másico Coriolis Serie F</div>
-                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> Flujo Másico y Densidad • Bluetooth®</span></div>
-                                            <ul class="instrument-features">
-                                                <li>Medición directa de flujo másico y densidad del gas</li>
-                                                <li>Transmisor 4700 con conectividad Bluetooth®</li>
-                                                <li>Alta tolerancia a cambios de presión en línea de inyección</li>
-                                                <li>Sin partes móviles sometidas a desgaste por gas</li>
-                                            </ul>
-                                        </div>
-                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
-                                            <small class="text-muted"><i class="fas fa-balance-scale me-1 text-success"></i> Máxima precisión de balance másico</small>
-                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
                                         </div>
                                     </div>
 
-                                    <div class="emerson-product-item">
-                                        <div>
-                                            <div class="emerson-prod-top">
-                                                <span class="instrument-brand-tag">EMERSON™ AUTOMATION</span>
-                                                <div class="emerson-prod-icon"><i class="fas fa-sliders"></i></div>
+                                    <!-- PRODUCTO 2: TRANSMISOR MULTIVARIABLE 4088 (FLIP CARD) -->
+                                    <div class="emerson-flip-card" onclick="this.classList.toggle('is-flipped')">
+                                        <div class="emerson-flip-inner">
+                                            <!-- CARA FRONTAL: Imagen + Título -->
+                                            <div class="emerson-flip-front">
+                                                <div>
+                                                    <div class="emerson-prod-top">
+                                                        <span class="instrument-brand-tag">ROSEMOUNT™</span>
+                                                        <div class="emerson-prod-icon"><i class="fas fa-calculator"></i></div>
+                                                    </div>
+                                                    <div class="emerson-flip-img-wrap">
+                                                        <img src="img/rosemount-4088-multivariable-transmitter-1-305-5-valve-1-3.jpg" alt="Transmisor Multivariable 4088 Rosemount">
+                                                    </div>
+                                                    <div class="instrument-name">Transmisor Multivariable 4088</div>
+                                                    <div class="mb-1"><span class="badge bg-light text-primary border" style="font-size: 0.70rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> DP, P &amp; T • Flujo Compensado</span></div>
+                                                </div>
+                                                <div>
+                                                    <div class="emerson-flip-btn">
+                                                        <i class="fas fa-rotate"></i> <span>Toca para ver especificaciones</span>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="instrument-name">Manómetro Wireless &amp; Sistema AGLS</div>
-                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> 10 Años Autonomía • Válvula AGLS</span></div>
-                                            <ul class="instrument-features">
-                                                <li><strong>Rosemount Wireless Pressure Gauge:</strong> Hasta 10 años sin mantenimiento</li>
-                                                <li>Resistente a sobrepresiones de bombeo sin tubo Bourdon frágil</li>
-                                                <li><strong>Sistema Adaptativo AGLS:</strong> Válvula eléctrica motorizada</li>
-                                                <li>Control continuo de choke sin intervención de pozo (wireline)</li>
-                                            </ul>
+
+                                            <!-- CARA TRASERA: Especificaciones y Detalles -->
+                                            <div class="emerson-flip-back">
+                                                <div>
+                                                    <div class="d-flex justify-content-between align-items-center mb-2 pb-1 border-bottom">
+                                                        <span class="fw-bold text-dark small"><i class="fas fa-calculator text-primary me-1"></i> Rosemount 4088</span>
+                                                        <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                                    </div>
+                                                    <ul class="instrument-features">
+                                                        <li><strong>Cálculo Directo:</strong> Flujo compensado en tiempo real en cabeza de pozo.</li>
+                                                        <li><strong>3 en 1:</strong> Mide presión estática, diferencial y temperatura simultáneamente.</li>
+                                                        <li><strong>Rango Dinámico:</strong> Respuesta inmediata ante picos y ciclos de inyección.</li>
+                                                        <li><strong>Integración:</strong> Conexión directa a sistemas de plunger lift, RTU y SCADA.</li>
+                                                    </ul>
+                                                </div>
+                                                <div>
+                                                    <div class="pt-2 border-top d-flex justify-content-between align-items-center mb-1">
+                                                        <small class="text-muted"><i class="fas fa-calculator me-1 text-primary"></i> Corrección instantánea de flujo</small>
+                                                    </div>
+                                                    <div class="emerson-flip-btn-back">
+                                                        <i class="fas fa-arrow-rotate-left"></i> <span>Volver a la imagen</span>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
-                                            <small class="text-muted"><i class="fas fa-sliders me-1 text-warning"></i> Optimización telemétrica activa</small>
-                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                    </div>
+
+                                    <!-- PRODUCTO 3: MEDIDOR MÁSICO CORIOLIS SERIE F (FLIP CARD) -->
+                                    <div class="emerson-flip-card" onclick="this.classList.toggle('is-flipped')">
+                                        <div class="emerson-flip-inner">
+                                            <!-- CARA FRONTAL: Imagen + Título -->
+                                            <div class="emerson-flip-front">
+                                                <div>
+                                                    <div class="emerson-prod-top">
+                                                        <span class="instrument-brand-tag">MICRO MOTION™</span>
+                                                        <div class="emerson-prod-icon"><i class="fas fa-atom"></i></div>
+                                                    </div>
+                                                    <div class="emerson-flip-img-wrap">
+                                                        <img src="img/micro-motion-f-series-compact-drainable-coriolis-flow-and-density-meters-1.jpg" alt="Medidor Másico Coriolis Serie F Micro Motion">
+                                                    </div>
+                                                    <div class="instrument-name">Medidor Másico Coriolis Serie F</div>
+                                                    <div class="mb-1"><span class="badge bg-light text-primary border" style="font-size: 0.70rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> Flujo Másico &amp; Densidad • BT</span></div>
+                                                </div>
+                                                <div>
+                                                    <div class="emerson-flip-btn">
+                                                        <i class="fas fa-rotate"></i> <span>Toca para ver especificaciones</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- CARA TRASERA: Especificaciones y Detalles -->
+                                            <div class="emerson-flip-back">
+                                                <div>
+                                                    <div class="d-flex justify-content-between align-items-center mb-2 pb-1 border-bottom">
+                                                        <span class="fw-bold text-dark small"><i class="fas fa-atom text-primary me-1"></i> Coriolis F-Series</span>
+                                                        <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                                    </div>
+                                                    <ul class="instrument-features">
+                                                        <li><strong>Medición Directa:</strong> Flujo másico ultrapreciso y densidad continua de gas.</li>
+                                                        <li><strong>Transmisor 4700:</strong> Diagnóstico avanzado y conectividad Bluetooth® segura.</li>
+                                                        <li><strong>Estabilidad:</strong> Alta tolerancia a fluctuaciones severas de presión en línea.</li>
+                                                        <li><strong>Mantenimiento:</strong> Cero partes móviles sometidas a desgaste o fatiga.</li>
+                                                    </ul>
+                                                </div>
+                                                <div>
+                                                    <div class="pt-2 border-top d-flex justify-content-between align-items-center mb-1">
+                                                        <small class="text-muted"><i class="fas fa-balance-scale me-1 text-success"></i> Máxima precisión de balance másico</small>
+                                                    </div>
+                                                    <div class="emerson-flip-btn-back">
+                                                        <i class="fas fa-arrow-rotate-left"></i> <span>Volver a la imagen</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- PRODUCTO 4: MANÓMETRO WIRELESS & SISTEMA AGLS (FLIP CARD) -->
+                                    <div class="emerson-flip-card" onclick="this.classList.toggle('is-flipped')">
+                                        <div class="emerson-flip-inner">
+                                            <!-- CARA FRONTAL: Imagen + Título -->
+                                            <div class="emerson-flip-front">
+                                                <div>
+                                                    <div class="emerson-prod-top">
+                                                        <span class="instrument-brand-tag">EMERSON™ AUTOMATION</span>
+                                                        <div class="emerson-prod-icon"><i class="fas fa-sliders"></i></div>
+                                                    </div>
+                                                    <div class="emerson-flip-img-wrap">
+                                                        <img src="img/rosemount-wireless-pressure-gauge-4-diaphragm-seal-2.jpg" alt="Manómetro Wireless &amp; Sistema AGLS Emerson">
+                                                    </div>
+                                                    <div class="instrument-name">Manómetro Wireless &amp; Sistema AGLS</div>
+                                                    <div class="mb-1"><span class="badge bg-light text-primary border" style="font-size: 0.70rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> 10 Años Batería • Válvula AGLS</span></div>
+                                                </div>
+                                                <div>
+                                                    <div class="emerson-flip-btn">
+                                                        <i class="fas fa-rotate"></i> <span>Toca para ver especificaciones</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- CARA TRASERA: Especificaciones y Detalles -->
+                                            <div class="emerson-flip-back">
+                                                <div>
+                                                    <div class="d-flex justify-content-between align-items-center mb-2 pb-1 border-bottom">
+                                                        <span class="fw-bold text-dark small"><i class="fas fa-sliders text-primary me-1"></i> Manómetro &amp; Choke AGLS</span>
+                                                        <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                                    </div>
+                                                    <ul class="instrument-features">
+                                                        <li><strong>Wireless Pressure Gauge:</strong> Hasta 10 años de autonomía sin reemplazo.</li>
+                                                        <li><strong>Diseño Robusto:</strong> Sensor piezoeléctrico inmune a sobrepresión, sin Bourdon.</li>
+                                                        <li><strong>Sistema AGLS:</strong> Choke de inyección motorizado para control adaptativo.</li>
+                                                        <li><strong>Telemetría Activa:</strong> Optimización de tasa de inyección sin wireline en pozo.</li>
+                                                    </ul>
+                                                </div>
+                                                <div>
+                                                    <div class="pt-2 border-top d-flex justify-content-between align-items-center mb-1">
+                                                        <small class="text-muted"><i class="fas fa-sliders me-1 text-warning"></i> Optimización telemétrica activa</small>
+                                                    </div>
+                                                    <div class="emerson-flip-btn-back">
+                                                        <i class="fas fa-arrow-rotate-left"></i> <span>Volver a la imagen</span>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -3984,93 +4194,225 @@
                                     <span class="area-header-badge"><i class="fas fa-filter me-1"></i> ÁREA 03 • PROCESO UPSTREAM</span>
                                     <span class="badge bg-light text-dark border"><i class="fas fa-tag text-primary me-1"></i> Production &amp; Test Separators</span>
                                 </div>
-                                <h3 class="fw-bold text-dark fs-4 mb-2">Separadores de Producción (Bifásicos y Trifásicos)</h3>
-                                <div class="area-challenge-box">
-                                    <strong><i class="fas fa-circle-exclamation text-primary me-1"></i> Desafío Operacional:</strong> Recepción y segregación de tres fases (petróleo, agua y gas). Si el control de interfase falla, se produce arrastre de crudo en la línea de agua de descarte o arrastre de líquido en los compresores de gas. La sedimentación de arena satura el volumen útil de la vasija y atasca válvulas.
+                                <h3 class="fw-bold text-dark fs-4 mb-3">Separadores de Producción (Bifásicos y Trifásicos)</h3>
+                                
+                                <!-- Banner de Presentación de Proceso: Arquitectura Separadores -->
+                                <div class="area-module-hero">
+                                    <div class="row g-3 align-items-center">
+                                        <div class="col-lg-5 col-md-5">
+                                            <div class="area-hero-img-wrap">
+                                                <img src="img/separators.png" alt="Arquitectura de Separadores de Producción y Prueba" class="area-hero-img">
+                                                <span class="area-hero-overlay-tag"><i class="fas fa-layer-group me-1"></i> Arquitectura de Proceso Emerson</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-7 col-md-7">
+                                            <div class="area-challenge-box h-100 m-0 d-flex flex-column justify-content-center">
+                                                <div class="fw-bold text-dark mb-2 d-flex align-items-center gap-2">
+                                                    <span class="badge bg-primary text-white px-2 py-1" style="font-size: 0.72rem;"><i class="fas fa-triangle-exclamation me-1"></i> DESAFÍO OPERACIONAL</span>
+                                                    <span class="text-secondary small fw-semibold">Segregación Trifásica y Control de Interfase</span>
+                                                </div>
+                                                <p class="text-secondary mb-0" style="font-size: 0.88rem; line-height: 1.55;">
+                                                    Recepción y segregación de tres fases (petróleo, agua y gas). Si el control de interfase falla, se produce arrastre de crudo en la línea de agua de descarte o arrastre de líquido en los compresores de gas. La sedimentación de arena satura el volumen útil de la vasija y atasca válvulas.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="instrument-grid">
-                                    <div class="emerson-product-item">
-                                        <div>
-                                            <div class="emerson-prod-top">
-                                                <span class="instrument-brand-tag">ROSEMOUNT™</span>
-                                                <div class="emerson-prod-icon"><i class="fas fa-water-ladder"></i></div>
+                                    <!-- PRODUCTO 1: RADAR DE ONDA GUIADA 5300 & 9930 (FLIP CARD) -->
+                                    <div class="emerson-flip-card" onclick="this.classList.toggle('is-flipped')">
+                                        <div class="emerson-flip-inner">
+                                            <!-- CARA FRONTAL: Imagen + Título -->
+                                            <div class="emerson-flip-front">
+                                                <div>
+                                                    <div class="emerson-prod-top">
+                                                        <span class="instrument-brand-tag">ROSEMOUNT™</span>
+                                                        <div class="emerson-prod-icon"><i class="fas fa-water-ladder"></i></div>
+                                                    </div>
+                                                    <div class="emerson-flip-img-wrap">
+                                                        <img src="img/rosemount-5300-level-transmitter-guided-wave-radar-1-1.jpg" alt="Radar de Onda Guiada 5300 &amp; 9930 Rosemount">
+                                                    </div>
+                                                    <div class="instrument-name">Radar de Onda Guiada 5300 &amp; 9930</div>
+                                                    <div class="mb-1"><span class="badge bg-light text-primary border" style="font-size: 0.70rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> SIL 2 • Nivel Total e Interfase</span></div>
+                                                </div>
+                                                <div>
+                                                    <div class="emerson-flip-btn">
+                                                        <i class="fas fa-rotate"></i> <span>Toca para ver especificaciones</span>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="instrument-name">Radar de Onda Guiada 5300 &amp; 9930</div>
-                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> SIL 2 • Nivel Total e Interfase</span></div>
-                                            <ul class="instrument-features">
-                                                <li>Medición continua y simultánea de nivel total e interfase</li>
-                                                <li>Certificación de seguridad funcional SIL 2</li>
-                                                <li>Inmune a condensados, espuma y cambios de densidad</li>
-                                                <li>Indicador magnético 9930 para verificación visual en sitio</li>
-                                            </ul>
-                                        </div>
-                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
-                                            <small class="text-muted"><i class="fas fa-layer-group me-1 text-primary"></i> Control riguroso de interfase agua-aceite</small>
-                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+
+                                            <!-- CARA TRASERA: Especificaciones y Detalles -->
+                                            <div class="emerson-flip-back">
+                                                <div>
+                                                    <div class="d-flex justify-content-between align-items-center mb-2 pb-1 border-bottom">
+                                                        <span class="fw-bold text-dark small"><i class="fas fa-water-ladder text-primary me-1"></i> Rosemount 5300 &amp; 9930</span>
+                                                        <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                                    </div>
+                                                    <ul class="instrument-features">
+                                                        <li><strong>Nivel Total e Interfase:</strong> Medición simultánea y continua de agua y crudo.</li>
+                                                        <li><strong>Seguridad SIL 2:</strong> Certificación para sistemas instrumentados de seguridad (SIS).</li>
+                                                        <li><strong>Robusto:</strong> Inmune a condensados, capas de espuma y variaciones de densidad.</li>
+                                                        <li><strong>Indicador 9930:</strong> Cámara de bypass con indicación visual magnética local.</li>
+                                                    </ul>
+                                                </div>
+                                                <div>
+                                                    <div class="pt-2 border-top d-flex justify-content-between align-items-center mb-1">
+                                                        <small class="text-muted"><i class="fas fa-layer-group me-1 text-primary"></i> Control riguroso de interfase agua-aceite</small>
+                                                    </div>
+                                                    <div class="emerson-flip-btn-back">
+                                                        <i class="fas fa-arrow-rotate-left"></i> <span>Volver a la imagen</span>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <div class="emerson-product-item">
-                                        <div>
-                                            <div class="emerson-prod-top">
-                                                <span class="instrument-brand-tag">ROSEMOUNT™</span>
-                                                <div class="emerson-prod-icon"><i class="fas fa-bell"></i></div>
+                                    <!-- PRODUCTO 2: INTERRUPTOR DE HORQUILLA 2140 (FLIP CARD) -->
+                                    <div class="emerson-flip-card" onclick="this.classList.toggle('is-flipped')">
+                                        <div class="emerson-flip-inner">
+                                            <!-- CARA FRONTAL: Imagen + Título -->
+                                            <div class="emerson-flip-front">
+                                                <div>
+                                                    <div class="emerson-prod-top">
+                                                        <span class="instrument-brand-tag">ROSEMOUNT™</span>
+                                                        <div class="emerson-prod-icon"><i class="fas fa-bell"></i></div>
+                                                    </div>
+                                                    <div class="emerson-flip-img-wrap">
+                                                        <img src="img/rosemount-2140-detector-vibrating-fork.jpg" alt="Detector de Nivel por Horquilla 2140 Rosemount">
+                                                    </div>
+                                                    <div class="instrument-name">Interruptor de Horquilla 2140</div>
+                                                    <div class="mb-1"><span class="badge bg-light text-primary border" style="font-size: 0.70rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> Detección de Arena en Fondo • Alertas</span></div>
+                                                </div>
+                                                <div>
+                                                    <div class="emerson-flip-btn">
+                                                        <i class="fas fa-rotate"></i> <span>Toca para ver especificaciones</span>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="instrument-name">Interruptor de Horquilla 2140</div>
-                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> Detección de Arena en Fondo • Alertas</span></div>
-                                            <ul class="instrument-features">
-                                                <li>Diferencia con precisión entre agua y arena acumulada</li>
-                                                <li>Detección temprana de acumulación de sedimentos en fondo</li>
-                                                <li>Alerta programada para apertura de purgas y desarenado</li>
-                                                <li>Previene taponamiento de las líneas de descarga</li>
-                                            </ul>
-                                        </div>
-                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
-                                            <small class="text-muted"><i class="fas fa-exclamation-triangle me-1 text-warning"></i> Alerta temprana de sedimentación</small>
-                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+
+                                            <!-- CARA TRASERA: Especificaciones y Detalles -->
+                                            <div class="emerson-flip-back">
+                                                <div>
+                                                    <div class="d-flex justify-content-between align-items-center mb-2 pb-1 border-bottom">
+                                                        <span class="fw-bold text-dark small"><i class="fas fa-bell text-primary me-1"></i> Rosemount 2140 Vibrating Fork</span>
+                                                        <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                                    </div>
+                                                    <ul class="instrument-features">
+                                                        <li><strong>Detección de Arena:</strong> Discrimina con exactitud entre agua y lodo arenoso en fondo.</li>
+                                                        <li><strong>Alerta Temprana:</strong> Disparo automático de purgas antes de saturar la vasija.</li>
+                                                        <li><strong>Protección:</strong> Previene el atascamiento de válvulas de drenaje y control.</li>
+                                                        <li><strong>Diagnóstico de Horquilla:</strong> Supervisión de frecuencia para detectar adherencias.</li>
+                                                    </ul>
+                                                </div>
+                                                <div>
+                                                    <div class="pt-2 border-top d-flex justify-content-between align-items-center mb-1">
+                                                        <small class="text-muted"><i class="fas fa-exclamation-triangle me-1 text-warning"></i> Alerta temprana de sedimentación</small>
+                                                    </div>
+                                                    <div class="emerson-flip-btn-back">
+                                                        <i class="fas fa-arrow-rotate-left"></i> <span>Volver a la imagen</span>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <div class="emerson-product-item">
-                                        <div>
-                                            <div class="emerson-prod-top">
-                                                <span class="instrument-brand-tag">MICRO MOTION™</span>
-                                                <div class="emerson-prod-icon"><i class="fas fa-oil-can"></i></div>
+                                    <!-- PRODUCTO 3: CORIOLIS F-SERIES PIERNA DE PETRÓLEO (FLIP CARD) -->
+                                    <div class="emerson-flip-card" onclick="this.classList.toggle('is-flipped')">
+                                        <div class="emerson-flip-inner">
+                                            <!-- CARA FRONTAL: Imagen + Título -->
+                                            <div class="emerson-flip-front">
+                                                <div>
+                                                    <div class="emerson-prod-top">
+                                                        <span class="instrument-brand-tag">MICRO MOTION™</span>
+                                                        <div class="emerson-prod-icon"><i class="fas fa-oil-can"></i></div>
+                                                    </div>
+                                                    <div class="emerson-flip-img-wrap">
+                                                        <img src="img/feature-coriolis-flow-meters-measure-mass-flow-with-confidence-2_16-9.jpg" alt="Coriolis F-Series Micro Motion Pierna de Petróleo">
+                                                    </div>
+                                                    <div class="instrument-name">Coriolis F-Series (Pierna Petróleo)</div>
+                                                    <div class="mb-1"><span class="badge bg-light text-primary border" style="font-size: 0.70rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> Algoritmo APM • Detección Gas Libre</span></div>
+                                                </div>
+                                                <div>
+                                                    <div class="emerson-flip-btn">
+                                                        <i class="fas fa-rotate"></i> <span>Toca para ver especificaciones</span>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="instrument-name">Coriolis F-Series (Pierna de Petróleo)</div>
-                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> Algoritmo APM • Detección de Gas Libre</span></div>
-                                            <ul class="instrument-features">
-                                                <li>Transmisor 4700 con APM (Medición Avanzada de Fases)</li>
-                                                <li>Detecta gas entrampado y cuantifica arrastre de agua</li>
-                                                <li>Medición másica ultraestable para crudo pesado y liviano</li>
-                                                <li>Conectividad Bluetooth® para calibración de campo</li>
-                                            </ul>
-                                        </div>
-                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
-                                            <small class="text-muted"><i class="fas fa-tint me-1 text-success"></i> Medición limpia en descarga de crudo</small>
-                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+
+                                            <!-- CARA TRASERA: Especificaciones y Detalles -->
+                                            <div class="emerson-flip-back">
+                                                <div>
+                                                    <div class="d-flex justify-content-between align-items-center mb-2 pb-1 border-bottom">
+                                                        <span class="fw-bold text-dark small"><i class="fas fa-oil-can text-primary me-1"></i> Micro Motion Coriolis Serie F</span>
+                                                        <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                                    </div>
+                                                    <ul class="instrument-features">
+                                                        <li><strong>Algoritmo APM:</strong> Medición avanzada con mitigación de arrastre de gas libre.</li>
+                                                        <li><strong>Corte de Agua:</strong> Monitoreo continuo de corte de agua (BS&amp;W) en descarga.</li>
+                                                        <li><strong>Medición Másica:</strong> Estabilidad metrológica para crudo liviano, mediano y pesado.</li>
+                                                        <li><strong>Transmisor 4700:</strong> Diagnóstico Smart Meter Verification sin desmontar equipo.</li>
+                                                    </ul>
+                                                </div>
+                                                <div>
+                                                    <div class="pt-2 border-top d-flex justify-content-between align-items-center mb-1">
+                                                        <small class="text-muted"><i class="fas fa-tint me-1 text-success"></i> Medición limpia en descarga de crudo</small>
+                                                    </div>
+                                                    <div class="emerson-flip-btn-back">
+                                                        <i class="fas fa-arrow-rotate-left"></i> <span>Volver a la imagen</span>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <div class="emerson-product-item">
-                                        <div>
-                                            <div class="emerson-prod-top">
-                                                <span class="instrument-brand-tag">EMERSON™ &amp; FLEXIM™</span>
-                                                <div class="emerson-prod-icon"><i class="fas fa-water"></i></div>
+                                    <!-- PRODUCTO 4: MAGMETER SERIE 9000 & FLEXIM F731PW (FLIP CARD) -->
+                                    <div class="emerson-flip-card" onclick="this.classList.toggle('is-flipped')">
+                                        <div class="emerson-flip-inner">
+                                            <!-- CARA FRONTAL: Imagen + Título -->
+                                            <div class="emerson-flip-front">
+                                                <div>
+                                                    <div class="emerson-prod-top">
+                                                        <span class="instrument-brand-tag">EMERSON™ &amp; FLEXIM™</span>
+                                                        <div class="emerson-prod-icon"><i class="fas fa-water"></i></div>
+                                                    </div>
+                                                    <div class="emerson-flip-img-wrap">
+                                                        <img src="img/sidebar-hero-magnetic-flow-meter-demo-9000-5_16-9.jpg" alt="Magmeter Serie 9000 &amp; Flexim F731PW">
+                                                    </div>
+                                                    <div class="instrument-name">Magmeter Serie 9000 &amp; Flexim</div>
+                                                    <div class="mb-1"><span class="badge bg-light text-primary border" style="font-size: 0.70rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> Agua de Producción • ±1% Lectura</span></div>
+                                                </div>
+                                                <div>
+                                                    <div class="emerson-flip-btn">
+                                                        <i class="fas fa-rotate"></i> <span>Toca para ver especificaciones</span>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="instrument-name">Magmeter Serie 9000 &amp; Flexim F731PW</div>
-                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> Agua de Producción • ±1% Lectura</span></div>
-                                            <ul class="instrument-features">
-                                                <li>Medición continua del caudal de agua de producción</li>
-                                                <li>Transmisor Rosemount 9732 con sensor electromagnético 9205</li>
-                                                <li>Alternativa Flexim F731PW ultrasónica permanente clamp-on</li>
-                                                <li>Monitoreo acústico Rosemount 708 en válvulas de alivio PRV</li>
-                                            </ul>
-                                        </div>
-                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
-                                            <small class="text-muted"><i class="fas fa-water me-1 text-info"></i> Cumplimiento ambiental y balance hídrico</small>
-                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+
+                                            <!-- CARA TRASERA: Especificaciones y Detalles -->
+                                            <div class="emerson-flip-back">
+                                                <div>
+                                                    <div class="d-flex justify-content-between align-items-center mb-2 pb-1 border-bottom">
+                                                        <span class="fw-bold text-dark small"><i class="fas fa-water text-primary me-1"></i> Magmeter 9000 / Flexim F731PW</span>
+                                                        <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                                    </div>
+                                                    <ul class="instrument-features">
+                                                        <li><strong>Agua de Producción:</strong> Aforo continuo en la pierna de agua de descarte.</li>
+                                                        <li><strong>Transmisor Rosemount 9732:</strong> Con sensor electromagnético 9205 de alta resistencia.</li>
+                                                        <li><strong>Alternativa Clamp-On:</strong> Flexim F731PW ultrasónico permanente sin cortar cañería.</li>
+                                                        <li><strong>Acústica en PRV:</strong> Monitoreo Rosemount 708 en válvulas de alivio del separador.</li>
+                                                    </ul>
+                                                </div>
+                                                <div>
+                                                    <div class="pt-2 border-top d-flex justify-content-between align-items-center mb-1">
+                                                        <small class="text-muted"><i class="fas fa-water me-1 text-info"></i> Cumplimiento ambiental y balance hídrico</small>
+                                                    </div>
+                                                    <div class="emerson-flip-btn-back">
+                                                        <i class="fas fa-arrow-rotate-left"></i> <span>Volver a la imagen</span>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

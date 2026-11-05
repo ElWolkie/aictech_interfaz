@@ -2506,6 +2506,139 @@
             box-shadow: 0 4px 12px rgba(0, 51, 102, 0.2);
         }
     
+
+        /* ==========================================================================
+           FLIP CARD SYSTEM PARA PRODUCTOS EMERSON (ÁREA 01 Y MÁS)
+           ========================================================================== */
+        .emerson-flip-card {
+            perspective: 1200px;
+            min-height: 410px;
+            height: 410px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .emerson-flip-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.65s cubic-bezier(0.34, 1.25, 0.64, 1);
+            transform-style: preserve-3d;
+        }
+
+        .emerson-flip-card.is-flipped .emerson-flip-inner {
+            transform: rotateY(180deg);
+        }
+
+        .emerson-flip-front,
+        .emerson-flip-back {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            padding: 16px 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .emerson-flip-front {
+            background: #ffffff;
+            z-index: 2;
+            transform: rotateY(0deg);
+        }
+
+        .emerson-flip-back {
+            background: #f8fbff;
+            transform: rotateY(180deg);
+            z-index: 1;
+            overflow-y: auto;
+        }
+
+        .emerson-flip-card:hover .emerson-flip-front,
+        .emerson-flip-card:hover .emerson-flip-back {
+            border-color: #38b6ff;
+            box-shadow: 0 10px 25px rgba(14, 58, 122, 0.12);
+        }
+
+        .emerson-flip-img-wrap {
+            height: 175px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+            margin: 6px 0 10px 0;
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 1px solid #edf2f7;
+            overflow: hidden;
+        }
+
+        .emerson-flip-img-wrap img {
+            max-height: 100%;
+            max-width: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.10));
+            transition: transform 0.4s ease;
+        }
+
+        .emerson-flip-card:hover .emerson-flip-img-wrap img {
+            transform: scale(1.05);
+        }
+
+        .emerson-flip-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-size: 0.74rem;
+            font-weight: 600;
+            color: #0284c7;
+            background: rgba(56, 182, 255, 0.09);
+            border: 1px solid rgba(56, 182, 255, 0.35);
+            border-radius: 6px;
+            padding: 6px 12px;
+            width: 100%;
+            transition: all 0.25s ease;
+        }
+
+        .emerson-flip-card:hover .emerson-flip-btn {
+            background: #0284c7;
+            color: #ffffff;
+            border-color: #0284c7;
+        }
+
+        .emerson-flip-btn-back {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #64748b;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            padding: 5px 10px;
+            transition: all 0.2s ease;
+            width: 100%;
+            margin-top: 6px;
+        }
+
+        .emerson-flip-btn-back:hover {
+            color: #0284c7;
+            border-color: #0284c7;
+        }
+
     </style>
 </head>
 <body>
@@ -2639,7 +2772,7 @@
                         <div class="hero-slb-container w-100">
                             <!-- Cinematic Background Video -->
                             <video autoplay loop muted playsinline class="hero-video-bg" id="hero-main-video">
-                                <source src="video/15561206_1920_1080_25fps.mp4" type="video/mp4">
+                                <source src="video/presentacion-1.mp4" type="video/mp4">
                             </video>
                             
                             <!-- Dark Gradient & High-End Tech Overlay -->
@@ -2660,7 +2793,7 @@
                                     </a>
                                     <button type="button" class="btn-slb-video" id="open-slb-video-btn" onclick="openSlbVideoModal()">
                                         <i class="fas fa-play" style="color: #ffaf03; font-size: 0.85rem;"></i>
-                                        <span>Ver Video Institucional</span>
+                                        <span>Ver Video de Presentación</span>
                                     </button>
                                 </div>
                             </div>
@@ -2740,17 +2873,20 @@
                                         <div class="col-12 col-lg-6 reveal-on-scroll reveal-from-left">
                                             <div class="roxar-panel-card">
                                                 <div>
-                                                    <span class="roxar-panel-badge"><i class="fas fa-server me-1"></i> HARDWARE & TELEMETRÍA</span>
-                                                    <h3 class="roxar-panel-title">Medidor Multifásico Roxar 2600 en Skid de Campo</h3>
+                                                    <span class="roxar-panel-badge"><i class="fas fa-bolt me-1"></i> ACTUALIZACIÓN MÁS RECIENTE</span>
+                                                    <h3 class="roxar-panel-title">COMPUTADOR 5726MT</h3>
                                                     <p class="roxar-panel-desc">
-                                                        Unidad Skid de medición multifásica instalada directamente en línea de producción para determinación precisa de caudales de crudo, agua y gas en tiempo real.
+                                                        Nueva unidad de cómputo y procesamiento de flujo de última generación. Reemplaza arquitecturas anteriores con cálculo termodinámico instantáneo, alta precisión de PVT y telemetría continua de campo.
                                                     </p>
 
-                                                    <!-- Contenedor para Imagen del Medidor Multifásico Real -->
-                                                    <div class="roxar-media-box roxar-media-box-5726mt position-relative" style="background: #020712; min-height: 290px; height: clamp(280px, 30vw, 380px); border: 1px solid #1e3a66; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 0; box-shadow: 0 4px 16px rgba(0,0,0,0.12);">
-                                                        <img src="img/multifasico-real.jpg" alt="Medidor Multifásico Roxar 2600 en Skid Operacional" id="computador-5726mt-media" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px; transition: transform 0.4s ease;">
+                                                    <!-- Contenedor para Imagen del Computador 5726MT en Alta Definición -->
+                                                    <div class="roxar-media-box roxar-media-box-5726mt position-relative" style="background: radial-gradient(circle at center, #0e2a54 0%, #030a17 100%); min-height: 290px; height: clamp(280px, 30vw, 380px); border: 1px solid #1e3a66; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.12);">
+                                                        <!-- Fondo difuminado de ambiente que elimina bordes blancos -->
+                                                        <img src="img/computador-5726mt.jpg" aria-hidden="true" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; filter: blur(18px) brightness(0.35) saturate(1.2); opacity: 0.65; pointer-events: none; transform: scale(1.15);">
+                                                        <!-- Imagen del equipo vertical centrada, nítida y completa -->
+                                                        <img src="img/computador-5726mt.jpg" alt="Computador de Flujo Multifásico 5726MT" id="computador-5726mt-media" style="position: relative; z-index: 2; height: 96%; max-height: 96%; width: auto; max-width: 95%; object-fit: contain; filter: drop-shadow(0 10px 25px rgba(0,0,0,0.7)); border-radius: 4px; transition: transform 0.4s ease;">
                                                         <div style="position: absolute; bottom: 8px; right: 10px; z-index: 3; background: rgba(3, 15, 38, 0.85); backdrop-filter: blur(4px); border: 1px solid rgba(56, 182, 255, 0.4); border-radius: 4px; padding: 3px 10px; font-size: 0.7rem; color: #38b6ff; font-weight: 600;">
-                                                            <i class="fas fa-cube me-1"></i> SKID ROXAR 2600 EN CAMPO
+                                                            <i class="fas fa-server me-1"></i> COMPUTADOR 5726MT
                                                         </div>
                                                     </div>
                                                 </div>
@@ -3528,93 +3664,205 @@
                                     <span class="area-header-badge"><i class="fas fa-oil-well me-1"></i> ÁREA 01 • PROCESO UPSTREAM</span>
                                     <span class="badge bg-light text-dark border"><i class="fas fa-tag text-primary me-1"></i> Well Pad &amp; Individual Wellheads</span>
                                 </div>
-                                <h3 class="fw-bold text-dark fs-4 mb-2">Cabezales de Pozo y Macroperas de Producción</h3>
+                                <h3 class="fw-bold text-dark fs-4 mb-2">Plataformas de Pozos (Well Pads) y Cabezales Individuales</h3>
                                 <div class="area-challenge-box">
-                                    <strong><i class="fas fa-circle-exclamation text-primary me-1"></i> Desafío Operacional:</strong> Primera interfaz crítica entre el yacimiento y la superficie. Excursiones abruptas de presión, fluidos corrosivos con H₂S y CO₂, presencia de arena abrasiva que erosiona estranguladores y necesidad de monitoreo telemétrico en macroperas extensas sin incurrir en altos costos de cableado.
+                                    <strong><i class="fas fa-circle-exclamation text-primary me-1"></i> Desafío Operacional:</strong> Primera interfaz crítica entre el yacimiento y la superficie. Excursiones abruptas de presión, fluidos corrosivos con H₂S y CO₂, presencia de arena abrasiva que erosiona estranguladores y necesidad de monitoreo telemétrico en plataformas de pozos (well pads) extensas sin incurrir en altos costos de cableado.
                                 </div>
                                 
                                 <div class="instrument-grid">
-                                    <div class="emerson-product-item">
-                                        <div>
-                                            <div class="emerson-prod-top">
-                                                <span class="instrument-brand-tag">ROSEMOUNT™</span>
-                                                <div class="emerson-prod-icon"><i class="fas fa-gauge-high"></i></div>
+                                    <!-- PRODUCTO 1: TRANSMISOR 4051S & 3051S WIRELESS (FLIP CARD) -->
+                                    <div class="emerson-flip-card" onclick="this.classList.toggle('is-flipped')">
+                                        <div class="emerson-flip-inner">
+                                            <!-- CARA FRONTAL: Imagen + Título -->
+                                            <div class="emerson-flip-front">
+                                                <div>
+                                                    <div class="emerson-prod-top">
+                                                        <span class="instrument-brand-tag">ROSEMOUNT™</span>
+                                                        <div class="emerson-prod-icon"><i class="fas fa-gauge-high"></i></div>
+                                                    </div>
+                                                    <div class="emerson-flip-img-wrap">
+                                                        <img src="img/rosemount4051S.jpg" alt="Transmisor 4051S &amp; 3051S Wireless Emerson">
+                                                    </div>
+                                                    <div class="instrument-name">Transmisor 4051S &amp; 3051S Wireless</div>
+                                                    <div class="mb-1"><span class="badge bg-light text-primary border" style="font-size: 0.70rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> 0.025% Span • WirelessHART®</span></div>
+                                                </div>
+                                                <div>
+                                                    <div class="emerson-flip-btn">
+                                                        <i class="fas fa-rotate"></i> <span>Toca para ver especificaciones</span>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="instrument-name">Transmisor 4051S &amp; 3051S Wireless</div>
-                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> 0.025% Span • WirelessHART®</span></div>
-                                            <ul class="instrument-features">
-                                                <li>Exactitud de referencia: 0.025% del span</li>
-                                                <li>Estabilidad comprobada en campo a 20 años</li>
-                                                <li>Medición rápida en tubería (tubing), casing y flowline</li>
-                                                <li>Enlace inalámbrico WirelessHART® vía Gateway 1410S</li>
-                                            </ul>
-                                        </div>
-                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
-                                            <small class="text-muted"><i class="fas fa-microchip me-1 text-primary"></i> Telemetría sin cables de trinchera</small>
-                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+
+                                            <!-- CARA TRASERA: Especificaciones y Detalles -->
+                                            <div class="emerson-flip-back">
+                                                <div>
+                                                    <div class="d-flex justify-content-between align-items-center mb-2 pb-1 border-bottom">
+                                                        <span class="fw-bold text-dark small"><i class="fas fa-microchip text-primary me-1"></i> Transmisor 4051S / 3051S</span>
+                                                        <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                                    </div>
+                                                    <ul class="instrument-features">
+                                                        <li><strong>Exactitud:</strong> 0.025% del span de referencia.</li>
+                                                        <li><strong>Estabilidad:</strong> Comprobada en campo a 20 años.</li>
+                                                        <li><strong>Aplicación:</strong> Tubería (tubing), casing y flowline.</li>
+                                                        <li><strong>Conectividad:</strong> Enlace WirelessHART® vía Gateway 1410S.</li>
+                                                    </ul>
+                                                </div>
+                                                <div>
+                                                    <div class="pt-2 border-top d-flex justify-content-between align-items-center mb-1">
+                                                        <small class="text-muted"><i class="fas fa-wifi me-1 text-primary"></i> Telemetría sin cables de trinchera</small>
+                                                    </div>
+                                                    <div class="emerson-flip-btn-back">
+                                                        <i class="fas fa-arrow-rotate-left"></i> <span>Volver a la imagen</span>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <div class="emerson-product-item">
-                                        <div>
-                                            <div class="emerson-prod-top">
-                                                <span class="instrument-brand-tag">ROSEMOUNT™ X-WELL™</span>
-                                                <div class="emerson-prod-icon"><i class="fas fa-temperature-half"></i></div>
+                                    <!-- PRODUCTO 2: TRANSMISOR DE TEMPERATURA 3144S (FLIP CARD) -->
+                                    <div class="emerson-flip-card" onclick="this.classList.toggle('is-flipped')">
+                                        <div class="emerson-flip-inner">
+                                            <!-- CARA FRONTAL: Imagen + Título -->
+                                            <div class="emerson-flip-front">
+                                                <div>
+                                                    <div class="emerson-prod-top">
+                                                        <span class="instrument-brand-tag">ROSEMOUNT™ X-WELL™</span>
+                                                        <div class="emerson-prod-icon"><i class="fas fa-temperature-half"></i></div>
+                                                    </div>
+                                                    <div class="emerson-flip-img-wrap">
+                                                        <img src="img/rosemount3144S.jpg" alt="Transmisor de Temperatura 3144S Rosemount">
+                                                    </div>
+                                                    <div class="instrument-name">Transmisor de Temperatura 3144S</div>
+                                                    <div class="mb-1"><span class="badge bg-light text-primary border" style="font-size: 0.70rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> No Intrusivo • 0.05°C RTD</span></div>
+                                                </div>
+                                                <div>
+                                                    <div class="emerson-flip-btn">
+                                                        <i class="fas fa-rotate"></i> <span>Toca para ver especificaciones</span>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="instrument-name">Transmisor de Temperatura 3144S</div>
-                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> No Intrusivo • 0.05°C RTD</span></div>
-                                            <ul class="instrument-features">
-                                                <li>Medición no invasiva a través de la pared del tubo</li>
-                                                <li>Elimina termopozos, perforaciones y puntos de fuga</li>
-                                                <li>Exactitud metrológica líder de 0.05°C con RTD</li>
-                                                <li>Conectividad Bluetooth® para diagnóstico seguro</li>
-                                            </ul>
-                                        </div>
-                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
-                                            <small class="text-muted"><i class="fas fa-shield-alt me-1 text-success"></i> Cero riesgo mecánico de fuga</small>
-                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+
+                                            <!-- CARA TRASERA: Especificaciones y Detalles -->
+                                            <div class="emerson-flip-back">
+                                                <div>
+                                                    <div class="d-flex justify-content-between align-items-center mb-2 pb-1 border-bottom">
+                                                        <span class="fw-bold text-dark small"><i class="fas fa-temperature-half text-primary me-1"></i> Rosemount 3144S X-Well</span>
+                                                        <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                                    </div>
+                                                    <ul class="instrument-features">
+                                                        <li><strong>Tecnología:</strong> Medición no invasiva por pared de tubo.</li>
+                                                        <li><strong>Seguridad:</strong> Cero termopozos, sin riesgo de fuga.</li>
+                                                        <li><strong>Exactitud:</strong> Metrología líder de 0.05°C con sensor RTD.</li>
+                                                        <li><strong>Diagnóstico:</strong> Conectividad Bluetooth® integrada segura.</li>
+                                                    </ul>
+                                                </div>
+                                                <div>
+                                                    <div class="pt-2 border-top d-flex justify-content-between align-items-center mb-1">
+                                                        <small class="text-muted"><i class="fas fa-shield-alt me-1 text-success"></i> Cero riesgo mecánico de fuga</small>
+                                                    </div>
+                                                    <div class="emerson-flip-btn-back">
+                                                        <i class="fas fa-arrow-rotate-left"></i> <span>Volver a la imagen</span>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <div class="emerson-product-item">
-                                        <div>
-                                            <div class="emerson-prod-top">
-                                                <span class="instrument-brand-tag">ROXAR™</span>
-                                                <div class="emerson-prod-icon"><i class="fas fa-cubes"></i></div>
+                                    <!-- PRODUCTO 3: MEDIDOR MULTIFÁSICO ROXAR 2600 (FLIP CARD) -->
+                                    <div class="emerson-flip-card" onclick="this.classList.toggle('is-flipped')">
+                                        <div class="emerson-flip-inner">
+                                            <!-- CARA FRONTAL: Imagen + Título -->
+                                            <div class="emerson-flip-front">
+                                                <div>
+                                                    <div class="emerson-prod-top">
+                                                        <span class="instrument-brand-tag">ROXAR™</span>
+                                                        <div class="emerson-prod-icon"><i class="fas fa-cubes"></i></div>
+                                                    </div>
+                                                    <div class="emerson-flip-img-wrap">
+                                                        <img src="img/roxar-2600-multiphase-flow-meters-2.jpg" alt="Medidor Multifásico Roxar 2600">
+                                                    </div>
+                                                    <div class="instrument-name">Medidor Multifásico Roxar 2600</div>
+                                                    <div class="mb-1"><span class="badge bg-light text-primary border" style="font-size: 0.70rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> Multifásico • Petróleo/Agua/Gas</span></div>
+                                                </div>
+                                                <div>
+                                                    <div class="emerson-flip-btn">
+                                                        <i class="fas fa-rotate"></i> <span>Toca para ver especificaciones</span>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="instrument-name">Medidor Multifásico Roxar 2600</div>
-                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> Multifásico en Línea • Petróleo/Agua/Gas</span></div>
-                                            <ul class="instrument-features">
-                                                <li>Medición simultánea de Petróleo, Agua y Gas en línea</li>
-                                                <li>Sin separador de prueba ni retrasos en toma de muestra</li>
-                                                <li>Tecnología combinada: impedancia, venturi y gamma</li>
-                                                <li>Versiones para superficie (topside) y submarinas</li>
-                                            </ul>
-                                        </div>
-                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
-                                            <small class="text-muted"><i class="fas fa-tachometer-alt me-1 text-info"></i> Asignación fiscal continua de pozo</small>
-                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+
+                                            <!-- CARA TRASERA: Especificaciones y Detalles -->
+                                            <div class="emerson-flip-back">
+                                                <div>
+                                                    <div class="d-flex justify-content-between align-items-center mb-2 pb-1 border-bottom">
+                                                        <span class="fw-bold text-dark small"><i class="fas fa-cubes text-primary me-1"></i> Medidor Roxar 2600</span>
+                                                        <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                                    </div>
+                                                    <ul class="instrument-features">
+                                                        <li><strong>Medición Continua:</strong> Petróleo, agua y gas en tiempo real.</li>
+                                                        <li><strong>Eficiencia:</strong> Sin separador de prueba ni demoras de aforo.</li>
+                                                        <li><strong>Sensores:</strong> Impedancia dual, tubo venturi y gamma ray.</li>
+                                                        <li><strong>Despliegue:</strong> Versiones certificadas para topside y subsea.</li>
+                                                    </ul>
+                                                </div>
+                                                <div>
+                                                    <div class="pt-2 border-top d-flex justify-content-between align-items-center mb-1">
+                                                        <small class="text-muted"><i class="fas fa-tachometer-alt me-1 text-info"></i> Asignación fiscal continua de pozo</small>
+                                                    </div>
+                                                    <div class="emerson-flip-btn-back">
+                                                        <i class="fas fa-arrow-rotate-left"></i> <span>Volver a la imagen</span>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <div class="emerson-product-item">
-                                        <div>
-                                            <div class="emerson-prod-top">
-                                                <span class="instrument-brand-tag">ROSEMOUNT™ INTEGRITY</span>
-                                                <div class="emerson-prod-icon"><i class="fas fa-shield-virus"></i></div>
+                                    <!-- PRODUCTO 4: MONITOR DE ARENA SAM42 & ET410 (FLIP CARD) -->
+                                    <div class="emerson-flip-card" onclick="this.classList.toggle('is-flipped')">
+                                        <div class="emerson-flip-inner">
+                                            <!-- CARA FRONTAL: Imagen + Título -->
+                                            <div class="emerson-flip-front">
+                                                <div>
+                                                    <div class="emerson-prod-top">
+                                                        <span class="instrument-brand-tag">ROSEMOUNT™ INTEGRITY</span>
+                                                        <div class="emerson-prod-icon"><i class="fas fa-shield-virus"></i></div>
+                                                    </div>
+                                                    <div class="emerson-flip-img-wrap">
+                                                        <img src="img/rosemount-sam42-acoustic-particle-monitor-2.jpg" alt="Monitor de Arena SAM42 &amp; ET410">
+                                                    </div>
+                                                    <div class="instrument-name">Monitor de Arena SAM42 &amp; ET410</div>
+                                                    <div class="mb-1"><span class="badge bg-light text-primary border" style="font-size: 0.70rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> Acústico • Erosión &amp; Corrosión</span></div>
+                                                </div>
+                                                <div>
+                                                    <div class="emerson-flip-btn">
+                                                        <i class="fas fa-rotate"></i> <span>Toca para ver especificaciones</span>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="instrument-name">Monitor de Arena SAM42 &amp; ET410</div>
-                                            <div class="mb-2"><span class="badge bg-light text-primary border" style="font-size: 0.72rem; font-weight: 600;"><i class="fas fa-check-double text-info me-1"></i> Monitoreo Acústico • Erosión &amp; Corrosión</span></div>
-                                            <ul class="instrument-features">
-                                                <li>SAM42: Sensor acústico no intrusivo de arena en flujo</li>
-                                                <li>ET410: Transmisor ultrasónico de corrosión y erosión</li>
-                                                <li>Medición continua de pérdida de espesor de pared metálica</li>
-                                                <li>Prevención de fallas catastróficas en chokes y tuberías</li>
-                                            </ul>
-                                        </div>
-                                        <div class="pt-2 border-top mt-2 d-flex justify-content-between align-items-center">
-                                            <small class="text-muted"><i class="fas fa-bell me-1 text-danger"></i> Detección preventiva de abrasión</small>
-                                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+
+                                            <!-- CARA TRASERA: Especificaciones y Detalles -->
+                                            <div class="emerson-flip-back">
+                                                <div>
+                                                    <div class="d-flex justify-content-between align-items-center mb-2 pb-1 border-bottom">
+                                                        <span class="fw-bold text-dark small"><i class="fas fa-shield-halved text-primary me-1"></i> SAM42 &amp; ET410 Integrity</span>
+                                                        <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.65rem; font-weight: 600;">EMERSON</span>
+                                                    </div>
+                                                    <ul class="instrument-features">
+                                                        <li><strong>SAM42:</strong> Sensor acústico no intrusivo para detección de arena.</li>
+                                                        <li><strong>ET410:</strong> Transmisor ultrasónico de corrosión y erosión.</li>
+                                                        <li><strong>Espesor:</strong> Monitoreo continuo de pérdida de pared metálica.</li>
+                                                        <li><strong>Protección:</strong> Previene fallas catastróficas en chokes y líneas.</li>
+                                                    </ul>
+                                                </div>
+                                                <div>
+                                                    <div class="pt-2 border-top d-flex justify-content-between align-items-center mb-1">
+                                                        <small class="text-muted"><i class="fas fa-bell me-1 text-danger"></i> Detección preventiva de abrasión</small>
+                                                    </div>
+                                                    <div class="emerson-flip-btn-back">
+                                                        <i class="fas fa-arrow-rotate-left"></i> <span>Volver a la imagen</span>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -4541,25 +4789,25 @@
 
 
 
-<!-- MODAL DE VIDEO CORPORATIVO INSTITUCIONAL SLB -->
+<!-- MODAL DE VIDEO DE PRESENTACIÓN CORPORATIVO (CON AUDIO AMBIENTADO) -->
 <div id="video-modal-slb" class="service-modal" onclick="if(event.target===this) closeSlbVideoModal()">
-    <div class="video-modal-dialog">
-        <div class="p-3 d-flex justify-content-between align-items-center" style="background: rgba(3, 12, 34, 0.95); border-bottom: 1px solid rgba(56, 182, 255, 0.3);">
+    <div class="video-modal-dialog" style="max-width: 1040px;">
+        <div class="p-3 d-flex justify-content-between align-items-center" style="background: rgba(3, 12, 34, 0.96); border-bottom: 1px solid rgba(56, 182, 255, 0.35);">
             <div class="d-flex align-items-center gap-2">
                 <span class="live-dot"></span>
-                <span class="text-white fw-bold small" style="letter-spacing: 0.05em;">AICTECH — VIDEO INSTITUCIONAL & OPERACIONES ENERGÉTICAS</span>
+                <span class="text-white fw-bold small" style="letter-spacing: 0.05em;">AICTECH — VIDEO DE PRESENTACIÓN CORPORATIVO</span>
             </div>
-            <button class="btn btn-sm btn-outline-light rounded-circle px-2 py-1" onclick="closeSlbVideoModal()" style="line-height: 1;">✕</button>
+            <button class="btn btn-sm btn-outline-light rounded-circle px-2 py-1" onclick="closeSlbVideoModal()" style="line-height: 1; border-color: rgba(255,255,255,0.3);">✕</button>
         </div>
-        <div class="ratio ratio-16x9 bg-black position-relative">
-            <video id="slb-institutional-video" controls playsinline style="width: 100%; height: 100%; object-fit: cover;">
-                <source src="video/15561206_1920_1080_25fps.mp4" type="video/mp4">
+        <div class="ratio ratio-16x9 bg-black position-relative" style="background: #000;">
+            <video id="slb-institutional-video" controls playsinline preload="auto" style="width: 100%; height: 100%; object-fit: contain; background: #000;">
+                <source src="video/presentacion-2.mp4" type="video/mp4">
                 Su navegador no soporta la reproducción de video HTML5.
             </video>
         </div>
-        <div class="p-3 d-flex justify-content-between align-items-center" style="background: rgba(3, 12, 34, 0.95); border-top: 1px solid rgba(255, 255, 255, 0.1);">
-            <span class="text-muted small">Tecnología de Telemetría, Medición de Flujo y Soluciones de Automatización</span>
-            <button class="btn btn-sm btn-primary rounded-pill px-4 fw-bold" onclick="closeSlbVideoModal()">Cerrar</button>
+        <div class="p-3 d-flex justify-content-between align-items-center" style="background: rgba(3, 12, 34, 0.96); border-top: 1px solid rgba(255, 255, 255, 0.1);">
+            <span class="text-light small" style="opacity: 0.85;"><i class="fas fa-volume-high text-warning me-1"></i> Audio oficial ambientado • AIC TECH C.A.</span>
+            <button class="btn btn-sm btn-primary rounded-pill px-4 fw-bold shadow-sm" onclick="closeSlbVideoModal()">Cerrar Video</button>
         </div>
     </div>
 </div>
@@ -4792,7 +5040,7 @@
         const instVideo = document.getElementById('slb-institutional-video');
         const heroVideo = document.getElementById('hero-main-video');
 
-        // Pausar video de fondo inicial mientras corre el video institucional
+        // Pausar video de fondo inicial mientras corre el video de presentación
         if (heroVideo) {
             try { heroVideo.pause(); } catch(e) {}
         }
@@ -4801,7 +5049,11 @@
             modal.classList.add('active');
             if (instVideo) {
                 instVideo.currentTime = 0;
-                instVideo.play().catch(e => console.log(e));
+                instVideo.muted = false; // Sonido activado al 100% bien ambientado
+                instVideo.volume = 1.0;
+                instVideo.play().catch(e => {
+                    console.log('Reproducción con sonido iniciada por usuario:', e);
+                });
             }
         }
     }
@@ -4815,10 +5067,11 @@
             modal.classList.remove('active');
             if (instVideo) {
                 instVideo.pause();
+                instVideo.currentTime = 0;
             }
         }
 
-        // Si seguimos en la pantalla inicial, reanudar video inicial
+        // Si seguimos en la pantalla inicial, reanudar video de fondo
         const page1 = document.querySelector('.cd-hero-slider > li[data-page-no="1"]');
         if (page1 && page1.classList.contains('selected') && heroVideo) {
             heroVideo.play().catch(e => console.log(e));

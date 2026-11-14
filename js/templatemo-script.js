@@ -16,8 +16,18 @@ function highlightMenu(no) {
   $(".navbar .navbar-nav > .nav-item").removeClass('selected');
   $(".navbar .navbar-nav > .nav-item > .nav-link[data-no='" + no + "']").parent().addClass('selected');
 
-  $(".sidebar-nav-custom .nav-link").removeClass('selected active');
-  $(".sidebar-nav-custom .nav-link[data-no='" + no + "']").addClass('selected active');
+  $(".sidebar-nav-custom .nav-link, .inicio-nav-btn").removeClass('selected active');
+  $(".sidebar-nav-custom .nav-link[data-no='" + no + "'], .inicio-nav-btn[data-no='" + no + "']").addClass('selected active');
+
+  // Control automático de apertura del submenú de servicios
+  if (no == 2) {
+    $("#servicios-submenu").addClass('is-open');
+    $("#servicios-chevron").addClass('is-rotated');
+  } else {
+    $("#servicios-submenu").removeClass('is-open');
+    $("#servicios-chevron").removeClass('is-rotated');
+    $(".sidebar-submenu .submenu-link").removeClass('active');
+  }
 }
 
 function setupGallery() {
@@ -59,6 +69,9 @@ function setupGallery() {
 
 function openPage(no) {
   if(!no) return;
+  if(no != 1) {
+    window._userHasNavigated = true;
+  }
 
   if(no == 2) {
     if(gallery !== undefined && $('.gallery-slider').hasClass('slick-initialized')) {
@@ -70,11 +83,15 @@ function openPage(no) {
   $('.cd-hero-slider > li').removeClass('selected').hide();
   var $target = $('.cd-hero-slider > li[data-page-no="' + no + '"]');
   var displayMode = (no == 2 || no == 5) ? 'block' : 'flex';
-  $target.css('display', displayMode).hide().fadeIn(300).addClass('selected');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  $target.css('display', displayMode).show().addClass('selected');
+  
+  // Garantizar revelado inmediato de todas las tarjetas para eliminar cualquier pantalla en blanco
+  $target.find('.reveal-on-scroll').addClass('is-revealed');
+
+  window.scrollTo({ top: 0, behavior: 'instant' });
   var pageWrapper = document.getElementById('page-content-wrapper');
   if (pageWrapper) {
-    pageWrapper.scrollTo({ top: 0, behavior: 'smooth' });
+    pageWrapper.scrollTo({ top: 0, behavior: 'instant' });
   }
 
   // OPTIMIZACIÓN DE RENDIMIENTO DE VIDEOS POR PANTALLA
@@ -97,27 +114,36 @@ function openPage(no) {
 
   if (no == 2 || no == 5) {
     if (typeof checkRevealElements === 'function') {
-      setTimeout(checkRevealElements, 100);
-      setTimeout(checkRevealElements, 400);
+      setTimeout(checkRevealElements, 50);
+      setTimeout(checkRevealElements, 250);
     }
     if (no == 2) {
       if (typeof syncServiceVideosOnPage === 'function') {
-        setTimeout(syncServiceVideosOnPage, 200);
-      } else if (typeof playRoxarVideo === 'function') {
-        setTimeout(playRoxarVideo, 200);
+        setTimeout(syncServiceVideosOnPage, 100);
       }
+      if (typeof syncCardVideosOnPage === 'function') {
+        setTimeout(syncCardVideosOnPage, 100);
+      }
+
     }
   }
 }
 
 $(window).on('load', function() {
   $('body').addClass('loaded');
-  openPage(1);
-  highlightMenu(1);
+  // Solo abrir página 1 si el usuario NO ha navegado ya a otra sección
+  if (!window._userHasNavigated) {
+    var isOtherSelected = $('.cd-hero-slider > li.selected').length && $('.cd-hero-slider > li.selected').data('page-no') != 1;
+    if (!isOtherSelected) {
+      openPage(1);
+      highlightMenu(1);
+    }
+  }
 });
 
 jQuery(function() {
     $(document).on('click', '.tm-page-link', function(e){
+      window._userHasNavigated = true;
       e.preventDefault();
       var pageNo = $(this).data('page-no');
       if(pageNo) {
@@ -126,9 +152,20 @@ jQuery(function() {
       }
     });
 
-    $(document).on('click', ".sidebar-nav-custom .nav-link, .navbar .navbar-nav > .nav-item > a.nav-link", function(e){
+    $(document).on('click', ".sidebar-nav-custom .nav-link, .inicio-nav-btn, .navbar .navbar-nav > .nav-item > a.nav-link", function(e){
+      window._userHasNavigated = true;
       e.preventDefault();
       var pageNo = $(this).attr('data-no') || $(this).data('no');
+
+      // Alternar (abrir/cerrar) submenú si ya estamos en Servicios
+      if ($(this).attr('id') === 'nav-link-servicios') {
+        var isAlreadyPage2 = $('.cd-hero-slider > li[data-page-no="2"]').hasClass('selected');
+        if (isAlreadyPage2) {
+          $("#servicios-submenu").toggleClass('is-open');
+          $("#servicios-chevron").toggleClass('is-rotated');
+          return;
+        }
+      }
 
       if (pageNo) {
         openPage(pageNo);

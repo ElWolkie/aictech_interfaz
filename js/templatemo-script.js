@@ -19,14 +19,21 @@ function highlightMenu(no) {
   $(".sidebar-nav-custom .nav-link, .inicio-nav-btn").removeClass('selected active');
   $(".sidebar-nav-custom .nav-link[data-no='" + no + "'], .inicio-nav-btn[data-no='" + no + "']").addClass('selected active');
 
-  // Control automático de apertura del submenú de servicios
+  // Control automático de apertura del submenú de servicios y productos
   if (no == 2) {
     $("#servicios-submenu").addClass('is-open');
     $("#servicios-chevron").addClass('is-rotated');
   } else {
     $("#servicios-submenu").removeClass('is-open');
     $("#servicios-chevron").removeClass('is-rotated');
-    $(".sidebar-submenu .submenu-link").removeClass('active');
+  }
+
+  if (no == 5) {
+    $("#productos-submenu").addClass('is-open');
+    $("#productos-chevron").addClass('is-rotated');
+  } else {
+    $("#productos-submenu").removeClass('is-open');
+    $("#productos-chevron").removeClass('is-rotated');
   }
 }
 
@@ -163,6 +170,16 @@ jQuery(function() {
         if (isAlreadyPage2) {
           $("#servicios-submenu").toggleClass('is-open');
           $("#servicios-chevron").toggleClass('is-rotated');
+          return;
+        }
+      }
+
+      // Alternar (abrir/cerrar) submenú si ya estamos en Productos
+      if ($(this).attr('id') === 'nav-link-productos') {
+        var isAlreadyPage5 = $('.cd-hero-slider > li[data-page-no="5"]').hasClass('selected');
+        if (isAlreadyPage5) {
+          $("#productos-submenu").toggleClass('is-open');
+          $("#productos-chevron").toggleClass('is-rotated');
           return;
         }
       }

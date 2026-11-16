@@ -3244,11 +3244,7 @@
             border-color: rgba(56, 182, 255, 0.85);
             color: #ffffff;
             box-shadow: 0 0 16px rgba(56, 182, 255, 0.4);
-        
-            min-width: 126px;
-            justify-content: center;
-            text-align: center;
-            white-space: nowrap;}
+        }
 
         /* EFECTO CINEMA BLUR AMBIENTAL: Rellena los bordes con el video desenfocado */
         .service-flip-front video.roxar-video-ambient-blur {
@@ -3677,7 +3673,7 @@
         }
 
     
-        /* BOTÓN FLOTANTE PANTALLA COMPLETA (SUPERIOR DERECHA) */
+        /* BOTÓN FLOTANTE PANTALLA COMPLETA */
         .fullscreen-top-btn {
             position: fixed;
             top: 14px;
@@ -3693,71 +3689,104 @@
             letter-spacing: 0.5px;
             display: inline-flex;
             align-items: center;
-            gap: 7px;
             cursor: pointer;
             backdrop-filter: blur(8px);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
             transition: all 0.25s ease;
         }
         .fullscreen-top-btn:hover {
-            background: #0d6efd;
+            background: rgba(14, 165, 233, 0.25);
             border-color: #38b6ff;
+            box-shadow: 0 0 15px rgba(56, 182, 255, 0.5);
+            transform: scale(1.03);
             color: #ffffff;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(13, 110, 253, 0.55);
+        }
+        .fullscreen-top-btn.is-active {
+            border-color: #f59e0b;
+            background: rgba(30, 20, 5, 0.88);
         }
 
-        /* BOTÓN DE AGRANDAR/EXPANDIR EN CADA TARJETA DE VIDEO/FOTO */
+        /* RECUADRO / CÁPSULA BLANCA PARA EL LOGO AICTECH (MÁXIMO CONTRASTE Y LEGIBILIDAD) */
+        .sidebar-brand-badge {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 6px 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .sidebar-brand-badge:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(56, 182, 255, 0.4);
+        }
+        .sidebar-brand-logo {
+            max-height: 44px;
+            object-fit: contain;
+            filter: drop-shadow(0 1px 2px rgba(0,0,0,0.15));
+        }
+
+        /* BOTÓN DE AGRANDAR PANTALLA COMPLETA EN VIDEOS Y FOTOS */
         .service-media-expand-btn {
             position: absolute;
-            top: 14px;
-            right: 14px;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: rgba(2, 10, 26, 0.82);
-            border: 1px solid rgba(56, 182, 255, 0.6);
+            top: 10px;
+            right: 10px;
+            z-index: 15;
+            background: rgba(2, 12, 32, 0.78);
+            border: 1px solid rgba(255, 255, 255, 0.35);
             color: #ffffff;
-            display: flex;
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            z-index: 6;
-            backdrop-filter: blur(8px);
-            transition: all 0.25s ease;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
             font-size: 0.85rem;
+            backdrop-filter: blur(6px);
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
         }
         .service-media-expand-btn:hover {
-            background: #0d6efd;
-            border-color: #38b6ff;
+            background: #0284c7;
+            border-color: #38bdf8;
             color: #ffffff;
-            transform: scale(1.15);
-            box-shadow: 0 0 16px rgba(56, 182, 255, 0.8);
+            transform: scale(1.1);
+            box-shadow: 0 0 12px rgba(56, 189, 248, 0.6);
         }
 
-        /* MODAL LIGHTBOX HD CENTRADO */
+        /* TAMAÑO UNIFORME PARA BOTONES "VER DETALLES" EN TARJETAS */
+        .service-flip-hint-badge {
+            min-width: 118px;
+            height: 32px;
+            justify-content: center;
+            box-sizing: border-box;
+            white-space: nowrap;
+        }
+
+        /* MODAL LIGHTBOX PARA VIDEOS Y FOTOS EN ALTA RESOLUCIÓN */
         .media-lightbox-overlay {
             position: fixed;
             inset: 0;
-            z-index: 99999;
-            background: rgba(1, 6, 15, 0.94);
+            z-index: 100050;
+            background: rgba(2, 6, 18, 0.94);
             backdrop-filter: blur(14px);
             display: none;
             align-items: center;
             justify-content: center;
-            padding: 24px;
+            padding: 20px;
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .media-lightbox-overlay.active {
-            display: flex !important;
-            opacity: 1 !important;
+            display: flex;
+            opacity: 1;
         }
         .media-lightbox-container {
             position: relative;
-            max-width: 1100px;
             width: 100%;
+            max-width: 1100px;
             max-height: 90vh;
             display: flex;
             flex-direction: column;
@@ -3768,8 +3797,8 @@
             position: absolute;
             top: -46px;
             right: 0;
-            background: rgba(255, 255, 255, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.25);
             color: #ffffff;
             width: 38px;
             height: 38px;
@@ -3778,130 +3807,163 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            font-size: 1rem;
-            transition: all 0.25s ease;
-            z-index: 10;
+            font-size: 1.1rem;
+            transition: all 0.2s ease;
         }
         .media-lightbox-close:hover {
             background: #ef4444;
             border-color: #ef4444;
-            transform: scale(1.12);
+            transform: scale(1.08);
         }
         .media-lightbox-stage {
             width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-        .media-lightbox-stage video {
-            width: 100%;
-            max-height: 78vh;
+            max-height: 80vh;
             border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.95), 0 0 35px rgba(56, 182, 255, 0.3);
-            outline: none;
-            background: #000;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 30px rgba(56, 182, 255, 0.2);
+            border: 1px solid rgba(56, 182, 255, 0.3);
+            background: #000000;
         }
+        .media-lightbox-stage video,
         .media-lightbox-stage img {
             max-width: 100%;
-            max-height: 78vh;
+            max-height: 80vh;
+            width: auto;
+            height: auto;
             object-fit: contain;
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.95), 0 0 35px rgba(56, 182, 255, 0.3);
+            display: block;
         }
         .media-lightbox-caption {
             margin-top: 14px;
             text-align: center;
-            color: #ffffff;
-        }
-        .media-lightbox-title {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: #38bdf8;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.8);
-            margin: 0;
+            color: #e2e8f0;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
         }
 
-        /* ANIMACIONES Y ESTILOS PULCROS DE PETROLIA */
-        @keyframes petroliaFloat {
-            0%, 100% { transform: translateY(0); filter: drop-shadow(0 8px 25px rgba(56, 182, 255, 0.45)); }
-            50% { transform: translateY(-7px); filter: drop-shadow(0 16px 35px rgba(56, 182, 255, 0.7)); }
+        /* BOTÓN INDUSTRIAL PETROLERO .btn-89 CON GOTAS ANIMADAS */
+        .btn-89 {
+            width: 160px;
+            height: 55px;
+            transition: all 0.2s ease;
+            position: relative;
+            background: none;
+            outline: none;
+            border: none;
+            font-family: inherit;
+            cursor: pointer;
+            text-decoration: none;
+            user-select: none;
+            padding: 0;
+            display: inline-block;
         }
-        .petrolia-logo-animated {
-            animation: petroliaFloat 4s ease-in-out infinite;
-            max-height: 115px;
-            object-fit: contain;
-            transition: transform 0.3s ease;
+        .button_text_89 {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(8, 29, 61, 0.95), rgba(4, 15, 33, 0.98));
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(56, 182, 255, 0.4);
+            border: 1px solid rgba(56, 182, 255, 0.35);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            font-size: 19px;
+            font-weight: bold;
+            color: #cbd5e1;
+            letter-spacing: 0.5px;
+            transition: all 0.25s ease;
         }
-        .petrolia-logo-animated:hover {
-            transform: scale(1.04);
+        .btn-89:hover .button_text_89 {
+            color: #ffffff;
+            border-color: #38bdf8;
+            box-shadow: 0 6px 25px rgba(2, 132, 199, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.6);
+            transform: translateY(-2px);
         }
+        .circle_89 {
+            width: 22px;
+            height: 22px;
+            background: radial-gradient(circle at 35% 35%, #0284c7, #030d1b);
+            border-radius: 50%;
+            position: absolute;
+            animation: move_up_89 2.2s ease-in-out infinite alternate-reverse;
+            box-shadow: 0 0 10px rgba(2, 132, 199, 0.5);
+            pointer-events: none;
+        }
+        .circle_89:nth-child(1) {
+            top: 6px;
+            left: 6px;
+        }
+        .circle_89:nth-child(2) {
+            bottom: -2px;
+            right: -2px;
+            animation-name: move_down_89;
+        }
+        @keyframes move_up_89 {
+            100% {
+                transform: translateY(-12px);
+            }
+        }
+        @keyframes move_down_89 {
+            100% {
+                transform: translateY(8px);
+            }
+        }
+
+        /* CONTENEDOR PETROLIA Y LOGO ANIMADO SUAVE */
         .petrolia-card-container {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .petrolia-card-container:hover {
-            box-shadow: 0 25px 65px rgba(0, 0, 0, 0.35), 0 0 50px rgba(56, 182, 255, 0.3) !important;
+            transform: translateY(-3px);
+            box-shadow: 0 20px 50px rgba(2, 132, 199, 0.15) !important;
         }
-        .badge-tech-light {
-            background: #e8f2fe;
-            color: #0056b3;
-            border: 1px solid #b8daff;
-            padding: 6px 14px;
-            border-radius: 5px;
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            display: inline-flex;
-            align-items: center;
-            text-transform: uppercase;
+        .petrolia-logo-animated {
+            max-height: 88px;
+            transition: transform 0.4s ease;
+            filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.08));
         }
-        .badge-mapa-interactivo-light {
-            background: #e0f2fe;
-            color: #0284c7;
-            border: 1px solid #7dd3fc;
+        .petrolia-logo-animated:hover {
+            transform: scale(1.04);
         }
-        .petrolia-access-btn {
-            background: linear-gradient(135deg, #0b4ea2 0%, #083875 100%);
+
+        /* HERO SUBTITLE CLARIFICADO PARA MÁXIMA LEGIBILIDAD */
+        .hero-slb-subtitle {
             color: #ffffff !important;
-            font-weight: 700;
-            font-size: 1.08rem;
-            padding: 14px 44px;
-            border-radius: 6px;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            box-shadow: 0 8px 24px rgba(11, 78, 162, 0.45);
-            border: none;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            font-size: 1.12rem !important;
+            line-height: 1.7 !important;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95), 0 1px 3px rgba(0, 0, 0, 0.9) !important;
+            max-width: 820px !important;
         }
-        .petrolia-access-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 60%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            transform: skewX(-25deg);
-            transition: 0.75s;
+
+        /* AMBIENT BLUR OPTIMIZADO PARA MÁXIMA FLUIDEZ DE VIDEO (HARDWARE ACCELERATED) */
+        .service-flip-front video.roxar-video-ambient-blur {
+            filter: blur(12px) brightness(0.65) !important;
+            transform: scale(1.25) translate3d(0, 0, 0) !important;
+            will-change: transform !important;
         }
-        .petrolia-access-btn:hover::before {
-            left: 150%;
-        }
-        .petrolia-access-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 32px rgba(11, 78, 162, 0.65), 0 0 25px rgba(56, 182, 255, 0.45);
-            background: linear-gradient(135deg, #105ebf 0%, #0a448d 100%);
+
+        .hero-slb-panels {
+            display: none !important;
         }
 
     </style>
+    <link rel="stylesheet" href="css/sidebar-collapse.css">
 </head>
 <body>
     <!-- BOTÓN GLOBAL PANTALLA COMPLETA (ESQUINA SUPERIOR DERECHA) -->
     <button id="btn-fullscreen-toggle" class="fullscreen-top-btn" onclick="toggleFullScreen();" title="Pantalla Completa">
         <i class="fas fa-expand me-1 text-info"></i> <span>Pantalla Completa</span>
+    </button>
+
+    <!-- BOTÓN GLOBAL PARA OCULTAR / MOSTRAR MENÚ LATERAL (DESKTOP) -->
+    <button id="btn-sidebar-collapse" class="sidebar-collapse-toggle-btn" type="button" title="Ocultar Menú Lateral (Ctrl+B o [)">
+        <i class="fas fa-chevron-left"></i>
     </button>
 
 
@@ -3974,9 +4036,11 @@
     <!-- SIDEBAR (Barra Lateral Izquierda) -->
     <div class="sidebar-wrapper text-white shadow-lg" id="sidebar">
         <div class="sidebar-heading text-center pt-4 pb-2">
-            <!-- LOGO AICTECH -->
-            <a href="#0" class="d-block text-decoration-none tm-page-link" data-page-no="1" data-no="1" title="Ir a Inicio AICTECH" onclick="openPage(1); highlightMenu(1); return false;">
-                <img src="img/aictech_logo.png" alt="AICTECH Logo" class="img-fluid" style="max-height: 48px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));">
+            <!-- LOGO AICTECH CON RECUADRO BLANCO PARA MÁXIMA VISIBILIDAD -->
+            <a href="#0" class="d-inline-block text-decoration-none tm-page-link" data-page-no="1" data-no="1" title="Ir a Inicio AICTECH" onclick="openPage(1); highlightMenu(1); return false;">
+                <div class="sidebar-brand-badge">
+                    <img src="img/aictech_logo.png" alt="AICTECH Logo" class="img-fluid sidebar-brand-logo">
+                </div>
             </a>
         </div>
         
@@ -4088,7 +4152,7 @@
         <!-- Navbar Superior Móvil -->
         <nav class="navbar navbar-dark bg-dark px-3 py-2 d-lg-none shadow-sm w-100 position-absolute top-0" style="z-index: 10;">
             <div class="d-flex align-items-center w-100 justify-content-between">
-                <img src="img/aictech_logo.png" alt="AICTECH Logo" style="max-height: 35px;">
+                <div class="sidebar-brand-badge py-1 px-2" style="border-radius: 8px;"><img src="img/aictech_logo.png" alt="AICTECH Logo" style="max-height: 30px;"></div>
                 <button class="navbar-toggler border-0" type="button" id="menu-toggle">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -4131,36 +4195,7 @@
                                 </div>
                             </div>
 
-                            <!-- Bottom Industrial Capability Panels (Estilo SLB) -->
-                            <div class="hero-slb-panels">
-                                <a href="#0" onclick="scrollToService('servicio-bifasico-trifasico')" class="slb-feature-card">
-                                    <i class="fas fa-satellite-dish slb-card-icon"></i>
-                                    <h4 class="slb-card-title">
-                                        <span>Telemetría & Pruebas</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                    </h4>
-                                    <p class="slb-card-desc">Monitoreo continuo de presión, temperatura y caudal en fondo y superficie 24/7.</p>
-                                </a>
-
-                                <a href="#0" onclick="scrollToService('servicio-multifasico')" class="slb-feature-card">
-                                    <i class="fas fa-wave-square slb-card-icon" style="color: #ffaf03;"></i>
-                                    <h4 class="slb-card-title">
-                                        <span>Medición Multifásica</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                    </h4>
-                                    <p class="slb-card-desc">Caracterización en tiempo real de petróleo, agua y gas sin separación física invasiva.</p>
-                                </a>
-
-                                <a href="#0" data-page-no="3" class="slb-feature-card tm-page-link">
-                                    <i class="fas fa-microchip slb-card-icon"></i>
-                                    <h4 class="slb-card-title">
-                                        <span>PetrolIA Predictiva</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                    </h4>
-                                    <p class="slb-card-desc">Algoritmos de IA para detección temprana de eventos anómalos y optimización de pozos.</p>
-                                </a>
                             </div>
-                        </div>
                     </div>
                 </li>
 
@@ -4169,6 +4204,7 @@
                     <div class="page-width-1">
                         <div class="services-feed-wrapper">
                             
+                            <!-- Header de la Sección -->
                             <!-- Header de la Sección (Container Blanco para Máxima Legibilidad) -->
                             <div class="catalog-hero-box reveal-on-scroll reveal-up mb-4" style="background: #ffffff; border-radius: 14px; padding: 24px 28px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25); border: 1px solid rgba(0, 0, 0, 0.08);">
                                 <h1 class="fw-bold display-6 text-dark mb-2" style="font-size: clamp(1.8rem, 3.2vw, 2.4rem);">Soluciones Integrales de Medición &amp; Diagnóstico</h1>
@@ -4218,8 +4254,8 @@
                                                             <!-- DIAPOSITIVA 1: Video de Well Testing en Campo -->
                                                             <div class="card-slide-item active" data-slide-index="0" data-type="video">
                                                                 <div class="service-video-wrap">
-                                                                <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
-                                                                    <video loop muted playsinline preload="auto" class="roxar-card-video" id="video-multifasico-campo">
+                                    <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
+                                    <video loop muted playsinline preload="metadata" class="roxar-card-video" id="video-multifasico-campo">
                                                                         <source src="video/multifasico-campo.mp4" type="video/mp4">
                                                                     </video>
                                                                     <!-- Botón central interactivo para reproducir video -->
@@ -4241,8 +4277,8 @@
                                                             <!-- DIAPOSITIVA 2: Foto de Toldo y Tráiler en Despliegue de Campo -->
                                                             <div class="card-slide-item" data-slide-index="1" data-type="image">
                                                                 <div class="service-video-wrap">
-                                                                <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
-                                                                    <img src="img/toldo-trailer.jpg" alt="Toldo y trailer en despliegue de campo" class="card-slide-img">
+                                    <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
+                                    <img src="img/toldo-trailer.jpg" alt="Toldo y trailer en despliegue de campo" class="card-slide-img">
                                                                     <div class="service-front-overlay">
                                                                         <div class="service-front-title">
                                                                             <i class="fas fa-campground text-info"></i> TOLDO Y TRÁILER EN DESPLIEGUE DE CAMPO
@@ -4265,7 +4301,7 @@
                                                             <ul class="instrument-features mb-0 small text-secondary">
                                                                 <li><strong>Medición en Línea Continua:</strong> Cuantificación en tiempo real de petróleo, agua y gas en boca de pozo sin separación física.</li>
                                                                 <li><strong>Trailer autosuficiente con toldo en campo</strong></li>
-                                                                <li><strong>Telemetría en tiempo Real:</strong> Transmisión instantanea de variable de producccion a interfaz gráfica para adquisición y análisis de datos.</li>
+                                                                <li><strong>Telemetría en tiempo Real:</strong> Transmisión instantanea de variable de producccion a interfaz gráfica para adquisición y analizis de datos.</li>
                                                             </ul>
                                                         </div>
                                                         <div>
@@ -4284,8 +4320,8 @@
                                                 <div class="service-flip-inner">
                                                     <div class="service-flip-front">
                                                         <div class="service-video-wrap">
-                                                                <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
-                                                            <video loop muted playsinline preload="auto" class="roxar-card-video" id="video-gemelo-digital">
+                                    <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
+                                    <video loop muted playsinline preload="metadata" class="roxar-card-video" id="video-gemelo-digital">
                                                                 <source src="video/gemelo_digital_video.mp4" type="video/mp4">
                                                             </video>
                                                                                                                         <!-- Botón central interactivo para reproducir video -->
@@ -4343,7 +4379,7 @@
                             <article class="roxar-showcase-container reveal-on-scroll reveal-up mt-4" id="servicio-bifasico-trifasico">
                                 <!-- Banner Superior con Video de Fondo -->
                                 <div class="roxar-hero-banner">
-                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="auto" class="roxar-video-bg service-video-elem" id="bifasico-main-video">
+                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="metadata" class="roxar-video-bg service-video-elem" id="bifasico-main-video">
                                         <source src="video/separador-1.mp4" type="video/mp4">
                                     </video>
                                     <div class="roxar-video-overlay"></div>
@@ -4351,7 +4387,7 @@
                                     <div class="roxar-hero-content">
                                         <h2 class="roxar-title">Well Testing con Separadores Convencionales Automatizados: Bifásicos y Trifásicos</h2>
                                         <p class="roxar-lead-text">
-                                            Prueba de pozos con equipos que realizan separación en dos o tres fases del flujo del pozo, con la finalidad de cuantificar la producción de crudo, agua y gas, para pozos de baja, media y alta presión.
+                                            Equipos de separación mecánica y estabilización termodinámica en superficie para la cuantificación fiscal y operativa de la producción de pozos.
                                         </p>
                                     </div>
                                 </div>
@@ -4365,8 +4401,8 @@
                                                 <div class="service-flip-inner">
                                                     <div class="service-flip-front">
                                                         <div class="service-video-wrap">
-                                                                <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
-                                                            <video loop muted playsinline preload="auto" class="roxar-card-video" id="video-bifasico">
+                                    <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
+                                    <video loop muted playsinline preload="metadata" class="roxar-card-video" id="video-bifasico">
                                                                 <source src="video/bifasico.mp4" type="video/mp4">
                                                             </video>
                                                                                                                         <!-- Botón central interactivo para reproducir video -->
@@ -4392,11 +4428,12 @@
                                                             </div>
                                                             <h3 class="roxar-panel-title mb-2 fs-5">Separador de Producción Bifásico</h3>
                                                             <p class="roxar-panel-desc mb-3 small text-secondary">
-                                                                Diseñado para separar los fluidos del pozo en dos corrientes: Gas y Líquido total. Se cuenta con separadores Bifásicos para pozos de baja y media presión.
+                                                                Diseñado para separar los fluidos del pozo en dos corrientes: Gas y Líquido total. Ideal para pruebas rápidas de aforo y pozos con bajo corte de agua.
                                                             </p>
                                                             <ul class="instrument-features mb-0 small text-secondary">
-                                                                <li><strong>Automatización y Control. </strong></li>
-                                                                <li><strong>Medición Volumétrica:</strong> Caudal de gas por placa de orificio Daniel con caja barton y medidor de presión diferencial, para la medición del flujo másico al caudal del líquido mediante Coriolis y computador de flujo 5700.</li>
+                                                                <li><strong>Estabilización de Contrapresión:</strong> Válvulas de control automático para mantener estabilidad operativa.</li>
+                                                                <li><strong>Medición Volumétrica:</strong> Caudal de gas por placa de orificio Daniel y turbina de líquidos certificada.</li>
+                                                                <li><strong>Facilidad de Despliegue:</strong> Montaje en patín portátil autoportante para pruebas en campo.</li>
                                                             </ul>
                                                         </div>
                                                         <div>
@@ -4415,8 +4452,8 @@
                                                 <div class="service-flip-inner">
                                                     <div class="service-flip-front">
                                                         <div class="service-video-wrap">
-                                                                <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
-                                                            <video loop muted playsinline preload="auto" class="roxar-card-video" id="video-trifasico-2">
+                                    <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
+                                    <video loop muted playsinline preload="metadata" class="roxar-card-video" id="video-trifasico-2">
                                                                 <source src="video/trifasico-2.mp4" type="video/mp4">
                                                             </video>
                                                                                                                         <!-- Botón central interactivo para reproducir video -->
@@ -4447,12 +4484,12 @@
                                                             </div>
                                                             <h3 class="roxar-panel-title mb-2 fs-5">Separador de Producción Trifásico</h3>
                                                             <p class="roxar-panel-desc mb-3 small text-secondary">
-                                                                Diseñado para separar los fluidos del pozo en tres corrientes: Petróleo, Agua, y Gas. Se cuenta con separadores Trifásicos para pozos alta presión.
+                                                                Separación mecánica y estabilización termodinámica en superficie de Petróleo, Agua y Gas para cuantificación fiscal y operativa de la producción.
                                                             </p>
                                                             <ul class="instrument-features mb-3 small text-secondary">
-                                                                <li><strong>Automatización y Control:</strong> Control automatizado de nivel del líquido y presión en separador.</li>
-                                                                <li><strong>Medición de caudal en Tiempo Real.</strong></li>
-                                                                <li><strong>Modelo digital interactivo.</strong></li>
+                                                                <li><strong>Control de Interfase Agua-Aceite:</strong> Instrumentación continua de nivel para drenaje automático de agua libre.</li>
+                                                                <li><strong>Medición Fiscal en Tiempo Real:</strong> Medidores Coriolis Micro Motion y computadores de flujo dedicados.</li>
+                                                                <li><strong>Simulador 3D en Línea:</strong> Modelo digital interactivo para análisis hidrodinámico en tiempo real.</li>
                                                             </ul>
                                                             <a href="https://simulador.miku-celsius.ts.net/#separador" target="_blank" rel="noopener noreferrer" class="roxar-action-btn w-100 py-2 text-decoration-none text-center d-flex align-items-center justify-content-center" id="btn-activar-trifasico-link" onclick="event.stopPropagation();">
                                                                 <i class="fas fa-cube me-2"></i> Abrir Simulador Separador 3D
@@ -4475,7 +4512,7 @@
                             <article class="roxar-showcase-container reveal-on-scroll reveal-up mt-4" id="servicio-flexim">
                                 <!-- Banner Superior con Video de Fondo -->
                                 <div class="roxar-hero-banner">
-                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="auto" class="roxar-video-bg service-video-elem" id="flexim-main-video">
+                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="metadata" class="roxar-video-bg service-video-elem" id="flexim-main-video">
                                         <source src="video/flexim.mp4" type="video/mp4">
                                     </video>
                                     <div class="roxar-video-overlay"></div>
@@ -4497,8 +4534,8 @@
                                                 <div class="service-flip-inner">
                                                     <div class="service-flip-front">
                                                         <div class="service-video-wrap">
-                                                                <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
-                                                            <video loop muted playsinline preload="auto" class="roxar-card-video" id="video-flexim-1">
+                                    <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
+                                    <video loop muted playsinline preload="metadata" class="roxar-card-video" id="video-flexim-1">
                                                                 <source src="video/flexim-1.mp4" type="video/mp4">
                                                             </video>
                                                                                                                         <!-- Botón central interactivo para reproducir video -->
@@ -4510,7 +4547,7 @@
                                                             </div>
                                                             <div class="service-front-overlay">
                                                                 <div class="service-front-title">
-                                                                    <i class="fas fa-wind text-info"></i> FLEXIM GAS &amp; LÍQUIDOS
+                                                                    <i class="fas fa-wind text-info"></i> FLEXIM GAS &amp; VAPOR
                                                                 </div>
                                                                 <span class="service-flip-hint-badge"><i class="fas fa-rotate me-1"></i> Ver Detalles</span>
                                                             </div>
@@ -4522,13 +4559,13 @@
                                                                 <span class="roxar-panel-badge mb-0"><i class="fas fa-shield-halved me-1"></i> FM CLASS I DIV 2 / ATEX</span>
                                                                 <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1" style="font-size: 0.7rem; font-weight: 600;">FLUXUS G608</span>
                                                             </div>
-                                                            <h3 class="roxar-panel-title mb-2 fs-5">Medición de Gas y Líquidos Clamp-On</h3>
+                                                            <h3 class="roxar-panel-title mb-2 fs-5">Medición de Gas y Vapor Clamp-On</h3>
                                                             <p class="roxar-panel-desc mb-3 small text-secondary">
-                                                                Medición no invasiva clamp-on para gases y líquidos en condiciones operacionales exigentes sin cortes ni paradas.
+                                                                Medición no invasiva clamp-on para gases y vapor en condiciones operacionales exigentes sin cortes ni paradas.
                                                             </p>
                                                             <ul class="instrument-features mb-0 small text-secondary">
                                                                 <li><strong>0 hrs de Parada:</strong> Instalación en pared exterior de la tubería sin cortar ni despresurizar el gasoducto.</li>
-                                                                <li><strong>Autonomía en campo</strong> Flujo libre sin elementos intrusivos ni riesgo de fugas.</li>
+                                                                <li><strong>Cero Pérdida de Presión (&Delta;P = 0):</strong> Flujo libre sin elementos intrusivos ni riesgo de fugas.</li>
                                                                 <li><strong>Inmunidad Total:</strong> Inmune a gas agrio con H₂S, condensados y erosión mecánica.</li>
                                                             </ul>
                                                         </div>
@@ -4548,13 +4585,13 @@
                                                 <div class="service-flip-inner">
                                                     <div class="service-flip-front">
                                                         <div class="service-video-wrap">
-                                                                <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
-                                                            <!-- Fondo cinemático ambiental desenfocado para rellenar los bordes -->
-                                                            <video loop muted playsinline preload="auto" class="roxar-card-video roxar-video-ambient-blur" aria-hidden="true">
+                                    <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
+                                    <!-- Fondo cinemático ambiental desenfocado para rellenar los bordes -->
+                                                            <video loop muted playsinline preload="metadata" class="roxar-card-video roxar-video-ambient-blur" aria-hidden="true">
                                                                 <source src="video/flexim-2.mp4" type="video/mp4">
                                                             </video>
                                                             <!-- Video principal en primer plano 100% completo -->
-                                                            <video loop muted playsinline preload="auto" class="roxar-card-video roxar-card-video-foreground" id="video-flexim-2">
+                                                            <video loop muted playsinline preload="metadata" class="roxar-card-video roxar-card-video-foreground" id="video-flexim-2">
                                                                 <source src="video/flexim-2.mp4" type="video/mp4">
                                                             </video>
                                                                                                                         <!-- Botón central interactivo para reproducir video -->
@@ -4605,7 +4642,7 @@
                             <article class="roxar-showcase-container reveal-on-scroll reveal-up mt-4" id="servicio-echometer">
                                 <!-- Banner Superior con Video de Fondo -->
                                 <div class="roxar-hero-banner">
-                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="auto" class="roxar-video-bg service-video-elem" id="echometer-main-video">
+                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="metadata" class="roxar-video-bg service-video-elem" id="echometer-main-video">
                                         <source src="video/echometer.mp4" type="video/mp4">
                                     </video>
                                     <div class="roxar-video-overlay"></div>
@@ -4627,8 +4664,8 @@
                                                 <div class="service-flip-inner">
                                                     <div class="service-flip-front">
                                                         <div class="service-video-wrap">
-                                                                <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
-                                                            <video loop muted playsinline preload="auto" class="roxar-card-video" id="video-echometer-1">
+                                    <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
+                                    <video loop muted playsinline preload="metadata" class="roxar-card-video" id="video-echometer-1">
                                                                 <source src="video/echometer-1.mp4" type="video/mp4">
                                                             </video>
                                                                                                                         <!-- Botón central interactivo para reproducir video -->
@@ -4678,8 +4715,8 @@
                                                 <div class="service-flip-inner">
                                                     <div class="service-flip-front">
                                                         <div class="service-video-wrap">
-                                                                <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
-                                                            <video loop muted playsinline preload="auto" class="roxar-card-video" id="video-echometer-2">
+                                    <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
+                                    <video loop muted playsinline preload="metadata" class="roxar-card-video" id="video-echometer-2">
                                                                 <source src="video/echometer-2.mp4" type="video/mp4">
                                                             </video>
                                                                                                                         <!-- Botón central interactivo para reproducir video -->
@@ -4691,7 +4728,7 @@
                                                             </div>
                                                             <div class="service-front-overlay">
                                                                 <div class="service-front-title">
-                                                                    <i class="fas fa-chart-line text-info"></i> DIAGNÓSTICO
+                                                                    <i class="fas fa-chart-line text-info"></i> DIAGNÓSTICO &amp; DINAMOMETRÍA
                                                                 </div>
                                                                 <span class="service-flip-hint-badge"><i class="fas fa-rotate me-1"></i> Ver Detalles</span>
                                                             </div>
@@ -4710,6 +4747,7 @@
                                                             <ul class="instrument-features mb-0 small text-secondary">
                                                                 <li><strong>Presión de Fondo (Pwf / Pws):</strong> Cálculo termodinámico de presión de fondo fluyente y estática para evaluar el índice de productividad.</li>
                                                                 <li><strong>Sumergencia de Bomba:</strong> Nivel dinámico de fluido sobre la succión para prevenir cavitación, gas lock y desgaste prematuro.</li>
+                                                                <li><strong>Diagnóstico SLA / ALS:</strong> Cartas dinamométricas para detección de fugas en válvulas viajeras/fijas y sobrecarga en varillas.</li>
                                                             </ul>
                                                         </div>
                                                         <div>
@@ -4729,7 +4767,7 @@
                             <article class="roxar-showcase-container reveal-on-scroll reveal-up mt-4" id="servicio-trasegado">
                                 <!-- Banner Superior con Video de Fondo -->
                                 <div class="roxar-hero-banner">
-                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="auto" class="roxar-video-bg service-video-elem" id="trasegado-main-video">
+                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="metadata" class="roxar-video-bg service-video-elem" id="trasegado-main-video">
                                         <source src="video/tanque.mp4" type="video/mp4">
                                     </video>
                                     <div class="roxar-video-overlay"></div>
@@ -4751,13 +4789,13 @@
                                                 <div class="service-flip-inner">
                                                     <div class="service-flip-front">
                                                         <div class="service-video-wrap">
-                                                                <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
-                                                            <!-- Fondo cinemático ambiental desenfocado para rellenar los bordes -->
-                                                            <video loop muted playsinline preload="auto" class="roxar-card-video roxar-video-ambient-blur" aria-hidden="true">
+                                    <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
+                                    <!-- Fondo cinemático ambiental desenfocado para rellenar los bordes -->
+                                                            <video loop muted playsinline preload="metadata" class="roxar-card-video roxar-video-ambient-blur" aria-hidden="true">
                                                                 <source src="video/trasegado-1.mp4" type="video/mp4">
                                                             </video>
                                                             <!-- Video principal en primer plano 100% completo -->
-                                                            <video loop muted playsinline preload="auto" class="roxar-card-video roxar-card-video-foreground" id="video-trasegado-1">
+                                                            <video loop muted playsinline preload="metadata" class="roxar-card-video roxar-card-video-foreground" id="video-trasegado-1">
                                                                 <source src="video/trasegado-1.mp4" type="video/mp4">
                                                             </video>
                                                                                                                         <!-- Botón central interactivo para reproducir video -->
@@ -4788,7 +4826,7 @@
                                                             <ul class="instrument-features mb-0 small text-secondary">
                                                                 <li><strong>Chutos y Camiones Vacuum:</strong> Cisternas herméticas de alta capacidad con certificación petrolera y bombeo autónomo.</li>
                                                                 <li><strong>Succión y Descarga Rápida:</strong> Bombas de desplazamiento positivo para fluidos viscosos y emulsiones pesadas.</li>
-                                                                <li><strong>Disponibilidad Operacional 24/7:</strong></li>
+                                                                <li><strong>Disponibilidad Operacional 24/7:</strong> Cuadrillas continuas bajo estrictas normativas ambientales y de seguridad industrial (SIAHO).</li>
                                                             </ul>
                                                         </div>
                                                         <div>
@@ -4807,8 +4845,8 @@
                                                 <div class="service-flip-inner">
                                                     <div class="service-flip-front">
                                                         <div class="service-video-wrap">
-                                                                <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
-                                                            <video loop muted playsinline preload="auto" class="roxar-card-video" id="video-tanque-1">
+                                    <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
+                                    <video loop muted playsinline preload="metadata" class="roxar-card-video" id="video-tanque-1">
                                                                 <source src="video/tanque-1.mp4" type="video/mp4">
                                                             </video>
                                                                                                                         <!-- Botón central interactivo para reproducir video -->
@@ -4859,13 +4897,13 @@
                             <article class="roxar-showcase-container reveal-on-scroll reveal-up mt-4" id="servicio-soldadura-taller">
                                 <!-- Banner Superior con Video de Fondo -->
                                 <div class="roxar-hero-banner">
-                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="auto" class="roxar-video-bg service-video-elem" id="soldadura-main-video">
+                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="metadata" class="roxar-video-bg service-video-elem" id="soldadura-main-video">
                                         <source src="video/soldadura.mp4" type="video/mp4">
                                     </video>
                                     <div class="roxar-video-overlay"></div>
 
                                     <div class="roxar-hero-content">
-                                        <h2 class="roxar-title">Taller de Soldadura y Metalmecánica</h2>
+                                        <h2 class="roxar-title">Taller de Soldadura y Electrometálica</h2>
                                         <p class="roxar-lead-text">
                                             Fabricación metalmecánica, reparación estructural y sistemas de tuberías de alta presión.
                                         </p>
@@ -4881,8 +4919,8 @@
                                                 <div class="service-flip-inner">
                                                     <div class="service-flip-front">
                                                         <div class="service-video-wrap">
-                                                                <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
-                                                            <video loop muted playsinline preload="auto" class="roxar-card-video" id="video-soldadura-1">
+                                    <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
+                                    <video loop muted playsinline preload="metadata" class="roxar-card-video" id="video-soldadura-1">
                                                                 <source src="video/soldadura-1.mp4" type="video/mp4">
                                                             </video>
                                                                                                                         <!-- Botón central interactivo para reproducir video -->
@@ -4908,11 +4946,12 @@
                                                             </div>
                                                             <h3 class="roxar-panel-title mb-2 fs-5">Soldadura de Alta Presión</h3>
                                                             <p class="roxar-panel-desc mb-3 small text-secondary">
-                                                                Soldadores calificados en procesos, manifolds y tuberías de alta exigencia.
+                                                                Soldadores calificados en procesos TIG (GTAW), SMAW y GMAW para líneas de proceso, manifolds y tuberías de alta exigencia.
                                                             </p>
                                                             <ul class="instrument-features mb-0 small text-secondary">
                                                                 <li><strong>Líneas hasta 15,000 PSI:</strong> Uniones certificadas en aceros al carbono, inoxidables 316L y aleaciones especiales.</li>
                                                                 <li><strong>Códigos Internacionales:</strong> Homologación bajo ASME Sección IX, AWS D1.1 y API 1104.</li>
+                                                                <li><strong>Ensayos No Destructivos (NDT):</strong> Control de calidad mediante tintes penetrantes, ultrasonido y radiografía.</li>
                                                             </ul>
                                                         </div>
                                                         <div>
@@ -4931,8 +4970,8 @@
                                                 <div class="service-flip-inner">
                                                     <div class="service-flip-front">
                                                         <div class="service-video-wrap">
-                                                                <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
-                                                            <video loop muted playsinline preload="auto" class="roxar-card-video" id="video-taller-1">
+                                    <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
+                                    <video loop muted playsinline preload="metadata" class="roxar-card-video" id="video-taller-1">
                                                                 <source src="video/taller-1.mp4" type="video/mp4">
                                                             </video>
                                                                                                                         <!-- Botón central interactivo para reproducir video -->
@@ -4961,7 +5000,7 @@
                                                                 Instalaciones propias en Anaco para fabricación de patines estructurales de medición (skids), bypass, manifolds y montaje de equipos.
                                                             </p>
                                                             <ul class="instrument-features mb-0 small text-secondary">
-                                                                <li><strong>Patines Estructurales:</strong> Skids portátiles para medición multifásica MPFM y Separadores Convencionales.</li>
+                                                                <li><strong>Patines Estructurales:</strong> Skids portátiles para medición multifásica MPFM y transferencia LACT.</li>
                                                                 <li><strong>Pintura y Granallado:</strong> Preparación superficial por sandblasting y aplicación de recubrimientos epóxicos marinos.</li>
                                                                 <li><strong>Pruebas Hidrostáticas:</strong> Certificación de hermeticidad y banco de pruebas antes de despacho.</li>
                                                             </ul>
@@ -4983,7 +5022,7 @@
                             <article class="roxar-showcase-container reveal-on-scroll reveal-up mt-4" id="servicio-asistencia-tecnica">
                                 <!-- Banner Superior con Fondo Completo Panorámico AIC TECH (Video Cinemático) -->
                                 <div class="roxar-hero-banner">
-                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="auto" class="roxar-video-bg service-video-elem" id="aictech-main-video">
+                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="metadata" class="roxar-video-bg service-video-elem" id="aictech-main-video">
                                         <source src="video/aictech.mp4" type="video/mp4">
                                     </video>
                                     <div class="roxar-video-overlay"></div>
@@ -5005,8 +5044,8 @@
                                                 <div class="service-flip-inner">
                                                     <div class="service-flip-front">
                                                         <div class="service-video-wrap">
-                                                                <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
-                                                            <video loop muted playsinline preload="auto" class="roxar-card-video" id="video-calibracion-1">
+                                    <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
+                                    <video loop muted playsinline preload="metadata" class="roxar-card-video" id="video-calibracion-1">
                                                                 <source src="video/calibracion-1.mp4" type="video/mp4">
                                                             </video>
                                                                                                                         <!-- Botón central interactivo para reproducir video -->
@@ -5056,8 +5095,8 @@
                                                 <div class="service-flip-inner">
                                                     <div class="service-flip-front">
                                                         <div class="service-video-wrap">
-                                                                <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
-                                                            <video loop muted playsinline preload="auto" class="roxar-card-video" id="video-mantenimiento-1">
+                                    <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
+                                    <video loop muted playsinline preload="metadata" class="roxar-card-video" id="video-mantenimiento-1">
                                                                 <source src="video/mantenimiento-1.mp4" type="video/mp4">
                                                             </video>
                                                                                                                         <!-- Botón central interactivo para reproducir video -->
@@ -5108,31 +5147,30 @@
                     </div>
                 </li>
 
-                <!-- SECCIÓN 3: PETROLIA (CONSOLA SCADA INTERACTIVA PULCRA CON MAPA INTERACTIVO) -->
+                <!-- SECCIÓN 3: PETROLIA (CONSOLA SCADA INTERACTIVA PULCRA) -->
                 <li data-page-no="3" class="px-3">
                     <div class="page-width-1 h-100 d-flex align-items-center justify-content-center">
-                        <div class="p-4 p-md-5 text-center w-100 shadow-lg reveal-on-scroll reveal-up petrolia-card-container" style="max-width: 940px; background: #ffffff; border-radius: 18px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28), 0 0 45px rgba(56, 182, 255, 0.25); border: 1px solid rgba(226, 232, 240, 0.9);">
+                        <div class="p-4 p-md-5 text-center w-100 shadow-lg reveal-on-scroll reveal-up petrolia-card-container" style="max-width: 920px; background: #ffffff; border-radius: 18px; box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12), 0 2px 10px rgba(0, 0, 0, 0.05); border: 1px solid rgba(226, 232, 240, 0.9);">
                             <div class="mb-4 text-center">
                                 <img src="img/petrolia-img.png" alt="PetrolIA" class="img-fluid petrolia-logo-animated">
                             </div>
-                            <div class="d-flex flex-wrap justify-content-center gap-2 mb-3">
-                                <span class="badge-tech-light"><i class="fas fa-satellite me-1"></i> PLATAFORMA SCADA &amp; TELEMETRÍA PREDICTIVA</span>
-                                <span class="badge-tech-light badge-mapa-interactivo-light"><i class="fas fa-map-location-dot me-1"></i> MAPA INTERACTIVO</span>
-                            </div>
-                            <h2 class="mb-3 fw-bold display-5 text-dark" style="color: #0b192c !important; font-weight: 800; letter-spacing: -0.5px;">Centro de Control PetrolIA</h2>
-                            <p class="fs-5 mb-4 mx-auto" style="max-width: 840px; line-height: 1.7; color: #475569 !important;">
+                            <h2 class="mb-3 fw-bold display-5 text-dark" style="color: #0b192c !important; font-weight: 800; letter-spacing: -0.5px;">PetrolIA</h2>
+                            <p class="fs-5 mb-4 mx-auto" style="max-width: 820px; line-height: 1.7; color: #475569 !important;">
                                 Ecosistema digital para monitoreo, adquisición y análisis continuo de pozos en tiempo real, integrando modelado predictivo de producción y telemetría de campo 24/7.
                             </p>
-                            <!-- PUNTOS DESTACADOS EN CHIPS -->
+                            <!-- PUNTOS DESTACADOS EN CHIPS BLANCOS -->
                             <div class="d-flex flex-wrap justify-content-center gap-3 mb-4 py-2">
+                                <div class="feature-chip"><i class="fas fa-map-location-dot text-primary"></i> Mapa Interactivo</div>
                                 <div class="feature-chip"><i class="fas fa-satellite-dish text-primary"></i> Telemetría en Tiempo Real</div>
                                 <div class="feature-chip"><i class="fas fa-brain text-info"></i> Algoritmos Predictivos de Producción</div>
                                 <div class="feature-chip"><i class="fas fa-chart-line text-success"></i> Análisis de Curvas de Declinación</div>
                                 <div class="feature-chip"><i class="fas fa-shield-halved text-warning"></i> Alertas Tempranas de Pozo</div>
                             </div>
-                            <div class="mt-4">
-                                <a href="https://petrolia-ia.miku-celsius.ts.net" target="_blank" rel="noopener noreferrer" class="petrolia-access-btn">
-                                    <i class="fas fa-arrow-up-right-from-square me-1"></i> Iniciar Sesión en PetrolIA ⚡
+                            <div class="mt-4 pt-2 d-flex justify-content-center">
+                                <a href="https://petrolia-ia.miku-celsius.ts.net" target="_blank" rel="noopener noreferrer" class="btn-89" title="Acceder a PetrolIA">
+                                    <span class="circle_89"></span>
+                                    <span class="circle_89"></span>
+                                    <span class="button_text_89">Acceder</span>
                                 </a>
                             </div>
                         </div>
@@ -5190,20 +5228,20 @@
                                  ==================================================================== -->
                             <article class="roxar-showcase-container reveal-on-scroll reveal-up mt-4" id="producto-brand-roxar">
                                 <!-- Banner Superior con Imagen Oficial Emerson Roxar -->
-                                <div class="roxar-hero-banner" style="position: relative; overflow: hidden; min-height: 260px;">
-                                    <img src="img/emerson-roxar.jpg" alt="Roxar Emerson Multiphase" class="roxar-video-bg" style="object-fit: cover; width: 100%; height: 100%; filter: brightness(0.8) contrast(1.1);">
-                                    <div class="roxar-video-overlay" style="background: linear-gradient(135deg, rgba(2, 10, 26, 0.85) 0%, rgba(2, 15, 38, 0.68) 50%, rgba(2, 10, 26, 0.88) 100%);"></div>
-                                    <div class="roxar-hero-content" style="position: relative; z-index: 3; max-width: 880px; padding: 22px 28px; background: rgba(2, 10, 26, 0.70); border-radius: 14px; border: 1px solid rgba(56, 182, 255, 0.35); backdrop-filter: blur(10px); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.75);">
+                                <div class="roxar-hero-banner" style="position: relative; overflow: hidden; min-height: 250px;">
+                                    <img src="img/emerson-roxar.jpg" alt="Roxar Emerson Multiphase" class="roxar-video-bg" style="object-fit: cover; width: 100%; height: 100%; filter: brightness(1.1) contrast(1.05);">
+                                    <div class="roxar-video-overlay" style="background: linear-gradient(135deg, rgba(2, 10, 26, 0.40) 0%, rgba(2, 15, 38, 0.20) 45%, rgba(2, 10, 26, 0.45) 100%);"></div>
+                                    <div class="roxar-hero-content" style="position: relative; z-index: 3;">
                                         <span class="badge bg-primary bg-opacity-35 text-info border border-info border-opacity-60 px-3 py-1 mb-2 rounded-pill fw-bold" style="font-size: 0.82rem; backdrop-filter: blur(6px); box-shadow: 0 4px 15px rgba(0,0,0,0.4);">
                                             <i class="fas fa-award me-1"></i> ALIANZA ESTRATÉGICA • INSTRUMENTACIÓN EMERSON
                                         </span>
-                                        <h1 class="roxar-banner-main-title fw-black text-white mb-1" style="font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 900; letter-spacing: 2.5px; line-height: 1.05; text-shadow: 0 4px 20px rgba(0, 0, 0, 0.95), 0 0 25px rgba(56, 182, 255, 0.5);">
+                                        <h1 class="roxar-banner-main-title fw-black text-white mb-1" style="font-size: clamp(2.6rem, 5.5vw, 4.2rem); font-weight: 900; letter-spacing: 2.5px; line-height: 1.05; text-shadow: 0 4px 20px rgba(0, 0, 0, 0.95), 0 0 30px rgba(56, 182, 255, 0.5);">
                                             ROXAR™
                                         </h1>
-                                        <h2 class="roxar-title mb-2" style="font-size: clamp(1.2rem, 2.2vw, 1.7rem); font-weight: 700; color: #38bdf8; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);">
+                                        <h2 class="roxar-title mb-2" style="font-size: clamp(1.25rem, 2.3vw, 1.85rem); font-weight: 700; color: #38bdf8; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);">
                                             Medidores Multifásicos de Flujo (MPFM)
                                         </h2>
-                                        <p class="roxar-lead-text mb-0" style="text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95); font-weight: 500; font-size: 1.02rem; color: #e2e8f0; line-height: 1.6;">
+                                        <p class="roxar-lead-text mb-0" style="text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95); font-weight: 500; font-size: 1.05rem; max-width: 880px;">
                                             Tecnología patentada de alta precisión para la medición continua en línea de petróleo, agua y gas en boca de pozo sin requerir separación invasiva ni tanques de prueba.
                                         </p>
                                     </div>
@@ -5220,8 +5258,8 @@
                                                     <!-- Cara Frontal -->
                                                     <div class="service-flip-front">
                                                         <div class="service-video-wrap">
-                                                                <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
-                                                            <video loop muted playsinline preload="auto" class="roxar-card-video" id="video-prod-roxar2600">
+                                    <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
+                                    <video loop muted playsinline preload="metadata" class="roxar-card-video" id="video-prod-roxar2600">
                                                                 <source src="video/mpfm2600.mp4" type="video/mp4">
                                                             </video>
                                                             <!-- Botón central interactivo para reproducir video -->
@@ -5289,8 +5327,8 @@
                                                             <!-- DIAPOSITIVA 1: Video Presentación 5726 -->
                                                             <div class="card-slide-item active" data-slide-index="0" data-type="video">
                                                                 <div class="service-video-wrap">
-                                                                <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
-                                                                    <video loop muted playsinline preload="auto" class="roxar-card-video" id="video-prod-5726-pres">
+                                    <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
+                                    <video loop muted playsinline preload="metadata" class="roxar-card-video" id="video-prod-5726-pres">
                                                                         <source src="video/5726mt-presentacion.mp4" type="video/mp4">
                                                                     </video>
                                                                     <div class="service-card-play-center">
@@ -5311,8 +5349,8 @@
                                                             <!-- DIAPOSITIVA 2: Video Nueva Tecnología -->
                                                             <div class="card-slide-item" data-slide-index="1" data-type="video">
                                                                 <div class="service-video-wrap">
-                                                                <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
-                                                                    <video loop muted playsinline preload="auto" class="roxar-card-video" id="video-prod-5726-tec">
+                                    <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
+                                    <video loop muted playsinline preload="metadata" class="roxar-card-video" id="video-prod-5726-tec">
                                                                         <source src="video/5726-tecnologia.mp4" type="video/mp4">
                                                                     </video>
                                                                     <div class="service-card-play-center">
@@ -5333,8 +5371,8 @@
                                                             <!-- DIAPOSITIVA 3: Video Protección Sol, Lluvia y Nieve -->
                                                             <div class="card-slide-item" data-slide-index="2" data-type="video">
                                                                 <div class="service-video-wrap">
-                                                                <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
-                                                                    <video loop muted playsinline preload="auto" class="roxar-card-video" id="video-prod-5726-clima">
+                                    <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
+                                    <video loop muted playsinline preload="metadata" class="roxar-card-video" id="video-prod-5726-clima">
                                                                         <source src="video/multiphase-snow&day.mp4" type="video/mp4">
                                                                     </video>
                                                                     <div class="service-card-play-center">
@@ -5449,7 +5487,7 @@
                     </div>
                 </li>
 
-                <!-- SECCIÓN 6: EQUIPO Y CONTACTO -->
+                <!-- SECCIÓN 6: QUIÉNES SOMOS & CONTACTO -->
                 <li data-page-no="6" class="px-3">
                     <div class="page-width-1 h-100 d-flex align-items-center">
                         <div class="row g-4 w-100 justify-content-center align-items-stretch">
@@ -5464,10 +5502,10 @@
                                             Dedicados integralmente a los servicios de ingeniería, construcción y soporte operativo en las áreas clave de la industria petrolera e industrial:
                                         </p>
                                         <div class="d-flex flex-column gap-2 mt-3">
-                                            <div class="tech-list-item" style="border-left: 3px solid #38bdf8; background: rgba(56, 182, 255, 0.08); padding: 9px 14px; border-radius: 6px;"><i class="fas fa-layer-group text-info me-2"></i><strong>Pruebas de producción de pozos petroleros con separador convencional y multifásico</strong></div>
-                                            <div class="tech-list-item" style="border-left: 3px solid #0ea5e9; background: rgba(14, 165, 233, 0.08); padding: 9px 14px; border-radius: 6px;"><i class="fas fa-microchip text-primary me-2"></i><strong>Automatización e instrumentación industrial</strong></div>
-                                            <div class="tech-list-item" style="border-left: 3px solid #10b981; background: rgba(16, 185, 129, 0.08); padding: 9px 14px; border-radius: 6px;"><i class="fas fa-bolt text-success me-2"></i><strong>Electricidad y control industrial</strong></div>
-                                            <div class="tech-list-item" style="border-left: 3px solid #f59e0b; background: rgba(245, 158, 11, 0.08); padding: 9px 14px; border-radius: 6px;"><i class="fas fa-radiation text-warning me-2"></i><strong>Compra, venta y distribución de fuentes radioactivas para servicios industriales</strong></div>
+                                            <div class="tech-list-item" style="border-left: 3px solid #38bdf8; background: rgba(56, 182, 255, 0.08); padding: 9px 14px; border-radius: 6px;"><i class="fas fa-layer-group text-info me-2"></i><strong>Prueba de producción de pozos petroleros con separador convencional y multifásico</strong></div>
+                                            <div class="tech-list-item" style="border-left: 3px solid #0ea5e9; background: rgba(14, 165, 233, 0.08); padding: 9px 14px; border-radius: 6px;"><i class="fas fa-sliders text-primary me-2"></i><strong>Automatización, instrumentación y control industrial</strong></div>
+                                            <div class="tech-list-item" style="border-left: 3px solid #eab308; background: rgba(234, 179, 8, 0.08); padding: 9px 14px; border-radius: 6px;"><i class="fas fa-bolt text-warning me-2"></i><strong>Electricidad y acondicionamiento electromecánico</strong></div>
+                                            <div class="tech-list-item" style="border-left: 3px solid #f97316; background: rgba(249, 115, 22, 0.08); padding: 9px 14px; border-radius: 6px;"><i class="fas fa-radiation text-warning me-2"></i><strong>Compra, venta y distribución de fuentes radioactivas para servicios industriales</strong></div>
                                             <div class="tech-list-item" style="border-left: 3px solid #6366f1; background: rgba(99, 102, 241, 0.08); padding: 9px 14px; border-radius: 6px;"><i class="fas fa-key text-info me-2"></i><strong>Servicio llave en mano (Turnkey / EPC)</strong></div>
                                             <div class="tech-list-item" style="border-left: 3px solid #ec4899; background: rgba(236, 72, 153, 0.08); padding: 9px 14px; border-radius: 6px;"><i class="fas fa-wrench text-danger me-2"></i><strong>Reconstrucción y acondicionamiento de sistemas</strong></div>
                                             <div class="tech-list-item" style="border-left: 3px solid #8b5cf6; background: rgba(139, 92, 246, 0.08); padding: 9px 14px; border-radius: 6px;"><i class="fas fa-globe-americas text-primary me-2"></i><strong>Importación, exportación y comercialización de equipos</strong></div>
@@ -5476,15 +5514,24 @@
                                 </div>
                             </div>
                             <div class="col-12 col-lg-6">                  
-                                <div class="glass-card p-4 p-md-5 h-100 d-flex flex-column justify-content-between" style="background: rgba(2, 10, 26, 0.85); border: 1px solid rgba(56, 182, 255, 0.35); border-radius: 18px;">
+                                <div class="glass-card p-4 p-md-5 h-100 d-flex flex-column" style="background: rgba(2, 10, 26, 0.85); border: 1px solid rgba(56, 182, 255, 0.35); border-radius: 18px;">
                                     <div>
                                         <h3 class="mb-3 fw-bold display-6 fs-3 text-white">Contacto Directo</h3>
-                                        <p class="mb-2 fs-6 text-muted"><strong>Oficina:</strong> Anaco - Anzoátegui, Venezuela</p>
-                                        <p class="mb-2 fs-6 text-muted"><strong>Email:</strong> <a href="mailto:ventas@aictech.net" class="text-primary fw-semibold text-decoration-none">ventas@aictech.net</a></p>
-                                        <p class="mb-4 fs-6 text-muted"><strong>Línea de Atención:</strong> <a href="tel:+584148366073" class="text-primary fw-semibold text-decoration-none">+58 414 8366073</a></p>
+                                        <p class="mb-2 fs-6 text-muted"><strong class="text-white"><i class="fas fa-location-dot text-primary me-2"></i>Oficina:</strong> Anaco - Anzoátegui, Venezuela</p>
+                                        <p class="mb-2 fs-6 text-muted"><strong class="text-white"><i class="fas fa-envelope text-info me-2"></i>Email:</strong> <a href="mailto:ventas@aictech.net" class="text-primary fw-semibold text-decoration-none">ventas@aictech.net</a></p>
+                                        <p class="mb-3 fs-6 text-muted"><strong class="text-white"><i class="fas fa-phone text-success me-2"></i>Línea de Atención:</strong> <a href="tel:+584148366073" class="text-primary fw-semibold text-decoration-none">+58 414 8366073</a></p>
+                                        
+                                        <div class="d-flex flex-wrap gap-2 mb-3">
+                                            <a href="https://wa.me/584148366073" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-success px-3 py-1 text-decoration-none">
+                                                <i class="fab fa-whatsapp me-1"></i> WhatsApp Directo
+                                            </a>
+                                            <a href="mailto:ventas@aictech.net" class="btn btn-sm btn-outline-info px-3 py-1 text-decoration-none">
+                                                <i class="fas fa-paper-plane me-1"></i> Enviar Correo
+                                            </a>
+                                        </div>
                                     </div>
-                                    <div class="rounded-3 overflow-hidden border border-secondary shadow-sm mt-3">
-                                        <iframe width="100%" height="240" id="gmap-canvas"
+                                    <div class="rounded-3 overflow-hidden border border-secondary shadow-sm mt-2 flex-grow-1" style="min-height: 280px;">
+                                        <iframe width="100%" height="100%" id="gmap-canvas" style="min-height: 280px; width: 100%; border: 0;"
                                             src="https://maps.google.com/maps?q=9.447929573272631,-64.46658166186569&hl=es&z=15&output=embed"
                                             frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
                                     </div>
@@ -5530,7 +5577,7 @@
             <!-- Columna Izquierda: Reproductor Principal y Datos Técnicos -->
             <div class="showroom-stage">
                 <div class="showroom-video-viewport">
-                    <video id="showroom-main-video" controls playsinline preload="auto">
+                    <video id="showroom-main-video" controls playsinline preload="metadata">
                         <source id="showroom-video-source" src="video/biblioteca/presentacion-2.mp4" type="video/mp4">
                         Su navegador no soporta la reproducción de video HTML5.
                     </video>
@@ -5902,6 +5949,7 @@
             }
         };
 
+        
         // ==========================================
         // PANTALLA COMPLETA GLOBAL
         // ==========================================
@@ -5930,7 +5978,7 @@
                     }
                 }
             } catch(e) {
-                console.warn('Error al cambiar pantalla completa:', e);
+                console.warn('Error al alternar pantalla completa:', e);
             }
         };
 
@@ -5953,9 +6001,17 @@
         document.addEventListener('MSFullscreenChange', updateFullscreenButtonState);
 
         // ==========================================
-        // LIGHTBOX EXPAND PARA VIDEOS Y FOTOS HD
+        // LIGHTBOX EXPAND PARA VIDEOS Y FOTOS HD (AISLADO PARA MÁXIMA FLUIDEZ)
         // ==========================================
         window.expandCardMedia = function(btn) {
+            // Pausar todos los videos activos en la página para destinar el 100% de GPU/CPU al video expandido
+            document.querySelectorAll('video').forEach(function(v) {
+                if (!v.paused) {
+                    v.dataset.wasPlaying = 'true';
+                    v.pause();
+                }
+            });
+
             const card = btn.closest('.service-flip-card') || btn.closest('.catalog-brand-card') || btn.closest('.service-video-wrap');
             if (!card) return;
 
@@ -6021,6 +6077,8 @@
                 const vid = stage.querySelector('video');
                 if (vid) {
                     vid.pause();
+                    vid.removeAttribute('src');
+                    vid.load();
                 }
                 stage.innerHTML = '';
             }
@@ -6114,8 +6172,6 @@
             }
         });
 
-        // Interacción con enlaces del Submenú de Servicios
-                // Navegación instantánea al Inicio
         $(document).on('click', '.inicio-nav-btn, .sidebar-heading a', function(e) {
             e.preventDefault();
             openPage(1);
@@ -7292,8 +7348,9 @@
     }
 </script>
 
+    <script src="js/sidebar-collapse.js"></script>
 
-<!-- MODAL LIGHTBOX PARA VISUALIZACIÓN EXPANDIDA DE VIDEOS Y FOTOS EN ALTA RESOLUCIÓN -->
+<!-- MODAL LIGHTBOX PARA VISUALIZACIÓN DE VIDEOS Y FOTOS EN ALTA RESOLUCIÓN -->
 <div id="media-lightbox-modal" class="media-lightbox-overlay" onclick="if(event.target===this) closeMediaLightbox();">
     <div class="media-lightbox-container">
         <button type="button" class="media-lightbox-close" onclick="closeMediaLightbox();" title="Cerrar"><i class="fas fa-times"></i></button>

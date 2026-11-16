@@ -3829,14 +3829,91 @@
             border: 1px solid rgba(56, 182, 255, 0.3);
             background: #000000;
         }
-        .media-lightbox-stage video,
-        .media-lightbox-stage img {
+        .media-lightbox-stage video {
             max-width: 100%;
             max-height: 80vh;
             width: auto;
             height: auto;
-            object-fit: cover !important;
+            object-fit: contain !important;
             display: block;
+        }
+        .media-lightbox-stage img {
+            max-width: 90vw;
+            max-height: 80vh;
+            width: auto;
+            height: auto;
+            object-fit: contain !important;
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 16px;
+            display: block;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        /* MODAL INTRO CINEMÁTICO AICTECH */
+        .aictech-intro-overlay {
+            position: fixed;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.96);
+            backdrop-filter: blur(10px);
+            z-index: 100200;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .aictech-intro-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+        .aictech-intro-container {
+            position: relative;
+            max-width: 1100px;
+            max-height: 88vh;
+            width: 95%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .aictech-intro-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.25rem;
+            transition: all 0.2s ease;
+        }
+        .aictech-intro-close:hover {
+            background: #ef4444;
+            border-color: #ef4444;
+            transform: scale(1.08);
+        }
+        .aictech-intro-video-wrapper {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95), 0 0 35px rgba(56, 182, 255, 0.35);
+            border: 1px solid rgba(56, 182, 255, 0.3);
+            background: #000000;
+        }
+        .aictech-intro-video-wrapper video {
+            width: 100%;
+            max-height: 80vh;
+            display: block;
+            object-fit: contain !important;
+            outline: none;
         }
         .media-lightbox-caption {
             margin-top: 14px;
@@ -4216,8 +4293,8 @@
     <div class="sidebar-wrapper text-white shadow-lg" id="sidebar">
         <div class="sidebar-heading text-center pt-4 pb-2">
             <!-- LOGO AICTECH -->
-            <a href="#0" class="d-block text-decoration-none tm-page-link" data-page-no="1" data-no="1" title="Ir a Inicio AICTECH" onclick="openPage(1); highlightMenu(1); return false;">
-                <img src="img/aictech_logo.png" alt="AICTECH Logo" class="img-fluid" style="max-height: 48px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));">
+            <a href="#0" class="d-block text-decoration-none" title="Presentación AICTECH" onclick="openAictechIntroModal(event); return false;" class="d-block text-decoration-none tm-page-link" data-page-no="1" data-no="1" title="Ir a Inicio AICTECH" onclick="openPage(1); highlightMenu(1); return false;">
+                <img src="img/aictech_logo.png" alt="AICTECH Logo" style="max-height: 35px; cursor: pointer;" onclick="openAictechIntroModal(event);" class="img-fluid" style="max-height: 48px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));">
             </a>
         </div>
         
@@ -4355,7 +4432,7 @@
         <!-- Navbar Superior Móvil -->
         <nav class="navbar navbar-dark bg-dark px-3 py-2 d-lg-none shadow-sm w-100 position-absolute top-0" style="z-index: 10;">
             <div class="d-flex align-items-center w-100 justify-content-between">
-                <img src="img/aictech_logo.png" alt="AICTECH Logo" style="max-height: 35px;">
+                <img src="img/aictech_logo.png" alt="AICTECH Logo" style="max-height: 35px; cursor: pointer;" onclick="openAictechIntroModal(event);" style="max-height: 35px;">
                 <button class="navbar-toggler border-0" type="button" id="menu-toggle">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -5091,7 +5168,7 @@
                                 <!-- Banner Superior con Video de Fondo -->
                                 <div class="roxar-hero-banner">
                                     <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="metadata" class="roxar-video-bg service-video-elem" id="soldadura-main-video">
-                                        <source src="video/soldadura.mp4" type="video/mp4">
+                                        <source src="video/soldadura-1.mp4" type="video/mp4">
                                     </video>
                                     <div class="roxar-video-overlay"></div>
 
@@ -5114,7 +5191,7 @@
                                                         <div class="service-video-wrap">
                                     <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
                                     <video loop muted playsinline preload="metadata" class="roxar-card-video" id="video-soldadura-1">
-                                                                <source src="video/soldadura-1.mp4" type="video/mp4">
+                                                                <source src="video/soldadura.mp4" type="video/mp4">
                                                             </video>
                                                                                                                         <!-- Botón central interactivo para reproducir video -->
                                                             <div class="service-card-play-center">
@@ -5393,6 +5470,7 @@
 
 <!-- SECCIÓN 5: PRODUCTOS POR MARCA (PORTAFOLIO LÍDER: ROXAR, FLEXIM, FLUENTA, KAM) -->
                 <!-- SECCIÓN 5: PRODUCTOS & CATÁLOGO POR MARCA (EMERSON, FLUENTA, KAM) -->
+                <!-- SECCIÓN 5: PRODUCTOS & CATÁLOGO POR MARCA (EMERSON, FLUENTA, KAM) -->
                 <li data-page-no="5" class="px-3">
                     <div class="page-width-1 h-100">
                         <div class="catalog-feed-wrapper">
@@ -5409,31 +5487,19 @@
                                  BLOQUE PRINCIPAL: PORTAFOLIO EMERSON
                                  ==================================================================== -->
                             <div class="brand-group-container mb-5">
-                                <div class="brand-group-header d-flex align-items-center gap-3 p-3 mb-4 rounded-3" style="background: linear-gradient(135deg, #0b1e3b 0%, #034694 100%); color: #ffffff; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
-                                    <div class="bg-white rounded-2 p-2 d-flex align-items-center justify-content-center" style="width: 130px; height: 45px;">
-                                        <img src="img/products/roxar/roxar.png" alt="Emerson Logo" style="max-height: 32px; max-width: 100%; object-fit: contain;">
-                                    </div>
-                                    <div>
-                                        <h3 class="mb-0 fw-bold fs-4 text-white">EMERSON Automation Solutions</h3>
-                                        <small class="text-info fw-semibold">Tecnología de Medición Avanzada • Roxar • Rosemount • Micro Motion • Flexim • AMS Trex</small>
-                                    </div>
-                                </div>
 
                                 <!-- ------------------------------------------------------------
-                                     1. ROXAR (MEDIDORES MULTIFÁSICOS Y SUBSEA)
+                                     1. ROXAR (MEDIDORES MULTIFÁSICOS Y SUBSEA) - VIÑETA MORADA
                                      ------------------------------------------------------------ -->
                                 <article class="brand-showcase-section mb-5 reveal-on-scroll reveal-up" id="producto-brand-roxar">
-                                    <div class="brand-section-banner rounded-3 overflow-hidden position-relative mb-4" style="height: 160px; box-shadow: 0 4px 15px rgba(0,0,0,0.12);">
-                                        <img src="img/emerson-roxar.jpg" alt="Roxar Emerson" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.65);">
-                                        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center px-4" style="background: rgba(2, 10, 26, 0.45);">
-                                            <div class="d-flex align-items-center gap-3">
-                                                <div class="bg-white rounded-2 px-3 py-1 shadow-sm d-inline-flex align-items-center">
-                                                    <img src="img/products/roxar/roxar.png" alt="Roxar" style="max-height: 28px;">
-                                                </div>
-                                                <span class="badge bg-primary px-3 py-1 fw-bold fs-6">ROXAR™</span>
+                                    <div class="brand-section-banner rounded-3 overflow-hidden position-relative mb-4" style="height: 175px; box-shadow: 0 4px 18px rgba(0,0,0,0.18);">
+                                        <img src="img/products/roxar/roxar.png" alt="Roxar Banner" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.60) contrast(1.1); position: absolute; top: 0; left: 0;">
+                                        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center px-4" style="background: linear-gradient(90deg, rgba(30, 10, 60, 0.85) 0%, rgba(15, 23, 42, 0.65) 60%, rgba(15, 23, 42, 0.40) 100%); z-index: 2;">
+                                            <div>
+                                                <span class="badge px-3 py-1 fw-bold fs-6" style="background: #7c3aed; color: #ffffff; letter-spacing: 0.8px; box-shadow: 0 2px 10px rgba(124, 58, 237, 0.45);">ROXAR™</span>
                                             </div>
-                                            <h2 class="text-white fw-bold fs-4 mt-2 mb-0">Medidores Multifásicos y Analizadores Subsea &amp; Topside</h2>
-                                            <p class="text-white-50 small mb-0">Medición continua en línea de petróleo, agua y gas en boca de pozo sin separación física invasiva.</p>
+                                            <h2 class="text-white fw-bold fs-3 mt-2 mb-1" style="text-shadow: 0 2px 10px rgba(0,0,0,0.9); font-weight: 800;">Medidores Multifásicos y Analizadores Subsea &amp; Topside</h2>
+                                            <p class="small mb-0" style="color: #f1f5f9 !important; text-shadow: 0 1px 6px rgba(0,0,0,0.9); font-size: 0.94rem; max-width: 900px;">Medición continua en línea de petróleo, agua y gas en boca de pozo sin separación física invasiva.</p>
                                         </div>
                                     </div>
 
@@ -5542,17 +5608,17 @@
                                 </article>
 
                                 <!-- ------------------------------------------------------------
-                                     2. ROSEMOUNT (MEDICIÓN VORTEX Y NIVEL POR RADAR)
+                                     2. ROSEMOUNT (MEDICIÓN VORTEX Y NIVEL POR RADAR) - VIÑETA AZUL
                                      ------------------------------------------------------------ -->
                                 <article class="brand-showcase-section mb-5 reveal-on-scroll reveal-up" id="producto-brand-rosemount">
-                                    <div class="brand-section-banner rounded-3 overflow-hidden position-relative mb-4" style="height: 160px; box-shadow: 0 4px 15px rgba(0,0,0,0.12);">
-                                        <img src="img/products/rosemount/Rosemount-New-Logo.jpeg" alt="Rosemount Emerson" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.75);">
-                                        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center px-4" style="background: rgba(2, 10, 26, 0.45);">
-                                            <div class="d-flex align-items-center gap-3">
-                                                <span class="badge bg-danger px-3 py-1 fw-bold fs-6">ROSEMOUNT™</span>
+                                    <div class="brand-section-banner rounded-3 overflow-hidden position-relative mb-4" style="height: 175px; box-shadow: 0 4px 18px rgba(0,0,0,0.18);">
+                                        <img src="img/products/rosemount/Rosemount-New-Logo.jpeg" alt="Rosemount Banner" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.60) contrast(1.1); position: absolute; top: 0; left: 0;">
+                                        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center px-4" style="background: linear-gradient(90deg, rgba(0, 45, 95, 0.85) 0%, rgba(15, 23, 42, 0.65) 60%, rgba(15, 23, 42, 0.40) 100%); z-index: 2;">
+                                            <div>
+                                                <span class="badge px-3 py-1 fw-bold fs-6" style="background: #004b87; color: #ffffff; letter-spacing: 0.8px; box-shadow: 0 2px 10px rgba(0, 75, 135, 0.45);">ROSEMOUNT™</span>
                                             </div>
-                                            <h2 class="text-white fw-bold fs-4 mt-2 mb-0">Medición de Caudal Vortex y Nivel por Radar de Onda Guiada</h2>
-                                            <p class="text-white-50 small mb-0">Tecnología de referencia industrial de Emerson en instrumentación de proceso y seguridad SIL.</p>
+                                            <h2 class="text-white fw-bold fs-3 mt-2 mb-1" style="text-shadow: 0 2px 10px rgba(0,0,0,0.9); font-weight: 800;">Medición de Caudal Vortex y Nivel por Radar de Onda Guiada</h2>
+                                            <p class="small mb-0" style="color: #f1f5f9 !important; text-shadow: 0 1px 6px rgba(0,0,0,0.9); font-size: 0.94rem; max-width: 900px;">Tecnología de referencia industrial de Emerson en instrumentación de proceso y seguridad SIL.</p>
                                         </div>
                                     </div>
 
@@ -5641,17 +5707,17 @@
                                 </article>
 
                                 <!-- ------------------------------------------------------------
-                                     3. MICRO MOTION (CAUDALÍMETRO CORIOLIS DESTACADO)
+                                     3. MICRO MOTION (CORIOLIS DESTACADO) - VIÑETA GRIS
                                      ------------------------------------------------------------ -->
                                 <article class="brand-showcase-section mb-5 reveal-on-scroll reveal-up" id="producto-brand-micromotion">
-                                    <div class="brand-section-banner rounded-3 overflow-hidden position-relative mb-4" style="height: 160px; box-shadow: 0 4px 15px rgba(0,0,0,0.12);">
-                                        <img src="img/products/micromotion/micromotion.jpg" alt="Micro Motion Emerson" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.70);">
-                                        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center px-4" style="background: rgba(2, 10, 26, 0.45);">
-                                            <div class="d-flex align-items-center gap-3">
-                                                <span class="badge bg-warning text-dark px-3 py-1 fw-bold fs-6">MICRO MOTION™</span>
+                                    <div class="brand-section-banner rounded-3 overflow-hidden position-relative mb-4" style="height: 175px; box-shadow: 0 4px 18px rgba(0,0,0,0.18);">
+                                        <img src="img/products/micromotion/micromotion.jpg" alt="Micro Motion Banner" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.60) contrast(1.1); position: absolute; top: 0; left: 0;">
+                                        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center px-4" style="background: linear-gradient(90deg, rgba(30, 41, 59, 0.88) 0%, rgba(15, 23, 42, 0.65) 60%, rgba(15, 23, 42, 0.40) 100%); z-index: 2;">
+                                            <div>
+                                                <span class="badge px-3 py-1 fw-bold fs-6" style="background: #475569; color: #ffffff; letter-spacing: 0.8px; box-shadow: 0 2px 10px rgba(71, 85, 105, 0.45);">MICRO MOTION™</span>
                                             </div>
-                                            <h2 class="text-white fw-bold fs-4 mt-2 mb-0">Caudalímetros Másicos Coriolis y Densímetros de Precisión</h2>
-                                            <p class="text-white-50 small mb-0">Estándar mundial insuperable en transferencia de custodia LACT, caudal másico y densidad en tiempo real.</p>
+                                            <h2 class="text-white fw-bold fs-3 mt-2 mb-1" style="text-shadow: 0 2px 10px rgba(0,0,0,0.9); font-weight: 800;">Caudalímetros Másicos Coriolis y Densímetros de Precisión</h2>
+                                            <p class="small mb-0" style="color: #f1f5f9 !important; text-shadow: 0 1px 6px rgba(0,0,0,0.9); font-size: 0.94rem; max-width: 900px;">Estándar mundial insuperable en transferencia de custodia LACT, caudal másico y densidad en tiempo real.</p>
                                         </div>
                                     </div>
 
@@ -5684,20 +5750,17 @@
                                 </article>
 
                                 <!-- ------------------------------------------------------------
-                                     4. FLEXIM (MEDICIÓN ULTRASÓNICA CLAMP-ON DESTACADA)
+                                     4. FLEXIM (MEDICIÓN CLAMP-ON DESTACADA) - VIÑETA AGUAMARINA
                                      ------------------------------------------------------------ -->
                                 <article class="brand-showcase-section mb-5 reveal-on-scroll reveal-up" id="producto-brand-flexim">
-                                    <div class="brand-section-banner rounded-3 overflow-hidden position-relative mb-4" style="height: 160px; box-shadow: 0 4px 15px rgba(0,0,0,0.12);">
-                                        <div class="w-100 h-100" style="background: linear-gradient(135deg, #005a9c 0%, #002244 100%);"></div>
-                                        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center px-4">
-                                            <div class="d-flex align-items-center gap-3">
-                                                <div class="bg-white rounded-2 px-3 py-1 shadow-sm d-inline-flex align-items-center">
-                                                    <img src="img/products/flexim/Flexim-Logo.png" alt="Flexim" style="max-height: 28px;">
-                                                </div>
-                                                <span class="badge bg-info text-dark px-3 py-1 fw-bold fs-6">FLEXIM™</span>
+                                    <div class="brand-section-banner rounded-3 overflow-hidden position-relative mb-4" style="height: 175px; box-shadow: 0 4px 18px rgba(0,0,0,0.18);">
+                                        <img src="img/products/flexim/Flexim™ FLUXUS F631 BA - Portable Liquid Clamp-on Ultrasonic Flow Meter.jpeg" alt="Flexim Banner" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.55) contrast(1.1); position: absolute; top: 0; left: 0;">
+                                        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center px-4" style="background: linear-gradient(90deg, rgba(8, 51, 88, 0.85) 0%, rgba(13, 148, 136, 0.55) 60%, rgba(15, 23, 42, 0.40) 100%); z-index: 2;">
+                                            <div>
+                                                <span class="badge px-3 py-1 fw-bold fs-6" style="background: #0d9488; color: #ffffff; letter-spacing: 0.8px; box-shadow: 0 2px 10px rgba(13, 148, 136, 0.45);">FLEXIM™</span>
                                             </div>
-                                            <h2 class="text-white fw-bold fs-4 mt-2 mb-0">Medición de Flujo Ultrasónica No Invasiva Clamp-On</h2>
-                                            <p class="text-white-50 small mb-0">Cero intrusión, cero corte de tubería, cero caída de presión y máxima seguridad operativa.</p>
+                                            <h2 class="text-white fw-bold fs-3 mt-2 mb-1" style="text-shadow: 0 2px 10px rgba(0,0,0,0.9); font-weight: 800;">Medición de Flujo Ultrasónica No Invasiva Clamp-On</h2>
+                                            <p class="small mb-0" style="color: #f1f5f9 !important; text-shadow: 0 1px 6px rgba(0,0,0,0.9); font-size: 0.94rem; max-width: 900px;">Cero intrusión, cero corte de tubería, cero caída de presión y máxima seguridad operativa.</p>
                                         </div>
                                     </div>
 
@@ -5730,17 +5793,17 @@
                                 </article>
 
                                 <!-- ------------------------------------------------------------
-                                     5. AMS TREX (COMUNICADOR DE CAMPO DESTACADO)
+                                     5. AMS TREX (COMUNICADOR DE CAMPO DESTACADO) - VIÑETA NEGRITO CLARO
                                      ------------------------------------------------------------ -->
                                 <article class="brand-showcase-section mb-5 reveal-on-scroll reveal-up" id="producto-brand-amstrex">
-                                    <div class="brand-section-banner rounded-3 overflow-hidden position-relative mb-4" style="height: 160px; box-shadow: 0 4px 15px rgba(0,0,0,0.12);">
-                                        <img src="img/products/ams trex/ams-trex-banner.jpg" alt="AMS Trex Emerson" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.70);">
-                                        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center px-4" style="background: rgba(2, 10, 26, 0.45);">
-                                            <div class="d-flex align-items-center gap-3">
-                                                <span class="badge bg-success px-3 py-1 fw-bold fs-6">AMS TREX™</span>
+                                    <div class="brand-section-banner rounded-3 overflow-hidden position-relative mb-4" style="height: 175px; box-shadow: 0 4px 18px rgba(0,0,0,0.18);">
+                                        <img src="img/products/ams trex/ams-trex-banner.jpg" alt="AMS Trex Banner" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.60) contrast(1.1); position: absolute; top: 0; left: 0;">
+                                        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center px-4" style="background: linear-gradient(90deg, rgba(15, 23, 42, 0.88) 0%, rgba(30, 41, 59, 0.70) 60%, rgba(15, 23, 42, 0.40) 100%); z-index: 2;">
+                                            <div>
+                                                <span class="badge px-3 py-1 fw-bold fs-6" style="background: #1e293b; color: #ffffff; border: 1px solid rgba(255,255,255,0.25); letter-spacing: 0.8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);">AMS TREX™</span>
                                             </div>
-                                            <h2 class="text-white fw-bold fs-4 mt-2 mb-0">Comunicador de Dispositivos y Calibrador Inteligente de Campo</h2>
-                                            <p class="text-white-50 small mb-0">Configuración, calibración y energización de transmisores HART y Foundation Fieldbus en línea.</p>
+                                            <h2 class="text-white fw-bold fs-3 mt-2 mb-1" style="text-shadow: 0 2px 10px rgba(0,0,0,0.9); font-weight: 800;">Comunicador de Dispositivos y Calibrador Inteligente de Campo</h2>
+                                            <p class="small mb-0" style="color: #f1f5f9 !important; text-shadow: 0 1px 6px rgba(0,0,0,0.9); font-size: 0.94rem; max-width: 900px;">Configuración, calibración y energización de transmisores HART y Foundation Fieldbus en línea.</p>
                                         </div>
                                     </div>
 
@@ -5778,20 +5841,17 @@
                                  ==================================================================== -->
 
                             <!-- ------------------------------------------------------------
-                                 6. FLUENTA (MEDICIÓN ULTRASÓNICA DE FLARE GAS)
+                                 6. FLUENTA (FLARE GAS MEASUREMENT) - VIÑETA VERDE
                                  ------------------------------------------------------------ -->
                             <article class="brand-showcase-section mb-5 reveal-on-scroll reveal-up" id="producto-brand-fluenta">
-                                <div class="brand-section-banner rounded-3 overflow-hidden position-relative mb-4" style="height: 160px; box-shadow: 0 4px 15px rgba(0,0,0,0.12);">
-                                    <div class="w-100 h-100" style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);"></div>
-                                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center px-4">
-                                        <div class="d-flex align-items-center gap-3">
-                                            <div class="bg-white rounded-2 px-3 py-1 shadow-sm d-inline-flex align-items-center">
-                                                <img src="img/products/fluenta/Fluenta-blog-logo.png" alt="Fluenta Logo" style="max-height: 28px;">
-                                            </div>
-                                            <span class="badge bg-success px-3 py-1 fw-bold fs-6">FLUENTA</span>
+                                <div class="brand-section-banner rounded-3 overflow-hidden position-relative mb-4" style="height: 175px; box-shadow: 0 4px 18px rgba(0,0,0,0.18);">
+                                    <img src="img/products/fluenta/Fluenta TFS Ultrasonic Transducers.jpeg" alt="Fluenta Banner" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.55) contrast(1.1); position: absolute; top: 0; left: 0;">
+                                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center px-4" style="background: linear-gradient(90deg, rgba(16, 60, 30, 0.88) 0%, rgba(22, 163, 74, 0.55) 60%, rgba(15, 23, 42, 0.40) 100%); z-index: 2;">
+                                        <div>
+                                            <span class="badge px-3 py-1 fw-bold fs-6" style="background: #16a34a; color: #ffffff; letter-spacing: 0.8px; box-shadow: 0 2px 10px rgba(22, 163, 74, 0.45);">FLUENTA</span>
                                         </div>
-                                        <h2 class="text-white fw-bold fs-4 mt-2 mb-0">Medición Ultrasónica de Gas de Antorcha (Flare Gas) y Emisiones</h2>
-                                        <p class="text-white-50 small mb-0">Soluciones globales no invasivas y de inserción para cumplimiento ambiental y control de quemadores.</p>
+                                        <h2 class="text-white fw-bold fs-3 mt-2 mb-1" style="text-shadow: 0 2px 10px rgba(0,0,0,0.9); font-weight: 800;">Medición Ultrasónica de Gas de Antorcha (Flare Gas) y Emisiones</h2>
+                                        <p class="small mb-0" style="color: #f1f5f9 !important; text-shadow: 0 1px 6px rgba(0,0,0,0.9); font-size: 0.94rem; max-width: 900px;">Soluciones globales no invasivas y de inserción para cumplimiento ambiental y control de quemadores.</p>
                                     </div>
                                 </div>
 
@@ -5920,21 +5980,17 @@
                             </article>
 
                             <!-- ------------------------------------------------------------
-                                 7. KAM CONTROLS (ANALIZADORES DE CRUDO Y BS&W)
+                                 7. KAM CONTROLS (ANALIZADORES DE CRUDO Y BS&W) - VIÑETA NARANJA
                                  ------------------------------------------------------------ -->
                             <article class="brand-showcase-section mb-5 reveal-on-scroll reveal-up" id="producto-brand-kam">
-                                <div class="brand-section-banner rounded-3 overflow-hidden position-relative mb-4" style="height: 160px; box-shadow: 0 4px 15px rgba(0,0,0,0.12);">
-                                    <div class="w-100 h-100" style="background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);"></div>
-                                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center px-4">
-                                        <div class="d-flex align-items-center gap-3">
-                                            <!-- Recuadro blanco limpio para el logo PNG de Kam para máxima visibilidad -->
-                                            <div class="bg-white rounded-2 px-3 py-1 shadow-sm d-inline-flex align-items-center">
-                                                <img src="img/products/kam/kam_logo.png" alt="KAM Controls Logo" style="max-height: 32px; object-fit: contain;">
-                                            </div>
-                                            <span class="badge bg-primary px-3 py-1 fw-bold fs-6">KAM CONTROLS</span>
+                                <div class="brand-section-banner rounded-3 overflow-hidden position-relative mb-4" style="height: 175px; box-shadow: 0 4px 18px rgba(0,0,0,0.18);">
+                                    <img src="img/products/kam/ATD Automatic Tank Dewatering System.jpeg" alt="Kam Banner" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.55) contrast(1.1); position: absolute; top: 0; left: 0;">
+                                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center px-4" style="background: linear-gradient(90deg, rgba(80, 25, 0, 0.88) 0%, rgba(234, 88, 12, 0.60) 60%, rgba(15, 23, 42, 0.40) 100%); z-index: 2;">
+                                        <div>
+                                            <span class="badge px-3 py-1 fw-bold fs-6" style="background: #ea580c; color: #ffffff; letter-spacing: 0.8px; box-shadow: 0 2px 10px rgba(234, 88, 12, 0.45);">KAM CONTROLS</span>
                                         </div>
-                                        <h2 class="text-white fw-bold fs-4 mt-2 mb-0">Analizadores de Crudo, Corte de Agua (OWD) y Muestreadores</h2>
-                                        <p class="text-white-50 small mb-0">Tecnología de referencia en transferencia de custodia LACT, corte de agua y control de procesos.</p>
+                                        <h2 class="text-white fw-bold fs-3 mt-2 mb-1" style="text-shadow: 0 2px 10px rgba(0,0,0,0.9); font-weight: 800;">Analizadores de Crudo, Corte de Agua (OWD) y Muestreadores</h2>
+                                        <p class="small mb-0" style="color: #f1f5f9 !important; text-shadow: 0 1px 6px rgba(0,0,0,0.9); font-size: 0.94rem; max-width: 900px;">Tecnología de referencia en transferencia de custodia LACT, corte de agua y control de procesos.</p>
                                     </div>
                                 </div>
 
@@ -6086,6 +6142,7 @@
                     </div>
                 </li>
 
+                
                 <li data-page-no="6" class="px-3">
                     <div class="page-width-1 h-100 d-flex align-items-center">
                         <div class="row g-4 w-100 justify-content-center align-items-stretch">
@@ -7946,7 +8003,8 @@
     }
 </script>
 
-    <script src="js/sidebar-collapse.js">
+    <script src="js/sidebar-collapse.js"></script>
+    <script>
         // ==========================================
         // PAUSA GLOBAL DE VIDEOS DE SEGUNDO PLANO
         // ==========================================
@@ -7957,6 +8015,45 @@
                     v.pause();
                 }
             });
+        };
+
+        // ==========================================
+        // MODAL INTRO CINEMÁTICO AICTECH
+        // ==========================================
+        window.openAictechIntroModal = function(e) {
+            if (e && e.preventDefault) e.preventDefault();
+            if (e && e.stopPropagation) e.stopPropagation();
+
+            window.pauseAllBackgroundVideos();
+
+            const modal = document.getElementById('aictech-intro-modal');
+            const video = document.getElementById('aictech-intro-video');
+            if (!modal || !video) return;
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+
+            video.currentTime = 0;
+            video.muted = false;
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(function() {
+                    video.muted = true;
+                    video.play();
+                });
+            }
+        };
+
+        window.closeAictechIntroModal = function() {
+            const modal = document.getElementById('aictech-intro-modal');
+            const video = document.getElementById('aictech-intro-video');
+            if (video) {
+                video.pause();
+            }
+            if (modal) {
+                modal.classList.remove('active');
+            }
+            document.body.style.overflow = '';
         };
 
         // ==========================================
@@ -7992,6 +8089,45 @@
             document.body.style.overflow = 'hidden';
         };
 
+        window.closeMediaLightbox = function() {
+            const modal = document.getElementById('media-lightbox-modal');
+            const stage = document.getElementById('media-lightbox-stage');
+            if (!modal) return;
+
+            if (stage) {
+                const video = stage.querySelector('video');
+                if (video) {
+                    video.pause();
+                }
+                stage.innerHTML = '';
+            }
+
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+
+        // ==========================================
+        // DELEGATED EVENT LISTENERS
+        // ==========================================
+        $(document).on('click', '.product-card-media-wrapper, .product-expand-badge, .emerson-product-img', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            window.expandMediaFromElement(this);
+        });
+
+        $(document).on('click', '.sidebar-heading a, .sidebar-heading img', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            window.openAictechIntroModal(e);
+        });
+
+        $(document).on('keydown', function(e) {
+            if (e.key === 'Escape') {
+                window.closeMediaLightbox();
+                window.closeAictechIntroModal();
+            }
+        });
+
         // ==========================================
         // NAVEGACIÓN INTERACTIVA DEL CATÁLOGO POR MARCA
         // ==========================================
@@ -8001,41 +8137,25 @@
             const nestedMenu = document.getElementById('emerson-nested-menu');
             const chevron = document.getElementById('emerson-chevron');
             if (nestedMenu) {
-                const isHidden = $(nestedMenu).is(':hidden');
-                $(nestedMenu).slideToggle(200);
-                if (chevron) {
-                    chevron.classList.toggle('fa-chevron-down', !isHidden);
-                    chevron.classList.toggle('fa-chevron-up', isHidden);
-                }
+                nestedMenu.classList.toggle('show');
             }
-            
-            // Navegar a página 5 si no estamos en ella
-            const activePage = document.querySelector('.cd-hero-slider > li.selected');
-            const currentPageNo = activePage ? activePage.getAttribute('data-page-no') : null;
-            if (currentPageNo !== '5') {
-                if (typeof openPage === 'function') openPage(5);
-                if (typeof highlightMenu === 'function') highlightMenu(5);
+            if (chevron) {
+                chevron.classList.toggle('rotate-180');
             }
-            setTimeout(function() {
-                const targetElem = document.getElementById('producto-brand-emerson');
-                if (targetElem) targetElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 260);
         });
 
-        $(document).on('click', '#productos-submenu a[data-target]', function(e) {
-            if ($(this).attr('id') === 'emerson-nested-toggle') return;
+        $(document).on('click', '.sidebar-nested-submenu .submenu-link, .brand-menu-item', function(e) {
+            const targetId = $(this).data('target');
+            if (!targetId) return;
+
             e.preventDefault();
-            const targetId = $(this).attr('data-target');
+            e.stopPropagation();
 
-            const activePage = document.querySelector('.cd-hero-slider > li.selected');
-            const currentPageNo = activePage ? activePage.getAttribute('data-page-no') : null;
-            if (currentPageNo !== '5') {
-                if (typeof openPage === 'function') openPage(5);
-                if (typeof highlightMenu === 'function') highlightMenu(5);
-            }
+            // Abrir Sección 5
+            openPage(5);
+            highlightMenu(5);
 
-            // Marcar enlace activo
-            $('#productos-submenu a').removeClass('active');
+            $('.sidebar-nested-submenu .submenu-link, .brand-menu-item').removeClass('active');
             $(this).addClass('active');
 
             setTimeout(function() {
@@ -8045,10 +8165,22 @@
                 }
             }, 280);
         });
+    </script>
 
-</script>
+<!-- MODAL INTRO CINEMÁTICO AICTECH (INICIO-AIC.MP4) -->
+    <div id="aictech-intro-modal" class="aictech-intro-overlay" onclick="if(event.target===this) closeAictechIntroModal();">
+        <div class="aictech-intro-container">
+            <button type="button" class="aictech-intro-close" onclick="closeAictechIntroModal();" title="Cerrar Presentación"><i class="fas fa-times"></i></button>
+            <div class="aictech-intro-video-wrapper">
+                <video id="aictech-intro-video" playsinline controls preload="auto">
+                    <source src="video/inicio-aic.mp4" type="video/mp4">
+                    Tu navegador no soporta reproducción de video HTML5.
+                </video>
+            </div>
+        </div>
+    </div>
 
-<!-- MODAL LIGHTBOX PARA VISUALIZACIÓN DE VIDEOS Y FOTOS EN ALTA RESOLUCIÓN -->
+    <!-- MODAL LIGHTBOX PARA VISUALIZACIÓN DE VIDEOS Y FOTOS EN ALTA RESOLUCIÓN -->
 <div id="media-lightbox-modal" class="media-lightbox-overlay" onclick="if(event.target===this) closeMediaLightbox();">
     <div class="media-lightbox-container">
         <button type="button" class="media-lightbox-close" onclick="closeMediaLightbox();" title="Cerrar"><i class="fas fa-times"></i></button>

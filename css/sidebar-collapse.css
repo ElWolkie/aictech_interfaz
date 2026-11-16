@@ -85,3 +85,30 @@
 .sidebar-collapse-toggle-btn:active {
     transform: scale(0.94);
 }
+
+/* 6. Expansión fluida de contenidos cuando el sidebar está colapsado (Elimina espacios negros a los lados) */
+body.sidebar-collapsed .cd-hero-slider > li[data-page-no="1"] .page-width-1 {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0 15px !important;
+}
+
+body.sidebar-collapsed .hero-slb-container {
+    width: 100% !important;
+    min-height: 85vh !important;
+}
+
+body.sidebar-collapsed .cd-hero-slider > li[data-page-no="2"] .page-width-1,
+body.sidebar-collapsed .cd-hero-slider > li[data-page-no="5"] .page-width-1,
+body.sidebar-collapsed .page-width-1 {
+    max-width: 96% !important;
+    width: 100% !important;
+    transition: max-width 0.35s ease;
+}
+
+body.sidebar-collapsed .services-feed-wrapper,
+body.sidebar-collapsed .catalog-feed-wrapper {
+    max-width: 100% !important;
+    width: 100% !important;
+    transition: max-width 0.35s ease;
+}

@@ -1,6 +1,5 @@
-# -*- coding: utf-8 -*-
 with open('index.html', 'r', encoding='utf-8') as f:
-    h = f.read()
+    content = f.read()
 
-idx = h.find('expandMediaFromElement = function')
-print(h[idx:idx + 1800])
+pos = content.find('window.expandCardMedia = function')
+print(content[pos+2400:pos+3800])

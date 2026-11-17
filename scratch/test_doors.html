@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #050d21;
+    font-family: sans-serif;
+    padding: 40px;
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* CARDS QUE SE ABREN DESDE EL CENTRO */
+.center-split-card-wrapper {
+    position: relative;
+    width: 380px;
+    height: 280px;
+    perspective: 1200px;
+    border-radius: 14px;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.center-split-card-wrapper:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 50px rgba(0, 0, 0, 0.75);
+}
+
+/* Interior: Foto del producto en alta definición */
+.center-split-interior {
+    position: absolute;
+    inset: 0;
+    background: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    z-index: 1;
+    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.1);
+}
+.center-split-interior img {
+    max-width: 90%;
+    max-height: 85%;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+}
+.center-split-card-wrapper:hover .center-split-interior img {
+    transform: scale(1.06);
+}
+
+/* Expand badge */
+.center-split-expand {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(15, 23, 42, 0.7);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    cursor: pointer;
+    z-index: 3;
+    transition: background 0.2s ease;
+}
+.center-split-expand:hover {
+    background: #0284c7;
+}
+
+/* Puertas */
+.center-split-door {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 5;
+    transform-style: preserve-3d;
+    transition: transform 0.7s cubic-bezier(0.34, 1.25, 0.64, 1);
+}
+
+.center-split-door-left {
+    left: 0;
+    transform-origin: left center;
+}
+
+.center-split-door-right {
+    right: 0;
+    transform-origin: right center;
+}
+
+/* Cara Frontal de cada puerta */
+.door-face-front {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    overflow: hidden;
+    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.35);
+}
+
+.center-split-door-left .door-face-front {
+    border-radius: 14px 0 0 14px;
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.center-split-door-right .door-face-front {
+    border-radius: 0 14px 14px 0;
+    border-left: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+/* Cara Trasera de cada puerta (cuando abren) */
+.door-face-back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: rotateY(180deg);
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+}
+
+.center-split-door-left .door-face-back {
+    border-radius: 14px 0 0 14px;
+}
+
+.center-split-door-right .door-face-back {
+    border-radius: 0 14px 14px 0;
+}
+
+/* Apertura desde el centro */
+.center-split-card-wrapper:hover .center-split-door-left,
+.center-split-card-wrapper.is-open .center-split-door-left {
+    transform: rotateY(-140deg);
+}
+
+.center-split-card-wrapper:hover .center-split-door-right,
+.center-split-card-wrapper.is-open .center-split-door-right {
+    transform: rotateY(140deg);
+}
+
+/* Colores de Marca de las Tarjetas */
+.door-bg-flexim {
+    background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
+}
+.door-bg-amstrex {
+    background: linear-gradient(135deg, #475569 0%, #334155 100%);
+}
+.door-bg-micromotion {
+    background: linear-gradient(135deg, #94a3b8 0%, #64748b 100%);
+}
+
+/* Mitad del Círculo Central */
+.seal-half-left {
+    position: absolute;
+    right: -48px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.seal-half-left img {
+    max-height: 42px;
+    max-width: 84px;
+    object-fit: contain;
+    transform: translateX(42px);
+}
+
+.seal-half-right {
+    position: absolute;
+    left: -48px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.seal-half-right img {
+    max-height: 42px;
+    max-width: 84px;
+    object-fit: contain;
+    transform: translateX(-42px);
+}
+
+/* Label inferior para indicar interacción */
+.door-hint {
+    position: absolute;
+    bottom: 12px;
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    white-space: nowrap;
+}
+.door-hint-left {
+    right: 8px;
+}
+.door-hint-right {
+    left: 8px;
+}
+</style>
+</head>
+<body>
+
+<!-- 1. FLEXIM (Aguamarina) -->
+<div class="center-split-card-wrapper" onclick="this.classList.toggle('is-open');">
+    <div class="center-split-interior">
+        <div class="center-split-expand" title="Agrandar"><i class="fas fa-expand"></i></div>
+        <img src="../img/products/flexim/Flexim™ FLUXUS F631 BA - Portable Liquid Clamp-on Ultrasonic Flow Meter.jpeg" alt="Flexim">
+    </div>
+    <!-- Puerta Izquierda -->
+    <div class="center-split-door center-split-door-left">
+        <div class="door-face-front door-bg-flexim">
+            <div class="seal-half-left">
+                <img src="../img/products/flexim/Flexim-Logo.png" alt="Flexim">
+            </div>
+            <div class="door-hint door-hint-left">Toca o pasa el ratón</div>
+        </div>
+        <div class="door-face-back"></div>
+    </div>
+    <!-- Puerta Derecha -->
+    <div class="center-split-door center-split-door-right">
+        <div class="door-face-front door-bg-flexim">
+            <div class="seal-half-right">
+                <img src="../img/products/flexim/Flexim-Logo.png" alt="Flexim">
+            </div>
+            <div class="door-hint door-hint-right">para abrir sobre</div>
+        </div>
+        <div class="door-face-back"></div>
+    </div>
+</div>
+
+<!-- 2. AMS TREX (Negrito claro) -->
+<div class="center-split-card-wrapper" onclick="this.classList.toggle('is-open');">
+    <div class="center-split-interior">
+        <div class="center-split-expand" title="Agrandar"><i class="fas fa-expand"></i></div>
+        <img src="../img/products/ams trex/AMS Trex Device Communicator wins Gold Award.jpeg" alt="AMS Trex">
+    </div>
+    <!-- Puerta Izquierda -->
+    <div class="center-split-door center-split-door-left">
+        <div class="door-face-front door-bg-amstrex">
+            <div class="seal-half-left">
+                <img src="../img/products/ams trex/AMS Trex Device Communicator wins Gold Award.jpeg" alt="AMS Trex" style="max-height: 70px; max-width: 70px; transform: translateX(35px);">
+            </div>
+            <div class="door-hint door-hint-left">Toca o pasa el ratón</div>
+        </div>
+        <div class="door-face-back"></div>
+    </div>
+    <!-- Puerta Derecha -->
+    <div class="center-split-door center-split-door-right">
+        <div class="door-face-front door-bg-amstrex">
+            <div class="seal-half-right">
+                <img src="../img/products/ams trex/AMS Trex Device Communicator wins Gold Award.jpeg" alt="AMS Trex" style="max-height: 70px; max-width: 70px; transform: translateX(-35px);">
+            </div>
+            <div class="door-hint door-hint-right">para abrir sobre</div>
+        </div>
+        <div class="door-face-back"></div>
+    </div>
+</div>
+
+<!-- 3. MICRO MOTION (Gris) -->
+<div class="center-split-card-wrapper" onclick="this.classList.toggle('is-open');">
+    <div class="center-split-interior">
+        <div class="center-split-expand" title="Agrandar"><i class="fas fa-expand"></i></div>
+        <img src="../img/products/micromotion/Micro Motion™ 5700 Field-Mount Transmitter.jpeg" alt="Micro Motion">
+    </div>
+    <!-- Puerta Izquierda -->
+    <div class="center-split-door center-split-door-left">
+        <div class="door-face-front door-bg-micromotion">
+            <div class="seal-half-left">
+                <img src="../img/products/micromotion/micromotion.png" alt="Micro Motion">
+            </div>
+            <div class="door-hint door-hint-left">Toca o pasa el ratón</div>
+        </div>
+        <div class="door-face-back"></div>
+    </div>
+    <!-- Puerta Derecha -->
+    <div class="center-split-door center-split-door-right">
+        <div class="door-face-front door-bg-micromotion">
+            <div class="seal-half-right">
+                <img src="../img/products/micromotion/micromotion.png" alt="Micro Motion">
+            </div>
+            <div class="door-hint door-hint-right">para abrir sobre</div>
+        </div>
+        <div class="door-face-back"></div>
+    </div>
+</div>
+
+</body>
+</html>

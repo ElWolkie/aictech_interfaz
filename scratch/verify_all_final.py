@@ -1,66 +1,47 @@
 # -*- coding: utf-8 -*-
+"""
+Verification script for all final fixes.
+"""
+
 with open('index.html', 'r', encoding='utf-8') as f:
-    html = f.read()
+    c = f.read()
 
-import re
+print("=== VERIFYING FINAL FIXES ===")
 
-print("=== CHECKING ALL REQUIREMENTS ===")
+# 1. card-multifasico-campo has no carousel pills
+has_pills = 'card-slider-pills' in c[c.find('id="card-multifasico-campo"'):c.find('id="card-multifasico-campo"')+3000]
+print(f"1. Carousel pills removed from card-multifasico-campo? {not has_pills}")
+assert not has_pills, "Carousel pills still in card-multifasico-campo!"
 
-# 1. Section 5 Brands and Order
-brands = [
-    'producto-brand-roxar',
-    'producto-brand-flexim',
-    'producto-brand-amstrex',
-    'producto-brand-rosemount',
-    'producto-brand-micromotion',
-    'producto-brand-fluenta',
-    'producto-brand-kam'
-]
-brand_positions = [html.find(f'id="{b}"') for b in brands]
-print("Brand positions in HTML:", brand_positions)
-assert all(p != -1 for p in brand_positions), "All 7 brand IDs must exist in index.html"
-assert brand_positions == sorted(brand_positions), "Brands must appear in exact order: Roxar, Flexim, AMS Trex, Rosemount, Micro Motion, Fluenta, Kam"
-print("✓ Section 5 Brands exact order verified!")
+has_toldo_text = 'Video en Campo' in c[c.find('id="card-multifasico-campo"'):c.find('id="card-multifasico-campo"')+3000]
+print(f"   'Video en Campo' text removed? {not has_toldo_text}")
+assert not has_toldo_text, "'Video en Campo' still present in card-multifasico-campo!"
 
-# 2. Sidebar Emerson Order
-emerson_idx = html.find('id="emerson-nested-menu"')
-assert emerson_idx != -1, "Emerson nested menu must exist"
-emerson_slice = html[emerson_idx:emerson_idx + 3500]
-emerson_sub_positions = [emerson_slice.find(b) for b in brands[:5]]
-print("Sidebar Emerson sub-item positions:", emerson_sub_positions)
-assert all(p != -1 for p in emerson_sub_positions), "All 5 Emerson brands must exist in sidebar submenu"
-assert emerson_sub_positions == sorted(emerson_sub_positions), "Sidebar brands must match order: Roxar, Flexim, AMS Trex, Rosemount, Micro Motion"
-print("✓ Sidebar Emerson order verified!")
+# 2. No orphaned code in Script 4
+has_orphaned = 'function onPointerUp()' in c
+print(f"2. Orphaned globe code removed? {not has_orphaned}")
+assert not has_orphaned, "Orphaned code still present!"
 
-# 3. Check Section 2 Top & White Box
-assert 'Soluciones Integrales de Medición & Diagnóstico' not in html, "White header box must be removed from Section 2"
-assert 'Well Testing con Medidores Multifásicos Roxar' in html, "Service 1 title must be Well Testing con Medidores Multifásicos Roxar"
-assert 'id="servicio-multifasico"' in html, "servicio-multifasico article must exist"
-assert 'id="roxar-main-video"' in html, "roxar-main-video must exist in service 1"
-print("✓ Section 2 Service 1 header verified!")
+# 3. fluidNavigateTo scrolls page-content-wrapper
+has_wrapper_scroll = 'page-content-wrapper' in c[c.find('window.fluidNavigateTo'):c.find('window.fluidNavigateTo')+800]
+print(f"3. fluidNavigateTo scrolls page-content-wrapper? {has_wrapper_scroll}")
+assert has_wrapper_scroll, "fluidNavigateTo missing page-content-wrapper scroll!"
 
-# 4. Check Section 2 Videos and Controls
-p2_m = re.search(r'<li[^>]*data-page-no=[\'"]2[\'"]', html)
-p3_m = re.search(r'<li[^>]*data-page-no=[\'"]3[\'"]', html)
-sec2_html = html[p2_m.start():p3_m.start()]
+# 4. Single products showcase format
+has_flip360 = 'flip-360-wrapper' in c
+has_single_flip3d = 'single-product-flip3d' in c
+print(f"4. Buggy flip 360 removed? {not has_flip360 and not has_single_flip3d}")
+assert not has_flip360 and not has_single_flip3d, "Buggy flip cards still present!"
 
-sec2_videos = re.findall(r'<video[^>]+>', sec2_html)
-print(f"Total videos in Section 2: {len(sec2_videos)}")
-assert len(sec2_videos) >= 20, "Should have all videos in Section 2"
-controls_in_sec2 = [v for v in sec2_videos if 'controls' in v]
-print(f"Videos with controls in Section 2: {len(controls_in_sec2)}")
-assert len(controls_in_sec2) == 0, "No preview video in Section 2 should have controls"
+# 5. Photos expanded with white background
+pos_roxar = c.find('id="producto-brand-roxar"')
+has_white_media = 'background: #ffffff' in c[pos_roxar:pos_roxar+5000]
+print(f"5. Media stages have white background for full top/bottom expansion? {has_white_media}")
+assert has_white_media, "Media stage missing white background!"
 
-# Check play overlay button removed
-assert 'Reproducir Video' not in sec2_html, "Reproducir Video overlay buttons must be removed"
-print("✓ Section 2 videos have no controls bar and no overlay play buttons!")
+# 6. Service video click-to-expand
+has_service_click = "'.service-flip-front, .service-video-wrap'" in c
+print(f"6. Service flip front click handler registered? {has_service_click}")
+assert has_service_click, "Missing service flip front click handler!"
 
-# 5. Check 60FPS Video Observer & Click Handlers
-assert 'initActiveSectionVideoObserver' in html, "initActiveSectionVideoObserver must exist in index.html"
-assert 'updateServiceVideosPlayback' in html, "updateServiceVideosPlayback must exist"
-assert 'fluidNavigateTo' in html, "fluidNavigateTo must exist for smooth navigation"
-assert 'expandCardMedia' in html, "expandCardMedia must exist for 1-click video expand"
-assert 'expandMediaFromElement' in html, "expandMediaFromElement must exist for 1-click product expand"
-
-print("✓ All 60FPS Video Observers, 1-Click Expand, and Fluid Navigation handlers verified!")
-print("=== ALL CHECKS PASSED PERFECTLY! ===")
+print("\n=== ALL FINAL VERIFICATIONS PASSED 100%! ===")

@@ -164,22 +164,40 @@ jQuery(function() {
       e.preventDefault();
       var pageNo = $(this).attr('data-no') || $(this).data('no');
 
-      // Alternar (abrir/cerrar) submenú si ya estamos en Servicios
+      // Alternar (abrir/cerrar) submenú de Servicios
       if ($(this).attr('id') === 'nav-link-servicios') {
+        var isSubmenuOpen2 = $("#servicios-submenu").hasClass('is-open');
         var isAlreadyPage2 = $('.cd-hero-slider > li[data-page-no="2"]').hasClass('selected');
-        if (isAlreadyPage2) {
-          $("#servicios-submenu").toggleClass('is-open');
-          $("#servicios-chevron").toggleClass('is-rotated');
+        if (isSubmenuOpen2 && isAlreadyPage2) {
+          $("#servicios-submenu").removeClass('is-open');
+          $("#servicios-chevron").removeClass('is-rotated');
+          return;
+        } else {
+          $("#servicios-submenu").addClass('is-open');
+          $("#servicios-chevron").addClass('is-rotated');
+          if (!isAlreadyPage2) {
+            openPage(2);
+            highlightMenu(2);
+          }
           return;
         }
       }
 
-      // Alternar (abrir/cerrar) submenú si ya estamos en Productos
+      // Alternar (abrir/cerrar) submenú de Productos
       if ($(this).attr('id') === 'nav-link-productos') {
+        var isSubmenuOpen5 = $("#productos-submenu").hasClass('is-open');
         var isAlreadyPage5 = $('.cd-hero-slider > li[data-page-no="5"]').hasClass('selected');
-        if (isAlreadyPage5) {
-          $("#productos-submenu").toggleClass('is-open');
-          $("#productos-chevron").toggleClass('is-rotated');
+        if (isSubmenuOpen5 && isAlreadyPage5) {
+          $("#productos-submenu").removeClass('is-open');
+          $("#productos-chevron").removeClass('is-rotated');
+          return;
+        } else {
+          $("#productos-submenu").addClass('is-open');
+          $("#productos-chevron").addClass('is-rotated');
+          if (!isAlreadyPage5) {
+            openPage(5);
+            highlightMenu(5);
+          }
           return;
         }
       }

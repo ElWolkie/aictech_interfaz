@@ -4193,11 +4193,28 @@
         }
 
         /* ESTILOS DEL SUBMENÚ ANIDADO DE EMERSON EN EL SIDEBAR */
+        /* SUBMENÚ ANIDADO DE EMERSON EN EL SIDEBAR */
         .sidebar-nested-submenu {
             border-left: 2px solid rgba(56, 182, 255, 0.3);
             margin-left: 12px;
             margin-top: 4px;
             margin-bottom: 6px;
+            display: none;
+            transition: all 0.25s ease;
+        }
+        .sidebar-nested-submenu.show,
+        .sidebar-nested-submenu.is-open {
+            display: block !important;
+        }
+        .nested-chevron {
+            transition: transform 0.25s ease;
+        }
+        .nested-chevron.rotate-180,
+        .nested-chevron.is-rotated {
+            transform: rotate(180deg);
+        }
+        .submenu-dot {
+            margin-right: 8px;
         }
         .sidebar-nested-header {
             cursor: pointer;
@@ -4319,14 +4336,14 @@
                 <div class="sidebar-submenu" id="productos-submenu">
                     <!-- ACORDEÓN / ABANICO EMERSON -->
                     <div class="sidebar-nested-group">
-                        <a href="#producto-brand-emerson" class="submenu-link submenu-nested-header d-flex align-items-center justify-content-between py-2" data-target="producto-brand-emerson" id="emerson-nested-toggle" title="Desplegar marcas Emerson">
+                        <a href="#producto-brand-emerson" class="submenu-nested-header d-flex align-items-center justify-content-between py-2 px-2" id="emerson-nested-toggle" title="Alternar marcas Emerson" style="cursor: pointer; text-decoration: none; border-radius: 6px;">
                             <span class="d-flex align-items-center">
-                                <span class="submenu-dot" style="background: #38bdf8;"></span>
+                                <span class="submenu-dot me-2" style="background: #38bdf8; margin-right: 8px;"></span>
                                 <strong class="submenu-text" style="color: #38bdf8; letter-spacing: 0.5px;">EMERSON</strong>
                             </span>
-                            <i class="fas fa-chevron-down nested-chevron small text-info" id="emerson-chevron"></i>
+                            <i class="fas fa-chevron-down nested-chevron small text-info rotate-180 is-rotated" id="emerson-chevron"></i>
                         </a>
-                        <div class="sidebar-nested-submenu ps-3" id="emerson-nested-menu">
+                        <div class="sidebar-nested-submenu ps-3" id="emerson-nested-menu" class="sidebar-nested-submenu ps-3 show is-open">
                             <a href="#producto-brand-roxar" class="submenu-link py-1" data-target="producto-brand-roxar">
                                 <span class="submenu-dot"></span>
                                 <span class="submenu-text">Roxar</span>
@@ -4803,65 +4820,15 @@
 
                                 <!-- Sección Inferior: 2 Flip Cards -->
                                 <div class="roxar-dual-section">
-                                    <div class="row g-4">
-                                        <!-- Panel Izquierdo: Clamp-On Gas y Vapor -->
-                                        <div class="col-12 col-lg-6 reveal-on-scroll reveal-from-left">
+                                    <div class="row g-4 justify-content-center">
+                                        <!-- Panel Único en Grande: Medición de Gas y Líquidos Clamp-On -->
+                                        <div class="col-12 reveal-on-scroll reveal-up">
                                             <div class="service-flip-card">
                                                 <div class="service-flip-inner">
                                                     <div class="service-flip-front">
                                                         <div class="service-video-wrap">
-                                    <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
-                                    <video loop muted playsinline preload="metadata" class="roxar-card-video" id="video-flexim-1">
-                                                                <source src="video/flexim-1.mp4" type="video/mp4">
-                                                            </video>
-                                                                                                                        <!-- Botón central interactivo para reproducir video -->
-                                                            <div class="service-card-play-center">
-                                                                <div class="service-card-play-icon">
-                                                                    <i class="fas fa-play"></i>
-                                                                </div>
-                                                                <span class="service-card-play-label">Reproducir Video</span>
-                                                            </div>
-                                                            <div class="service-front-overlay">
-                                                                <div class="service-front-title">
-                                                                    <i class="fas fa-wind text-info"></i> FLEXIM GAS &amp; VAPOR
-                                                                </div>
-                                                                <span class="service-flip-hint-badge"><i class="fas fa-rotate me-1"></i> Ver Detalles</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="service-flip-back">
-                                                        <div>
-                                                            <div class="d-flex justify-content-between align-items-center mb-2 pb-1 border-bottom">
-                                                                <span class="roxar-panel-badge mb-0"><i class="fas fa-shield-halved me-1"></i> FM CLASS I DIV 2 / ATEX</span>
-                                                            </div>
-                                                            <h3 class="roxar-panel-title mb-2 fs-5">Medición de Gas y Vapor Clamp-On</h3>
-                                                            <p class="roxar-panel-desc mb-3 small text-secondary">
-                                                                Medición no invasiva clamp-on para gases y vapor en condiciones operacionales exigentes sin cortes ni paradas.
-                                                            </p>
-                                                            <ul class="instrument-features mb-0 small text-secondary">
-                                                                <li><strong>0 hrs de Parada:</strong> Instalación en pared exterior de la tubería sin cortar ni despresurizar el gasoducto.</li>
-                                                                <li><strong>Cero Pérdida de Presión (&Delta;P = 0):</strong> Flujo libre sin elementos intrusivos ni riesgo de fugas.</li>
-                                                                <li><strong>Inmunidad Total:</strong> Inmune a gas agrio con H₂S, condensados y erosión mecánica.</li>
-                                                            </ul>
-                                                        </div>
-                                                        <div>
-                                                            <div class="service-flip-btn-back">
-                                                                <i class="fas fa-arrow-rotate-left"></i> <span>Volver al video</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Panel Derecho: Clamp-On Líquidos -->
-                                        <div class="col-12 col-lg-6 reveal-on-scroll reveal-from-right">
-                                            <div class="service-flip-card">
-                                                <div class="service-flip-inner">
-                                                    <div class="service-flip-front">
-                                                        <div class="service-video-wrap">
-                                    <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
-                                    <!-- Fondo cinemático ambiental desenfocado para rellenar los bordes -->
+                                                            <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
+                                                            <!-- Ambient video blur de fondo -->
                                                             <video loop muted playsinline preload="metadata" class="roxar-card-video roxar-video-ambient-blur" aria-hidden="true">
                                                                 <source src="video/flexim-2.mp4" type="video/mp4">
                                                             </video>
@@ -4869,7 +4836,7 @@
                                                             <video loop muted playsinline preload="metadata" class="roxar-card-video roxar-card-video-foreground" id="video-flexim-2">
                                                                 <source src="video/flexim-2.mp4" type="video/mp4">
                                                             </video>
-                                                                                                                        <!-- Botón central interactivo para reproducir video -->
+                                                            <!-- Botón central interactivo para reproducir video -->
                                                             <div class="service-card-play-center">
                                                                 <div class="service-card-play-icon">
                                                                     <i class="fas fa-play"></i>
@@ -4878,7 +4845,7 @@
                                                             </div>
                                                             <div class="service-front-overlay">
                                                                 <div class="service-front-title">
-                                                                    <i class="fas fa-oil-well text-info"></i> FLEXIM LÍQUIDOS &amp; CRUDO
+                                                                    <i class="fas fa-wave-pulse text-info"></i> MEDICIÓN DE GAS Y LÍQUIDOS CLAMP-ON
                                                                 </div>
                                                                 <span class="service-flip-hint-badge"><i class="fas fa-rotate me-1"></i> Ver Detalles</span>
                                                             </div>
@@ -4887,15 +4854,15 @@
                                                     <div class="service-flip-back">
                                                         <div>
                                                             <div class="d-flex justify-content-between align-items-center mb-2 pb-1 border-bottom">
-                                                                <span class="roxar-panel-badge mb-0"><i class="fas fa-water me-1"></i> AFORO DE LÍQUIDOS &amp; PETRÓLEO</span>
+                                                                <span class="roxar-panel-badge mb-0"><i class="fas fa-shield-halved me-1"></i> ULTRASONIDO CLAMP-ON • FM CLASS I DIV 2 / ATEX</span>
                                                             </div>
-                                                            <h3 class="roxar-panel-title mb-2 fs-5">Medición de Líquidos y Crudo</h3>
+                                                            <h3 class="roxar-panel-title mb-2 fs-5">Medición de Gas y Líquidos Clamp-On</h3>
                                                             <p class="roxar-panel-desc mb-3 small text-secondary">
-                                                                Aforo ultrasónico bidireccional para crudo, productos refinados y agua producida en tuberías desde 1/2" hasta 100".
+                                                                Medición no invasiva clamp-on para gases y líquidos en condiciones operacionales exigentes sin cortes ni paradas.
                                                             </p>
                                                             <ul class="instrument-features mb-0 small text-secondary">
-                                                                <li><strong>Alta Precisión:</strong> Exactitud metrológica por tiempo de tránsito diferencial con transductores matched.</li>
-                                                                <li><strong>Autonomía en Campo:</strong> Batería integrada de alta duración (hasta 14 horas de operación ininterrumpida).</li>
+                                                                <li><strong>0 horas de Parada:</strong> Instalación en pared exterior de la tubería sin cortar ni despresurizar el gasoducto.</li>
+                                                                <li><strong>Autonomía en Campo.</strong></li>
                                                                 <li><strong>Verificación y Auditoría:</strong> Verificación y contraste de medidores en línea sin retirarlos.</li>
                                                             </ul>
                                                         </div>
@@ -5001,7 +4968,7 @@
                                                             </div>
                                                             <div class="service-front-overlay">
                                                                 <div class="service-front-title">
-                                                                    <i class="fas fa-chart-line text-info"></i> DIAGNÓSTICO &amp; DINAMOMETRÍA
+                                                                    <i class="fas fa-chart-line text-info"></i> DIAGNÓSTICO
                                                                 </div>
                                                                 <span class="service-flip-hint-badge"><i class="fas fa-rotate me-1"></i> Ver Detalles</span>
                                                             </div>
@@ -5012,14 +4979,13 @@
                                                             <div class="d-flex justify-content-between align-items-center mb-2 pb-1 border-bottom">
                                                                 <span class="roxar-panel-badge mb-0"><i class="fas fa-chart-line me-1"></i> EFICIENCIA DE LEVANTAMIENTO</span>
                                                             </div>
-                                                            <h3 class="roxar-panel-title mb-2 fs-5">Diagnóstico y Cartas Dinamométricas</h3>
+                                                            <h3 class="roxar-panel-title mb-2 fs-5">Diagnóstico</h3>
                                                             <p class="roxar-panel-desc mb-2 small text-secondary">
                                                                 Determinación telemétrica de parámetros operacionales críticos de pozo:
                                                             </p>
                                                             <ul class="instrument-features mb-0 small text-secondary">
                                                                 <li><strong>Presión de Fondo (Pwf / Pws):</strong> Cálculo termodinámico de presión de fondo fluyente y estática para evaluar el índice de productividad.</li>
                                                                 <li><strong>Sumergencia de Bomba:</strong> Nivel dinámico de fluido sobre la succión para prevenir cavitación, gas lock y desgaste prematuro.</li>
-                                                                <li><strong>Diagnóstico SLA / ALS:</strong> Cartas dinamométricas para detección de fugas en válvulas viajeras/fijas y sobrecarga en varillas.</li>
                                                             </ul>
                                                         </div>
                                                         <div>
@@ -5097,7 +5063,7 @@
                                                             <ul class="instrument-features mb-0 small text-secondary">
                                                                 <li><strong>Chutos y Camiones Vacuum:</strong> Cisternas herméticas de alta capacidad con certificación petrolera y bombeo autónomo.</li>
                                                                 <li><strong>Succión y Descarga Rápida:</strong> Bombas de desplazamiento positivo para fluidos viscosos y emulsiones pesadas.</li>
-                                                                <li><strong>Disponibilidad Operacional 24/7:</strong> Cuadrillas continuas bajo estrictas normativas ambientales y de seguridad industrial (SIAHO).</li>
+                                                                <li><strong>Disponibilidad Operacional 24/7</strong></li>
                                                             </ul>
                                                         </div>
                                                         <div>
@@ -5215,12 +5181,10 @@
                                                             </div>
                                                             <h3 class="roxar-panel-title mb-2 fs-5">Soldadura de Alta Presión</h3>
                                                             <p class="roxar-panel-desc mb-3 small text-secondary">
-                                                                Soldadores calificados en procesos TIG (GTAW), SMAW y GMAW para líneas de proceso, manifolds y tuberías de alta exigencia.
+                                                                Soldadores calificados para líneas de proceso, manifolds y tuberías de alta exigencia.
                                                             </p>
                                                             <ul class="instrument-features mb-0 small text-secondary">
                                                                 <li><strong>Líneas hasta 15,000 PSI:</strong> Uniones certificadas en aceros al carbono, inoxidables 316L y aleaciones especiales.</li>
-                                                                <li><strong>Códigos Internacionales:</strong> Homologación bajo ASME Sección IX, AWS D1.1 y API 1104.</li>
-                                                                <li><strong>Ensayos No Destructivos (NDT):</strong> Control de calidad mediante tintes penetrantes, ultrasonido y radiografía.</li>
                                                             </ul>
                                                         </div>
                                                         <div>
@@ -5268,8 +5232,7 @@
                                                                 Instalaciones propias en Anaco para fabricación de patines estructurales de medición (skids), bypass, manifolds y montaje de equipos.
                                                             </p>
                                                             <ul class="instrument-features mb-0 small text-secondary">
-                                                                <li><strong>Patines Estructurales:</strong> Skids portátiles para medición multifásica MPFM y transferencia LACT.</li>
-                                                                <li><strong>Pintura y Granallado:</strong> Preparación superficial por sandblasting y aplicación de recubrimientos epóxicos marinos.</li>
+                                                                <li><strong>Patines Estructurales:</strong> Skids portátiles para medición multifásica MPFM y separadores convencionales.</li>
                                                                 <li><strong>Pruebas Hidrostáticas:</strong> Certificación de hermeticidad y banco de pruebas antes de despacho.</li>
                                                             </ul>
                                                         </div>
@@ -5343,7 +5306,6 @@
                                                             <ul class="instrument-features mb-0 small text-secondary">
                                                                 <li><strong>Comunicador AMS Trex:</strong> Configuración y calibración directa en campo de transmisores de presión, nivel y temperatura.</li>
                                                                 <li><strong>Verificación de Lazos (Loop Check):</strong> Pruebas funcionales punto a punto 4-20mA y bus de campo.</li>
-                                                                <li><strong>Certificados Metrológicos:</strong> Emisión de informes y curvas de calibración para auditorías de producción.</li>
                                                             </ul>
                                                         </div>
                                                         <div>
@@ -5392,7 +5354,7 @@
                                                             </p>
                                                             <ul class="instrument-features mb-0 small text-secondary">
                                                                 <li><strong>Canalizaciones NEMA 7 / ATEX:</strong> Mantenimiento de instalaciones eléctricas y de instrumentación en áreas clasificadas.</li>
-                                                                <li><strong>Soporte Técnico en Sitio 24/7:</strong> Cuadrillas móviles de respuesta inmediata para paradas imprevistas.</li>
+                                                                <li><strong>Soporte Técnico en sitio 24/7:</strong></li>
                                                                 <li><strong>Acondicionamiento y Reparación:</strong> Diagnóstico de componentes electromecánicos y recambio preventivo.</li>
                                                             </ul>
                                                         </div>
@@ -5492,8 +5454,8 @@
                                      1. ROXAR (MEDIDORES MULTIFÁSICOS Y SUBSEA) - VIÑETA MORADA
                                      ------------------------------------------------------------ -->
                                 <article class="brand-showcase-section mb-5 reveal-on-scroll reveal-up" id="producto-brand-roxar">
-                                    <div class="brand-section-banner rounded-3 overflow-hidden position-relative mb-4" style="height: 175px; box-shadow: 0 4px 18px rgba(0,0,0,0.18);">
-                                        <img src="img/products/roxar/roxar.png" alt="Roxar Banner" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.60) contrast(1.1); position: absolute; top: 0; left: 0;">
+                                    <div class="brand-section-banner rounded-3 overflow-hidden position-relative mb-4" style="height: 175px; box-shadow: 0 4px 18px rgba(0,0,0,0.18); background: #ffffff;">
+                                        <img src="img/products/roxar/roxar.png" alt="Roxar Banner" style="width: 100%; height: 100%; object-fit: contain; object-position: center; filter: brightness(0.65) contrast(1.1); position: absolute; top: 0; left: 0; transform: scale(0.92);">
                                         <div class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center px-4" style="background: linear-gradient(90deg, rgba(30, 10, 60, 0.85) 0%, rgba(15, 23, 42, 0.65) 60%, rgba(15, 23, 42, 0.40) 100%); z-index: 2;">
                                             <div>
                                                 <span class="badge px-3 py-1 fw-bold fs-6" style="background: #7c3aed; color: #ffffff; letter-spacing: 0.8px; box-shadow: 0 2px 10px rgba(124, 58, 237, 0.45);">ROXAR™</span>
@@ -5711,7 +5673,7 @@
                                      ------------------------------------------------------------ -->
                                 <article class="brand-showcase-section mb-5 reveal-on-scroll reveal-up" id="producto-brand-micromotion">
                                     <div class="brand-section-banner rounded-3 overflow-hidden position-relative mb-4" style="height: 175px; box-shadow: 0 4px 18px rgba(0,0,0,0.18);">
-                                        <img src="img/products/micromotion/micromotion.jpg" alt="Micro Motion Banner" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.60) contrast(1.1); position: absolute; top: 0; left: 0;">
+                                        <img src="img/products/micromotion/micromotion.jpg" alt="Micro Motion Banner" style="width: 100%; height: 100%; object-fit: cover; object-position: center 78%; filter: brightness(0.60) contrast(1.1); position: absolute; top: 0; left: 0;">
                                         <div class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center px-4" style="background: linear-gradient(90deg, rgba(30, 41, 59, 0.88) 0%, rgba(15, 23, 42, 0.65) 60%, rgba(15, 23, 42, 0.40) 100%); z-index: 2;">
                                             <div>
                                                 <span class="badge px-3 py-1 fw-bold fs-6" style="background: #475569; color: #ffffff; letter-spacing: 0.8px; box-shadow: 0 2px 10px rgba(71, 85, 105, 0.45);">MICRO MOTION™</span>
@@ -5797,7 +5759,7 @@
                                      ------------------------------------------------------------ -->
                                 <article class="brand-showcase-section mb-5 reveal-on-scroll reveal-up" id="producto-brand-amstrex">
                                     <div class="brand-section-banner rounded-3 overflow-hidden position-relative mb-4" style="height: 175px; box-shadow: 0 4px 18px rgba(0,0,0,0.18);">
-                                        <img src="img/products/ams trex/ams-trex-banner.jpg" alt="AMS Trex Banner" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.60) contrast(1.1); position: absolute; top: 0; left: 0;">
+                                        <img src="img/products/ams trex/ams-trex-banner.jpg" alt="AMS Trex Banner" style="width: 100%; height: 100%; object-fit: cover; object-position: center 25%; filter: brightness(0.60) contrast(1.1); position: absolute; top: 0; left: 0; transform: scale(0.96);">
                                         <div class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center px-4" style="background: linear-gradient(90deg, rgba(15, 23, 42, 0.88) 0%, rgba(30, 41, 59, 0.70) 60%, rgba(15, 23, 42, 0.40) 100%); z-index: 2;">
                                             <div>
                                                 <span class="badge px-3 py-1 fw-bold fs-6" style="background: #1e293b; color: #ffffff; border: 1px solid rgba(255,255,255,0.25); letter-spacing: 0.8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);">AMS TREX™</span>
@@ -5844,8 +5806,8 @@
                                  6. FLUENTA (FLARE GAS MEASUREMENT) - VIÑETA VERDE
                                  ------------------------------------------------------------ -->
                             <article class="brand-showcase-section mb-5 reveal-on-scroll reveal-up" id="producto-brand-fluenta">
-                                <div class="brand-section-banner rounded-3 overflow-hidden position-relative mb-4" style="height: 175px; box-shadow: 0 4px 18px rgba(0,0,0,0.18);">
-                                    <img src="img/products/fluenta/Fluenta-blog-logo.png" alt="Fluenta Banner" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.55) contrast(1.1); position: absolute; top: 0; left: 0;">
+                                <div class="brand-section-banner rounded-3 overflow-hidden position-relative mb-4" style="height: 175px; box-shadow: 0 4px 18px rgba(0,0,0,0.18); background: #ffffff;">
+                                    <img src="img/products/fluenta/Fluenta-blog-logo.png" alt="Fluenta Banner" style="width: 100%; height: 100%; object-fit: contain; object-position: center; filter: brightness(0.60) contrast(1.1); position: absolute; top: 0; left: 0; transform: scale(0.92);">
                                     <div class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center px-4" style="background: linear-gradient(90deg, rgba(16, 60, 30, 0.88) 0%, rgba(22, 163, 74, 0.55) 60%, rgba(15, 23, 42, 0.40) 100%); z-index: 2;">
                                         <div>
                                             <span class="badge px-3 py-1 fw-bold fs-6" style="background: #16a34a; color: #ffffff; letter-spacing: 0.8px; box-shadow: 0 2px 10px rgba(22, 163, 74, 0.45);">FLUENTA</span>
@@ -5983,8 +5945,8 @@
                                  7. KAM CONTROLS (ANALIZADORES DE CRUDO Y BS&W) - VIÑETA NARANJA
                                  ------------------------------------------------------------ -->
                             <article class="brand-showcase-section mb-5 reveal-on-scroll reveal-up" id="producto-brand-kam">
-                                <div class="brand-section-banner rounded-3 overflow-hidden position-relative mb-4" style="height: 175px; box-shadow: 0 4px 18px rgba(0,0,0,0.18);">
-                                    <img src="img/products/kam/kam_logo.png" alt="Kam Banner" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.55) contrast(1.1); position: absolute; top: 0; left: 0;">
+                                <div class="brand-section-banner rounded-3 overflow-hidden position-relative mb-4" style="height: 175px; box-shadow: 0 4px 18px rgba(0,0,0,0.18); background: #ffffff;">
+                                    <img src="img/products/kam/kam_logo.png" alt="Kam Banner" style="width: 100%; height: 100%; object-fit: contain; object-position: center; filter: brightness(0.60) contrast(1.1); position: absolute; top: 0; left: 0; transform: scale(0.85);">
                                     <div class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center px-4" style="background: linear-gradient(90deg, rgba(80, 25, 0, 0.88) 0%, rgba(234, 88, 12, 0.60) 60%, rgba(15, 23, 42, 0.40) 100%); z-index: 2;">
                                         <div>
                                             <span class="badge px-3 py-1 fw-bold fs-6" style="background: #ea580c; color: #ffffff; letter-spacing: 0.8px; box-shadow: 0 2px 10px rgba(234, 88, 12, 0.45);">KAM CONTROLS</span>
@@ -8129,19 +8091,18 @@
         });
 
         // ==========================================
-        // NAVEGACIÓN INTERACTIVA DEL CATÁLOGO POR MARCA
+        // NAVEGACIÓN INTERACTIVA DEL CATÁLOGO POR MARCA Y SIDEBAR
         // ==========================================
+        // Toggle para el acordeón anidado de EMERSON
         $(document).on('click', '#emerson-nested-toggle', function(e) {
             e.preventDefault();
             e.stopPropagation();
-            const nestedMenu = document.getElementById('emerson-nested-menu');
-            const chevron = document.getElementById('emerson-chevron');
-            if (nestedMenu) {
-                nestedMenu.classList.toggle('show');
-            }
-            if (chevron) {
-                chevron.classList.toggle('rotate-180');
-            }
+            
+            const $nestedMenu = $('#emerson-nested-menu');
+            const $chevron = $('#emerson-chevron');
+            
+            $nestedMenu.toggleClass('show is-open');
+            $chevron.toggleClass('rotate-180 is-rotated');
         });
 
         $(document).on('click', '.sidebar-nested-submenu .submenu-link, .brand-menu-item', function(e) {

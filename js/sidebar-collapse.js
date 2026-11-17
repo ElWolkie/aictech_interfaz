@@ -17,7 +17,8 @@
 
         // Recuperar preferencia de colapso almacenada
         const savedState = localStorage.getItem('aictech_sidebar_collapsed');
-        if (savedState === 'true' && window.innerWidth >= 992) {
+        const isCollapsedDefault = (savedState === null) ? true : (savedState === 'true');
+        if (isCollapsedDefault && window.innerWidth >= 992) {
             document.body.classList.add('sidebar-collapsed');
             if (wrapper) wrapper.classList.add('sidebar-collapsed');
             collapseBtn.classList.add('is-collapsed');

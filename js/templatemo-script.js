@@ -75,6 +75,10 @@ function setupGallery() {
 }
 
 function openPage(no) {
+  if (document.body) {
+    if (no == 1) document.body.classList.add("is-page-1");
+    else document.body.classList.remove("is-page-1");
+  }
   if(!no) return;
   if(no != 1) {
     window._userHasNavigated = true;

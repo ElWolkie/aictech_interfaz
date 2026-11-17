@@ -4409,6 +4409,7 @@
             );
             background-size: 250% auto;
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: metallicSheenSweep 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.45);
@@ -7262,9 +7263,7 @@
             let title = '';
             const titleNode = card.querySelector('.service-tech-title, .brand-card-title, .service-video-tag, .card-slide-caption, .service-front-title, h4, h5, h6');
             if (titleNode) {
-                title = titleNode.innerText.replace(/[
-
-]+/g, ' ').trim();
+                title = titleNode.innerText.replace(/[\r\n]+/g, ' ').trim();
             }
 
             const activeSlide = card.querySelector('.card-slide-item.active');

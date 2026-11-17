@@ -4576,157 +4576,6 @@
         /* ============================================================= */
         /* CSS - CARDS - FLIP 360 DOUBLE GATEFOLD ENVELOPE (FOTO 3)     */
         /* ============================================================= */
-        .flip-360-wrapper {
-            display: inline-block;
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(56, 182, 255, 0.2);
-            position: relative;
-            cursor: pointer;
-            user-select: none;
-            border-radius: 14px;
-            perspective: 1200px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .flip-360-wrapper:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 35px rgba(56, 182, 255, 0.4);
-        }
-
-        .flip-360-container {
-            display: inline-block;
-            perspective: 1200px;
-            vertical-align: top;
-            width: 180px;
-            height: 250px;
-        }
-
-        @media (min-width: 576px) {
-            .flip-360-container {
-                width: 215px;
-                height: 290px;
-            }
-        }
-
-        /* Giro de 180 grados al pasar el cursor o en hover táctil */
-        .flip-360-wrapper:hover .flip-left,
-        .flip-360-wrapper:active .flip-left,
-        .flip-360-wrapper.is-open .flip-left {
-            transform: rotateY(-180deg);
-        }
-
-        .flip-360-wrapper:hover .flip-right,
-        .flip-360-wrapper:active .flip-right,
-        .flip-360-wrapper.is-open .flip-right {
-            transform: rotateY(180deg);
-        }
-
-        .flip-pane {
-            transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
-            transform-style: preserve-3d;
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-
-        .flip-pane .front,
-        .flip-pane .back {
-            backface-visibility: hidden;
-            -webkit-backface-visibility: hidden;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .flip-pane .front {
-            z-index: 2;
-            transform: rotateY(0deg);
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.35);
-        }
-
-        .flip-pane .front-left {
-            border-radius: 14px 0 0 14px;
-            border-right: 1px solid rgba(255, 255, 255, 0.25);
-        }
-
-        .flip-pane .front-right {
-            border-radius: 0 14px 14px 0;
-            border-left: 1px solid rgba(0, 0, 0, 0.25);
-        }
-
-        .front-left .circle {
-            position: absolute;
-            right: -50px;
-            top: 50%;
-            margin-top: -50px;
-        }
-
-        .front-right .circle {
-            position: absolute;
-            left: -50px;
-            top: 50%;
-            margin-top: -50px;
-        }
-
-        .circle {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            border-radius: 100%;
-            background: #ffffff;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 5px 15px rgba(0, 0, 0, 0.25);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .flip-pane .back {
-            background: #090e1a;
-            transform: rotateY(180deg);
-            overflow: hidden;
-        }
-
-        .flip-pane .back-left {
-            border-radius: 14px 0 0 14px;
-        }
-
-        .flip-pane .back-right {
-            border-radius: 0 14px 14px 0;
-        }
-
-        .flip-pane .back img {
-            width: 360px;
-            height: 250px;
-            object-fit: contain;
-            background: #0f172a;
-        }
-
-        @media (min-width: 576px) {
-            .flip-pane .back img {
-                width: 430px;
-                height: 290px;
-            }
-        }
-
-        .back-left img {
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-
-        .back-right img {
-            position: absolute;
-            right: 0;
-            top: 0;
-        }
-
-        /* ============================================================= */
         /* COMPACT CARDS & FEATURED LARGE (ESTILO FOTO 1)                */
         /* ============================================================= */
         .compact-product-card:hover {
@@ -4896,107 +4745,7 @@
             transform: scale(1.04);
         }
 
-        /* ============================================================= */
-        /* TARJETAS 3D FLIP PARA PRODUCTO ÚNICO (FLEXIM, TREX, MICRO)   */
-        /* ============================================================= */
-        .single-product-flip3d {
-            width: 100%;
-            max-width: 420px;
-            height: 330px;
-            perspective: 1200px;
-            cursor: pointer;
-            user-select: none;
-            margin: 0 auto;
-        }
-
-        @media (min-width: 576px) {
-            .single-product-flip3d {
-                height: 360px;
-            }
-        }
-
-        .flip3d-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
-            transform-style: preserve-3d;
-            border-radius: 16px;
-        }
-
-        .single-product-flip3d:hover .flip3d-inner,
-        .single-product-flip3d.is-flipped .flip3d-inner {
-            transform: rotateY(180deg);
-        }
-
-        .flip3d-front,
-        .flip3d-back {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-            border-radius: 16px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-            border: 1.5px solid rgba(255, 255, 255, 0.12);
-        }
-
-        .flip3d-front {
-            z-index: 2;
-            transform: rotateY(0deg);
-        }
-
-        .flip3d-back {
-            transform: rotateY(180deg);
-        }
-
-        .flip3d-front .brand-emblem-plate {
-            background: rgba(255, 255, 255, 0.96);
-            padding: 16px 28px;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
-            max-width: 80%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease;
-        }
-
-        .single-product-flip3d:hover .brand-emblem-plate {
-            transform: scale(1.05);
-        }
-
-        .flip3d-front .flip-hint-badge {
-            position: absolute;
-            bottom: 18px;
-            font-size: 0.75rem;
-            color: rgba(255, 255, 255, 0.65);
-            background: rgba(255, 255, 255, 0.08);
-            padding: 4px 12px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            letter-spacing: 0.5px;
-        }
-
-        .flip3d-back img {
-            max-height: 85%;
-            max-width: 90%;
-            object-fit: contain;
-            filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.6));
-            transition: transform 0.35s ease;
-        }
-
-        .single-product-flip3d:hover .flip3d-back img {
-            transform: scale(1.04);
-        }
-        
-    </style>
+        </style>
     <link rel="stylesheet" href="css/sidebar-collapse.css">
 </head>
 <body class="sidebar-collapsed is-page-1">
@@ -5316,47 +5065,16 @@
                                             <div class="service-flip-card" id="card-multifasico-campo">
                                                 <div class="service-flip-inner">
                                                     <div class="service-flip-front">
-                                                        <div class="card-slider-wrap">
-                                                            <!-- Pestañas Superiores del Deslizador -->
-                                                            <div class="card-slider-pills" onclick="event.stopPropagation();">
-                                                                <span class="card-slider-pill active" onclick="event.stopPropagation(); setCardSlide(this, 0);"><i class="fas fa-video me-1"></i> Video en Campo</span>
-                                                                <span class="card-slider-pill" onclick="event.stopPropagation(); setCardSlide(this, 1);"><i class="fas fa-image me-1"></i> Toldo y Tráiler</span>
-                                                            </div>
-
-                                                            <!-- Flechas Laterales de Navegación -->
-                                                            <div class="card-slider-arrow prev" onclick="event.stopPropagation(); changeCardSlide(this, -1);"><i class="fas fa-chevron-left"></i></div>
-                                                            <div class="card-slider-arrow next" onclick="event.stopPropagation(); changeCardSlide(this, 1);"><i class="fas fa-chevron-right"></i></div>
-
-                                                            <!-- DIAPOSITIVA 1: Video de Well Testing en Campo -->
-                                                            <div class="card-slide-item active" data-slide-index="0" data-type="video">
-                                                                <div class="service-video-wrap">
-                                    <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
-                                    <video autoplay loop muted playsinline webkit-playsinline disablePictureInPicture preload="auto" class="roxar-card-video" id="video-multifasico-campo">
-                                                                        <source src="video/multifasico-campo.mp4" type="video/mp4">
-                                                                    </video>
-                                                                    <!-- Botón central interactivo para reproducir video -->
-                                                                    
-                                                                    <div class="service-front-overlay">
-                                                                        <div class="service-front-title">
-                                                                            <i class="fas fa-satellite-dish text-info"></i> WELL TESTING CON MEDIDOR MULTIFÁSICO ROXAR
-                                                                        </div>
-                                                                        <span class="service-flip-hint-badge"><i class="fas fa-rotate me-1"></i> Ver Detalles</span>
-                                                                    </div>
+                                                        <div class="service-video-wrap">
+                                                            <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
+                                                            <video autoplay loop muted playsinline webkit-playsinline disablePictureInPicture preload="auto" class="roxar-card-video" id="video-multifasico-campo">
+                                                                <source src="video/multifasico-campo.mp4" type="video/mp4">
+                                                            </video>
+                                                            <div class="service-front-overlay">
+                                                                <div class="service-front-title">
+                                                                    <i class="fas fa-satellite-dish text-info"></i> WELL TESTING CON MEDIDOR MULTIFÁSICO ROXAR
                                                                 </div>
-                                                            </div>
-
-                                                            <!-- DIAPOSITIVA 2: Foto de Toldo y Tráiler en Despliegue de Campo -->
-                                                            <div class="card-slide-item" data-slide-index="1" data-type="image">
-                                                                <div class="service-video-wrap">
-                                    <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
-                                    <img src="img/toldo-trailer.jpg" alt="Toldo y trailer en despliegue de campo" class="card-slide-img">
-                                                                    <div class="service-front-overlay">
-                                                                        <div class="service-front-title">
-                                                                            <i class="fas fa-campground text-info"></i> TOLDO Y TRÁILER EN DESPLIEGUE DE CAMPO
-                                                                        </div>
-                                                                        <span class="service-flip-hint-badge"><i class="fas fa-rotate me-1"></i> Ver Detalles</span>
-                                                                    </div>
-                                                                </div>
+                                                                <span class="service-flip-hint-badge"><i class="fas fa-rotate me-1"></i> Ver Detalles</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -6191,14 +5909,14 @@
                                         </div>
                                     </div>
                                     
-                                    <!-- FORMATO WARNER/IGN: 1 GRANDE + COMPACTOS PEGADITOS -->
+                                    <!-- FORMATO WARNER/IGN: 1 GRANDE + COMPACTOS EXPANDIDOS HASTA EL TOPE -->
                                     <div class="row g-3 align-items-stretch">
                                         <!-- 1 GRANDE EN LA IZQUIERDA -->
                                         <div class="col-12 col-xl-6">
                                             <div class="featured-large-product-card rounded-3 overflow-hidden position-relative h-100 d-flex flex-column justify-content-between" style="min-height: 440px; background: rgba(2, 6, 23, 0.8); border: 1.5px solid rgba(168, 85, 247, 0.45); box-shadow: 0 15px 35px rgba(0,0,0,0.5);">
-                                                <div class="featured-media-stage position-relative flex-grow-1 d-flex align-items-center justify-content-center p-4" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: radial-gradient(circle, rgba(168, 85, 247, 0.28) 0%, rgba(2, 6, 23, 0.6) 80%); cursor: pointer; min-height: 250px;">
+                                                <div class="featured-media-stage position-relative flex-grow-1 d-flex align-items-center justify-content-center" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: #ffffff; cursor: pointer; min-height: 260px; padding: 8px;">
                                                     <button type="button" class="product-expand-badge position-absolute top-0 end-0 m-3" title="Agrandar"><i class="fas fa-expand"></i></button>
-                                                    <img src="img/products/roxar/2600.jpeg" alt="Roxar™ 2600 Multiphase Flow Meters" class="featured-hero-img" style="max-height: 230px; max-width: 88%; object-fit: contain; filter: drop-shadow(0 8px 20px rgba(0,0,0,0.5)); transition: transform 0.35s ease;">
+                                                    <img src="img/products/roxar/2600.jpeg" alt="Roxar™ 2600 Multiphase Flow Meters" class="featured-hero-img" style="height: 100%; width: 100%; max-height: 310px; object-fit: contain; transition: transform 0.35s ease;">
                                                 </div>
                                                 
                                                 <!-- Overlay inferior con Blur, Título, Descripción y Enlace -->
@@ -6215,13 +5933,13 @@
                                             </div>
                                         </div>
 
-                                        <!-- COMPACTOS PEGADITOS EN LA DERECHA (EXPANDIDOS HASTA ABAJO) -->
+                                        <!-- COMPACTOS PEGADITOS EN LA DERECHA (EXPANDIDOS HASTA EL TOPE TOP Y BOTTOM) -->
                                         <div class="col-12 col-xl-6">
                                             <div class="compact-products-grid h-100">
                                                 
                                                 <div class="compact-product-card rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
-                                                    <div class="compact-media-wrap" style="background: radial-gradient(circle, rgba(168, 85, 247, 0.20) 0%, rgba(2, 6, 23, 0.5) 80%);">
-                                                        <img src="img/products/roxar/water-cut-meter.jpeg" alt="Roxar™ Watercut Meter" class="compact-product-img">
+                                                    <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
+                                                        <img src="img/products/roxar/water-cut-meter.jpeg" alt="Roxar™ Watercut Meter" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
                                                     </div>
                                                     <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                                         <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="Roxar™ Watercut Meter">Roxar™ Watercut Meter</div>
@@ -6229,8 +5947,8 @@
                                                 </div>
                                                 
                                                 <div class="compact-product-card rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
-                                                    <div class="compact-media-wrap" style="background: radial-gradient(circle, rgba(168, 85, 247, 0.20) 0%, rgba(2, 6, 23, 0.5) 80%);">
-                                                        <img src="img/products/roxar/Medidor de Wet Gas SubSea.jpeg" alt="Roxar™ Subsea Wetgas Meters" class="compact-product-img">
+                                                    <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
+                                                        <img src="img/products/roxar/Medidor de Wet Gas SubSea.jpeg" alt="Roxar™ Subsea Wetgas Meters" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
                                                     </div>
                                                     <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                                         <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="Roxar™ Subsea Wetgas Meters">Roxar™ Subsea Wetgas Meters</div>
@@ -6238,8 +5956,8 @@
                                                 </div>
                                                 
                                                 <div class="compact-product-card rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
-                                                    <div class="compact-media-wrap" style="background: radial-gradient(circle, rgba(168, 85, 247, 0.20) 0%, rgba(2, 6, 23, 0.5) 80%);">
-                                                        <img src="img/products/roxar/Multifasico-para-instalaciones-SubSea.jpeg" alt="Roxar™ Subsea Multiphase Flow Meter" class="compact-product-img">
+                                                    <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
+                                                        <img src="img/products/roxar/Multifasico-para-instalaciones-SubSea.jpeg" alt="Roxar™ Subsea Multiphase Flow Meter" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
                                                     </div>
                                                     <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                                         <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="Roxar™ Subsea Multiphase Flow Meter">Roxar™ Subsea Multiphase Flow Meter</div>
@@ -6247,8 +5965,8 @@
                                                 </div>
                                                 
                                                 <div class="compact-product-card rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
-                                                    <div class="compact-media-wrap" style="background: radial-gradient(circle, rgba(168, 85, 247, 0.20) 0%, rgba(2, 6, 23, 0.5) 80%);">
-                                                        <img src="img/products/roxar/Medidor de Salinidad (Complemento del 2600).jpeg" alt="Roxar™ Multiphase Salinity System" class="compact-product-img">
+                                                    <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
+                                                        <img src="img/products/roxar/Medidor de Salinidad (Complemento del 2600).jpeg" alt="Roxar™ Multiphase Salinity System" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
                                                     </div>
                                                     <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                                         <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="Roxar™ Multiphase Salinity System">Roxar™ Multiphase Salinity System</div>
@@ -6285,40 +6003,42 @@
                                         </div>
                                     </div>
                                     
-                                    <!-- FORMATO 3D FLIP CARD ELEGANTE -->
-                                    <div class="row g-4 align-items-center justify-content-center py-2">
+                                    <!-- FORMATO SHOWCASE DUAL ELEGANTE (SIN FLIP BUGUEADO) -->
+                                    <div class="row g-4 align-items-stretch">
                                         
-                                        <!-- Tarjeta Flip 3D: Front = Logo Flexim / Back = Equipo -->
-                                        <div class="col-12 col-lg-6 col-xl-5 d-flex justify-content-center">
-                                            <div class="single-product-flip3d" onclick="this.classList.toggle('is-flipped');" title="Pasa el ratón o toca para girar la tarjeta">
-                                                <div class="flip3d-inner" style="border: 1.5px solid rgba(20, 184, 166, 0.45); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(20, 184, 166, 0.25);">
-                                                    <!-- Cara Frontal con Logo Propio -->
-                                                    <div class="flip3d-front" style="background: linear-gradient(145deg, rgba(8, 28, 26, 0.96) 0%, rgba(2, 10, 15, 0.98) 100%);">
-                                                        <div class="brand-emblem-plate mb-2" style="border: 2px solid rgba(20, 184, 166, 0.4);">
-                                                            <img src="img/products/flexim/Flexim-Logo.png" alt="FLEXIM™" style="max-height: 48px; max-width: 160px; object-fit: contain;">
-                                                        </div>
-                                                        <div class="text-info small fw-semibold mt-2" style="color: #2dd4bf !important; letter-spacing: 0.5px;">Clamp-On Ultrasonic Flow</div>
-                                                        <span class="flip-hint-badge"><i class="fas fa-sync-alt me-1"></i> Toca o pasa el ratón para ver equipo</span>
-                                                    </div>
-                                                    <!-- Cara Trasera con Foto de Producto -->
-                                                    <div class="flip3d-back" onclick="event.stopPropagation(); expandMediaFromElement(this);" title="Haga clic para pantalla completa" style="background: radial-gradient(circle, rgba(20, 184, 166, 0.22) 0%, rgba(2, 6, 23, 0.98) 80%); cursor: pointer;">
-                                                        <button type="button" class="product-expand-badge position-absolute top-0 end-0 m-3" title="Agrandar"><i class="fas fa-expand"></i></button>
-                                                        <img src="img/products/flexim/Flexim™ FLUXUS F631 BA - Portable Liquid Clamp-on Ultrasonic Flow Meter.jpeg" alt="FLUXUS® F631 BA - Caudalímetro Portátil para Líquidos">
-                                                    </div>
+                                        <!-- Columna Izquierda: Tarjeta de Producto Expandida Top-to-Bottom -->
+                                        <div class="col-12 col-lg-6">
+                                            <div class="featured-large-product-card rounded-3 overflow-hidden position-relative h-100 d-flex flex-column justify-content-between" style="min-height: 420px; background: rgba(2, 6, 23, 0.8); border: 1.5px solid rgba(20, 184, 166, 0.45); box-shadow: 0 15px 35px rgba(0,0,0,0.5);">
+                                                <div class="featured-media-stage position-relative flex-grow-1 d-flex align-items-center justify-content-center" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: #ffffff; cursor: pointer; min-height: 270px; padding: 12px;">
+                                                    <button type="button" class="product-expand-badge position-absolute top-0 end-0 m-3" title="Agrandar"><i class="fas fa-expand"></i></button>
+                                                    <img src="img/products/flexim/Flexim™ FLUXUS F631 BA - Portable Liquid Clamp-on Ultrasonic Flow Meter.jpeg" alt="FLUXUS® F631 BA - Caudalímetro Portátil para Líquidos" class="featured-hero-img" style="height: 100%; width: 100%; max-height: 300px; object-fit: contain; transition: transform 0.35s ease;">
+                                                </div>
+                                                <div class="featured-bottom-info p-3 p-md-4" style="background: linear-gradient(0deg, rgba(2, 6, 23, 0.96) 0%, rgba(2, 6, 23, 0.85) 75%, transparent 100%); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
+                                                    <span class="badge mb-2 fw-bold" style="background: #14b8a6; color: #ffffff; font-size: 0.72rem; letter-spacing: 0.5px;">Clamp-On Ultrasonic Flow</span>
+                                                    <h4 class="fw-bold text-white mb-2 fs-5" style="line-height: 1.35;">FLUXUS® F631 BA - Caudalímetro Portátil para Líquidos</h4>
+                                                    <p class="small text-white-50 mb-0" style="font-size: 0.84rem; line-height: 1.5;">Medición de flujo no invasiva clamp-on para líquidos y gases sin cortes de tubería.</p>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <!-- Panel Descriptivo del Producto -->
-                                        <div class="col-12 col-lg-6 col-xl-7">
-                                            <div class="p-3 p-md-4 rounded-3" style="background: rgba(2, 6, 23, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-                                                <span class="product-category-tag mb-2 d-inline-block" style="font-size: 0.75rem; color: #14b8a6; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px;">Clamp-On Ultrasonic Flow Meter</span>
-                                                <h3 class="fw-bold fs-4 text-white mb-3" style="line-height: 1.3;">FLUXUS® F631 BA - Caudalímetro Portátil para Líquidos</h3>
-                                                <p class="mb-4" style="font-size: 0.95rem; line-height: 1.65; color: #cbd5e1;">Medidor de flujo ultrasónico portátil no invasivo clamp-on para líquidos y gases sin cortes de tubería ni paradas operativas.</p>
+                                        <!-- Columna Derecha: Panel de Capacidades Técnicas y Enlace Oficial -->
+                                        <div class="col-12 col-lg-6 d-flex flex-column justify-content-between">
+                                            <div class="p-3 p-md-4 rounded-3 h-100 d-flex flex-column justify-content-between" style="background: rgba(2, 6, 23, 0.65); border: 1px solid rgba(20, 184, 166, 0.25); box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                                                <div>
+                                                    <span class="product-category-tag mb-2 d-inline-block" style="font-size: 0.75rem; color: #14b8a6; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px;">Especificaciones Técnicas</span>
+                                                    <h3 class="fw-bold fs-4 text-white mb-3" style="line-height: 1.3;">Tecnología Ultrasónica No Invasiva</h3>
+                                                    <p class="mb-4" style="font-size: 0.95rem; line-height: 1.65; color: #cbd5e1;">El sistema FLUXUS® F631 BA permite cuantificar caudales en cualquier punto de la instalación sin generar caídas de presión ni riesgos de fuga en líneas presurizadas.</p>
+                                                    
+                                                    <ul class="list-unstyled mb-4" style="color: #e2e8f0; font-size: 0.88rem; line-height: 1.8;">
+                                                        <li class="mb-2 d-flex align-items-center gap-2"><i class="fas fa-check-circle" style="color: #14b8a6;"></i> <strong>0 horas de parada:</strong> Instalación externa sobre la pared de la tubería sin cortes ni despresurización.</li>
+                                                        <li class="mb-2 d-flex align-items-center gap-2"><i class="fas fa-check-circle" style="color: #14b8a6;"></i> <strong>Autonomía en campo:</strong> Batería recargable Li-Ion con más de 14 horas de operación continua.</li>
+                                                        <li class="mb-2 d-flex align-items-center gap-2"><i class="fas fa-check-circle" style="color: #14b8a6;"></i> <strong>Carcasa reforzada IP67:</strong> Resistente a ambientes agresivos y climas extremos de producción.</li>
+                                                    </ul>
+                                                </div>
                                                 
-                                                <div class="d-flex align-items-center">
-                                                    <a href="https://www.emerson.com/es-es/catalog/flexim-fluxus-f631" target="_blank" rel="noopener noreferrer" class="btn btn-sm px-3 py-1 fw-semibold text-white rounded-pill d-inline-flex align-items-center gap-1" style="background: rgba(20, 184, 166, 0.25); border: 1px solid rgba(20, 184, 166, 0.5); font-size: 0.82rem; transition: all 0.25s ease;" onmouseover="this.style.background='#14b8a6';" onmouseout="this.style.background='rgba(20, 184, 166, 0.25)';">
-                                                        <span>Ver más detalles</span> <i class="fas fa-arrow-up-right-from-square small ms-1"></i>
+                                                <div class="d-flex align-items-center pt-3 border-top border-secondary">
+                                                    <a href="https://www.emerson.com/es-es/catalog/flexim-fluxus-f631" target="_blank" rel="noopener noreferrer" class="btn btn-sm px-4 py-2 fw-semibold text-white rounded-pill d-inline-flex align-items-center gap-2" style="background: rgba(20, 184, 166, 0.3); border: 1px solid rgba(20, 184, 166, 0.6); font-size: 0.85rem; transition: all 0.25s ease;" onmouseover="this.style.background='#14b8a6'; this.style.transform='translateY(-2px)';" onmouseout="this.style.background='rgba(20, 184, 166, 0.3)'; this.style.transform='none';">
+                                                        <span>Ver más detalles</span> <i class="fas fa-arrow-up-right-from-square small"></i>
                                                     </a>
                                                 </div>
                                             </div>
@@ -6351,37 +6071,42 @@
                                         </div>
                                     </div>
                                     
-                                    <!-- FORMATO 3D FLIP CARD: FOTO COMO PORTADA DIRECTA -->
-                                    <div class="row g-4 align-items-center justify-content-center py-2">
+                                    <!-- FORMATO SHOWCASE DUAL ELEGANTE -->
+                                    <div class="row g-4 align-items-stretch">
                                         
-                                        <!-- Tarjeta Flip 3D -->
-                                        <div class="col-12 col-lg-6 col-xl-5 d-flex justify-content-center">
-                                            <div class="single-product-flip3d" onclick="this.classList.toggle('is-flipped');" title="Pasa el ratón o toca para girar la tarjeta">
-                                                <div class="flip3d-inner" style="border: 1.5px solid rgba(148, 163, 184, 0.45); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(148, 163, 184, 0.25);">
-                                                    <!-- Cara Frontal: Foto Principal del Comunicador -->
-                                                    <div class="flip3d-front" style="background: radial-gradient(circle, rgba(148, 163, 184, 0.22) 0%, rgba(2, 6, 23, 0.98) 80%); padding: 16px;">
-                                                        <img src="img/products/ams trex/AMS Trex Device Communicator wins Gold Award.jpeg" alt="AMS Trex™ Device Communicator" style="max-height: 80%; max-width: 88%; object-fit: contain; filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.6));">
-                                                        <span class="flip-hint-badge mt-2"><i class="fas fa-sync-alt me-1"></i> Toca para ver en alta resolución</span>
-                                                    </div>
-                                                    <!-- Cara Trasera: Zoom Técnico -->
-                                                    <div class="flip3d-back" onclick="event.stopPropagation(); expandMediaFromElement(this);" title="Haga clic para pantalla completa" style="background: radial-gradient(circle, rgba(148, 163, 184, 0.25) 0%, rgba(2, 6, 23, 0.98) 80%); cursor: pointer;">
-                                                        <button type="button" class="product-expand-badge position-absolute top-0 end-0 m-3" title="Agrandar"><i class="fas fa-expand"></i></button>
-                                                        <img src="img/products/ams trex/AMS Trex Device Communicator wins Gold Award.jpeg" alt="AMS Trex™ Device Communicator - HD" style="transform: scale(1.08);">
-                                                    </div>
+                                        <!-- Columna Izquierda: Tarjeta de Producto Expandida -->
+                                        <div class="col-12 col-lg-6">
+                                            <div class="featured-large-product-card rounded-3 overflow-hidden position-relative h-100 d-flex flex-column justify-content-between" style="min-height: 420px; background: rgba(2, 6, 23, 0.8); border: 1.5px solid rgba(148, 163, 184, 0.45); box-shadow: 0 15px 35px rgba(0,0,0,0.5);">
+                                                <div class="featured-media-stage position-relative flex-grow-1 d-flex align-items-center justify-content-center" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: #ffffff; cursor: pointer; min-height: 270px; padding: 12px;">
+                                                    <button type="button" class="product-expand-badge position-absolute top-0 end-0 m-3" title="Agrandar"><i class="fas fa-expand"></i></button>
+                                                    <img src="img/products/ams trex/AMS Trex Device Communicator wins Gold Award.jpeg" alt="AMS Trex™ Device Communicator" class="featured-hero-img" style="height: 100%; width: 100%; max-height: 300px; object-fit: contain; transition: transform 0.35s ease;">
+                                                </div>
+                                                <div class="featured-bottom-info p-3 p-md-4" style="background: linear-gradient(0deg, rgba(2, 6, 23, 0.96) 0%, rgba(2, 6, 23, 0.85) 75%, transparent 100%); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
+                                                    <span class="badge mb-2 fw-bold" style="background: #94a3b8; color: #ffffff; font-size: 0.72rem; letter-spacing: 0.5px;">Field Communicator &amp; Diagnostics</span>
+                                                    <h4 class="fw-bold text-white mb-2 fs-5" style="line-height: 1.35;">AMS Trex™ Device Communicator</h4>
+                                                    <p class="small text-white-50 mb-0" style="font-size: 0.84rem; line-height: 1.5;">Diagnóstico y calibración avanzada en campo para dispositivos HART y FOUNDATION Fieldbus.</p>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <!-- Panel Descriptivo del Producto -->
-                                        <div class="col-12 col-lg-6 col-xl-7">
-                                            <div class="p-3 p-md-4 rounded-3" style="background: rgba(2, 6, 23, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-                                                <span class="product-category-tag mb-2 d-inline-block" style="font-size: 0.75rem; color: #94a3b8; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px;">Field Communicator &amp; Diagnostics</span>
-                                                <h3 class="fw-bold fs-4 text-white mb-3" style="line-height: 1.3;">AMS Trex™ Device Communicator</h3>
-                                                <p class="mb-4" style="font-size: 0.95rem; line-height: 1.65; color: #cbd5e1;">Comunicador de campo de alta resistencia con pantalla táctil intuitiva y soporte para dispositivos HART y FOUNDATION Fieldbus con alimentación directa de lazo.</p>
+                                        <!-- Columna Derecha: Panel Técnico -->
+                                        <div class="col-12 col-lg-6 d-flex flex-column justify-content-between">
+                                            <div class="p-3 p-md-4 rounded-3 h-100 d-flex flex-column justify-content-between" style="background: rgba(2, 6, 23, 0.65); border: 1px solid rgba(148, 163, 184, 0.25); box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                                                <div>
+                                                    <span class="product-category-tag mb-2 d-inline-block" style="font-size: 0.75rem; color: #94a3b8; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px;">Capacidades de Diagnóstico</span>
+                                                    <h3 class="fw-bold fs-4 text-white mb-3" style="line-height: 1.3;">Mantenimiento Predictivo en Campo</h3>
+                                                    <p class="mb-4" style="font-size: 0.95rem; line-height: 1.65; color: #cbd5e1;">Aumente la productividad en planta configurando y solucionando fallas de instrumentos directamente en línea sin necesidad de llevar herramientas especializadas adicionales.</p>
+                                                    
+                                                    <ul class="list-unstyled mb-4" style="color: #e2e8f0; font-size: 0.88rem; line-height: 1.8;">
+                                                        <li class="mb-2 d-flex align-items-center gap-2"><i class="fas fa-check-circle" style="color: #94a3b8;"></i> <strong>Pantalla táctil resistiva:</strong> Operable con guantes bajo lluvia y luz solar directa.</li>
+                                                        <li class="mb-2 d-flex align-items-center gap-2"><i class="fas fa-check-circle" style="color: #94a3b8;"></i> <strong>Alimentación directa de lazo:</strong> Energiza transmisores directamente desde el Trex eliminando fuentes externas.</li>
+                                                        <li class="mb-2 d-flex align-items-center gap-2"><i class="fas fa-check-circle" style="color: #94a3b8;"></i> <strong>Seguridad intrínseca:</strong> Certificado para ingreso seguro a áreas clasificadas Clase I, Div 1 / Zona 0.</li>
+                                                    </ul>
+                                                </div>
                                                 
-                                                <div class="d-flex align-items-center">
-                                                    <a href="https://www.emerson.com/es-es/catalog/ams-trex-device-communicator" target="_blank" rel="noopener noreferrer" class="btn btn-sm px-3 py-1 fw-semibold text-white rounded-pill d-inline-flex align-items-center gap-1" style="background: rgba(148, 163, 184, 0.25); border: 1px solid rgba(148, 163, 184, 0.5); font-size: 0.82rem; transition: all 0.25s ease;" onmouseover="this.style.background='#94a3b8';" onmouseout="this.style.background='rgba(148, 163, 184, 0.25)';">
-                                                        <span>Ver más detalles</span> <i class="fas fa-arrow-up-right-from-square small ms-1"></i>
+                                                <div class="d-flex align-items-center pt-3 border-top border-secondary">
+                                                    <a href="https://www.emerson.com/es-es/catalog/ams-trex-device-communicator" target="_blank" rel="noopener noreferrer" class="btn btn-sm px-4 py-2 fw-semibold text-white rounded-pill d-inline-flex align-items-center gap-2" style="background: rgba(148, 163, 184, 0.3); border: 1px solid rgba(148, 163, 184, 0.6); font-size: 0.85rem; transition: all 0.25s ease;" onmouseover="this.style.background='#94a3b8'; this.style.transform='translateY(-2px)';" onmouseout="this.style.background='rgba(148, 163, 184, 0.3)'; this.style.transform='none';">
+                                                        <span>Ver más detalles</span> <i class="fas fa-arrow-up-right-from-square small"></i>
                                                     </a>
                                                 </div>
                                             </div>
@@ -6419,9 +6144,9 @@
                                         <!-- 1 GRANDE EN LA IZQUIERDA -->
                                         <div class="col-12 col-xl-6">
                                             <div class="featured-large-product-card rounded-3 overflow-hidden position-relative h-100 d-flex flex-column justify-content-between" style="min-height: 440px; background: rgba(2, 6, 23, 0.8); border: 1.5px solid rgba(56, 189, 248, 0.45); box-shadow: 0 15px 35px rgba(0,0,0,0.5);">
-                                                <div class="featured-media-stage position-relative flex-grow-1 d-flex align-items-center justify-content-center p-4" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: radial-gradient(circle, rgba(56, 189, 248, 0.28) 0%, rgba(2, 6, 23, 0.6) 80%); cursor: pointer; min-height: 250px;">
+                                                <div class="featured-media-stage position-relative flex-grow-1 d-flex align-items-center justify-content-center" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: #ffffff; cursor: pointer; min-height: 260px; padding: 8px;">
                                                     <button type="button" class="product-expand-badge position-absolute top-0 end-0 m-3" title="Agrandar"><i class="fas fa-expand"></i></button>
-                                                    <img src="img/products/rosemount/Rosemount™ 5300 Level Transmitter - Guided Wave Radar.jpeg" alt="Rosemount™ 5300 Level Transmitter - Guided Wave Radar" class="featured-hero-img" style="max-height: 230px; max-width: 88%; object-fit: contain; filter: drop-shadow(0 8px 20px rgba(0,0,0,0.5)); transition: transform 0.35s ease;">
+                                                    <img src="img/products/rosemount/Rosemount™ 5300 Level Transmitter - Guided Wave Radar.jpeg" alt="Rosemount™ 5300 Level Transmitter - Guided Wave Radar" class="featured-hero-img" style="height: 100%; width: 100%; max-height: 310px; object-fit: contain; transition: transform 0.35s ease;">
                                                 </div>
                                                 
                                                 <!-- Overlay inferior con Blur, Título, Descripción y Enlace -->
@@ -6438,13 +6163,13 @@
                                             </div>
                                         </div>
 
-                                        <!-- COMPACTOS EN LA DERECHA (EXPANDIDOS HASTA ABAJO + 3º CENTRADO) -->
+                                        <!-- COMPACTOS EN LA DERECHA (EXPANDIDOS HASTA EL TOPE + 3º CENTRADO) -->
                                         <div class="col-12 col-xl-6">
                                             <div class="compact-products-grid h-100">
                                                 
                                                 <div class="compact-product-card rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
-                                                    <div class="compact-media-wrap" style="background: radial-gradient(circle, rgba(56, 189, 248, 0.20) 0%, rgba(2, 6, 23, 0.5) 80%);">
-                                                        <img src="img/products/rosemount/Rosemount™ 8800 Reducer Vortex Flow Meter.jpeg" alt="Rosemount™ 8800 Reducer Vortex Flow Meter" class="compact-product-img">
+                                                    <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
+                                                        <img src="img/products/rosemount/Rosemount™ 8800 Reducer Vortex Flow Meter.jpeg" alt="Rosemount™ 8800 Reducer Vortex Flow Meter" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
                                                     </div>
                                                     <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                                         <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="Rosemount™ 8800 Reducer Vortex Flow Meter">Rosemount™ 8800 Reducer Vortex Flow Meter</div>
@@ -6452,8 +6177,8 @@
                                                 </div>
                                                 
                                                 <div class="compact-product-card rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
-                                                    <div class="compact-media-wrap" style="background: radial-gradient(circle, rgba(56, 189, 248, 0.20) 0%, rgba(2, 6, 23, 0.5) 80%);">
-                                                        <img src="img/products/rosemount/Rosemount™ 8600 Vortex Flow Meters.jpeg" alt="Rosemount™ 8600 Vortex Flow Meters" class="compact-product-img">
+                                                    <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
+                                                        <img src="img/products/rosemount/Rosemount™ 8600 Vortex Flow Meters.jpeg" alt="Rosemount™ 8600 Vortex Flow Meters" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
                                                     </div>
                                                     <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                                         <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="Rosemount™ 8600 Vortex Flow Meters">Rosemount™ 8600 Vortex Flow Meters</div>
@@ -6462,8 +6187,8 @@
                                                 
                                                 <!-- TERCER PRODUCTO (IMPAR) CENTRADO CON EL ANCHO EXACTO -->
                                                 <div class="compact-product-card compact-card-centered-odd rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
-                                                    <div class="compact-media-wrap" style="background: radial-gradient(circle, rgba(56, 189, 248, 0.20) 0%, rgba(2, 6, 23, 0.5) 80%);">
-                                                        <img src="img/products/rosemount/Transmisor de nivel Rosemount 5300 - Radar de onda guiada.jpeg" alt="Transmisor de Nivel Rosemount 5300" class="compact-product-img">
+                                                    <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
+                                                        <img src="img/products/rosemount/Transmisor de nivel Rosemount 5300 - Radar de onda guiada.jpeg" alt="Transmisor de Nivel Rosemount 5300" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
                                                     </div>
                                                     <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                                         <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="Transmisor de Nivel Rosemount 5300">Transmisor de Nivel Rosemount 5300</div>
@@ -6500,40 +6225,42 @@
                                         </div>
                                     </div>
                                     
-                                    <!-- FORMATO 3D FLIP CARD ELEGANTE -->
-                                    <div class="row g-4 align-items-center justify-content-center py-2">
+                                    <!-- FORMATO SHOWCASE DUAL ELEGANTE -->
+                                    <div class="row g-4 align-items-stretch">
                                         
-                                        <!-- Tarjeta Flip 3D: Front = Logo Micro Motion / Back = Equipo -->
-                                        <div class="col-12 col-lg-6 col-xl-5 d-flex justify-content-center">
-                                            <div class="single-product-flip3d" onclick="this.classList.toggle('is-flipped');" title="Pasa el ratón o toca para girar la tarjeta">
-                                                <div class="flip3d-inner" style="border: 1.5px solid rgba(203, 213, 225, 0.45); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(203, 213, 225, 0.25);">
-                                                    <!-- Cara Frontal con Logo Propio -->
-                                                    <div class="flip3d-front" style="background: linear-gradient(145deg, rgba(20, 26, 38, 0.96) 0%, rgba(2, 6, 23, 0.98) 100%);">
-                                                        <div class="brand-emblem-plate mb-2" style="border: 2px solid rgba(203, 213, 225, 0.4);">
-                                                            <img src="img/products/micromotion/micromotion.png" alt="MICRO MOTION™" style="max-height: 48px; max-width: 160px; object-fit: contain;">
-                                                        </div>
-                                                        <div class="text-secondary small fw-semibold mt-2" style="color: #cbd5e1 !important; letter-spacing: 0.5px;">Coriolis Flow &amp; Density Measurement</div>
-                                                        <span class="flip-hint-badge"><i class="fas fa-sync-alt me-1"></i> Toca o pasa el ratón para ver equipo</span>
-                                                    </div>
-                                                    <!-- Cara Trasera con Foto de Producto -->
-                                                    <div class="flip3d-back" onclick="event.stopPropagation(); expandMediaFromElement(this);" title="Haga clic para pantalla completa" style="background: radial-gradient(circle, rgba(203, 213, 225, 0.22) 0%, rgba(2, 6, 23, 0.98) 80%); cursor: pointer;">
-                                                        <button type="button" class="product-expand-badge position-absolute top-0 end-0 m-3" title="Agrandar"><i class="fas fa-expand"></i></button>
-                                                        <img src="img/products/micromotion/Micro Motion™ 5700 Field-Mount Transmitter.jpeg" alt="Micro Motion™ 5700 Field-Mount Transmitter">
-                                                    </div>
+                                        <!-- Columna Izquierda: Tarjeta de Producto Expandida -->
+                                        <div class="col-12 col-lg-6">
+                                            <div class="featured-large-product-card rounded-3 overflow-hidden position-relative h-100 d-flex flex-column justify-content-between" style="min-height: 420px; background: rgba(2, 6, 23, 0.8); border: 1.5px solid rgba(203, 213, 225, 0.45); box-shadow: 0 15px 35px rgba(0,0,0,0.5);">
+                                                <div class="featured-media-stage position-relative flex-grow-1 d-flex align-items-center justify-content-center" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: #ffffff; cursor: pointer; min-height: 270px; padding: 12px;">
+                                                    <button type="button" class="product-expand-badge position-absolute top-0 end-0 m-3" title="Agrandar"><i class="fas fa-expand"></i></button>
+                                                    <img src="img/products/micromotion/Micro Motion™ 5700 Field-Mount Transmitter.jpeg" alt="Micro Motion™ 5700 Field-Mount Transmitter" class="featured-hero-img" style="height: 100%; width: 100%; max-height: 300px; object-fit: contain; transition: transform 0.35s ease;">
+                                                </div>
+                                                <div class="featured-bottom-info p-3 p-md-4" style="background: linear-gradient(0deg, rgba(2, 6, 23, 0.96) 0%, rgba(2, 6, 23, 0.85) 75%, transparent 100%); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
+                                                    <span class="badge mb-2 fw-bold" style="background: #cbd5e1; color: #0f172a; font-size: 0.72rem; letter-spacing: 0.5px;">Coriolis Flow Transmitter</span>
+                                                    <h4 class="fw-bold text-white mb-2 fs-5" style="line-height: 1.35;">Micro Motion™ 5700 Field-Mount Transmitter</h4>
+                                                    <p class="small text-white-50 mb-0" style="font-size: 0.84rem; line-height: 1.5;">Transmisor de caudal másico y densidad Coriolis para transferencia de custodia y procesos críticos.</p>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <!-- Panel Descriptivo del Producto -->
-                                        <div class="col-12 col-lg-6 col-xl-7">
-                                            <div class="p-3 p-md-4 rounded-3" style="background: rgba(2, 6, 23, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-                                                <span class="product-category-tag mb-2 d-inline-block" style="font-size: 0.75rem; color: #cbd5e1; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px;">Coriolis Flow Transmitter</span>
-                                                <h3 class="fw-bold fs-4 text-white mb-3" style="line-height: 1.3;">Micro Motion™ 5700 Field-Mount Transmitter</h3>
-                                                <p class="mb-4" style="font-size: 0.95rem; line-height: 1.65; color: #cbd5e1;">Transmisor de caudal y densidad Coriolis de montaje en campo avanzado con verificación inteligente del medidor y registro de datos nativo.</p>
+                                        <!-- Columna Derecha: Panel Técnico -->
+                                        <div class="col-12 col-lg-6 d-flex flex-column justify-content-between">
+                                            <div class="p-3 p-md-4 rounded-3 h-100 d-flex flex-column justify-content-between" style="background: rgba(2, 6, 23, 0.65); border: 1px solid rgba(203, 213, 225, 0.25); box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                                                <div>
+                                                    <span class="product-category-tag mb-2 d-inline-block" style="font-size: 0.75rem; color: #cbd5e1; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px;">Precisión Coriolis Insuperable</span>
+                                                    <h3 class="fw-bold fs-4 text-white mb-3" style="line-height: 1.3;">Medición Directa de Masa y Densidad</h3>
+                                                    <p class="mb-4" style="font-size: 0.95rem; line-height: 1.65; color: #cbd5e1;">Ofrece la mayor precisión y repetibilidad del mercado en medición fiscal de hidrocarburos, reduciendo la incertidumbre en transferencias operacionales.</p>
+                                                    
+                                                    <ul class="list-unstyled mb-4" style="color: #e2e8f0; font-size: 0.88rem; line-height: 1.8;">
+                                                        <li class="mb-2 d-flex align-items-center gap-2"><i class="fas fa-check-circle" style="color: #cbd5e1;"></i> <strong>Verificación Smart Meter (SMV):</strong> Comprueba la integridad estructural del sensor en 90 segundos sin detener el flujo.</li>
+                                                        <li class="mb-2 d-flex align-items-center gap-2"><i class="fas fa-check-circle" style="color: #cbd5e1;"></i> <strong>Data Historian nativo:</strong> Registra variables de proceso y diagnósticos con estampa de tiempo para auditorías.</li>
+                                                        <li class="mb-2 d-flex align-items-center gap-2"><i class="fas fa-check-circle" style="color: #cbd5e1;"></i> <strong>Conectividad flexible:</strong> Puertos Ethernet nativos, Modbus RTU/TCP y salidas duales configurables.</li>
+                                                    </ul>
+                                                </div>
                                                 
-                                                <div class="d-flex align-items-center">
-                                                    <a href="https://www.emerson.com/es-es/catalog/micro-motion-5700" target="_blank" rel="noopener noreferrer" class="btn btn-sm px-3 py-1 fw-semibold text-white rounded-pill d-inline-flex align-items-center gap-1" style="background: rgba(203, 213, 225, 0.25); border: 1px solid rgba(203, 213, 225, 0.5); font-size: 0.82rem; transition: all 0.25s ease;" onmouseover="this.style.background='#cbd5e1'; this.style.color='#0f172a';" onmouseout="this.style.background='rgba(203, 213, 225, 0.25)'; this.style.color='#ffffff';">
-                                                        <span>Ver más detalles</span> <i class="fas fa-arrow-up-right-from-square small ms-1"></i>
+                                                <div class="d-flex align-items-center pt-3 border-top border-secondary">
+                                                    <a href="https://www.emerson.com/es-es/catalog/micro-motion-5700" target="_blank" rel="noopener noreferrer" class="btn btn-sm px-4 py-2 fw-semibold text-white rounded-pill d-inline-flex align-items-center gap-2" style="background: rgba(203, 213, 225, 0.3); border: 1px solid rgba(203, 213, 225, 0.6); font-size: 0.85rem; transition: all 0.25s ease;" onmouseover="this.style.background='#cbd5e1'; this.style.color='#0f172a'; this.style.transform='translateY(-2px)';" onmouseout="this.style.background='rgba(203, 213, 225, 0.3)'; this.style.color='#ffffff'; this.style.transform='none';">
+                                                        <span>Ver más detalles</span> <i class="fas fa-arrow-up-right-from-square small"></i>
                                                     </a>
                                                 </div>
                                             </div>
@@ -6571,9 +6298,9 @@
                                         <!-- 1 GRANDE EN LA IZQUIERDA -->
                                         <div class="col-12 col-xl-6">
                                             <div class="featured-large-product-card rounded-3 overflow-hidden position-relative h-100 d-flex flex-column justify-content-between" style="min-height: 440px; background: rgba(2, 6, 23, 0.8); border: 1.5px solid rgba(34, 197, 94, 0.45); box-shadow: 0 15px 35px rgba(0,0,0,0.5);">
-                                                <div class="featured-media-stage position-relative flex-grow-1 d-flex align-items-center justify-content-center p-4" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: radial-gradient(circle, rgba(34, 197, 94, 0.28) 0%, rgba(2, 6, 23, 0.6) 80%); cursor: pointer; min-height: 250px;">
+                                                <div class="featured-media-stage position-relative flex-grow-1 d-flex align-items-center justify-content-center" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: #ffffff; cursor: pointer; min-height: 260px; padding: 8px;">
                                                     <button type="button" class="product-expand-badge position-absolute top-0 end-0 m-3" title="Agrandar"><i class="fas fa-expand"></i></button>
-                                                    <img src="img/products/fluenta/Fluenta TFS Ultrasonic Transducers.jpeg" alt="Fluenta TFS Ultrasonic Transducers" class="featured-hero-img" style="max-height: 230px; max-width: 88%; object-fit: contain; filter: drop-shadow(0 8px 20px rgba(0,0,0,0.5)); transition: transform 0.35s ease;">
+                                                    <img src="img/products/fluenta/Fluenta TFS Ultrasonic Transducers.jpeg" alt="Fluenta TFS Ultrasonic Transducers" class="featured-hero-img" style="height: 100%; width: 100%; max-height: 310px; object-fit: contain; transition: transform 0.35s ease;">
                                                 </div>
                                                 
                                                 <!-- Overlay inferior con Blur, Título, Descripción y Enlace -->
@@ -6590,13 +6317,13 @@
                                             </div>
                                         </div>
 
-                                        <!-- COMPACTOS EN LA DERECHA (EXPANDIDOS HASTA ABAJO + 5º CENTRADO) -->
+                                        <!-- COMPACTOS EN LA DERECHA (EXPANDIDOS HASTA EL TOPE + 5º CENTRADO) -->
                                         <div class="col-12 col-xl-6">
                                             <div class="compact-products-grid h-100">
                                                 
                                                 <div class="compact-product-card rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
-                                                    <div class="compact-media-wrap" style="background: radial-gradient(circle, rgba(34, 197, 94, 0.20) 0%, rgba(2, 6, 23, 0.5) 80%);">
-                                                        <img src="img/products/fluenta/FlarePhase 250.jpeg" alt="FlarePhase 250" class="compact-product-img">
+                                                    <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
+                                                        <img src="img/products/fluenta/FlarePhase 250.jpeg" alt="FlarePhase 250" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
                                                     </div>
                                                     <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                                         <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="FlarePhase 250">FlarePhase 250</div>
@@ -6604,8 +6331,8 @@
                                                 </div>
                                                 
                                                 <div class="compact-product-card rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
-                                                    <div class="compact-media-wrap" style="background: radial-gradient(circle, rgba(34, 197, 94, 0.20) 0%, rgba(2, 6, 23, 0.5) 80%);">
-                                                        <img src="img/products/fluenta/FlarePhase 350.jpeg" alt="FlarePhase 350" class="compact-product-img">
+                                                    <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
+                                                        <img src="img/products/fluenta/FlarePhase 350.jpeg" alt="FlarePhase 350" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
                                                     </div>
                                                     <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                                         <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="FlarePhase 350">FlarePhase 350</div>
@@ -6613,8 +6340,8 @@
                                                 </div>
                                                 
                                                 <div class="compact-product-card rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
-                                                    <div class="compact-media-wrap" style="background: radial-gradient(circle, rgba(34, 197, 94, 0.20) 0%, rgba(2, 6, 23, 0.5) 80%);">
-                                                        <img src="img/products/fluenta/Fluenta TFS-55.jpeg" alt="Fluenta TFS-55" class="compact-product-img">
+                                                    <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
+                                                        <img src="img/products/fluenta/Fluenta TFS-55.jpeg" alt="Fluenta TFS-55" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
                                                     </div>
                                                     <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                                         <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="Fluenta TFS-55">Fluenta TFS-55</div>
@@ -6622,8 +6349,8 @@
                                                 </div>
                                                 
                                                 <div class="compact-product-card rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
-                                                    <div class="compact-media-wrap" style="background: radial-gradient(circle, rgba(34, 197, 94, 0.20) 0%, rgba(2, 6, 23, 0.5) 80%);">
-                                                        <img src="img/products/fluenta/Single-Path Configurations.jpeg" alt="Single-Path Configurations" class="compact-product-img">
+                                                    <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
+                                                        <img src="img/products/fluenta/Single-Path Configurations.jpeg" alt="Single-Path Configurations" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
                                                     </div>
                                                     <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                                         <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="Single-Path Configurations">Single-Path Configurations</div>
@@ -6632,8 +6359,8 @@
                                                 
                                                 <!-- 5º PRODUCTO (IMPAR) CENTRADO -->
                                                 <div class="compact-product-card compact-card-centered-odd rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
-                                                    <div class="compact-media-wrap" style="background: radial-gradient(circle, rgba(34, 197, 94, 0.20) 0%, rgba(2, 6, 23, 0.5) 80%);">
-                                                        <img src="img/products/fluenta/Dual-Path Configurations.jpeg" alt="Dual-Path Configurations" class="compact-product-img">
+                                                    <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
+                                                        <img src="img/products/fluenta/Dual-Path Configurations.jpeg" alt="Dual-Path Configurations" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
                                                     </div>
                                                     <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                                         <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="Dual-Path Configurations">Dual-Path Configurations</div>
@@ -6675,9 +6402,9 @@
                                         <!-- 1 GRANDE EN LA IZQUIERDA -->
                                         <div class="col-12 col-xl-6">
                                             <div class="featured-large-product-card rounded-3 overflow-hidden position-relative h-100 d-flex flex-column justify-content-between" style="min-height: 440px; background: rgba(2, 6, 23, 0.8); border: 1.5px solid rgba(249, 115, 22, 0.45); box-shadow: 0 15px 35px rgba(0,0,0,0.5);">
-                                                <div class="featured-media-stage position-relative flex-grow-1 d-flex align-items-center justify-content-center p-4" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: radial-gradient(circle, rgba(249, 115, 22, 0.28) 0%, rgba(2, 6, 23, 0.6) 80%); cursor: pointer; min-height: 250px;">
+                                                <div class="featured-media-stage position-relative flex-grow-1 d-flex align-items-center justify-content-center" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: #ffffff; cursor: pointer; min-height: 260px; padding: 8px;">
                                                     <button type="button" class="product-expand-badge position-absolute top-0 end-0 m-3" title="Agrandar"><i class="fas fa-expand"></i></button>
-                                                    <img src="img/products/kam/OWD Watercut Meter.jpeg" alt="OWD Watercut Meter" class="featured-hero-img" style="max-height: 230px; max-width: 88%; object-fit: contain; filter: drop-shadow(0 8px 20px rgba(0,0,0,0.5)); transition: transform 0.35s ease;">
+                                                    <img src="img/products/kam/OWD Watercut Meter.jpeg" alt="OWD Watercut Meter" class="featured-hero-img" style="height: 100%; width: 100%; max-height: 310px; object-fit: contain; transition: transform 0.35s ease;">
                                                 </div>
                                                 
                                                 <!-- Overlay inferior con Blur, Título, Descripción y Enlace -->
@@ -6694,13 +6421,13 @@
                                             </div>
                                         </div>
 
-                                        <!-- COMPACTOS EN LA DERECHA (EXPANDIDOS HASTA ABAJO + 7º CENTRADO) -->
+                                        <!-- COMPACTOS EN LA DERECHA (EXPANDIDOS HASTA EL TOPE + 7º CENTRADO) -->
                                         <div class="col-12 col-xl-6">
                                             <div class="compact-products-grid h-100">
                                                 
                                                 <div class="compact-product-card rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
-                                                    <div class="compact-media-wrap" style="background: radial-gradient(circle, rgba(249, 115, 22, 0.20) 0%, rgba(2, 6, 23, 0.5) 80%);">
-                                                        <img src="img/products/kam/ATD Automatic Tank Dewatering System.jpeg" alt="ATD Automatic Tank Dewatering System" class="compact-product-img">
+                                                    <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
+                                                        <img src="img/products/kam/ATD Automatic Tank Dewatering System.jpeg" alt="ATD Automatic Tank Dewatering System" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
                                                     </div>
                                                     <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                                         <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="ATD Automatic Tank Dewatering System">ATD Automatic Tank Dewatering System</div>
@@ -6708,8 +6435,8 @@
                                                 </div>
                                                 
                                                 <div class="compact-product-card rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
-                                                    <div class="compact-media-wrap" style="background: radial-gradient(circle, rgba(249, 115, 22, 0.20) 0%, rgba(2, 6, 23, 0.5) 80%);">
-                                                        <img src="img/products/kam/E-IAS Electric Isokinetic Automatic Sampler.jpeg" alt="E-IAS Electric Isokinetic Automatic Sampler" class="compact-product-img">
+                                                    <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
+                                                        <img src="img/products/kam/E-IAS Electric Isokinetic Automatic Sampler.jpeg" alt="E-IAS Electric Isokinetic Automatic Sampler" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
                                                     </div>
                                                     <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                                         <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="E-IAS Electric Isokinetic Automatic Sampler">E-IAS Electric Isokinetic Automatic Sampler</div>
@@ -6717,8 +6444,8 @@
                                                 </div>
                                                 
                                                 <div class="compact-product-card rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
-                                                    <div class="compact-media-wrap" style="background: radial-gradient(circle, rgba(249, 115, 22, 0.20) 0%, rgba(2, 6, 23, 0.5) 80%);">
-                                                        <img src="img/products/kam/IAS Isokinetic Automatic Sampler.jpeg" alt="IAS Isokinetic Automatic Sampler" class="compact-product-img">
+                                                    <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
+                                                        <img src="img/products/kam/IAS Isokinetic Automatic Sampler.jpeg" alt="IAS Isokinetic Automatic Sampler" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
                                                     </div>
                                                     <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                                         <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="IAS Isokinetic Automatic Sampler">IAS Isokinetic Automatic Sampler</div>
@@ -6726,8 +6453,8 @@
                                                 </div>
                                                 
                                                 <div class="compact-product-card rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
-                                                    <div class="compact-media-wrap" style="background: radial-gradient(circle, rgba(249, 115, 22, 0.20) 0%, rgba(2, 6, 23, 0.5) 80%);">
-                                                        <img src="img/products/kam/KF Karl Fischer Moisture Analyzer.jpeg" alt="KF Karl Fischer Moisture Analyzer" class="compact-product-img">
+                                                    <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
+                                                        <img src="img/products/kam/KF Karl Fischer Moisture Analyzer.jpeg" alt="KF Karl Fischer Moisture Analyzer" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
                                                     </div>
                                                     <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                                         <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="KF Karl Fischer Moisture Analyzer">KF Karl Fischer Moisture Analyzer</div>
@@ -6735,8 +6462,8 @@
                                                 </div>
                                                 
                                                 <div class="compact-product-card rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
-                                                    <div class="compact-media-wrap" style="background: radial-gradient(circle, rgba(249, 115, 22, 0.20) 0%, rgba(2, 6, 23, 0.5) 80%);">
-                                                        <img src="img/products/kam/SMP Static Mixing Plate.jpeg" alt="SMP Static Mixing Plate" class="compact-product-img">
+                                                    <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
+                                                        <img src="img/products/kam/SMP Static Mixing Plate.jpeg" alt="SMP Static Mixing Plate" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
                                                     </div>
                                                     <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                                         <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="SMP Static Mixing Plate">SMP Static Mixing Plate</div>
@@ -6744,8 +6471,8 @@
                                                 </div>
                                                 
                                                 <div class="compact-product-card rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
-                                                    <div class="compact-media-wrap" style="background: radial-gradient(circle, rgba(249, 115, 22, 0.20) 0%, rgba(2, 6, 23, 0.5) 80%);">
-                                                        <img src="img/products/kam/SMS Static Mixing Spool.jpeg" alt="SMS Static Mixing Spool" class="compact-product-img">
+                                                    <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
+                                                        <img src="img/products/kam/SMS Static Mixing Spool.jpeg" alt="SMS Static Mixing Spool" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
                                                     </div>
                                                     <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                                         <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="SMS Static Mixing Spool">SMS Static Mixing Spool</div>
@@ -6754,8 +6481,8 @@
                                                 
                                                 <!-- 7º PRODUCTO (IMPAR) CENTRADO -->
                                                 <div class="compact-product-card compact-card-centered-odd rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
-                                                    <div class="compact-media-wrap" style="background: radial-gradient(circle, rgba(249, 115, 22, 0.20) 0%, rgba(2, 6, 23, 0.5) 80%);">
-                                                        <img src="img/products/kam/OWD Watercut Meter.jpeg" alt="Kam Controls Precision Sensor" class="compact-product-img">
+                                                    <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
+                                                        <img src="img/products/kam/OWD Watercut Meter.jpeg" alt="Kam Controls Precision Sensor" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
                                                     </div>
                                                     <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                                         <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="Kam Controls Precision Sensor">Kam Controls Precision Sensor</div>
@@ -7371,100 +7098,7 @@
             document.body.style.overflow = 'hidden';
         }
 
-            function onPointerUp() {
-                if (isDragging) {
-                    isDragging = false;
-                    if (dismissTimeoutId) clearTimeout(dismissTimeoutId);
-                    dismissTimeoutId = setTimeout(closeGlobeIntro, 4500);
-                }
-            }
-
-            const canvasWrapper = document.getElementById('globe-canvas-wrapper');
-            if (canvasWrapper) {
-                canvasWrapper.addEventListener('mousedown', onPointerDown);
-                window.addEventListener('mousemove', onPointerMove, { passive: true });
-                window.addEventListener('mouseup', onPointerUp);
-
-                canvasWrapper.addEventListener('touchstart', onPointerDown, { passive: true });
-                window.addEventListener('touchmove', onPointerMove, { passive: true });
-                window.addEventListener('touchend', onPointerUp);
-            }
-
-            function closeGlobeIntro() {
-                if (globeOverlay && !isDragging) {
-                    globeOverlay.classList.add('hidden');
-                    if (animationFrameId) {
-                        cancelAnimationFrame(animationFrameId);
-                        animationFrameId = null;
-                    }
-                }
-            }
-
-            // dismissTimeoutId = setTimeout(closeGlobeIntro, 5200);
-
-            const skipBtn = document.getElementById('globe-skip-btn');
-            if (skipBtn) {
-                skipBtn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    closeGlobeIntro();
-                });
-            }
-
-            globeOverlay.addEventListener('click', (e) => {
-                if (!e.target.closest('#globe-canvas-wrapper')) {
-                    closeGlobeIntro();
-                }
-            });
-
-            const sidebarLogo = document.querySelector('.sidebar-heading img');
-            if (sidebarLogo) {
-                sidebarLogo.style.cursor = 'pointer';
-                sidebarLogo.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    if (globeOverlay) {
-                        globeOverlay.classList.remove('hidden');
-                        
-                        const wrapper = document.getElementById('globe-canvas-wrapper');
-                        const label = document.getElementById('globe-intro-label');
-                        const rings = document.querySelectorAll('.globe-ring');
-                        
-                        if (wrapper) {
-                            wrapper.style.animation = 'none';
-                            wrapper.offsetHeight; 
-                            wrapper.style.animation = 'globeIntroAnim 4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s forwards';
-                        }
-
-                        if (label) {
-                            label.style.animation = 'none';
-                            label.offsetHeight;
-                            label.style.animation = 'labelFadeIn 0.5s ease 1.6s forwards, labelFadeOut 0.4s ease 3.4s forwards';
-                        }
-
-                        rings.forEach(ring => {
-                            ring.style.animation = 'none';
-                            ring.offsetHeight;
-                            if (ring.classList.contains('globe-ring-gold')) {
-                                ring.style.animation = 'globeRingIntro 4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s forwards, ringRotate 4s linear 1.2s infinite';
-                            } else {
-                                ring.style.animation = 'globeRingIntro 4.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s forwards, ringRotateReverse 5s linear 1.2s infinite';
-                            }
-                        });
-
-                        if (typeof playAudioFx === 'function') {
-                            playAudioFx('scan');
-                        }
-
-                        if (!animationFrameId) {
-                            draw3DGlobe();
-                        }
-
-                        if (dismissTimeoutId) clearTimeout(dismissTimeoutId);
-                        dismissTimeoutId = setTimeout(closeGlobeIntro, 5200);
-                    }
-                });
-            }
-        }
-    });
+            
 </script>
 
 <!-- MODAL DE VIDEO ECHOMETER PANTALLA COMPLETA -->
@@ -7576,7 +7210,6 @@
                 e.stopPropagation();
             }
 
-            // Pausar solo videos visibles que se estén reproduciendo
             document.querySelectorAll('video').forEach(function(v) {
                 if (v.id !== 'aictech-intro-video' && !v.paused) {
                     v.dataset.wasPlaying = 'true';
@@ -7588,18 +7221,15 @@
             const video = document.getElementById('aictech-intro-video');
             if (!modal || !video) return;
 
-            // Abrir modal con animación fluida a 60fps
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
 
-            // Click en video para pausar / reproducir sin barras de herramientas
             video.onclick = function(ev) {
                 ev.stopPropagation();
                 if (video.paused) video.play();
                 else video.pause();
             };
 
-            // Iniciar video tras completar la animación de entrada (160ms) para cero lag
             setTimeout(function() {
                 video.currentTime = 0;
                 video.muted = false;
@@ -7618,111 +7248,149 @@
             const video = document.getElementById('aictech-intro-video');
             if (video) {
                 video.pause();
+                video.currentTime = 0;
             }
-            if (modal) {
-                modal.classList.remove('active');
-            }
+            if (modal) modal.classList.remove('active');
             document.body.style.overflow = '';
+
+            document.querySelectorAll('video').forEach(function(v) {
+                if (v.dataset.wasPlaying === 'true') {
+                    delete v.dataset.wasPlaying;
+                    v.play().catch(function() {});
+                }
+            });
         };
 
         // ==========================================
-        // EXPANDIR FOTOS DE PRODUCTOS EN LIGHTBOX HD
+        // EXPANDIR VIDEO / FOTO A PANTALLA COMPLETA (60FPS LIGHTBOX)
         // ==========================================
-        window.expandMediaFromElement = function(elem) {
-            if (!elem) return;
-            const card = elem.closest('.featured-large-product-card') || elem.closest('.compact-product-card') || elem.closest('.emerson-product-card') || elem.closest('.featured-product-card-large') || elem.parentElement;
-            const img = elem.tagName === 'IMG' ? elem : elem.querySelector('img');
-            if (!img) return;
-
-            let title = '';
-            if (card) {
-                const titleElem = card.querySelector('.product-card-title, h4, h3, .compact-title-bar div, h5, h6');
-                if (titleElem) title = titleElem.innerText.replace(/[\r\n]+/g, ' ').trim();
-            }
-            if (!title && img.alt) {
-                title = img.alt;
-            }
+        window.expandCardMedia = function(target) {
+            if (!target) return;
+            const card = target.closest('.service-flip-card') || target.closest('.featured-large-product-card') || target.closest('.compact-product-card') || target.closest('.service-video-wrap') || target;
+            if (!card) return;
 
             const stage = document.getElementById('media-lightbox-stage');
-            const titleNode = document.getElementById('media-lightbox-title');
+            const titleElem = document.getElementById('media-lightbox-title');
             const modal = document.getElementById('media-lightbox-modal');
             if (!stage || !modal) return;
 
-            // Pausar cualquier video activo de fondo
             window.pauseAllBackgroundVideos();
-
             stage.innerHTML = '';
-            const newImg = document.createElement('img');
-            newImg.src = img.src;
-            newImg.alt = title || img.alt || 'Producto en Alta Resolución';
-            newImg.style.maxHeight = '85vh';
-            newImg.style.maxWidth = '90vw';
-            newImg.style.objectFit = 'contain';
-            newImg.style.borderRadius = '12px';
-            stage.appendChild(newImg);
-            if (titleNode) titleNode.textContent = title || img.alt || 'Visualización en Alta Resolución';
+
+            let title = '';
+            const titleNode = card.querySelector('.service-front-title, .service-tech-title, .brand-card-title, .service-video-tag, h3, h4, h5, h6');
+            if (titleNode) {
+                title = titleNode.innerText.replace(/[\r\n]+/g, ' ').trim();
+            }
+
+            const activeSlide = card.querySelector('.card-slide-item.active');
+            const scope = activeSlide || card;
+
+            const img = scope.querySelector('img.card-slide-img, img.compact-product-img, img.featured-hero-img, img');
+            const video = scope.querySelector('video:not(.roxar-video-ambient-blur)') || scope.querySelector('video');
+
+            if (activeSlide && activeSlide.getAttribute('data-type') === 'image' && img) {
+                const newImg = document.createElement('img');
+                newImg.src = img.src;
+                newImg.alt = title || 'Visualización en alta resolución';
+                newImg.style.maxHeight = '85vh';
+                newImg.style.maxWidth = '90vw';
+                newImg.style.objectFit = 'contain';
+                newImg.style.borderRadius = '12px';
+                stage.appendChild(newImg);
+            } else if (video) {
+                const newVid = document.createElement('video');
+                newVid.controls = false;
+                newVid.autoplay = true;
+                newVid.loop = true;
+                newVid.playsInline = true;
+                newVid.muted = false;
+                newVid.setAttribute('playsinline', '');
+                newVid.setAttribute('webkit-playsinline', '');
+                newVid.setAttribute('disablePictureInPicture', '');
+                newVid.style.width = '100%';
+                newVid.style.maxHeight = '85vh';
+                newVid.style.objectFit = 'contain';
+                newVid.style.borderRadius = '12px';
+                newVid.style.cursor = 'pointer';
+                newVid.title = 'Haga clic para pausar / reanudar';
+
+                newVid.addEventListener('click', function(ev) {
+                    ev.stopPropagation();
+                    if (newVid.paused) newVid.play();
+                    else newVid.pause();
+                });
+
+                const src = video.currentSrc || (video.querySelector('source') ? video.querySelector('source').src : video.src);
+                newVid.src = src;
+                stage.appendChild(newVid);
+
+                requestAnimationFrame(() => {
+                    newVid.play().catch(function() {
+                        newVid.muted = true;
+                        newVid.play().catch(function() {});
+                    });
+                });
+            } else if (img) {
+                const newImg = document.createElement('img');
+                newImg.src = img.src;
+                newImg.alt = title || 'Visualización en alta resolución';
+                newImg.style.maxHeight = '85vh';
+                newImg.style.maxWidth = '90vw';
+                newImg.style.objectFit = 'contain';
+                newImg.style.borderRadius = '12px';
+                stage.appendChild(newImg);
+            }
+
+            if (titleElem) {
+                titleElem.innerText = title || 'Visualización Técnica HD';
+            }
+
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
+        };
+
+        window.expandMediaFromElement = function(elem) {
+            window.expandCardMedia(elem);
         };
 
         window.closeMediaLightbox = function() {
             const modal = document.getElementById('media-lightbox-modal');
             const stage = document.getElementById('media-lightbox-stage');
-            if (!modal) return;
-
             if (stage) {
-                const video = stage.querySelector('video');
-                if (video) {
-                    video.pause();
+                const v = stage.querySelector('video');
+                if (v) {
+                    v.pause();
+                    v.src = '';
                 }
                 stage.innerHTML = '';
             }
 
-            modal.classList.remove('active');
+            if (modal) modal.classList.remove('active');
             document.body.style.overflow = '';
         };
 
         // ==========================================
-        // DELEGATED EVENT LISTENERS
+        // NAVEGACIÓN FLUIDA EN SIDEBAR (#page-content-wrapper)
         // ==========================================
-        $(document).on('click', '.product-card-media-wrapper, .product-expand-badge, .emerson-product-img', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            window.expandMediaFromElement(this);
-        });
-
-        $(document).on('click', '.sidebar-heading a, .sidebar-heading img', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            window.openAictechIntroModal(e);
-        });
-
-        $(document).on('keydown', function(e) {
-            if (e.key === 'Escape') {
-                window.closeMediaLightbox();
-                window.closeAictechIntroModal();
-            }
-        });
-
-        // ==========================================
-        // NAVEGACIÓN FLUIDA, INTERSECTION OBSERVER 60FPS Y CONTROLES
-        // ==========================================
-
-        // Navegación ultra-fluida y rápida hacia cualquier sección
         window.fluidNavigateTo = function(targetId) {
+            if (!targetId) return;
             const el = document.getElementById(targetId);
             if (!el) return;
 
-            const headerOffset = 20;
-            const elementPosition = el.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            const wrapper = document.getElementById('page-content-wrapper');
+            if (wrapper) {
+                const elRect = el.getBoundingClientRect();
+                const wrapperRect = wrapper.getBoundingClientRect();
+                const scrollPos = wrapper.scrollTop + (elRect.top - wrapperRect.top) - 15;
+                wrapper.scrollTo({
+                    top: Math.max(0, scrollPos),
+                    behavior: 'smooth'
+                });
+            } else {
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
 
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-
-            // Resalte temporal suave
             el.classList.remove('target-service-highlight');
             void el.offsetWidth;
             el.classList.add('target-service-highlight');
@@ -7731,7 +7399,7 @@
             }, 1800);
         };
 
-        // Toggle del Acordeón EMERSON (Flecha hacia arriba si abierto, hacia abajo si cerrado)
+        // Toggle del Acordeón EMERSON
         $(document).on('click', '#emerson-nested-toggle', function(e) {
             e.preventDefault();
             e.stopPropagation();
@@ -7749,35 +7417,33 @@
             }
         });
 
-        // Navegación desde el submenú de Productos
-        $(document).on('click', '.sidebar-nested-submenu .submenu-link, .brand-menu-item, #productos-submenu > a.submenu-link', function(e) {
-            const targetId = $(this).data('target') || $(this).attr('data-target');
-            if (!targetId) return;
-
+        // Navegación desde el submenú de Productos (Roxar, Flexim, AMS Trex, Rosemount, Micro Motion, Fluenta, Kam)
+        $(document).on('click', '#productos-submenu a.submenu-link, .sidebar-nested-submenu a.submenu-link', function(e) {
             e.preventDefault();
             e.stopPropagation();
 
-            // Abrir Sección 5
+            const targetId = $(this).data('target') || $(this).attr('data-target') || ($(this).attr('href') ? $(this).attr('href').replace('#', '') : '');
+            if (!targetId) return;
+
             openPage(5);
             highlightMenu(5);
 
-            $('.sidebar-nested-submenu .submenu-link, #productos-submenu a.submenu-link').removeClass('active');
+            $('#productos-submenu a.submenu-link, .sidebar-nested-submenu a.submenu-link').removeClass('active');
             $(this).addClass('active');
 
             setTimeout(function() {
                 window.fluidNavigateTo(targetId);
-            }, 70);
+            }, 100);
         });
 
         // Navegación desde el submenú de Servicios (01 Multifásico, 02 Separadores, etc.)
         $(document).on('click', '#servicios-submenu a.submenu-link', function(e) {
-            const href = $(this).attr('href');
-            if (!href || href === '#' || href === '#0') return;
-            const targetId = href.replace('#', '');
-            if (!targetId) return;
-
             e.preventDefault();
             e.stopPropagation();
+
+            const href = $(this).attr('href');
+            const targetId = $(this).data('target') || $(this).attr('data-target') || (href ? href.replace('#', '') : '');
+            if (!targetId) return;
 
             openPage(2);
             highlightMenu(2);
@@ -7787,13 +7453,13 @@
 
             setTimeout(function() {
                 window.fluidNavigateTo(targetId);
-            }, 70);
+            }, 100);
         });
 
-        // Clic en Video de Servicio: Expansión inmediata a Lightbox HD en 1 clic
-        $(document).on('click', '.service-video-wrap', function(e) {
-            // Si el clic fue en el botón de ver detalles o controles de carrusel, no expandir a lightbox
-            if ($(e.target).closest('.service-flip-hint-badge, .service-flip-btn-back, .card-slider-pills, .card-slider-arrow').length > 0) {
+        // CLIC EN VIDEO DE SERVICIOS: Expansión inmediata a Lightbox HD en 1 clic
+        $(document).on('click', '.service-flip-front, .service-video-wrap', function(e) {
+            // Si el clic fue en el botón de ver detalles al dorso, voltear la tarjeta y no abrir modal
+            if ($(e.target).closest('.service-flip-hint-badge, .service-flip-btn-back, a, button:not(.service-media-expand-btn)').length > 0) {
                 return;
             }
             e.preventDefault();
@@ -7809,146 +7475,18 @@
             card.toggleClass('is-flipped');
         });
 
-        // =========================================================================
-        // OBSERVADOR ACTIVO 60FPS: SOLO REPRODUCE VIDEOS DE LA SECCIÓN VISIBLE
-        // Pausa automáticamente los videos de las demás secciones para máximo rendimiento
-        // =========================================================================
-        window.activeServiceObserver = null;
+        $(document).on('click', '.sidebar-heading a, .sidebar-heading img', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            window.openAictechIntroModal(e);
+        });
 
-        function updateServiceVideosPlayback() {
-            const page2 = document.querySelector('.cd-hero-slider > li[data-page-no="2"]');
-            const isPage2Active = page2 && page2.classList.contains('selected');
-
-            if (!isPage2Active) {
-                // Pausar absolutamente todos los videos de servicios si no estamos en la página 2
-                document.querySelectorAll('.cd-hero-slider > li[data-page-no="2"] video').forEach(v => {
-                    if (!v.paused) v.pause();
-                });
-                return;
+        $(document).on('keydown', function(e) {
+            if (e.key === 'Escape') {
+                window.closeMediaLightbox();
+                window.closeAictechIntroModal();
             }
-
-            const serviceArticles = document.querySelectorAll(
-                '#servicio-multifasico, #servicio-bifasico-trifasico, #servicio-flexim, ' +
-                '#servicio-echometer, #servicio-trasegado, #servicio-soldadura-taller, ' +
-                '#servicio-asistencia-automatizacion'
-            );
-
-            const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-
-            // Determinar qué servicio tiene mayor presencia en el viewport
-            let bestArticle = null;
-            let maxOverlap = 0;
-
-            serviceArticles.forEach(art => {
-                const rect = art.getBoundingClientRect();
-                const overlap = Math.max(0, Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0));
-                if (overlap > maxOverlap) {
-                    maxOverlap = overlap;
-                    bestArticle = art;
-                }
-            });
-
-            // Si hay un artículo visible predominante, reproducir solo sus videos y pausar el resto
-            serviceArticles.forEach(art => {
-                const vids = art.querySelectorAll('video');
-                if (art === bestArticle && maxOverlap >= 80) {
-                    vids.forEach(v => {
-                        v.muted = true;
-                        const p = v.play();
-                        if (p !== undefined) p.catch(() => {});
-                    });
-                } else {
-                    vids.forEach(v => {
-                        if (!v.paused) v.pause();
-                    });
-                }
-            });
-        }
-
-        (function initActiveSectionVideoObserver() {
-            const serviceArticles = document.querySelectorAll(
-                '#servicio-multifasico, #servicio-bifasico-trifasico, #servicio-flexim, ' +
-                '#servicio-echometer, #servicio-trasegado, #servicio-soldadura-taller, ' +
-                '#servicio-asistencia-automatizacion'
-            );
-
-            if ('IntersectionObserver' in window) {
-                window.activeServiceObserver = new IntersectionObserver((entries) => {
-                    const page2 = document.querySelector('.cd-hero-slider > li[data-page-no="2"]');
-                    if (!page2 || !page2.classList.contains('selected')) return;
-                    updateServiceVideosPlayback();
-                }, {
-                    root: null,
-                    threshold: [0.15, 0.35, 0.55]
-                });
-
-                serviceArticles.forEach(art => window.activeServiceObserver.observe(art));
-            }
-
-            // Integrar con scroll throttled a 60fps usando requestAnimationFrame
-            let ticking = false;
-            window.addEventListener('scroll', function() {
-                if (!ticking) {
-                    window.requestAnimationFrame(function() {
-                        const page2 = document.querySelector('.cd-hero-slider > li[data-page-no="2"]');
-                        if (page2 && page2.classList.contains('selected')) {
-                            updateServiceVideosPlayback();
-                        }
-                        ticking = false;
-                    });
-                    ticking = true;
-                }
-            }, { passive: true });
-        })();
-    
-        // =========================================================================
-        // REVELADO INTELIGENTE DEL FOOTER AL LLEGAR AL FINAL DEL SCROLL
-        // =========================================================================
-        function checkFooterRevealOnScroll() {
-            const footer = document.querySelector('footer.site-footer');
-            if (!footer) return;
-
-            const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-            const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-            const docHeight = Math.max(
-                document.body.scrollHeight, document.documentElement.scrollHeight,
-                document.body.offsetHeight, document.documentElement.offsetHeight,
-                document.body.clientHeight, document.documentElement.clientHeight
-            );
-
-            const distFromBottom = docHeight - (scrollY + viewportHeight);
-            if (distFromBottom <= 90) {
-                footer.classList.add('footer-revealed');
-            } else {
-                footer.classList.remove('footer-revealed');
-            }
-        }
-
-        window.addEventListener('scroll', checkFooterRevealOnScroll, { passive: true });
-
-        // =========================================================================
-        // OBSERVADOR DE PROFUNDIDAD 3D WEBFLOW EN SECCIÓN 5 (PRODUCTOS)
-        // =========================================================================
-        (function init3DProductObserver() {
-            const cards = document.querySelectorAll('.brand-snapping-card-section.is-3d-card');
-            if (!cards.length || !('IntersectionObserver' in window)) return;
-
-            const observer3d = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting && entry.intersectionRatio >= 0.25) {
-                        entry.target.classList.add('is-3d-active');
-                    } else if (!entry.isIntersecting || entry.intersectionRatio < 0.15) {
-                        entry.target.classList.remove('is-3d-active');
-                    }
-                });
-            }, {
-                root: null,
-                threshold: [0.15, 0.25, 0.50]
-            });
-
-            cards.forEach(card => observer3d.observe(card));
-        })();
-
+        });
     </script>
 
 <!-- MODAL INTRO CINEMÁTICO AICTECH (INICIO-AIC.MP4) -->

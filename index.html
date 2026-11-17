@@ -3833,7 +3833,8 @@
             transform: scale(1.08);
         }
         .media-lightbox-stage {
-            width: 100%;
+            width: auto;
+            max-width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -7552,21 +7553,23 @@
         window.loadShowroomVideo = loadShowroomVideo;
         window.renderShowroomPlaylist = renderShowroomPlaylist;
 
-        // ==========================================
+                // ==========================================
         // LIGHTBOX EXPAND PARA VIDEOS Y FOTOS HD (AISLADO PARA MÁXIMA FLUIDEZ)
         // ==========================================
-        window.expandCardMedia = function(btn) {
-            // Pausar solo videos activos en segundo plano para destinar el 100% de GPU al video expandido
-            const activeVids = document.querySelectorAll('video:not(#media-lightbox-stage video)');
-            for (let i = 0; i < activeVids.length; i++) {
-                if (!activeVids[i].paused) {
-                    activeVids[i].dataset.wasPlaying = 'true';
-                    activeVids[i].pause();
-                }
-            }
+        window.expandCardMedia = function(target) {
+            if (!target) return;
 
-            const card = btn.closest('.service-flip-card') || btn.closest('.featured-large-product-card') || btn.closest('.compact-product-card') || btn.closest('.center-split-card-wrapper') || btn.closest('.center-split-interior') || btn.closest('.service-video-wrap') || btn;
-            if (!card) return;
+            // Pausar todos los videos de fondo para destinar el 100% de recursos al lightbox
+            if (typeof window.pauseAllBackgroundVideos === 'function') {
+                window.pauseAllBackgroundVideos();
+            } else {
+                document.querySelectorAll('video').forEach(function(v) {
+                    if (!v.paused) {
+                        v.dataset.wasPlaying = 'true';
+                        v.pause();
+                    }
+                });
+            }
 
             const stage = document.getElementById('media-lightbox-stage');
             const titleElem = document.getElementById('media-lightbox-title');
@@ -7575,25 +7578,82 @@
 
             stage.innerHTML = '';
 
-            let title = '';
-            const titleNode = card.querySelector('.service-tech-title, .brand-card-title, .service-video-tag, .card-slide-caption, .service-front-title, h4, h5, h6');
-            if (titleNode) {
-                title = titleNode.innerText.replace(/[\r\n]+/g, ' ').trim();
+            // 1. Encontrar el contenedor lógico más representativo
+            const card = target.closest('.service-flip-card') 
+                || target.closest('.featured-large-product-card') 
+                || target.closest('.compact-product-card') 
+                || target.closest('.center-split-card-wrapper') 
+                || target.closest('.center-split-interior') 
+                || target.closest('.service-video-wrap') 
+                || target.closest('.row') 
+                || target;
+
+            // 2. Localizar Video o Imagen de alta resolución
+            let img = null;
+            let video = null;
+
+            // Caso A: Slider interactivo activo (Servicios)
+            const activeSlide = card ? card.querySelector('.card-slide-item.active') : null;
+            if (activeSlide) {
+                if (activeSlide.getAttribute('data-type') === 'image') {
+                    img = activeSlide.querySelector('img');
+                } else {
+                    video = activeSlide.querySelector('video');
+                }
             }
 
-            const activeSlide = card.querySelector('.card-slide-item.active');
-            const scope = activeSlide || card;
+            // Caso B: Clic directo en tag IMG o VIDEO
+            if (!img && !video) {
+                if (target.tagName === 'IMG') {
+                    img = target;
+                } else if (target.tagName === 'VIDEO') {
+                    video = target;
+                }
+            }
 
-            const img = scope.querySelector('img.card-slide-img, img.roxar-card-img, img.compact-product-img, img.featured-hero-img, img');
-            const fgVideo = scope.querySelector('video.roxar-card-video-foreground');
-            const video = fgVideo || scope.querySelector('video:not(.roxar-video-ambient-blur)') || scope.querySelector('video');
+            // Caso C: Tarjetas de producto (Roxar, Flexim, AMS Trex, Rosemount, Micro Motion, Fluenta, Kam Controls)
+            if (!img && !video && target.querySelector) {
+                img = target.querySelector('img.featured-hero-img, img.compact-product-img, .center-split-interior img, img');
+            }
 
-            if (activeSlide && activeSlide.getAttribute('data-type') === 'image' && img) {
-                const newImg = document.createElement('img');
-                newImg.src = img.src;
-                newImg.alt = title || 'Visualización en alta resolución';
-                stage.appendChild(newImg);
-            } else if (video) {
+            // Caso D: Video en primer plano de servicios
+            if (!img && !video && card) {
+                const fgVideo = card.querySelector('video.roxar-card-video-foreground');
+                video = fgVideo || card.querySelector('video:not(.roxar-video-ambient-blur)') || card.querySelector('video');
+            }
+
+            // Caso E: Imagen contenida en card
+            if (!video && !img && card) {
+                img = card.querySelector('img.card-slide-img, img.roxar-card-img, img.compact-product-img, img.featured-hero-img, img');
+            }
+
+            // 3. Determinar el título técnico con máxima fidelidad
+            let title = '';
+            if (img && img.getAttribute('alt') && img.getAttribute('alt').trim().length > 3) {
+                title = img.getAttribute('alt').trim();
+            }
+            if (!title && card) {
+                const titleNode = card.querySelector('.service-tech-title, .brand-card-title, .service-video-tag, .card-slide-caption, .service-front-title, .compact-title-bar div, h3, h4, h5, h6');
+                if (titleNode) {
+                    title = titleNode.innerText.replace(/[\r\n]+/g, ' ').trim();
+                }
+            }
+            if (!title) {
+                const tAttr = target.getAttribute('title') || (card && card.getAttribute('title'));
+                if (tAttr && !tAttr.toLowerCase().includes('haga clic') && !tAttr.toLowerCase().includes('agrandar') && !tAttr.toLowerCase().includes('pasa el ratón')) {
+                    title = tAttr.trim();
+                }
+            }
+            if (!title) {
+                const row = target.closest('.row');
+                if (row) {
+                    const h = row.querySelector('h3, h4, h5');
+                    if (h) title = h.innerText.replace(/[\r\n]+/g, ' ').trim();
+                }
+            }
+
+            // 4. Inyectar contenido en el visor HD
+            if (video) {
                 const newVid = document.createElement('video');
                 newVid.controls = false;
                 newVid.autoplay = true;
@@ -7604,14 +7664,14 @@
                 newVid.setAttribute('webkit-playsinline', '');
                 newVid.setAttribute('disablePictureInPicture', '');
                 newVid.style.width = '100%';
-                newVid.style.height = '100%';
+                newVid.style.maxHeight = '80vh';
                 newVid.style.objectFit = 'contain';
                 newVid.style.borderRadius = '12px';
                 newVid.style.cursor = 'pointer';
                 newVid.title = 'Haga clic para pausar / reanudar';
 
-                newVid.addEventListener('click', function(e) {
-                    e.stopPropagation();
+                newVid.addEventListener('click', function(ev) {
+                    ev.stopPropagation();
                     if (newVid.paused) newVid.play();
                     else newVid.pause();
                 });
@@ -7620,13 +7680,26 @@
                 newVid.src = src;
                 stage.appendChild(newVid);
 
-                // Iniciar reproducción suave a 60fps con requestAnimationFrame
                 requestAnimationFrame(() => {
                     newVid.play().catch(function() {
                         newVid.muted = true;
                         newVid.play().catch(function() {});
                     });
                 });
+            } else if (img) {
+                const newImg = document.createElement('img');
+                newImg.src = img.currentSrc || img.src;
+                newImg.alt = title || 'Visualización en alta resolución';
+                newImg.style.maxHeight = '78vh';
+                newImg.style.maxWidth = '88vw';
+                newImg.style.objectFit = 'contain';
+                newImg.style.borderRadius = '10px';
+                newImg.style.display = 'block';
+                newImg.style.margin = '0 auto';
+                newImg.style.background = '#ffffff';
+                newImg.style.padding = '16px';
+                newImg.style.boxShadow = '0 10px 40px rgba(0,0,0,0.6)';
+                stage.appendChild(newImg);
             }
 
             if (titleElem) {
@@ -7635,7 +7708,7 @@
 
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
-        }
+        };
     }); // end DOMContentLoaded
 
 </script>
@@ -7800,44 +7873,107 @@
             });
         };
 
-        // ==========================================
-        // EXPANDIR VIDEO / FOTO A PANTALLA COMPLETA (60FPS LIGHTBOX)
+                // ==========================================
+        // LIGHTBOX EXPAND PARA VIDEOS Y FOTOS HD (AISLADO PARA MÁXIMA FLUIDEZ)
         // ==========================================
         window.expandCardMedia = function(target) {
             if (!target) return;
-            const card = target.closest('.service-flip-card') || target.closest('.featured-large-product-card') || target.closest('.compact-product-card') || target.closest('.service-video-wrap') || target;
-            if (!card) return;
+
+            // Pausar todos los videos de fondo para destinar el 100% de recursos al lightbox
+            if (typeof window.pauseAllBackgroundVideos === 'function') {
+                window.pauseAllBackgroundVideos();
+            } else {
+                document.querySelectorAll('video').forEach(function(v) {
+                    if (!v.paused) {
+                        v.dataset.wasPlaying = 'true';
+                        v.pause();
+                    }
+                });
+            }
 
             const stage = document.getElementById('media-lightbox-stage');
             const titleElem = document.getElementById('media-lightbox-title');
             const modal = document.getElementById('media-lightbox-modal');
             if (!stage || !modal) return;
 
-            window.pauseAllBackgroundVideos();
             stage.innerHTML = '';
 
-            let title = '';
-            const titleNode = card.querySelector('.service-front-title, .service-tech-title, .brand-card-title, .service-video-tag, h3, h4, h5, h6');
-            if (titleNode) {
-                title = titleNode.innerText.replace(/[\r\n]+/g, ' ').trim();
+            // 1. Encontrar el contenedor lógico más representativo
+            const card = target.closest('.service-flip-card') 
+                || target.closest('.featured-large-product-card') 
+                || target.closest('.compact-product-card') 
+                || target.closest('.center-split-card-wrapper') 
+                || target.closest('.center-split-interior') 
+                || target.closest('.service-video-wrap') 
+                || target.closest('.row') 
+                || target;
+
+            // 2. Localizar Video o Imagen de alta resolución
+            let img = null;
+            let video = null;
+
+            // Caso A: Slider interactivo activo (Servicios)
+            const activeSlide = card ? card.querySelector('.card-slide-item.active') : null;
+            if (activeSlide) {
+                if (activeSlide.getAttribute('data-type') === 'image') {
+                    img = activeSlide.querySelector('img');
+                } else {
+                    video = activeSlide.querySelector('video');
+                }
             }
 
-            const activeSlide = card.querySelector('.card-slide-item.active');
-            const scope = activeSlide || card;
+            // Caso B: Clic directo en tag IMG o VIDEO
+            if (!img && !video) {
+                if (target.tagName === 'IMG') {
+                    img = target;
+                } else if (target.tagName === 'VIDEO') {
+                    video = target;
+                }
+            }
 
-            const img = scope.querySelector('img.card-slide-img, img.compact-product-img, img.featured-hero-img, img');
-            const video = scope.querySelector('video:not(.roxar-video-ambient-blur)') || scope.querySelector('video');
+            // Caso C: Tarjetas de producto (Roxar, Flexim, AMS Trex, Rosemount, Micro Motion, Fluenta, Kam Controls)
+            if (!img && !video && target.querySelector) {
+                img = target.querySelector('img.featured-hero-img, img.compact-product-img, .center-split-interior img, img');
+            }
 
-            if (activeSlide && activeSlide.getAttribute('data-type') === 'image' && img) {
-                const newImg = document.createElement('img');
-                newImg.src = img.src;
-                newImg.alt = title || 'Visualización en alta resolución';
-                newImg.style.maxHeight = '85vh';
-                newImg.style.maxWidth = '90vw';
-                newImg.style.objectFit = 'contain';
-                newImg.style.borderRadius = '12px';
-                stage.appendChild(newImg);
-            } else if (video) {
+            // Caso D: Video en primer plano de servicios
+            if (!img && !video && card) {
+                const fgVideo = card.querySelector('video.roxar-card-video-foreground');
+                video = fgVideo || card.querySelector('video:not(.roxar-video-ambient-blur)') || card.querySelector('video');
+            }
+
+            // Caso E: Imagen contenida en card
+            if (!video && !img && card) {
+                img = card.querySelector('img.card-slide-img, img.roxar-card-img, img.compact-product-img, img.featured-hero-img, img');
+            }
+
+            // 3. Determinar el título técnico con máxima fidelidad
+            let title = '';
+            if (img && img.getAttribute('alt') && img.getAttribute('alt').trim().length > 3) {
+                title = img.getAttribute('alt').trim();
+            }
+            if (!title && card) {
+                const titleNode = card.querySelector('.service-tech-title, .brand-card-title, .service-video-tag, .card-slide-caption, .service-front-title, .compact-title-bar div, h3, h4, h5, h6');
+                if (titleNode) {
+                    title = titleNode.innerText.replace(/[\r\n]+/g, ' ').trim();
+                }
+            }
+            if (!title) {
+                const tAttr = target.getAttribute('title') || (card && card.getAttribute('title'));
+                if (tAttr && !tAttr.toLowerCase().includes('haga clic') && !tAttr.toLowerCase().includes('agrandar') && !tAttr.toLowerCase().includes('pasa el ratón')) {
+                    title = tAttr.trim();
+                }
+            }
+            if (!title) {
+                const row = target.closest('.row');
+                if (row) {
+                    const h = row.querySelector('h3, h4, h5');
+                    if (h) title = h.innerText.replace(/[\r\n]+/g, ' ').trim();
+                }
+            }
+
+            // 4. Inyectar contenido en el visor HD
+            if (video) {
                 const newVid = document.createElement('video');
                 newVid.controls = false;
                 newVid.autoplay = true;
@@ -7848,7 +7984,7 @@
                 newVid.setAttribute('webkit-playsinline', '');
                 newVid.setAttribute('disablePictureInPicture', '');
                 newVid.style.width = '100%';
-                newVid.style.maxHeight = '85vh';
+                newVid.style.maxHeight = '80vh';
                 newVid.style.objectFit = 'contain';
                 newVid.style.borderRadius = '12px';
                 newVid.style.cursor = 'pointer';
@@ -7872,12 +8008,17 @@
                 });
             } else if (img) {
                 const newImg = document.createElement('img');
-                newImg.src = img.src;
+                newImg.src = img.currentSrc || img.src;
                 newImg.alt = title || 'Visualización en alta resolución';
-                newImg.style.maxHeight = '85vh';
-                newImg.style.maxWidth = '90vw';
+                newImg.style.maxHeight = '78vh';
+                newImg.style.maxWidth = '88vw';
                 newImg.style.objectFit = 'contain';
-                newImg.style.borderRadius = '12px';
+                newImg.style.borderRadius = '10px';
+                newImg.style.display = 'block';
+                newImg.style.margin = '0 auto';
+                newImg.style.background = '#ffffff';
+                newImg.style.padding = '16px';
+                newImg.style.boxShadow = '0 10px 40px rgba(0,0,0,0.6)';
                 stage.appendChild(newImg);
             }
 
@@ -7888,7 +8029,6 @@
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
         };
-
         window.expandMediaFromElement = function(elem) {
             window.expandCardMedia(elem);
         };
@@ -7907,6 +8047,9 @@
 
             if (modal) modal.classList.remove('active');
             document.body.style.overflow = '';
+            if (typeof syncServiceVideosOnPage === 'function') {
+                syncServiceVideosOnPage();
+            }
         };
 
         // ==========================================

@@ -3906,6 +3906,228 @@
             border: 1px solid rgba(56, 182, 255, 0.3);
             background: #000000;
         }
+        .media-lightbox-stage.is-product-split {
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            border-radius: 0 !important;
+            max-height: none !important;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* MODAL SPLIT PARA DETALLES DE PRODUCTO (FOTO A LA IZQUIERDA + TEXTO Y ENLACE A LA DERECHA) */
+        .media-lightbox-split-card {
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            background: linear-gradient(145deg, rgba(11, 20, 38, 0.98) 0%, rgba(5, 11, 24, 0.99) 100%);
+            border: 1.5px solid rgba(56, 182, 255, 0.35);
+            border-radius: 18px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.88), 0 0 45px rgba(8, 51, 117, 0.4);
+            max-width: 980px;
+            width: 95vw;
+            max-height: 85vh;
+            overflow: hidden;
+            position: relative;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            animation: lightboxSplitPopIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes lightboxSplitPopIn {
+            from {
+                opacity: 0;
+                transform: scale(0.94) translateY(14px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .lightbox-split-left {
+            flex: 1 1 46%;
+            max-width: 46%;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 28px;
+            min-height: 380px;
+            position: relative;
+        }
+
+        .lightbox-split-left img {
+            max-width: 100%;
+            max-height: 350px;
+            width: auto;
+            height: auto;
+            object-fit: contain !important;
+            background: transparent !important;
+            padding: 0 !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            transition: transform 0.35s ease;
+            filter: drop-shadow(0 4px 15px rgba(0,0,0,0.14));
+        }
+
+        .lightbox-split-left img:hover {
+            transform: scale(1.05);
+        }
+
+        .lightbox-split-right {
+            flex: 1 1 54%;
+            max-width: 54%;
+            padding: 34px 32px 30px 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+        .lightbox-brand-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+        }
+
+        .badge-roxar {
+            background: rgba(168, 85, 247, 0.22);
+            color: #c084fc;
+            border: 1px solid rgba(168, 85, 247, 0.55);
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+        }
+
+        .badge-rosemount {
+            background: rgba(56, 189, 248, 0.22);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.55);
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+        }
+
+        .badge-fluenta {
+            background: rgba(34, 197, 94, 0.22);
+            color: #4ade80;
+            border: 1px solid rgba(34, 197, 94, 0.55);
+            box-shadow: 0 0 15px rgba(34, 197, 94, 0.3);
+        }
+
+        .badge-kamcontrols, .badge-kam {
+            background: rgba(249, 115, 22, 0.22);
+            color: #fb923c;
+            border: 1px solid rgba(249, 115, 22, 0.55);
+            box-shadow: 0 0 15px rgba(249, 115, 22, 0.3);
+        }
+
+        .badge-flexim {
+            background: rgba(20, 184, 166, 0.22);
+            color: #2dd4bf;
+            border: 1px solid rgba(20, 184, 166, 0.55);
+            box-shadow: 0 0 15px rgba(20, 184, 166, 0.3);
+        }
+
+        .badge-amstrex {
+            background: rgba(148, 163, 184, 0.22);
+            color: #cbd5e1;
+            border: 1px solid rgba(148, 163, 184, 0.55);
+            box-shadow: 0 0 15px rgba(148, 163, 184, 0.3);
+        }
+
+        .badge-micromotion {
+            background: rgba(203, 213, 225, 0.22);
+            color: #cbd5e1;
+            border: 1px solid rgba(203, 213, 225, 0.55);
+            box-shadow: 0 0 15px rgba(203, 213, 225, 0.3);
+        }
+
+        .lightbox-product-title {
+            font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+            color: #ffffff;
+            font-size: clamp(1.25rem, 2.1vw, 1.7rem);
+            font-weight: 700;
+            line-height: 1.25;
+            margin-bottom: 14px;
+            letter-spacing: -0.01em;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.85);
+        }
+
+        .lightbox-product-desc {
+            color: #cbd5e1;
+            font-size: clamp(0.92rem, 1.05vw, 1rem);
+            line-height: 1.68;
+            margin-bottom: 22px;
+        }
+
+        .btn-lightbox-details {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #0d47a1 0%, #0044cc 100%);
+            color: #ffffff !important;
+            padding: 11px 26px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.90rem;
+            letter-spacing: 0.3px;
+            text-decoration: none;
+            border: 1px solid rgba(56, 182, 255, 0.45);
+            box-shadow: 0 6px 20px rgba(0, 68, 204, 0.4);
+            transition: all 0.25s ease;
+            cursor: pointer;
+        }
+
+        .btn-lightbox-details:hover {
+            background: linear-gradient(135deg, #0044cc 0%, #38b6ff 100%);
+            color: #ffffff !important;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(56, 182, 255, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .media-lightbox-split-card {
+                flex-direction: column;
+                max-height: 88vh;
+                overflow-y: auto;
+            }
+            .lightbox-split-left {
+                max-width: 100%;
+                width: 100%;
+                min-height: 220px;
+                padding: 18px;
+            }
+            .lightbox-split-left img {
+                max-height: 200px;
+            }
+            .lightbox-split-right {
+                max-width: 100%;
+                width: 100%;
+                padding: 22px 18px 24px 18px;
+            }
+            .lightbox-product-title {
+                font-size: 1.25rem;
+                margin-bottom: 10px;
+            }
+            .lightbox-product-desc {
+                font-size: 0.88rem;
+                margin-bottom: 18px;
+            }
+            .btn-lightbox-details {
+                width: 100%;
+                justify-content: center;
+            }
+        }
         .media-lightbox-stage video {
             max-width: 100%;
             max-height: 80vh;
@@ -6223,7 +6445,7 @@
                                             <div class="featured-large-product-card rounded-3 overflow-hidden position-relative h-100 d-flex flex-column justify-content-between" style="min-height: 440px; background: rgba(2, 6, 23, 0.8); border: 1.5px solid rgba(168, 85, 247, 0.45); box-shadow: 0 15px 35px rgba(0,0,0,0.5);">
                                                 <div class="featured-media-stage position-relative flex-grow-1 d-flex align-items-center justify-content-center" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: #ffffff; cursor: pointer; min-height: 260px; padding: 8px;">
                                                     <button type="button" class="product-expand-badge position-absolute top-0 end-0 m-3" title="Agrandar"><i class="fas fa-expand"></i></button>
-                                                    <img src="img/products/roxar/2600.jpeg" alt="Roxar™ 2600 Multiphase Flow Meters" class="featured-hero-img" style="height: 100%; width: 100%; max-height: 310px; object-fit: contain; transition: transform 0.35s ease;">
+                                                    <img src="img/products/roxar/2600.jpeg" alt="Roxar™ 2600 Multiphase Flow Meters" class="featured-hero-img" style="height: 100%; width: 100%; max-height: 310px; object-fit: contain; transition: transform 0.35s ease;" data-brand="Roxar™" data-title="Roxar™ 2600 Multiphase Flow Meters" data-desc="Medidor multifásico líder de la industria para caracterización cuantitativa continua en cabeza de pozo sin separación física." data-link="https://www.emerson.com/es/measurement-instrumentation/products/roxar-2600-multiphase-flow-meter">
                                                 </div>
                                                 
                                                 <!-- Overlay inferior con Blur, Título, Descripción y Enlace -->
@@ -6246,7 +6468,7 @@
                                                 
                                                 <div class="compact-product-card rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
                                                     <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
-                                                        <img src="img/products/roxar/water-cut-meter.jpeg" alt="Roxar™ Watercut Meter" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
+                                                        <img src="img/products/roxar/water-cut-meter.jpeg" alt="Roxar™ Watercut Meter" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;" data-brand="Roxar™" data-title="Roxar™ Watercut Meter" data-desc="Medidor de diámetro completo que utiliza resonancia de microondas para proporcionar una medición precisa del contenido de agua en cualquier flujo, ofreciendo una sensibilidad robusta y sin deriva, y detectando cambios tan pequeños como 50 partes por millón." data-link="https://www.emerson.com/en/measurement-instrumentation/products/roxar-watercut-meter">
                                                     </div>
                                                     <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                                         <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="Roxar™ Watercut Meter">Roxar™ Watercut Meter</div>
@@ -6255,7 +6477,7 @@
                                                 
                                                 <div class="compact-product-card rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
                                                     <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
-                                                        <img src="img/products/roxar/Medidor de Wet Gas SubSea.jpeg" alt="Roxar™ Subsea Wetgas Meters" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
+                                                        <img src="img/products/roxar/Medidor de Wet Gas SubSea.jpeg" alt="Roxar™ Subsea Wetgas Meters" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;" data-brand="Roxar™" data-title="Roxar™ Subsea Wetgas Meters" data-desc="Medidores de gas húmedo submarinos diseñados para yacimientos complejos, que proporcionan caudales de agua, gas y condensado precisos y en tiempo real para mejorar la garantía de flujo y proteger la integridad submarina." data-link="https://www.emerson.com/en/measurement-instrumentation/products/roxar-subsea-wetgas-meter">
                                                     </div>
                                                     <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                                         <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="Roxar™ Subsea Wetgas Meters">Roxar™ Subsea Wetgas Meters</div>
@@ -6264,7 +6486,7 @@
                                                 
                                                 <div class="compact-product-card rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
                                                     <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
-                                                        <img src="img/products/roxar/Multifasico-para-instalaciones-SubSea.jpeg" alt="Roxar™ Subsea Multiphase Flow Meter" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
+                                                        <img src="img/products/roxar/Multifasico-para-instalaciones-SubSea.jpeg" alt="Roxar™ Subsea Multiphase Flow Meter" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;" data-brand="Roxar™" data-title="Roxar™ Subsea Multiphase Flow Meter" data-desc="Medidor de flujo multifásico submarino de última generación para pozos de petróleo y gas, diseñado para ofrecer fiabilidad, precisión y autoverificación en sitio." data-link="https://www.emerson.com/en/measurement-instrumentation/products/roxar-subsea-multiphase-flow-meter">
                                                     </div>
                                                     <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                                         <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="Roxar™ Subsea Multiphase Flow Meter">Roxar™ Subsea Multiphase Flow Meter</div>
@@ -6273,7 +6495,7 @@
                                                 
                                                 <div class="compact-product-card rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
                                                     <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
-                                                        <img src="img/products/roxar/Medidor de Salinidad (Complemento del 2600).jpeg" alt="Roxar™ Multiphase Salinity System" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
+                                                        <img src="img/products/roxar/Medidor de Salinidad (Complemento del 2600).jpeg" alt="Roxar™ Multiphase Salinity System" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;" data-brand="Roxar™" data-title="Roxar™ Multiphase Salinity System" data-desc="Un sensor de salinidad específico que proporciona una medición precisa y en tiempo real de la conductividad y la salinidad del agua producida en pozos de producción multifásica." data-link="https://www.emerson.com/en/measurement-instrumentation/products/roxar-multiphase-salinity-system">
                                                     </div>
                                                     <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                                         <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="Roxar™ Multiphase Salinity System">Roxar™ Multiphase Salinity System</div>
@@ -6322,7 +6544,7 @@
                                                 <!-- Interior: Foto del equipo en alta definición -->
                                                 <div class="center-split-interior" onclick="event.stopPropagation(); expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa">
                                                     <button type="button" class="product-expand-badge position-absolute top-0 end-0 m-2" title="Agrandar"><i class="fas fa-expand"></i></button>
-                                                    <img src="img/products/flexim/Flexim™ FLUXUS F631 BA - Portable Liquid Clamp-on Ultrasonic Flow Meter.jpeg" alt="FLUXUS® F631 BA - Caudalímetro Portátil para Líquidos">
+                                                    <img src="img/products/flexim/Flexim™ FLUXUS F631 BA - Portable Liquid Clamp-on Ultrasonic Flow Meter.jpeg" alt="FLUXUS® F631 BA - Caudalímetro Portátil para Líquidos" data-brand="Flexim™" data-title="FLUXUS® F631 BA - Caudalímetro Portátil para Líquidos" data-desc="Medidor de flujo ultrasónico portátil no invasivo clamp-on para líquidos y gases sin cortes de tubería ni paradas operativas." data-link="https://www.emerson.com/es/measurement-instrumentation/products/flexim-fluxus-f631-ee-portable-liquid-clamp-on-ultrasonic-flow-and-energy-meter">
                                                 </div>
                                                 <!-- Puerta Izquierda -->
                                                 <div class="center-split-door center-split-door-left">
@@ -6401,7 +6623,7 @@
                                                 <!-- Interior: Foto del equipo en alta definición -->
                                                 <div class="center-split-interior" onclick="event.stopPropagation(); expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa">
                                                     <button type="button" class="product-expand-badge position-absolute top-0 end-0 m-2" title="Agrandar"><i class="fas fa-expand"></i></button>
-                                                    <img src="img/products/ams trex/AMS Trex Device Communicator wins Gold Award.jpeg" alt="AMS Trex™ Device Communicator">
+                                                    <img src="img/products/ams trex/AMS Trex Device Communicator wins Gold Award.jpeg" alt="AMS Trex™ Device Communicator" data-brand="AMS Trex™" data-title="AMS Trex™ Device Communicator" data-desc="Comunicador de campo de alta resistencia con pantalla táctil intuitiva y soporte para dispositivos HART y FOUNDATION Fieldbus con alimentación directa de lazo." data-link="https://www.emerson.com/en/automation-systems/asset-performance-management/field-device-management/ams-trex-device-communicator">
                                                 </div>
                                                 <!-- Puerta Izquierda -->
                                                 <div class="center-split-door center-split-door-left">
@@ -6475,7 +6697,7 @@
                                             <div class="featured-large-product-card rounded-3 overflow-hidden position-relative h-100 d-flex flex-column justify-content-between" style="min-height: 440px; background: rgba(2, 6, 23, 0.8); border: 1.5px solid rgba(56, 189, 248, 0.45); box-shadow: 0 15px 35px rgba(0,0,0,0.5);">
                                                 <div class="featured-media-stage position-relative flex-grow-1 d-flex align-items-center justify-content-center" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: #ffffff; cursor: pointer; min-height: 260px; padding: 8px;">
                                                     <button type="button" class="product-expand-badge position-absolute top-0 end-0 m-3" title="Agrandar"><i class="fas fa-expand"></i></button>
-                                                    <img src="img/products/rosemount/Rosemount™ 5300 Level Transmitter - Guided Wave Radar.jpeg" alt="Rosemount™ 5300 Level Transmitter - Guided Wave Radar" class="featured-hero-img" style="height: 100%; width: 100%; max-height: 310px; object-fit: contain; transition: transform 0.35s ease;">
+                                                    <img src="img/products/rosemount/Rosemount™ 5300 Level Transmitter - Guided Wave Radar.jpeg" alt="Rosemount™ 5300 Level Transmitter - Guided Wave Radar" class="featured-hero-img" style="height: 100%; width: 100%; max-height: 310px; object-fit: contain; transition: transform 0.35s ease;" data-brand="Rosemount™" data-title="Transmisor de nivel Rosemount™ 5300 - Radar de onda guiada" data-desc="Radar de onda guiada para mediciones complejas en líquidos, lodos y sólidos en aplicaciones de nivel e interfase; certificaciones de seguridad SIL2; prueba de evaluación remota; paquete de diagnóstico avanzado; compensación dinámica de vapor." data-link="https://www.emerson.com/es/measurement-instrumentation/products/rosemount-5300-gwr-transmitter">
                                                 </div>
                                                 
                                                 <!-- Overlay inferior con Blur, Título, Descripción y Enlace -->
@@ -6498,7 +6720,7 @@
                                                 
                                                 <div class="compact-product-card rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
                                                     <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
-                                                        <img src="img/products/rosemount/Rosemount™ 8800 Reducer Vortex Flow Meter.jpeg" alt="Rosemount™ 8800 Reducer Vortex Flow Meter" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
+                                                        <img src="img/products/rosemount/Rosemount™ 8800 Reducer Vortex Flow Meter.jpeg" alt="Rosemount™ 8800 Reducer Vortex Flow Meter" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;" data-brand="Rosemount™" data-title="Rosemount™ 8800 Reducer Vortex Flow Meter" data-desc="Reductores integrales que miden con precisión caudales bajos manteniendo las mismas dimensiones entre caras que los medidores Vortex con brida estándar." data-link="https://www.emerson.com/en/measurement-instrumentation/products/rosemount-8800-reducer-vortex-flow-meters">
                                                     </div>
                                                     <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                                         <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="Rosemount™ 8800 Reducer Vortex Flow Meter">Rosemount™ 8800 Reducer Vortex Flow Meter</div>
@@ -6507,7 +6729,7 @@
                                                 
                                                 <div class="compact-product-card rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
                                                     <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
-                                                        <img src="img/products/rosemount/Rosemount™ 8600 Vortex Flow Meters.jpeg" alt="Rosemount™ 8600 Vortex Flow Meters" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
+                                                        <img src="img/products/rosemount/Rosemount™ 8600 Vortex Flow Meters.jpeg" alt="Rosemount™ 8600 Vortex Flow Meters" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;" data-brand="Rosemount™" data-title="Rosemount™ 8600 Vortex Flow Meters" data-desc="El medidor de vórtice Rosemount 8600 Utility es ideal para el flujo de fluidos limpios y vapor en aplicaciones de servicios auxiliares." data-link="https://www.emerson.com/en/measurement-instrumentation/products/rosemount-8600-vortex-flow-meter-family">
                                                     </div>
                                                     <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                                         <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="Rosemount™ 8600 Vortex Flow Meters">Rosemount™ 8600 Vortex Flow Meters</div>
@@ -6517,7 +6739,7 @@
                                                 <!-- TERCER PRODUCTO (IMPAR) CENTRADO CON EL ANCHO EXACTO -->
                                                 <div class="compact-product-card compact-card-centered-odd rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
                                                     <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
-                                                        <img src="img/products/rosemount/Transmisor de nivel Rosemount 5300 - Radar de onda guiada.jpeg" alt="Transmisor de Nivel Rosemount 5300" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
+                                                        <img src="img/products/rosemount/Transmisor de nivel Rosemount 5300 - Radar de onda guiada.jpeg" alt="Transmisor de Nivel Rosemount 5300" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;" data-brand="Rosemount™" data-title="Transmisor de nivel Rosemount™ 5300 - Radar de onda guiada" data-desc="Radar de onda guiada para mediciones complejas en líquidos, lodos y sólidos en aplicaciones de nivel e interfase; certificaciones de seguridad SIL2; prueba de evaluación remota; paquete de diagnóstico avanzado; compensación dinámica de vapor." data-link="https://www.emerson.com/es/measurement-instrumentation/products/rosemount-5300-gwr-transmitter">
                                                     </div>
                                                     <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                                         <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="Transmisor de Nivel Rosemount 5300">Transmisor de Nivel Rosemount 5300</div>
@@ -6566,7 +6788,7 @@
                                                 <!-- Interior: Foto del equipo en alta definición -->
                                                 <div class="center-split-interior" onclick="event.stopPropagation(); expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa">
                                                     <button type="button" class="product-expand-badge position-absolute top-0 end-0 m-2" title="Agrandar"><i class="fas fa-expand"></i></button>
-                                                    <img src="img/products/micromotion/Micro Motion™ 5700 Field-Mount Transmitter.jpeg" alt="Micro Motion™ 5700 Field-Mount Transmitter">
+                                                    <img src="img/products/micromotion/Micro Motion™ 5700 Field-Mount Transmitter.jpeg" alt="Micro Motion™ 5700 Field-Mount Transmitter" data-brand="Micro Motion™" data-title="Micro Motion™ 5700 Field-Mount Transmitter" data-desc="Transmisor de caudal másico y densidad Coriolis para transferencia de custodia y procesos críticos." data-link="https://www.emerson.com/es/measurement-instrumentation/products/micro-motion-5700-field-mount-transmitter-family">
                                                 </div>
                                                 <!-- Puerta Izquierda -->
                                                 <div class="center-split-door center-split-door-left">
@@ -6640,7 +6862,7 @@
                                             <div class="featured-large-product-card rounded-3 overflow-hidden position-relative h-100 d-flex flex-column justify-content-between" style="min-height: 440px; background: rgba(2, 6, 23, 0.8); border: 1.5px solid rgba(34, 197, 94, 0.45); box-shadow: 0 15px 35px rgba(0,0,0,0.5);">
                                                 <div class="featured-media-stage position-relative flex-grow-1 d-flex align-items-center justify-content-center" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: #ffffff; cursor: pointer; min-height: 260px; padding: 8px;">
                                                     <button type="button" class="product-expand-badge position-absolute top-0 end-0 m-3" title="Agrandar"><i class="fas fa-expand"></i></button>
-                                                    <img src="img/products/fluenta/Fluenta TFS Ultrasonic Transducers.jpeg" alt="Fluenta TFS Ultrasonic Transducers" class="featured-hero-img" style="height: 100%; width: 100%; max-height: 310px; object-fit: contain; transition: transform 0.35s ease;">
+                                                    <img src="img/products/fluenta/Fluenta TFS Ultrasonic Transducers.jpeg" alt="Fluenta TFS Ultrasonic Transducers" class="featured-hero-img" style="height: 100%; width: 100%; max-height: 310px; object-fit: contain; transition: transform 0.35s ease;" data-brand="Fluenta™" data-title="Fluenta TFS Ultrasonic Transducers" data-desc="Los transductores ultrasónicos Fluenta TFS ofrecen una solución versátil para la gran mayoría de las aplicaciones de medición de gases de antorcha." data-link="https://www.fluenta.com/fluenta_products/tfsultrasonic">
                                                 </div>
                                                 
                                                 <!-- Overlay inferior con Blur, Título, Descripción y Enlace -->
@@ -6663,7 +6885,7 @@
                                                 
                                                 <div class="compact-product-card rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
                                                     <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
-                                                        <img src="img/products/fluenta/FlarePhase 250.jpeg" alt="FlarePhase 250" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
+                                                        <img src="img/products/fluenta/FlarePhase 250.jpeg" alt="FlarePhase 250" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;" data-brand="Fluenta™" data-title="FlarePhase 250" data-desc="El FlarePhase 250, que forma parte de la gama avanzada de transductores ultrasónicos de Fluenta, es un transductor avanzado." data-link="https://www.fluenta.com/fluenta_products/flarephase-250">
                                                     </div>
                                                     <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                                         <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="FlarePhase 250">FlarePhase 250</div>
@@ -6672,7 +6894,7 @@
                                                 
                                                 <div class="compact-product-card rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
                                                     <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
-                                                        <img src="img/products/fluenta/FlarePhase 350.jpeg" alt="FlarePhase 350" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
+                                                        <img src="img/products/fluenta/FlarePhase 350.jpeg" alt="FlarePhase 350" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;" data-brand="Fluenta™" data-title="FlarePhase 350" data-desc="FlarePhase 350 está diseñado y optimizado para medir el caudal en las aplicaciones más exigentes, incluidas aquellas que presentan entornos de temperaturas extremas." data-link="https://www.fluenta.com/fluenta_products/flarephase-350">
                                                     </div>
                                                     <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                                         <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="FlarePhase 350">FlarePhase 350</div>
@@ -6681,7 +6903,7 @@
                                                 
                                                 <div class="compact-product-card rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
                                                     <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
-                                                        <img src="img/products/fluenta/Fluenta TFS-55.jpeg" alt="Fluenta TFS-55" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
+                                                        <img src="img/products/fluenta/Fluenta TFS-55.jpeg" alt="Fluenta TFS-55" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;" data-brand="Fluenta™" data-title="Fluenta TFS-55" data-desc="El Fluenta TFS-55 ofrece un rango ampliado de condiciones de proceso." data-link="https://www.fluenta.com/fluenta_products/tfs-55">
                                                     </div>
                                                     <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                                         <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="Fluenta TFS-55">Fluenta TFS-55</div>
@@ -6690,7 +6912,7 @@
                                                 
                                                 <div class="compact-product-card rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
                                                     <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
-                                                        <img src="img/products/fluenta/Single-Path Configurations.jpeg" alt="Single-Path Configurations" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
+                                                        <img src="img/products/fluenta/Single-Path Configurations.jpeg" alt="Single-Path Configurations" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;" data-brand="Fluenta™" data-title="Single-Path Configurations" data-desc="Permite medir el caudal con bajo mantenimiento y menor costo de instalación en tuberías con perfiles de flujo estables." data-link="https://www.fluenta.com/fluenta_products/single-path">
                                                     </div>
                                                     <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                                         <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="Single-Path Configurations">Single-Path Configurations</div>
@@ -6700,7 +6922,7 @@
                                                 <!-- 5º PRODUCTO (IMPAR) CENTRADO -->
                                                 <div class="compact-product-card compact-card-centered-odd rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
                                                     <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
-                                                        <img src="img/products/fluenta/Dual-Path Configurations.jpeg" alt="Dual-Path Configurations" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
+                                                        <img src="img/products/fluenta/Dual-Path Configurations.jpeg" alt="Dual-Path Configurations" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;" data-brand="Fluenta™" data-title="Dual-Path Configurations" data-desc="Se instalan dos pares de sensores midiendo el mismo conducto. Esta doble medición mejora la exactitud del cálculo de velocidad y asegura que, si un sensor falla, el sistema siga registrando datos válidos." data-link="https://www.fluenta.com/fluenta_products/double-path">
                                                     </div>
                                                     <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                                         <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="Dual-Path Configurations">Dual-Path Configurations</div>
@@ -6744,7 +6966,7 @@
                                             <div class="featured-large-product-card rounded-3 overflow-hidden position-relative h-100 d-flex flex-column justify-content-between" style="min-height: 440px; background: rgba(2, 6, 23, 0.8); border: 1.5px solid rgba(249, 115, 22, 0.45); box-shadow: 0 15px 35px rgba(0,0,0,0.5);">
                                                 <div class="featured-media-stage position-relative flex-grow-1 d-flex align-items-center justify-content-center" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: #ffffff; cursor: pointer; min-height: 260px; padding: 8px;">
                                                     <button type="button" class="product-expand-badge position-absolute top-0 end-0 m-3" title="Agrandar"><i class="fas fa-expand"></i></button>
-                                                    <img src="img/products/kam/OWD Watercut Meter.jpeg" alt="OWD Watercut Meter" class="featured-hero-img" style="height: 100%; width: 100%; max-height: 310px; object-fit: contain; transition: transform 0.35s ease;">
+                                                    <img src="img/products/kam/OWD Watercut Meter.jpeg" alt="OWD Watercut Meter" class="featured-hero-img" style="height: 100%; width: 100%; max-height: 310px; object-fit: contain; transition: transform 0.35s ease;" data-brand="Kam Controls™" data-title="OWD Watercut Meter" data-desc="El OWD™ ofrece datos continuos y en tiempo real sobre el porcentaje de agua (0-100 %), con una precisión del 1 % en todo el rango." data-link="https://www.kam.com/product/owd-watercut-meter/">
                                                 </div>
                                                 
                                                 <!-- Overlay inferior con Blur, Título, Descripción y Enlace -->
@@ -6767,7 +6989,7 @@
                                                 
                                                 <div class="compact-product-card rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
                                                     <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
-                                                        <img src="img/products/kam/ATD Automatic Tank Dewatering System.jpeg" alt="ATD Automatic Tank Dewatering System" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
+                                                        <img src="img/products/kam/ATD Automatic Tank Dewatering System.jpeg" alt="ATD Automatic Tank Dewatering System" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;" data-brand="Kam Controls™" data-title="ATD Automatic Tank Dewatering System" data-desc="El sistema automático de drenaje de agua de tanques KAM ATD™ garantiza la máxima eficiencia de almacenamiento, sin el riesgo de que los hidrocarburos contaminen la línea de drenaje." data-link="https://www.kam.com/product/atd-automatic-tank-dewatering-system/">
                                                     </div>
                                                     <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                                         <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="ATD Automatic Tank Dewatering System">ATD Automatic Tank Dewatering System</div>
@@ -6776,7 +6998,7 @@
                                                 
                                                 <div class="compact-product-card rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
                                                     <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
-                                                        <img src="img/products/kam/E-IAS Electric Isokinetic Automatic Sampler.jpeg" alt="E-IAS Electric Isokinetic Automatic Sampler" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
+                                                        <img src="img/products/kam/E-IAS Electric Isokinetic Automatic Sampler.jpeg" alt="E-IAS Electric Isokinetic Automatic Sampler" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;" data-brand="Kam Controls™" data-title="E-IAS Electric Isokinetic Automatic Sampler" data-desc="Muestreador isocinético automático eléctrico E-IAS. Muestreo automático accionado eléctricamente, ideal para aplicaciones en las que no se dispone de una línea de aire comprimido." data-link="https://www.kam.com/product/e-ias-electric-isokinetic-automatic-sampler/">
                                                     </div>
                                                     <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                                         <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="E-IAS Electric Isokinetic Automatic Sampler">E-IAS Electric Isokinetic Automatic Sampler</div>
@@ -6785,7 +7007,7 @@
                                                 
                                                 <div class="compact-product-card rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
                                                     <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
-                                                        <img src="img/products/kam/IAS Isokinetic Automatic Sampler.jpeg" alt="IAS Isokinetic Automatic Sampler" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
+                                                        <img src="img/products/kam/IAS Isokinetic Automatic Sampler.jpeg" alt="IAS Isokinetic Automatic Sampler" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;" data-brand="Kam Controls™" data-title="IAS Isokinetic Automatic Sampler" data-desc="El IAS™ es ideal para el muestreo automático de crudos, condensados ​​y productos refinados, así como para operaciones de transferencia de custodia y otras aplicaciones." data-link="https://www.kam.com/product/ias-isokinetic-automatic-sampler/">
                                                     </div>
                                                     <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                                         <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="IAS Isokinetic Automatic Sampler">IAS Isokinetic Automatic Sampler</div>
@@ -6794,7 +7016,7 @@
                                                 
                                                 <div class="compact-product-card rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
                                                     <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
-                                                        <img src="img/products/kam/KF Karl Fischer Moisture Analyzer.jpeg" alt="KF Karl Fischer Moisture Analyzer" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
+                                                        <img src="img/products/kam/KF Karl Fischer Moisture Analyzer.jpeg" alt="KF Karl Fischer Moisture Analyzer" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;" data-brand="Kam Controls™" data-title="KF Karl Fischer Moisture Analyzer" data-desc="Fáciles de usar y totalmente automáticos, los analizadores de humedad Karl Fischer KAM KF hacen que la determinación del contenido de agua en crudos sea extremadamente sencilla, rápida y precisa." data-link="https://www.kam.com/product/kf-karl-fischer-moisture-analyzer/">
                                                     </div>
                                                     <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                                         <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="KF Karl Fischer Moisture Analyzer">KF Karl Fischer Moisture Analyzer</div>
@@ -6803,7 +7025,7 @@
                                                 
                                                 <div class="compact-product-card rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
                                                     <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
-                                                        <img src="img/products/kam/SMP Static Mixing Plate.jpeg" alt="SMP Static Mixing Plate" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
+                                                        <img src="img/products/kam/SMP Static Mixing Plate.jpeg" alt="SMP Static Mixing Plate" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;" data-brand="Kam Controls™" data-title="SMP Static Mixing Plate" data-desc="SMP Static Mixing Plate garantiza una medición precisa del caudal y una mezcla adecuada para diversos fines y materiales, incluidos el gas natural, el petróleo crudo y los combustibles refinados." data-link="https://www.kam.com/product/smp-static-mixing-plate/">
                                                     </div>
                                                     <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                                         <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="SMP Static Mixing Plate">SMP Static Mixing Plate</div>
@@ -6812,21 +7034,12 @@
                                                 
                                                 <div class="compact-product-card rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
                                                     <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
-                                                        <img src="img/products/kam/SMS Static Mixing Spool.jpeg" alt="SMS Static Mixing Spool" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
+                                                        <img src="img/products/kam/SMS Static Mixing Spool.jpeg" alt="SMS Static Mixing Spool" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;" data-brand="Kam Controls™" data-title="SMS Static Mixing Spool" data-desc="SMS Static Mixing Spool genera un flujo homogéneo dentro de la tubería, lo que garantiza un muestreo preciso y una medición exacta del contenido de agua." data-link="https://www.kam.com/product/sms-static-mixing-spool/">
                                                     </div>
                                                     <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
                                                         <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="SMS Static Mixing Spool">SMS Static Mixing Spool</div>
                                                     </div>
                                                 </div>
-                                                
-                                                <!-- 7º PRODUCTO (IMPAR) CENTRADO -->
-                                                <div class="compact-product-card compact-card-centered-odd rounded-3 overflow-hidden position-relative" onclick="expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa" style="background: rgba(2, 6, 23, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;">
-                                                    <div class="compact-media-wrap" style="background: #ffffff; padding: 6px;">
-                                                        <img src="img/products/kam/OWD Watercut Meter.jpeg" alt="Kam Controls Precision Sensor" class="compact-product-img" style="height: 100%; width: 100%; object-fit: contain;">
-                                                    </div>
-                                                    <div class="compact-title-bar p-2" style="background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
-                                                        <div class="text-white small fw-bold text-truncate" style="font-size: 0.80rem;" title="Kam Controls Precision Sensor">Kam Controls Precision Sensor</div>
-                                                    </div>
                                                 </div>
 
                                             </div>
@@ -7696,161 +7909,7 @@
         window.renderShowroomPlaylist = renderShowroomPlaylist;
 
                 // ==========================================
-        // LIGHTBOX EXPAND PARA VIDEOS Y FOTOS HD (AISLADO PARA MÁXIMA FLUIDEZ)
-        // ==========================================
-        window.expandCardMedia = function(target) {
-            if (!target) return;
-
-            // Pausar todos los videos de fondo para destinar el 100% de recursos al lightbox
-            if (typeof window.pauseAllBackgroundVideos === 'function') {
-                window.pauseAllBackgroundVideos();
-            } else {
-                document.querySelectorAll('video').forEach(function(v) {
-                    if (!v.paused) {
-                        v.dataset.wasPlaying = 'true';
-                        v.pause();
-                    }
-                });
-            }
-
-            const stage = document.getElementById('media-lightbox-stage');
-            const titleElem = document.getElementById('media-lightbox-title');
-            const modal = document.getElementById('media-lightbox-modal');
-            if (!stage || !modal) return;
-
-            stage.innerHTML = '';
-
-            // 1. Encontrar el contenedor lógico más representativo
-            const card = target.closest('.service-flip-card') 
-                || target.closest('.featured-large-product-card') 
-                || target.closest('.compact-product-card') 
-                || target.closest('.center-split-card-wrapper') 
-                || target.closest('.center-split-interior') 
-                || target.closest('.service-video-wrap') 
-                || target.closest('.row') 
-                || target;
-
-            // 2. Localizar Video o Imagen de alta resolución
-            let img = null;
-            let video = null;
-
-            // Caso A: Slider interactivo activo (Servicios)
-            const activeSlide = card ? card.querySelector('.card-slide-item.active') : null;
-            if (activeSlide) {
-                if (activeSlide.getAttribute('data-type') === 'image') {
-                    img = activeSlide.querySelector('img');
-                } else {
-                    video = activeSlide.querySelector('video');
-                }
-            }
-
-            // Caso B: Clic directo en tag IMG o VIDEO
-            if (!img && !video) {
-                if (target.tagName === 'IMG') {
-                    img = target;
-                } else if (target.tagName === 'VIDEO') {
-                    video = target;
-                }
-            }
-
-            // Caso C: Tarjetas de producto (Roxar, Flexim, AMS Trex, Rosemount, Micro Motion, Fluenta, Kam Controls)
-            if (!img && !video && target.querySelector) {
-                img = target.querySelector('img.featured-hero-img, img.compact-product-img, .center-split-interior img, img');
-            }
-
-            // Caso D: Video en primer plano de servicios
-            if (!img && !video && card) {
-                const fgVideo = card.querySelector('video.roxar-card-video-foreground');
-                video = fgVideo || card.querySelector('video:not(.roxar-video-ambient-blur)') || card.querySelector('video');
-            }
-
-            // Caso E: Imagen contenida en card
-            if (!video && !img && card) {
-                img = card.querySelector('img.card-slide-img, img.roxar-card-img, img.compact-product-img, img.featured-hero-img, img');
-            }
-
-            // 3. Determinar el título técnico con máxima fidelidad
-            let title = '';
-            if (img && img.getAttribute('alt') && img.getAttribute('alt').trim().length > 3) {
-                title = img.getAttribute('alt').trim();
-            }
-            if (!title && card) {
-                const titleNode = card.querySelector('.service-tech-title, .brand-card-title, .service-video-tag, .card-slide-caption, .service-front-title, .compact-title-bar div, h3, h4, h5, h6');
-                if (titleNode) {
-                    title = titleNode.innerText.replace(/[\r\n]+/g, ' ').trim();
-                }
-            }
-            if (!title) {
-                const tAttr = target.getAttribute('title') || (card && card.getAttribute('title'));
-                if (tAttr && !tAttr.toLowerCase().includes('haga clic') && !tAttr.toLowerCase().includes('agrandar') && !tAttr.toLowerCase().includes('pasa el ratón')) {
-                    title = tAttr.trim();
-                }
-            }
-            if (!title) {
-                const row = target.closest('.row');
-                if (row) {
-                    const h = row.querySelector('h3, h4, h5');
-                    if (h) title = h.innerText.replace(/[\r\n]+/g, ' ').trim();
-                }
-            }
-
-            // 4. Inyectar contenido en el visor HD
-            if (video) {
-                const newVid = document.createElement('video');
-                newVid.controls = false;
-                newVid.autoplay = true;
-                newVid.loop = true;
-                newVid.playsInline = true;
-                newVid.muted = false;
-                newVid.setAttribute('playsinline', '');
-                newVid.setAttribute('webkit-playsinline', '');
-                newVid.setAttribute('disablePictureInPicture', '');
-                newVid.style.width = '100%';
-                newVid.style.maxHeight = '80vh';
-                newVid.style.objectFit = 'contain';
-                newVid.style.borderRadius = '12px';
-                newVid.style.cursor = 'pointer';
-                newVid.title = 'Haga clic para pausar / reanudar';
-
-                newVid.addEventListener('click', function(ev) {
-                    ev.stopPropagation();
-                    if (newVid.paused) newVid.play();
-                    else newVid.pause();
-                });
-
-                const src = video.currentSrc || (video.querySelector('source') ? video.querySelector('source').src : video.src);
-                newVid.src = src;
-                stage.appendChild(newVid);
-
-                requestAnimationFrame(() => {
-                    newVid.play().catch(function() {
-                        newVid.muted = true;
-                        newVid.play().catch(function() {});
-                    });
-                });
-            } else if (img) {
-                const newImg = document.createElement('img');
-                newImg.src = img.currentSrc || img.src;
-                newImg.alt = title || 'Visualización en alta resolución';
-                newImg.style.maxHeight = '78vh';
-                newImg.style.maxWidth = '88vw';
-                newImg.style.objectFit = 'contain';
-                newImg.style.borderRadius = '10px';
-                newImg.style.display = 'block';
-                newImg.style.margin = '0 auto';
-                newImg.style.background = '#ffffff';
-                newImg.style.padding = '16px';
-                newImg.style.boxShadow = '0 10px 40px rgba(0,0,0,0.6)';
-                stage.appendChild(newImg);
-            }
-
-            if (titleElem) {
-                titleElem.innerText = title || 'Visualización Técnica HD';
-            }
-
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        };
+        // (expandCardMedia is implemented globally in the core media controller)
     }); // end DOMContentLoaded
 
 </script>
@@ -8276,7 +8335,208 @@
             });
         };
 
-                // ==========================================
+                // =========================================================================
+        // CATÁLOGO DE ESPECIFICACIONES TÉCNICAS Y ENLACES OFICIALES DE PRODUCTOS
+        // =========================================================================
+        const PRODUCT_DETAILS_CATALOG = {
+            // ROXAR
+            'water cut meter': {
+                title: 'Roxar™ Watercut Meter',
+                brand: 'Roxar™',
+                desc: 'Medidor de diámetro completo que utiliza resonancia de microondas para proporcionar una medición precisa del contenido de agua en cualquier flujo, ofreciendo una sensibilidad robusta y sin deriva, y detectando cambios tan pequeños como 50 partes por millón.',
+                link: 'https://www.emerson.com/en/measurement-instrumentation/products/roxar-watercut-meter'
+            },
+            'watercut': {
+                title: 'Roxar™ Watercut Meter',
+                brand: 'Roxar™',
+                desc: 'Medidor de diámetro completo que utiliza resonancia de microondas para proporcionar una medición precisa del contenido de agua en cualquier flujo, ofreciendo una sensibilidad robusta y sin deriva, y detectando cambios tan pequeños como 50 partes por millón.',
+                link: 'https://www.emerson.com/en/measurement-instrumentation/products/roxar-watercut-meter'
+            },
+            'subsea wetgas': {
+                title: 'Roxar™ Subsea Wetgas Meters',
+                brand: 'Roxar™',
+                desc: 'Medidores de gas húmedo submarinos diseñados para yacimientos complejos, que proporcionan caudales de agua, gas y condensado precisos y en tiempo real para mejorar la garantía de flujo y proteger la integridad submarina.',
+                link: 'https://www.emerson.com/en/measurement-instrumentation/products/roxar-subsea-wetgas-meter'
+            },
+            'wet gas subsea': {
+                title: 'Roxar™ Subsea Wetgas Meters',
+                brand: 'Roxar™',
+                desc: 'Medidores de gas húmedo submarinos diseñados para yacimientos complejos, que proporcionan caudales de agua, gas y condensado precisos y en tiempo real para mejorar la garantía de flujo y proteger la integridad submarina.',
+                link: 'https://www.emerson.com/en/measurement-instrumentation/products/roxar-subsea-wetgas-meter'
+            },
+            'subsea multiphase': {
+                title: 'Roxar™ Subsea Multiphase Flow Meter',
+                brand: 'Roxar™',
+                desc: 'Medidor de flujo multifásico submarino de última generación para pozos de petróleo y gas, diseñado para ofrecer fiabilidad, precisión y autoverificación en sitio.',
+                link: 'https://www.emerson.com/en/measurement-instrumentation/products/roxar-subsea-multiphase-flow-meter'
+            },
+            'instalaciones subsea': {
+                title: 'Roxar™ Subsea Multiphase Flow Meter',
+                brand: 'Roxar™',
+                desc: 'Medidor de flujo multifásico submarino de última generación para pozos de petróleo y gas, diseñado para ofrecer fiabilidad, precisión y autoverificación en sitio.',
+                link: 'https://www.emerson.com/en/measurement-instrumentation/products/roxar-subsea-multiphase-flow-meter'
+            },
+            'salinity': {
+                title: 'Roxar™ Multiphase Salinity System',
+                brand: 'Roxar™',
+                desc: 'Un sensor de salinidad específico que proporciona una medición precisa y en tiempo real de la conductividad y la salinidad del agua producida en pozos de producción multifásica.',
+                link: 'https://www.emerson.com/en/measurement-instrumentation/products/roxar-multiphase-salinity-system'
+            },
+            'salinidad': {
+                title: 'Roxar™ Multiphase Salinity System',
+                brand: 'Roxar™',
+                desc: 'Un sensor de salinidad específico que proporciona una medición precisa y en tiempo real de la conductividad y la salinidad del agua producida en pozos de producción multifásica.',
+                link: 'https://www.emerson.com/en/measurement-instrumentation/products/roxar-multiphase-salinity-system'
+            },
+            '2600': {
+                title: 'Roxar™ 2600 Multiphase Flow Meters',
+                brand: 'Roxar™',
+                desc: 'Medidor multifásico líder de la industria para caracterización cuantitativa continua en cabeza de pozo sin separación física.',
+                link: 'https://www.emerson.com/es/measurement-instrumentation/products/roxar-2600-multiphase-flow-meter'
+            },
+
+            // ROSEMOUNT
+            '8800': {
+                title: 'Rosemount™ 8800 Reducer Vortex Flow Meter',
+                brand: 'Rosemount™',
+                desc: 'Reductores integrales que miden con precisión caudales bajos manteniendo las mismas dimensiones entre caras que los medidores Vortex con brida estándar.',
+                link: 'https://www.emerson.com/en/measurement-instrumentation/products/rosemount-8800-reducer-vortex-flow-meters'
+            },
+            '8600': {
+                title: 'Rosemount™ 8600 Vortex Flow Meters',
+                brand: 'Rosemount™',
+                desc: 'El medidor de vórtice Rosemount 8600 Utility es ideal para el flujo de fluidos limpios y vapor en aplicaciones de servicios auxiliares.',
+                link: 'https://www.emerson.com/en/measurement-instrumentation/products/rosemount-8600-vortex-flow-meter-family'
+            },
+            '5300': {
+                title: 'Transmisor de nivel Rosemount™ 5300 - Radar de onda guiada',
+                brand: 'Rosemount™',
+                desc: 'Radar de onda guiada para mediciones complejas en líquidos, lodos y sólidos en aplicaciones de nivel e interfase; certificaciones de seguridad SIL2; prueba de evaluación remota; paquete de diagnóstico avanzado; compensación dinámica de vapor.',
+                link: 'https://www.emerson.com/es/measurement-instrumentation/products/rosemount-5300-gwr-transmitter'
+            },
+
+            // FLUENTA
+            'tfs ultrasonic': {
+                title: 'Fluenta TFS Ultrasonic Transducers',
+                brand: 'Fluenta™',
+                desc: 'Los transductores ultrasónicos Fluenta TFS ofrecen una solución versátil para la gran mayoría de las aplicaciones de medición de gases de antorcha.',
+                link: 'https://www.fluenta.com/fluenta_products/tfsultrasonic'
+            },
+            'tfs-55': {
+                title: 'Fluenta TFS-55',
+                brand: 'Fluenta™',
+                desc: 'El Fluenta TFS-55 ofrece un rango ampliado de condiciones de proceso.',
+                link: 'https://www.fluenta.com/fluenta_products/tfs-55'
+            },
+            'flarephase 250': {
+                title: 'FlarePhase 250',
+                brand: 'Fluenta™',
+                desc: 'El FlarePhase 250, que forma parte de la gama avanzada de transductores ultrasónicos de Fluenta, es un transductor avanzado.',
+                link: 'https://www.fluenta.com/fluenta_products/flarephase-250'
+            },
+            'flarephase 350': {
+                title: 'FlarePhase 350',
+                brand: 'Fluenta™',
+                desc: 'FlarePhase 350 está diseñado y optimizado para medir el caudal en las aplicaciones más exigentes, incluidas aquellas que presentan entornos de temperaturas extremas.',
+                link: 'https://www.fluenta.com/fluenta_products/flarephase-350'
+            },
+            'single-path': {
+                title: 'Single-Path Configurations',
+                brand: 'Fluenta™',
+                desc: 'Permite medir el caudal con bajo mantenimiento y menor costo de instalación en tuberías con perfiles de flujo estables.',
+                link: 'https://www.fluenta.com/fluenta_products/single-path'
+            },
+            'dual-path': {
+                title: 'Dual-Path Configurations',
+                brand: 'Fluenta™',
+                desc: 'Se instalan dos pares de sensores midiendo el mismo conducto. Esta doble medición mejora la exactitud del cálculo de velocidad y asegura que, si un sensor falla, el sistema siga registrando datos válidos.',
+                link: 'https://www.fluenta.com/fluenta_products/double-path'
+            },
+            'double-path': {
+                title: 'Dual-Path Configurations',
+                brand: 'Fluenta™',
+                desc: 'Se instalan dos pares de sensores midiendo el mismo conducto. Esta doble medición mejora la exactitud del cálculo de velocidad y asegura que, si un sensor falla, el sistema siga registrando datos válidos.',
+                link: 'https://www.fluenta.com/fluenta_products/double-path'
+            },
+
+            // KAM CONTROLS
+            'owd': {
+                title: 'OWD Watercut Meter',
+                brand: 'Kam Controls™',
+                desc: 'El OWD™ ofrece datos continuos y en tiempo real sobre el porcentaje de agua (0-100 %), con una precisión del 1 % en todo el rango.',
+                link: 'https://www.kam.com/product/owd-watercut-meter/'
+            },
+            'atd': {
+                title: 'ATD Automatic Tank Dewatering System',
+                brand: 'Kam Controls™',
+                desc: 'El sistema automático de drenaje de agua de tanques KAM ATD™ garantiza la máxima eficiencia de almacenamiento, sin el riesgo de que los hidrocarburos contaminen la línea de drenaje.',
+                link: 'https://www.kam.com/product/atd-automatic-tank-dewatering-system/'
+            },
+            'e-ias': {
+                title: 'E-IAS Electric Isokinetic Automatic Sampler',
+                brand: 'Kam Controls™',
+                desc: 'Muestreador isocinético automático eléctrico E-IAS. Muestreo automático accionado eléctricamente, ideal para aplicaciones en las que no se dispone de una línea de aire comprimido.',
+                link: 'https://www.kam.com/product/e-ias-electric-isokinetic-automatic-sampler/'
+            },
+            'ias isokinetic': {
+                title: 'IAS Isokinetic Automatic Sampler',
+                brand: 'Kam Controls™',
+                desc: 'El IAS™ es ideal para el muestreo automático de crudos, condensados y productos refinados, así como para operaciones de transferencia de custodia y otras aplicaciones.',
+                link: 'https://www.kam.com/product/ias-isokinetic-automatic-sampler/'
+            },
+            'karl fischer': {
+                title: 'KF Karl Fischer Moisture Analyzer',
+                brand: 'Kam Controls™',
+                desc: 'Fáciles de usar y totalmente automáticos, los analizadores de humedad Karl Fischer KAM KF hacen que la determinación del contenido de agua en crudos sea extremadamente sencilla, rápida y precisa.',
+                link: 'https://www.kam.com/product/kf-karl-fischer-moisture-analyzer/'
+            },
+            'smp': {
+                title: 'SMP Static Mixing Plate',
+                brand: 'Kam Controls™',
+                desc: 'SMP Static Mixing Plate garantiza una medición precisa del caudal y una mezcla adecuada para diversos fines y materiales, incluidos el gas natural, el petróleo crudo y los combustibles refinados.',
+                link: 'https://www.kam.com/product/smp-static-mixing-plate/'
+            },
+            'sms': {
+                title: 'SMS Static Mixing Spool',
+                brand: 'Kam Controls™',
+                desc: 'SMS Static Mixing Spool genera un flujo homogéneo dentro de la tubería, lo que garantiza un muestreo preciso y una medición exacta del contenido de agua.',
+                link: 'https://www.kam.com/product/sms-static-mixing-spool/'
+            },
+
+            // FLEXIM, AMS TREX, MICRO MOTION
+            'fluxus': {
+                title: 'FLUXUS® F631 BA - Caudalímetro Portátil para Líquidos',
+                brand: 'Flexim™',
+                desc: 'Medidor de flujo ultrasónico portátil no invasivo clamp-on para líquidos y gases sin cortes de tubería ni paradas operativas.',
+                link: 'https://www.emerson.com/es/measurement-instrumentation/products/flexim-fluxus-f631-ee-portable-liquid-clamp-on-ultrasonic-flow-and-energy-meter'
+            },
+            'flexim': {
+                title: 'FLUXUS® F631 BA - Caudalímetro Portátil para Líquidos',
+                brand: 'Flexim™',
+                desc: 'Medidor de flujo ultrasónico portátil no invasivo clamp-on para líquidos y gases sin cortes de tubería ni paradas operativas.',
+                link: 'https://www.emerson.com/es/measurement-instrumentation/products/flexim-fluxus-f631-ee-portable-liquid-clamp-on-ultrasonic-flow-and-energy-meter'
+            },
+            'trex': {
+                title: 'AMS Trex™ Device Communicator',
+                brand: 'AMS Trex™',
+                desc: 'Comunicador de campo de alta resistencia con pantalla táctil intuitiva y soporte para dispositivos HART y FOUNDATION Fieldbus con alimentación directa de lazo.',
+                link: 'https://www.emerson.com/en/automation-systems/asset-performance-management/field-device-management/ams-trex-device-communicator'
+            },
+            '5700': {
+                title: 'Micro Motion™ 5700 Field-Mount Transmitter',
+                brand: 'Micro Motion™',
+                desc: 'Transmisor de caudal másico y densidad Coriolis para transferencia de custodia y procesos críticos.',
+                link: 'https://www.emerson.com/es/measurement-instrumentation/products/micro-motion-5700-field-mount-transmitter-family'
+            },
+            'micromotion': {
+                title: 'Micro Motion™ 5700 Field-Mount Transmitter',
+                brand: 'Micro Motion™',
+                desc: 'Transmisor de caudal másico y densidad Coriolis para transferencia de custodia y procesos críticos.',
+                link: 'https://www.emerson.com/es/measurement-instrumentation/products/micro-motion-5700-field-mount-transmitter-family'
+            }
+        };
+
+        // ==========================================
         // LIGHTBOX EXPAND PARA VIDEOS Y FOTOS HD (AISLADO PARA MÁXIMA FLUIDEZ)
         // ==========================================
         window.expandCardMedia = function(target) {
@@ -8352,9 +8612,14 @@
 
             // 3. Determinar el título técnico con máxima fidelidad
             let title = '';
-            if (img && img.getAttribute('alt') && img.getAttribute('alt').trim().length > 3) {
+            if (card && card.getAttribute('data-title')) {
+                title = card.getAttribute('data-title').trim();
+            } else if (target && target.getAttribute && target.getAttribute('data-title')) {
+                title = target.getAttribute('data-title').trim();
+            } else if (img && img.getAttribute('alt') && img.getAttribute('alt').trim().length > 3) {
                 title = img.getAttribute('alt').trim();
             }
+
             if (!title && card) {
                 const titleNode = card.querySelector('.service-tech-title, .brand-card-title, .service-video-tag, .card-slide-caption, .service-front-title, .compact-title-bar div, h3, h4, h5, h6');
                 if (titleNode) {
@@ -8375,8 +8640,86 @@
                 }
             }
 
-            // 4. Inyectar contenido en el visor HD
-            if (video) {
+            // 4. Determinar descripción, enlace y marca del producto
+            let desc = '';
+            let link = '';
+            let brand = '';
+
+            if (card) {
+                desc = card.getAttribute('data-desc') || '';
+                link = card.getAttribute('data-link') || '';
+                brand = card.getAttribute('data-brand') || '';
+            }
+            if (!desc && target && target.getAttribute) {
+                desc = target.getAttribute('data-desc') || '';
+                link = target.getAttribute('data-link') || '';
+                brand = target.getAttribute('data-brand') || '';
+            }
+            if (!desc && img && img.getAttribute) {
+                desc = img.getAttribute('data-desc') || '';
+                link = img.getAttribute('data-link') || '';
+                brand = img.getAttribute('data-brand') || '';
+                if (!title || title === 'Visualización Técnica HD') {
+                    title = img.getAttribute('data-title') || title;
+                }
+            }
+
+            // Consulta inteligente en catálogo por palabras clave
+            const lookupText = ((title || '') + ' ' + (img ? ((img.alt || '') + ' ' + (img.src || '')) : '')).toLowerCase();
+            for (const [k, item] of Object.entries(PRODUCT_DETAILS_CATALOG)) {
+                if (lookupText.includes(k)) {
+                    if (!title || title === 'Visualización Técnica HD') title = item.title;
+                    if (!desc) desc = item.desc;
+                    if (!link) link = item.link;
+                    if (!brand) brand = item.brand;
+                    break;
+                }
+            }
+
+            // 5. Inyectar contenido en el visor HD
+            // Si es un producto con imagen y descripción -> VISTA SPLIT (Foto izquierda, Detalles y botón derecha)
+            if (img && desc) {
+                stage.classList.add('is-product-split');
+                const splitCard = document.createElement('div');
+                splitCard.className = 'media-lightbox-split-card';
+
+                const brandClass = (brand || 'general').toLowerCase().replace(/[^a-z0-9]/g, '');
+                const brandBadgeHtml = brand ? `<span class="lightbox-brand-badge badge-${brandClass}">${brand}</span>` : '';
+
+                let linkBtnHtml = '';
+                if (link) {
+                    linkBtnHtml = `
+                        <div class="mt-auto pt-3">
+                            <a href="${link}" target="_blank" rel="noopener noreferrer" class="btn-lightbox-details">
+                                <span>Ver más detalles</span>
+                                <i class="fas fa-arrow-up-right-from-square ms-1"></i>
+                            </a>
+                        </div>
+                    `;
+                }
+
+                splitCard.innerHTML = `
+                    <div class="lightbox-split-left">
+                        <img src="${img.currentSrc || img.src}" alt="${title}">
+                    </div>
+                    <div class="lightbox-split-right">
+                        ${brandBadgeHtml}
+                        <h3 class="lightbox-product-title">${title}</h3>
+                        <p class="lightbox-product-desc">${desc}</p>
+                        ${linkBtnHtml}
+                    </div>
+                `;
+                stage.appendChild(splitCard);
+
+                if (titleElem) {
+                    titleElem.style.display = 'none';
+                }
+            } else if (video) {
+                stage.classList.remove('is-product-split');
+                if (titleElem) {
+                    titleElem.style.display = '';
+                    titleElem.innerText = title || 'Visualización Técnica HD';
+                }
                 const newVid = document.createElement('video');
                 newVid.controls = false;
                 newVid.autoplay = true;
@@ -8410,6 +8753,11 @@
                     });
                 });
             } else if (img) {
+                stage.classList.remove('is-product-split');
+                if (titleElem) {
+                    titleElem.style.display = '';
+                    titleElem.innerText = title || 'Visualización Técnica HD';
+                }
                 const newImg = document.createElement('img');
                 newImg.src = img.currentSrc || img.src;
                 newImg.alt = title || 'Visualización en alta resolución';
@@ -8425,10 +8773,6 @@
                 stage.appendChild(newImg);
             }
 
-            if (titleElem) {
-                titleElem.innerText = title || 'Visualización Técnica HD';
-            }
-
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
         };
@@ -8439,7 +8783,9 @@
         window.closeMediaLightbox = function() {
             const modal = document.getElementById('media-lightbox-modal');
             const stage = document.getElementById('media-lightbox-stage');
+            const titleElem = document.getElementById('media-lightbox-title');
             if (stage) {
+                stage.classList.remove('is-product-split');
                 const v = stage.querySelector('video');
                 if (v) {
                     v.pause();
@@ -8447,6 +8793,7 @@
                 }
                 stage.innerHTML = '';
             }
+            if (titleElem) titleElem.style.display = '';
 
             if (modal) modal.classList.remove('active');
             document.body.style.overflow = '';
@@ -8623,10 +8970,10 @@
     </div>
 
     <!-- MODAL LIGHTBOX PARA VISUALIZACIÓN DE VIDEOS Y FOTOS EN ALTA RESOLUCIÓN -->
-<div id="media-lightbox-modal" class="media-lightbox-overlay" onclick="if(event.target===this) closeMediaLightbox();">
+<div id="media-lightbox-modal" class="media-lightbox-overlay" onclick="if(event.target===this || event.target.classList.contains('media-lightbox-container')) closeMediaLightbox();">
     <div class="media-lightbox-container">
         <button type="button" class="media-lightbox-close" onclick="closeMediaLightbox();" title="Cerrar"><i class="fas fa-times"></i></button>
-        <div class="media-lightbox-stage" id="media-lightbox-stage">
+        <div class="media-lightbox-stage" id="media-lightbox-stage" onclick="if(event.target===this) closeMediaLightbox();">
             <!-- Dinámico: Video o Imagen -->
         </div>
         <div class="media-lightbox-caption" id="media-lightbox-caption">

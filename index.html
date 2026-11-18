@@ -4303,12 +4303,24 @@
             animation: targetFluidGlow 1.6s ease-out forwards;
         }
 
-        /* 60FPS OPTIMIZACIONES DE RENDERIZADO EN VIDEOS */
+        /* 60FPS OPTIMIZACIONES DE RENDERIZADO EN VIDEOS PARA EQUIPOS DE 4GB RAM */
         video.roxar-video-bg,
-        video.roxar-card-video {
+        video.roxar-card-video,
+        video.hero-video-bg {
             will-change: transform;
             transform: translateZ(0);
             backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        .service-video-wrap {
+            contain: paint;
+            transform: translateZ(0);
+        }
+
+        .roxar-showcase-container {
+            content-visibility: auto;
+            contain-intrinsic-size: 850px;
         }
 
     
@@ -5286,7 +5298,7 @@
                                 
                                 <!-- Banner Superior con Video de Fondo (Cinemático) -->
                                 <div class="roxar-hero-banner" style="position: relative; overflow: hidden; border-radius: 12px; margin-bottom: 24px;">
-                                    <video autoplay loop muted playsinline webkit-playsinline disablePictureInPicture preload="auto" class="roxar-video-bg service-video-elem" id="roxar-main-video" style="width: 100%; height: 100%; object-fit: cover;">
+                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="metadata" class="roxar-video-bg service-video-elem" id="roxar-main-video" style="width: 100%; height: 100%; object-fit: cover;">
                                         <source src="video/roxar2600.mp4" type="video/mp4">
                                         Su navegador no soporta video HTML5.
                                     </video>
@@ -5310,7 +5322,7 @@
                                                     <div class="service-flip-front">
                                                         <div class="service-video-wrap">
                                                             <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
-                                                            <video autoplay loop muted playsinline webkit-playsinline disablePictureInPicture preload="auto" class="roxar-card-video" id="video-multifasico-campo">
+                                                            <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="metadata" class="roxar-card-video" id="video-multifasico-campo">
                                                                 <source src="video/multifasico-campo.mp4" type="video/mp4">
                                                             </video>
                                                             <div class="service-front-overlay">
@@ -5353,7 +5365,7 @@
                                                     <div class="service-flip-front">
                                                         <div class="service-video-wrap">
                                     <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
-                                    <video autoplay loop muted playsinline webkit-playsinline disablePictureInPicture preload="auto" class="roxar-card-video" id="video-gemelo-digital">
+                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="metadata" class="roxar-card-video" id="video-gemelo-digital">
                                                                 <source src="video/gemelo_digital_video.mp4" type="video/mp4">
                                                             </video>
                                                                                                                         <!-- Botón central interactivo para reproducir video -->
@@ -5406,7 +5418,7 @@
                             <article class="roxar-showcase-container reveal-on-scroll reveal-up mt-4" id="servicio-bifasico-trifasico">
                                 <!-- Banner Superior con Video de Fondo -->
                                 <div class="roxar-hero-banner">
-                                    <video autoplay loop muted playsinline webkit-playsinline disablePictureInPicture preload="auto" class="roxar-video-bg service-video-elem" id="bifasico-main-video">
+                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="metadata" class="roxar-video-bg service-video-elem" id="bifasico-main-video">
                                         <source src="video/separador-1.mp4" type="video/mp4">
                                     </video>
                                     <div class="roxar-video-overlay"></div>
@@ -5428,7 +5440,7 @@
                                                     <div class="service-flip-front">
                                                         <div class="service-video-wrap">
                                     <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
-                                    <video autoplay loop muted playsinline webkit-playsinline disablePictureInPicture preload="auto" class="roxar-card-video" id="video-bifasico">
+                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="metadata" class="roxar-card-video" id="video-bifasico">
                                                                 <source src="video/bifasico.mp4" type="video/mp4">
                                                             </video>
                                                                                                                         <!-- Botón central interactivo para reproducir video -->
@@ -5472,7 +5484,7 @@
                                                     <div class="service-flip-front">
                                                         <div class="service-video-wrap">
                                     <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
-                                    <video autoplay loop muted playsinline webkit-playsinline disablePictureInPicture preload="auto" class="roxar-card-video" id="video-trifasico-2">
+                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="metadata" class="roxar-card-video" id="video-trifasico-2">
                                                                 <source src="video/trifasico-2.mp4" type="video/mp4">
                                                             </video>
                                                                                                                         <!-- Botón central interactivo para reproducir video -->
@@ -5525,7 +5537,7 @@
                             <article class="roxar-showcase-container reveal-on-scroll reveal-up mt-4" id="servicio-flexim">
                                 <!-- Banner Superior con Video de Fondo -->
                                 <div class="roxar-hero-banner">
-                                    <video autoplay loop muted playsinline webkit-playsinline disablePictureInPicture preload="auto" class="roxar-video-bg service-video-elem" id="flexim-main-video">
+                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="metadata" class="roxar-video-bg service-video-elem" id="flexim-main-video">
                                         <source src="video/flexim.mp4" type="video/mp4">
                                     </video>
                                     <div class="roxar-video-overlay"></div>
@@ -5549,11 +5561,11 @@
                                                         <div class="service-video-wrap">
                                                             <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
                                                             <!-- Ambient video blur de fondo -->
-                                                            <video autoplay loop muted playsinline webkit-playsinline disablePictureInPicture preload="auto" class="roxar-card-video roxar-video-ambient-blur" aria-hidden="true">
+                                                            <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="metadata" class="roxar-card-video roxar-video-ambient-blur" aria-hidden="true">
                                                                 <source src="video/flexim-2.mp4" type="video/mp4">
                                                             </video>
                                                             <!-- Video principal en primer plano 100% completo -->
-                                                            <video autoplay loop muted playsinline webkit-playsinline disablePictureInPicture preload="auto" class="roxar-card-video roxar-card-video-foreground" id="video-flexim-2">
+                                                            <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="metadata" class="roxar-card-video roxar-card-video-foreground" id="video-flexim-2">
                                                                 <source src="video/flexim-2.mp4" type="video/mp4">
                                                             </video>
                                                             <!-- Botón central interactivo para reproducir video -->
@@ -5598,7 +5610,7 @@
                             <article class="roxar-showcase-container reveal-on-scroll reveal-up mt-4" id="servicio-echometer">
                                 <!-- Banner Superior con Video de Fondo -->
                                 <div class="roxar-hero-banner">
-                                    <video autoplay loop muted playsinline webkit-playsinline disablePictureInPicture preload="auto" class="roxar-video-bg service-video-elem" id="echometer-main-video">
+                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="metadata" class="roxar-video-bg service-video-elem" id="echometer-main-video">
                                         <source src="video/echometer.mp4" type="video/mp4">
                                     </video>
                                     <div class="roxar-video-overlay"></div>
@@ -5621,7 +5633,7 @@
                                                     <div class="service-flip-front">
                                                         <div class="service-video-wrap">
                                     <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
-                                    <video autoplay loop muted playsinline webkit-playsinline disablePictureInPicture preload="auto" class="roxar-card-video" id="video-echometer-1">
+                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="metadata" class="roxar-card-video" id="video-echometer-1">
                                                                 <source src="video/echometer-1.mp4" type="video/mp4">
                                                             </video>
                                                                                                                         <!-- Botón central interactivo para reproducir video -->
@@ -5666,7 +5678,7 @@
                                                     <div class="service-flip-front">
                                                         <div class="service-video-wrap">
                                     <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
-                                    <video autoplay loop muted playsinline webkit-playsinline disablePictureInPicture preload="auto" class="roxar-card-video" id="video-echometer-2">
+                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="metadata" class="roxar-card-video" id="video-echometer-2">
                                                                 <source src="video/echometer-2.mp4" type="video/mp4">
                                                             </video>
                                                                                                                         <!-- Botón central interactivo para reproducir video -->
@@ -5710,7 +5722,7 @@
                             <article class="roxar-showcase-container reveal-on-scroll reveal-up mt-4" id="servicio-trasegado">
                                 <!-- Banner Superior con Video de Fondo -->
                                 <div class="roxar-hero-banner">
-                                    <video autoplay loop muted playsinline webkit-playsinline disablePictureInPicture preload="auto" class="roxar-video-bg service-video-elem" id="trasegado-main-video">
+                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="metadata" class="roxar-video-bg service-video-elem" id="trasegado-main-video">
                                         <source src="video/tanque.mp4" type="video/mp4">
                                     </video>
                                     <div class="roxar-video-overlay"></div>
@@ -5734,11 +5746,11 @@
                                                         <div class="service-video-wrap">
                                     <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
                                     <!-- Fondo cinemático ambiental desenfocado para rellenar los bordes -->
-                                                            <video autoplay loop muted playsinline webkit-playsinline disablePictureInPicture preload="auto" class="roxar-card-video roxar-video-ambient-blur" aria-hidden="true">
+                                                            <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="metadata" class="roxar-card-video roxar-video-ambient-blur" aria-hidden="true">
                                                                 <source src="video/trasegado-1.mp4" type="video/mp4">
                                                             </video>
                                                             <!-- Video principal en primer plano 100% completo -->
-                                                            <video autoplay loop muted playsinline webkit-playsinline disablePictureInPicture preload="auto" class="roxar-card-video roxar-card-video-foreground" id="video-trasegado-1">
+                                                            <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="metadata" class="roxar-card-video roxar-card-video-foreground" id="video-trasegado-1">
                                                                 <source src="video/trasegado-1.mp4" type="video/mp4">
                                                             </video>
                                                                                                                         <!-- Botón central interactivo para reproducir video -->
@@ -5783,7 +5795,7 @@
                                                     <div class="service-flip-front">
                                                         <div class="service-video-wrap">
                                     <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
-                                    <video autoplay loop muted playsinline webkit-playsinline disablePictureInPicture preload="auto" class="roxar-card-video" id="video-tanque-1">
+                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="metadata" class="roxar-card-video" id="video-tanque-1">
                                                                 <source src="video/tanque-1.mp4" type="video/mp4">
                                                             </video>
                                                                                                                         <!-- Botón central interactivo para reproducir video -->
@@ -5828,7 +5840,7 @@
                             <article class="roxar-showcase-container reveal-on-scroll reveal-up mt-4" id="servicio-soldadura-taller">
                                 <!-- Banner Superior con Video de Fondo -->
                                 <div class="roxar-hero-banner">
-                                    <video autoplay loop muted playsinline webkit-playsinline disablePictureInPicture preload="auto" class="roxar-video-bg service-video-elem" id="soldadura-main-video">
+                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="metadata" class="roxar-video-bg service-video-elem" id="soldadura-main-video">
                                         <source src="video/soldadura-1.mp4" type="video/mp4">
                                     </video>
                                     <div class="roxar-video-overlay"></div>
@@ -5851,7 +5863,7 @@
                                                     <div class="service-flip-front">
                                                         <div class="service-video-wrap">
                                     <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
-                                    <video autoplay loop muted playsinline webkit-playsinline disablePictureInPicture preload="auto" class="roxar-card-video" id="video-soldadura-1">
+                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="metadata" class="roxar-card-video" id="video-soldadura-1">
                                                                 <source src="video/soldadura.mp4" type="video/mp4">
                                                             </video>
                                                                                                                         <!-- Botón central interactivo para reproducir video -->
@@ -5894,7 +5906,7 @@
                                                     <div class="service-flip-front">
                                                         <div class="service-video-wrap">
                                     <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
-                                    <video autoplay loop muted playsinline webkit-playsinline disablePictureInPicture preload="auto" class="roxar-card-video" id="video-taller-1">
+                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="metadata" class="roxar-card-video" id="video-taller-1">
                                                                 <source src="video/taller-1.mp4" type="video/mp4">
                                                             </video>
                                                                                                                         <!-- Botón central interactivo para reproducir video -->
@@ -5938,7 +5950,7 @@
                             <article class="roxar-showcase-container reveal-on-scroll reveal-up mt-4" id="servicio-asistencia-tecnica">
                                 <!-- Banner Superior con Fondo Completo Panorámico AIC TECH (Video Cinemático) -->
                                 <div class="roxar-hero-banner">
-                                    <video autoplay loop muted playsinline webkit-playsinline disablePictureInPicture preload="auto" class="roxar-video-bg service-video-elem" id="aictech-main-video">
+                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="metadata" class="roxar-video-bg service-video-elem" id="aictech-main-video">
                                         <source src="video/aictech.mp4" type="video/mp4">
                                     </video>
                                     <div class="roxar-video-overlay"></div>
@@ -5961,7 +5973,7 @@
                                                     <div class="service-flip-front">
                                                         <div class="service-video-wrap">
                                     <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
-                                    <video autoplay loop muted playsinline webkit-playsinline disablePictureInPicture preload="auto" class="roxar-card-video" id="video-calibracion-1">
+                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="metadata" class="roxar-card-video" id="video-calibracion-1">
                                                                 <source src="video/calibracion-1.mp4" type="video/mp4">
                                                             </video>
                                                                                                                         <!-- Botón central interactivo para reproducir video -->
@@ -6005,7 +6017,7 @@
                                                     <div class="service-flip-front">
                                                         <div class="service-video-wrap">
                                     <button type="button" class="service-media-expand-btn" title="Agrandar pantalla completa" onclick="event.stopPropagation(); expandCardMedia(this);"><i class="fas fa-expand"></i></button>
-                                    <video autoplay loop muted playsinline webkit-playsinline disablePictureInPicture preload="auto" class="roxar-card-video" id="video-mantenimiento-1">
+                                    <video loop muted playsinline webkit-playsinline disablePictureInPicture preload="metadata" class="roxar-card-video" id="video-mantenimiento-1">
                                                                 <source src="video/mantenimiento-1.mp4" type="video/mp4">
                                                             </video>
                                                                                                                         <!-- Botón central interactivo para reproducir video -->
@@ -6864,7 +6876,7 @@
             <!-- Columna Izquierda: Reproductor Principal y Datos Técnicos -->
             <div class="showroom-stage">
                 <div class="showroom-video-viewport">
-                    <video id="showroom-main-video" controls playsinline preload="metadata">
+                    <video id="showroom-main-video" controls playsinline preload="none">
                         <source id="showroom-video-source" src="video/biblioteca/presentacion-2.mp4" type="video/mp4">
                         Su navegador no soporta la reproducción de video HTML5.
                     </video>
@@ -7149,17 +7161,26 @@
         });
     }
 
-    // Función para asegurar que ningún video quede con pantalla negra inicializando el primer fotograma visible
+    // Inicialización inteligente y ligera: solo precarga metadatos sin saturar memoria en 4GB RAM
     function initCardVideoFrames() {
-        const cardVideos = document.querySelectorAll('video.roxar-card-video, video.service-video-elem');
-        cardVideos.forEach(v => {
-            v.preload = 'auto';
+        const activePage = document.querySelector('.cd-hero-slider > li.selected');
+        const pageNo = activePage ? activePage.getAttribute('data-page-no') : '1';
+        
+        let targetSelector = '';
+        if (pageNo === '1') {
+            targetSelector = '#hero-main-video';
+        } else if (pageNo === '2') {
+            targetSelector = '#servicio-multifasico video';
+        } else {
+            return;
+        }
+
+        document.querySelectorAll(targetSelector).forEach(v => {
             const primeFrame = () => {
                 if (v.paused && (v.currentTime === 0 || v.currentTime < 0.3)) {
                     try {
-                        // Saltar el fundido en negro inicial (0 a 0.8s) para mostrar la imagen nítida del equipo
                         const targetTime = (v.duration && v.duration > 3) ? 1.0 : 0.4;
-                        v.currentTime = targetTime;
+                        if (v.currentTime === 0) v.currentTime = targetTime;
                     } catch (e) {}
                 }
             };
@@ -7167,14 +7188,16 @@
                 primeFrame();
             } else {
                 v.addEventListener('loadedmetadata', primeFrame, { once: true });
-                v.addEventListener('loadeddata', primeFrame, { once: true });
-                v.addEventListener('canplay', primeFrame, { once: true });
             }
         });
     }
 
     document.addEventListener('DOMContentLoaded', () => {
         initCardVideoFrames();
+        // Conectar listener de scroll optimizado en #page-content-wrapper para máxima fluidez y ahorro de memoria
+        const scrollEl = document.getElementById('page-content-wrapper') || window;
+        scrollEl.addEventListener('scroll', onScrollOptimized, { passive: true });
+        window.addEventListener('resize', onScrollOptimized, { passive: true });
         // Sincronización continua de video ambiental desenfocado con video en primer plano
         document.querySelectorAll('.service-video-wrap').forEach(wrap => {
             const fg = wrap.querySelector('.roxar-card-video-foreground');
@@ -7788,7 +7811,7 @@
             <button type="button" class="btn btn-sm text-white" onclick="closeEchometerVideoModal()" style="font-size: 1.3rem; line-height: 1;">&times;</button>
         </div>
         <div class="position-relative" style="background: #000; min-height: 420px; display: flex; align-items: center; justify-content: center;">
-            <video id="echometer-modal-video" controls playsinline style="width: 100%; max-height: 75vh; object-fit: cover !important; background: #000;">
+            <video id="echometer-modal-video" controls playsinline preload="none" style="width: 100%; max-height: 75vh; object-fit: cover !important; background: #000;">
                 <source src="video/echometer.mp4" type="video/mp4">
             </video>
         </div>
@@ -8536,7 +8559,7 @@
         <div class="aictech-intro-container">
             <button type="button" class="aictech-intro-close" onclick="closeAictechIntroModal();" title="Cerrar Presentación"><i class="fas fa-times"></i></button>
             <div class="aictech-intro-video-wrapper">
-                <video id="aictech-intro-video" playsinline preload="auto" style="width: 100%; max-height: 80vh; display: block; object-fit: contain !important; cursor: pointer;" title="Haga clic para pausar / reanudar">
+                <video id="aictech-intro-video" playsinline preload="none" style="width: 100%; max-height: 80vh; display: block; object-fit: contain !important; cursor: pointer;" title="Haga clic para pausar / reanudar">
                     <source src="video/inicio-aic.mp4" type="video/mp4">
                     Tu navegador no soporta reproducción de video HTML5.
                 </video>

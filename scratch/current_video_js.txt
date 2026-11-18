@@ -1,0 +1,204 @@
+// =========================================================================
+    // CONTROLADOR ULTRA-OPTIMIZADO DE VIDEOS EN SERVICIOS (ANTI-LAG RIGUROSO)
+    // =========================================================================
+    let isVideoSyncScheduled = false;
+
+    // Pausar o reproducir videos de acuerdo a la página activa
+    function handlePageVideoPlayback(pageNo) {
+        const heroVideo = document.getElementById('hero-main-video');
+        const serviceVideos = document.querySelectorAll('video.service-video-elem, video.roxar-card-video');
+
+        if (pageNo == 1) {
+            // PANTALLA INICIAL: reproducir video de inicio y pausar todos los demás
+            if (heroVideo) {
+                heroVideo.muted = true;
+                heroVideo.playsInline = true;
+                heroVideo.play().catch(e => console.log('Hero video play:', e));
+            }
+            serviceVideos.forEach(v => {
+                if (!v.paused) v.pause();
+            });
+        } else {
+            // OTRAS PANTALLAS: pausar video de portada
+            if (heroVideo && !heroVideo.paused) {
+                heroVideo.pause();
+            }
+
+            if (pageNo == 2 || pageNo == 5) {
+                if (typeof initCardVideoFrames === 'function') initCardVideoFrames();
+                if (pageNo == 2) {
+                    // SERVICIOS: reproducir de inmediato el video del banner principal sin mostrar fotos intermedias
+                    const firstBanner = document.getElementById('roxar-main-video');
+                    if (firstBanner) {
+                        firstBanner.muted = true;
+                        firstBanner.playsInline = true;
+                        firstBanner.play().catch(e => {});
+                    }
+                    syncServiceVideosOnPage();
+                }
+                syncCardVideosOnPage();
+            } else {
+                // OTRAS PANTALLAS (3, 4, 6): pausar absolutamente todos los videos
+                serviceVideos.forEach(v => {
+                    if (!v.paused) v.pause();
+                });
+            }
+        }
+    }
+
+    // Sincronizar videos de banners de servicios: MÁXIMO 1 VIDEO DE BANNER ACTIVO
+    function syncServiceVideosOnPage() {
+        const page2 = document.querySelector('.cd-hero-slider > li[data-page-no="2"]');
+        if (!page2 || !page2.classList.contains('selected')) {
+            document.querySelectorAll('video.service-video-elem').forEach(v => {
+                if (!v.paused) v.pause();
+            });
+            return;
+        }
+
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        const serviceArticles = document.querySelectorAll('.roxar-showcase-container');
+
+        let activeVideo = null;
+        let maxVisiblePixels = 0;
+
+        serviceArticles.forEach(article => {
+            const banner = article.querySelector('.roxar-hero-banner');
+            const video = article.querySelector('video.service-video-elem');
+            if (!video || !banner) return;
+
+            const rect = banner.getBoundingClientRect();
+            const visibleTop = Math.max(0, rect.top);
+            const visibleBottom = Math.min(windowHeight, rect.bottom);
+            const visiblePixels = Math.max(0, visibleBottom - visibleTop);
+
+            if (visiblePixels >= 120) {
+                const bannerCenter = (rect.top + rect.bottom) / 2;
+                const screenCenter = windowHeight / 2;
+                const distancePenalty = Math.abs(bannerCenter - screenCenter) * 0.3;
+                const score = visiblePixels - distancePenalty;
+
+                if (score > maxVisiblePixels) {
+                    maxVisiblePixels = score;
+                    activeVideo = video;
+                }
+            }
+        });
+
+        document.querySelectorAll('video.service-video-elem').forEach(video => {
+            if (video === activeVideo && !document.hidden) {
+                if (video.paused) {
+                    video.muted = true;
+                    video.playsInline = true;
+                    video.play().catch(e => console.log('Service video play handled:', e));
+                }
+            } else {
+                if (!video.paused) {
+                    video.pause();
+                }
+            }
+        });
+    }
+
+    // Control de rendimiento de tarjetas: Pausar videos que salen de pantalla para máximo ahorro de GPU/CPU
+    function syncCardVideosOnPage() {
+        const activeSlide = document.querySelector('.cd-hero-slider > li.selected');
+        const isServiceOrProduct = activeSlide && (activeSlide.getAttribute('data-page-no') === '2' || activeSlide.getAttribute('data-page-no') === '5');
+        const cardVideos = document.querySelectorAll('.roxar-card-video');
+        if (!isServiceOrProduct || document.hidden) {
+            cardVideos.forEach(v => {
+                if (!v.paused) v.pause();
+            });
+            document.querySelectorAll('.service-flip-card.is-video-playing').forEach(c => {
+                c.classList.remove('is-video-playing');
+                const b = c.querySelector('.service-flip-hint-badge');
+                if (b) b.innerHTML = '<i class="fas fa-rotate me-1"></i> Ver Detalles';
+            });
+            return;
+        }
+
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        // Solo pausar si alguna tarjeta que estaba reproduciéndose salió completamente de pantalla
+        document.querySelectorAll('.service-flip-card.is-video-playing').forEach(card => {
+            const rect = card.getBoundingClientRect();
+            const isVisible = rect.top < windowHeight && rect.bottom > 0;
+            if (!isVisible) {
+                card.classList.remove('is-video-playing');
+                const vid = card.querySelector('video.roxar-card-video-foreground, video.roxar-card-video');
+                const blur = card.querySelector('video.roxar-video-ambient-blur');
+                if (vid && !vid.paused) vid.pause();
+                if (blur && !blur.paused) blur.pause();
+                const badge = card.querySelector('.service-flip-hint-badge');
+                if (badge) badge.innerHTML = '<i class="fas fa-rotate me-1"></i> Ver Detalles';
+            }
+        });
+    }
+
+
+
+    function onScrollOptimized() {
+        if (!isVideoSyncScheduled) {
+            isVideoSyncScheduled = true;
+            requestAnimationFrame(() => {
+                syncServiceVideosOnPage();
+                syncCardVideosOnPage();
+                checkRevealElements();
+                isVideoSyncScheduled = false;
+            });
+        }
+    }
+
+    // CONTROLADOR DE EFECTOS ÉPICOS DE SCROLL / REVELADO CINEMATOGRÁFICO
+    function checkRevealElements() {
+        const reveals = document.querySelectorAll('.reveal-on-scroll:not(.is-revealed)');
+        const windowHeight = window.innerHeight;
+        reveals.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top <= windowHeight - 40 && rect.bottom >= 0) {
+                el.classList.add('is-revealed');
+            }
+        });
+    }
+
+    // Función para asegurar que ningún video quede con pantalla negra inicializando el primer fotograma visible
+    function initCardVideoFrames() {
+        const cardVideos = document.querySelectorAll('video.roxar-card-video, video.service-video-elem');
+        cardVideos.forEach(v => {
+            v.preload = 'auto';
+            const primeFrame = () => {
+                if (v.paused && (v.currentTime === 0 || v.currentTime < 0.3)) {
+                    try {
+                        // Saltar el fundido en negro inicial (0 a 0.8s) para mostrar la imagen nítida del equipo
+                        const targetTime = (v.duration && v.duration > 3) ? 1.0 : 0.4;
+                        v.currentTime = targetTime;
+                    } catch (e) {}
+                }
+            };
+            if (v.readyState >= 1) {
+                primeFrame();
+            } else {
+                v.addEventListener('loadedmetadata', primeFrame, { once: true });
+                v.addEventListener('loadeddata', primeFrame, { once: true });
+                v.addEventListener('canplay', primeFrame, { once: true });
+            }
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        initCardVideoFrames();
+        // Sincronización continua de video ambiental desenfocado con video en primer plano
+        document.querySelectorAll('.service-video-wrap').forEach(wrap => {
+            const fg = wrap.querySelector('.roxar-card-video-foreground');
+            const bg = wrap.querySelector('.roxar-video-ambient-blur');
+            if (fg && bg) {
+                fg.addEventListener('timeupdate', () => {
+                    if (Math.abs(fg.currentTime - bg.currentTime) > 0.3) {
+                        bg.currentTime = fg.currentTime;
+                    }
+                });
+                fg.addEventListener('play', () => bg.play().catch(() => {}));
+                fg.addEventListener('pause', () => bg.pause());
+            }
+        });
+
+        // CONTROLADOR DE CLIC EN 2 PASOS

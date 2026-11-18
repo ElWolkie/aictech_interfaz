@@ -7799,6 +7799,266 @@
     }
 </script>
 
+
+    <script>
+    /* EASTER EGG: Doble clic en "AICTECH" muestra imagen del jefe */
+    document.addEventListener('DOMContentLoaded', () => {
+        const trigger = document.getElementById('easter-egg-trigger');
+        const jefeImg = document.getElementById('jefe-pop');
+
+        if (trigger && jefeImg) {
+            trigger.addEventListener('dblclick', () => {
+                if (jefeImg.classList.contains('active')) return;
+                jefeImg.classList.add('active');
+                setTimeout(() => {
+                    jefeImg.classList.remove('active');
+                }, 2500);
+            });
+        }
+    });
+    </script>
+
+
+    <script>
+    /* MOTOR DE EFECTOS EXPLOSIVOS 5D, ANTI-LAG Y MINIJUEGO DEL PETRÓLEO */
+    (function() {
+        let audioFxEnabled = false;
+        window.playAudioFx = function(type) { /* Silencio profesional */ };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const colors = ['#38b6ff', '#ffaf03', '#ffffff', '#00e5ff', '#ffcc00'];
+            let lastExplosionTime = 0;
+
+            function triggerCosmicExplosion(x, y) {
+                const now = performance.now();
+                if (now - lastExplosionTime < 180) return;
+                lastExplosionTime = now;
+
+                // Onda de choque anular
+                const ring = document.createElement('div');
+                ring.className = 'cosmic-shockwave-ring';
+                ring.style.left = `${x}px`;
+                ring.style.top = `${y}px`;
+                document.body.appendChild(ring);
+                setTimeout(() => ring.remove(), 500);
+
+                // Chispas cósmicas
+                const particleCount = 7;
+                for (let i = 0; i < particleCount; i++) {
+                    const spark = document.createElement('div');
+                    spark.className = 'cosmic-particle-spark';
+                    const size = Math.random() * 3.5 + 2;
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    const angle = (i / particleCount) * Math.PI * 2 + (Math.random() - 0.5) * 0.35;
+                    const distance = Math.random() * 28 + 12;
+                    const dx = Math.cos(angle) * distance;
+                    const dy = Math.sin(angle) * distance;
+                    const duration = Math.random() * 0.2 + 0.3;
+                    spark.style.width = `${size}px`;
+                    spark.style.height = `${size}px`;
+                    spark.style.backgroundColor = color;
+                    spark.style.boxShadow = `0 0 6px 1px ${color}`;
+                    spark.style.left = `${x}px`;
+                    spark.style.top = `${y}px`;
+                    spark.style.setProperty('--dx', `${dx}px`);
+                    spark.style.setProperty('--dy', `${dy}px`);
+                    spark.style.setProperty('--spark-dur', `${duration}s`);
+                    document.body.appendChild(spark);
+                    setTimeout(() => spark.remove(), duration * 1000);
+                }
+            }
+
+            // Explosión en cada click de pantalla (excluyendo el minijuego)
+            window.addEventListener('click', (e) => {
+                if (e.target.closest('#oil-minigame-overlay')) return;
+                triggerCosmicExplosion(e.clientX, e.clientY);
+            });
+
+            // Efecto warp en navegación
+            const warpOverlay = document.getElementById('warp-5d-overlay');
+            document.querySelectorAll('.nav-link, .tm-page-link, [data-no], [data-page-no]').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (warpOverlay) {
+                        warpOverlay.classList.remove('warp-active');
+                        void warpOverlay.offsetWidth;
+                        warpOverlay.classList.add('warp-active');
+                        setTimeout(() => warpOverlay.classList.remove('warp-active'), 550);
+                    }
+                });
+            });
+
+            // ==========================================
+            // MINIJUEGO DEL PETRÓLEO — Bombeo de Crudo
+            // ==========================================
+            const minigameOverlay  = document.getElementById('oil-minigame-overlay');
+            const minigameBarrel   = document.getElementById('minigame-barrel');
+            const minigameOilFill  = document.getElementById('minigame-oil-fill');
+            const minigamePercentText = document.getElementById('minigame-percent-text');
+            const minigamePsiText  = document.getElementById('minigame-psi-text');
+            const minigameBpdText  = document.getElementById('minigame-bpd-text');
+            const minigamePumpBtn  = document.getElementById('minigame-pump-btn');
+            const minigameWinBanner = document.getElementById('minigame-win-banner');
+            const minigameCloseBtn = document.getElementById('minigame-close-btn');
+
+            let tapHistory = [];
+            let oilLevel = 0;
+            let targetOilLevel = 0;   // ← suavizado: destino real
+            let isMinigameActive = false;
+            let isCelebrating = false;
+            let decayInterval = null;
+            let renderRAF = null;
+
+            /* Actualiza la UI con easing suave usando requestAnimationFrame */
+            function smoothRenderLoop() {
+                if (!isMinigameActive) return;
+                const diff = targetOilLevel - oilLevel;
+                // Interpolación exponencial suave (ease-out)
+                if (Math.abs(diff) > 0.05) {
+                    oilLevel += diff * 0.18;
+                } else {
+                    oilLevel = targetOilLevel;
+                }
+                updateMinigameUI();
+                renderRAF = requestAnimationFrame(smoothRenderLoop);
+            }
+
+            function openOilMinigame() {
+                if (isMinigameActive || !minigameOverlay) return;
+                isMinigameActive = true;
+                oilLevel = 0;
+                targetOilLevel = 0;
+                isCelebrating = false;
+                updateMinigameUI();
+                if (minigameWinBanner) minigameWinBanner.classList.add('d-none');
+                minigameOverlay.classList.add('active');
+
+                // Loop de caída continua (el crudo baja si dejas de bombear)
+                if (decayInterval) clearInterval(decayInterval);
+                decayInterval = setInterval(() => {
+                    if (!isMinigameActive || isCelebrating) return;
+                    if (targetOilLevel > 0) {
+                        targetOilLevel = Math.max(0, targetOilLevel - 0.45); // bajada más lenta y dramática
+                    }
+                }, 50);  // menos frecuente = más tiempo para reaccionar
+
+                // Render suave a 60fps
+                if (renderRAF) cancelAnimationFrame(renderRAF);
+                renderRAF = requestAnimationFrame(smoothRenderLoop);
+            }
+
+            function closeOilMinigame() {
+                if (!minigameOverlay) return;
+                if (decayInterval) { clearInterval(decayInterval); decayInterval = null; }
+                if (renderRAF) { cancelAnimationFrame(renderRAF); renderRAF = null; }
+                minigameOverlay.classList.remove('active');
+                isMinigameActive = false;
+                isCelebrating = false;
+                oilLevel = 0;
+                targetOilLevel = 0;
+                updateMinigameUI();
+            }
+
+            if (minigameCloseBtn) minigameCloseBtn.addEventListener('click', closeOilMinigame);
+
+            // Activar con 9 clicks/toques rápidos en cualquier parte de la pantalla
+            function registerTapOnly(e) {
+                if (isMinigameActive) return;
+                if (e && e.target && e.target.closest('#oil-minigame-overlay')) return;
+                const now = Date.now();
+                tapHistory.push(now);
+                tapHistory = tapHistory.filter(t => now - t < 1400);
+                if (tapHistory.length >= 9) {
+                    tapHistory = [];
+                    openOilMinigame();
+                }
+            }
+            window.addEventListener('click', registerTapOnly);
+
+            // Control con teclado (anti-repeat: no funciona si se mantiene presionada)
+            window.addEventListener('keydown', (e) => {
+                if (!isMinigameActive || isCelebrating) return;
+                if (e.repeat) { e.preventDefault(); return; }
+                if (e.code === 'Space' || e.key === ' ' || e.key === 'Enter' || e.key.toLowerCase() === 'b') {
+                    e.preventDefault();
+                    pumpOil(null);
+                }
+            });
+
+            function updateMinigameUI() {
+                if (minigameOilFill) minigameOilFill.style.height = `${oilLevel}%`;
+                if (minigamePercentText) minigamePercentText.textContent = `${Math.round(oilLevel)}%`;
+                if (minigamePsiText) minigamePsiText.textContent = `${Math.round(oilLevel * 24.5)} PSI`;
+                if (minigameBpdText) minigameBpdText.textContent = `${(oilLevel * 0.42).toFixed(1)} / 42 Gal`;
+            }
+
+            function pumpOil(e) {
+                if (!isMinigameActive || isCelebrating) return;
+                // Cada bombeo: +4.2% — sube con impulso suave gracias al smoothRenderLoop
+                targetOilLevel = Math.min(100, targetOilLevel + 4.2);
+
+                // Efecto de vibración en el barril
+                if (minigameBarrel) {
+                    minigameBarrel.style.transform = 'scale(0.96) translateY(2px)';
+                    setTimeout(() => { if (minigameBarrel) minigameBarrel.style.transform = ''; }, 100);
+                }
+
+                // Salpicadura de petróleo
+                if (minigameBarrel && e) {
+                    const rect = minigameBarrel.getBoundingClientRect();
+                    const splash = document.createElement('div');
+                    splash.className = 'oil-splash-drop';
+                    splash.style.left = `${rect.width / 2}px`;
+                    splash.style.top = `${rect.height - (oilLevel / 100 * rect.height)}px`;
+                    splash.style.setProperty('--sx', `${(Math.random() - 0.5) * 60}px`);
+                    splash.style.setProperty('--sy', `${(Math.random() - 1) * 40}px`);
+                    minigameBarrel.appendChild(splash);
+                    setTimeout(() => splash.remove(), 500);
+                }
+
+                // Victoria al alcanzar el 100%
+                if (targetOilLevel >= 100) triggerMinigameVictory();
+            }
+
+            function triggerMinigameVictory() {
+                isCelebrating = true;
+                if (decayInterval) { clearInterval(decayInterval); decayInterval = null; }
+                if (minigameWinBanner) minigameWinBanner.classList.remove('d-none');
+
+                const rocketIcons = ['🚀', '🎆', '✨', '🛢️', '⭐', '💥'];
+                for (let i = 0; i < 7; i++) {
+                    setTimeout(() => {
+                        const rocket = document.createElement('div');
+                        rocket.className = 'minigame-rocket';
+                        rocket.textContent = rocketIcons[i % rocketIcons.length];
+                        const rx = (i + 1) * (window.innerWidth / 8) + (Math.random() - 0.5) * 60;
+                        const ry = Math.random() * (window.innerHeight * 0.45) + 60;
+                        rocket.style.left = '0px';
+                        rocket.style.top = '0px';
+                        rocket.style.setProperty('--rx', `${rx}px`);
+                        rocket.style.setProperty('--ry', `${ry}px`);
+                        document.body.appendChild(rocket);
+                        setTimeout(() => rocket.remove(), 1400);
+                    }, i * 220);
+                }
+
+                setTimeout(() => closeOilMinigame(), 3200);
+            }
+
+            if (minigamePumpBtn) {
+                minigamePumpBtn.addEventListener('click', (e) => { e.stopPropagation(); pumpOil(e); });
+            }
+            if (minigameBarrel) {
+                minigameBarrel.addEventListener('click', (e) => { e.stopPropagation(); pumpOil(e); });
+            }
+            if (minigameOverlay) {
+                minigameOverlay.addEventListener('click', (e) => {
+                    if (!e.target.closest('#minigame-close-btn')) pumpOil(e);
+                });
+            }
+        });
+    })();
+    </script>
+
     <script src="js/sidebar-collapse.js"></script>
     <script>
         // ==========================================

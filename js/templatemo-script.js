@@ -84,6 +84,15 @@ function openPage(no) {
     window._userHasNavigated = true;
   }
 
+  var $current = $('.cd-hero-slider > li.selected');
+  var currentNo = $current.data('page-no');
+  if (currentNo == no && $current.is(':visible')) {
+    if (typeof handlePageVideoPlayback === 'function') {
+      handlePageVideoPlayback(no);
+    }
+    return;
+  }
+
   if(no == 2) {
     if(gallery !== undefined && $('.gallery-slider').hasClass('slick-initialized')) {
       $('.gallery-slider').slick('unslick');
@@ -111,7 +120,7 @@ function openPage(no) {
   } else {
     var heroVideo = document.getElementById('hero-main-video');
     if (no == 1) {
-      if (heroVideo) {
+      if (heroVideo && heroVideo.paused) {
         heroVideo.muted = true;
         heroVideo.playsInline = true;
         heroVideo.play().catch(function(e) {});

@@ -1610,61 +1610,94 @@
         /* ==========================================================================
            SECCIÓN INICIO: ESTILO SLB / SCHLUMBERGER CORPORATIVO CINEMATOGRÁFICO
            ========================================================================== */
+        .cd-hero-slider > li[data-page-no="1"] {
+            min-height: calc(100vh - 40px);
+            height: auto;
+            display: flex !important;
+            flex-direction: column;
+            justify-content: center !important;
+            align-items: center !important;
+            padding: 15px 25px !important;
+            box-sizing: border-box;
+        }
+
+        .cd-hero-slider > li[data-page-no="1"] .page-width-1 {
+            width: 100%;
+            max-width: 1480px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         .hero-slb-container {
             position: relative;
             width: 100%;
-            min-height: 80vh;
-            border-radius: 6px;
+            min-height: 480px;
+            height: calc(100vh - 90px);
+            max-height: 680px;
+            border-radius: 14px;
             overflow: hidden;
-            border: 1px solid rgba(56, 182, 255, 0.25);
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(8, 51, 117, 0.3);
+            border: 1px solid rgba(56, 182, 255, 0.28);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 35px rgba(8, 51, 117, 0.35);
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            padding: 3.5rem 3rem 2.5rem 3rem;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 2.75rem 3.5rem;
             background: #060e1e;
+            margin-top: 10px !important;
+            contain: layout style;
+            box-sizing: border-box;
         }
 
-        .hero-video-bg {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100%;
-            height: 100%;
-            transform: translate(-50%, -50%);
+        .hero-video-bg,
+        video.hero-video-bg {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
             object-fit: cover !important;
-            object-position: center center;
-            z-index: 1;
-            opacity: 0.95;
-            filter: brightness(1.06) contrast(1.05) saturate(1.08);
-            pointer-events: none;
+            object-position: center right !important;
+            z-index: 1 !important;
+            opacity: 0.95 !important;
+            filter: brightness(1.04) contrast(1.06) saturate(1.08) !important;
+            pointer-events: none !important;
+            will-change: transform;
+            transform: translateZ(0) !important;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
         }
 
         .hero-video-overlay {
-            position: absolute;
-            inset: 0;
+            position: absolute !important;
+            inset: 0 !important;
             background: linear-gradient(
-                135deg,
-                rgba(3, 12, 34, 0.42) 0%,
-                rgba(6, 22, 58, 0.20) 45%,
-                rgba(2, 6, 18, 0.52) 100%
-            );
-            z-index: 2;
-            pointer-events: none;
+                90deg,
+                rgba(2, 10, 26, 0.92) 0%,
+                rgba(3, 14, 38, 0.82) 38%,
+                rgba(2, 10, 26, 0.44) 68%,
+                rgba(2, 10, 26, 0.18) 85%,
+                rgba(2, 10, 26, 0.50) 100%
+            ) !important;
+            z-index: 2 !important;
+            pointer-events: none !important;
         }
 
         .hero-video-overlay::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at 20% 40%, rgba(56, 182, 255, 0.12) 0%, transparent 60%);
+            background: radial-gradient(circle at 18% 45%, rgba(56, 182, 255, 0.14) 0%, transparent 65%);
             pointer-events: none;
         }
 
         .hero-slb-content {
             position: relative;
             z-index: 3;
-            max-width: 920px;
+            max-width: 860px;
         }
 
         .hero-status-tag {
@@ -1687,14 +1720,13 @@
 
         .hero-slb-title {
             font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
-            font-size: 3rem;
+            font-size: clamp(2rem, 3.3vw, 2.95rem);
             font-weight: 700;
-            line-height: 1.15;
+            line-height: 1.18;
             color: #ffffff;
             letter-spacing: -0.02em;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.92);
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
-            margin-bottom: 1.25rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95), 0 4px 24px rgba(0, 0, 0, 0.85);
+            margin-bottom: 1.15rem;
         }
 
         .hero-slb-title span.highlight-gold {
@@ -1708,12 +1740,12 @@
         }
 
         .hero-slb-subtitle {
-            font-size: 1.1rem;
+            font-size: clamp(0.96rem, 1.15vw, 1.08rem);
             line-height: 1.65;
             color: #cbd5e1;
-            margin-bottom: 2rem;
-            max-width: 780px;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+            margin-bottom: 1.85rem;
+            max-width: 760px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
         }
 
         .hero-cta-group {
@@ -1890,15 +1922,44 @@
         }
 
         @media (max-width: 991px) {
-            .hero-slb-container {
-                padding: 2rem 1.5rem;
+            .cd-hero-slider > li[data-page-no="1"] {
                 min-height: auto;
+                padding: 15px 12px !important;
+            }
+            .hero-slb-container {
+                height: auto;
+                min-height: auto;
+                max-height: none;
+                padding: 2.2rem 1.6rem;
+                margin-top: 10px !important;
+            }
+            body.sidebar-collapsed .hero-slb-container {
+                margin-top: 15px !important;
+                padding-top: 2.5rem !important;
             }
             .hero-slb-title {
-                font-size: 2.1rem;
+                font-size: clamp(1.65rem, 4.5vw, 2.1rem);
             }
             .hero-slb-subtitle {
-                font-size: 0.98rem;
+                font-size: 0.92rem;
+                margin-bottom: 1.3rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-slb-container {
+                padding: 1.8rem 1.2rem;
+            }
+            .hero-cta-group {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 10px;
+                width: 100%;
+            }
+            .btn-slb-primary,
+            .btn-slb-video {
+                justify-content: center;
+                width: 100%;
             }
         }
 
@@ -4585,20 +4646,11 @@
         }
 
         /* ============================================================= */
-        /* BAJAR CONTENIDO DEL INICIO PARA DESPEJAR EL LOGO CENTRAL      */
+        /* AJUSTE ESPACIADO DE INICIO (DESPEJE LOGO CENTRAL FLOTANTE)    */
         /* ============================================================= */
-        .cd-hero-slider > li[data-page-no="1"] {
-            padding-top: 55px !important;
-        }
-
         body.sidebar-collapsed .hero-slb-container {
-            margin-top: 30px !important;
-            padding-top: 4.5rem !important;
-        }
-
-        .hero-slb-container {
-            margin-top: 25px !important;
-            padding-top: 4.5rem !important;
+            margin-top: 22px !important;
+            padding-top: 3.2rem !important;
         }
 
     
@@ -5247,7 +5299,7 @@
                     <div class="page-width-1 h-100 d-flex align-items-center">
                         <div class="hero-slb-container w-100">
                             <!-- Cinematic Background Video -->
-                            <video autoplay loop muted playsinline class="hero-video-bg" id="hero-main-video">
+                            <video autoplay loop muted playsinline webkit-playsinline disablePictureInPicture preload="auto" class="hero-video-bg" id="hero-main-video">
                                 <source src="video/presentacion-1.mp4" type="video/mp4">
                             </video>
                             
@@ -6970,10 +7022,10 @@
 
         if (pageNo == 1) {
             // PANTALLA INICIAL: reproducir video de inicio y pausar todos los demás
-            if (heroVideo) {
+            if (heroVideo && heroVideo.paused) {
                 heroVideo.muted = true;
                 heroVideo.playsInline = true;
-                heroVideo.play().catch(e => console.log('Hero video play:', e));
+                heroVideo.play().catch(e => {});
             }
             serviceVideos.forEach(v => {
                 if (!v.paused) v.pause();
@@ -7166,15 +7218,18 @@
         const activePage = document.querySelector('.cd-hero-slider > li.selected');
         const pageNo = activePage ? activePage.getAttribute('data-page-no') : '1';
         
-        let targetSelector = '';
         if (pageNo === '1') {
-            targetSelector = '#hero-main-video';
-        } else if (pageNo === '2') {
-            targetSelector = '#servicio-multifasico video';
-        } else {
+            const heroVid = document.getElementById('hero-main-video');
+            if (heroVid && heroVid.paused) {
+                heroVid.muted = true;
+                heroVid.playsInline = true;
+                heroVid.play().catch(() => {});
+            }
             return;
         }
+        if (pageNo !== '2' && pageNo !== '5') return;
 
+        const targetSelector = (pageNo === '2') ? '#servicio-multifasico video' : '.brand-card-img-wrap video';
         document.querySelectorAll(targetSelector).forEach(v => {
             const primeFrame = () => {
                 if (v.paused && (v.currentTime === 0 || v.currentTime < 0.3)) {

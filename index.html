@@ -4702,21 +4702,34 @@
 
         .center-split-door-left .door-face-back {
             border-radius: 14px 0 0 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .center-split-door-right .door-face-back {
             border-radius: 0 14px 14px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         /* Animación de apertura desde el centro */
-        .center-split-card-wrapper:hover .center-split-door-left,
         .center-split-card-wrapper.is-open .center-split-door-left {
             transform: rotateY(-140deg);
         }
 
-        .center-split-card-wrapper:hover .center-split-door-right,
         .center-split-card-wrapper.is-open .center-split-door-right {
             transform: rotateY(140deg);
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+            .center-split-card-wrapper:hover:not(.is-shut) .center-split-door-left {
+                transform: rotateY(-140deg);
+            }
+            .center-split-card-wrapper:hover:not(.is-shut) .center-split-door-right {
+                transform: rotateY(140deg);
+            }
         }
 
         /* Colores exactos de las marcas */
@@ -4952,6 +4965,27 @@
         }
         .featured-large-product-card:hover .featured-hero-img {
             transform: scale(1.04);
+        }
+
+        .door-close-hint {
+            font-size: 0.72rem;
+            color: rgba(255, 255, 255, 0.75);
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            padding: 5px 10px;
+            border-radius: 20px;
+            background: rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.2s ease;
+            pointer-events: none;
+        }
+
+        .center-split-door:hover .door-close-hint {
+            color: #ffffff;
+            background: rgba(239, 68, 68, 0.75);
+            border-color: rgba(239, 68, 68, 0.9);
+            transform: scale(1.05);
         }
 
         </style>
@@ -6220,7 +6254,7 @@
                                         
                                         <!-- Columna Izquierda: Tarjeta que se abre desde el centro (Aguamarina) -->
                                         <div class="col-12 col-lg-5 col-xl-5 d-flex justify-content-center">
-                                            <div class="center-split-card-wrapper" onclick="this.classList.toggle('is-open');" title="Pasa el ratón o toca para abrir desde el centro">
+                                            <div class="center-split-card-wrapper" title="Pasa el ratón o toca para abrir desde el centro">
                                                 <!-- Interior: Foto del equipo en alta definición -->
                                                 <div class="center-split-interior" onclick="event.stopPropagation(); expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa">
                                                     <button type="button" class="product-expand-badge position-absolute top-0 end-0 m-2" title="Agrandar"><i class="fas fa-expand"></i></button>
@@ -6234,7 +6268,7 @@
                                                         </div>
                                                         <div class="door-hint door-hint-left">Toca o pasa el ratón</div>
                                                     </div>
-                                                    <div class="door-face-back"></div>
+                                                    <div class="door-face-back"><div class="door-close-hint"><i class="fas fa-times me-1"></i> Cerrar</div></div>
                                                 </div>
                                                 <!-- Puerta Derecha -->
                                                 <div class="center-split-door center-split-door-right">
@@ -6244,7 +6278,7 @@
                                                         </div>
                                                         <div class="door-hint door-hint-right">para abrir sobre</div>
                                                     </div>
-                                                    <div class="door-face-back"></div>
+                                                    <div class="door-face-back"><div class="door-close-hint"><i class="fas fa-times me-1"></i> Cerrar</div></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -6299,7 +6333,7 @@
                                         
                                         <!-- Columna Izquierda: Tarjeta que se abre desde el centro (Negrito Claro) -->
                                         <div class="col-12 col-lg-5 col-xl-5 d-flex justify-content-center">
-                                            <div class="center-split-card-wrapper" onclick="this.classList.toggle('is-open');" title="Pasa el ratón o toca para abrir desde el centro">
+                                            <div class="center-split-card-wrapper" title="Pasa el ratón o toca para abrir desde el centro">
                                                 <!-- Interior: Foto del equipo en alta definición -->
                                                 <div class="center-split-interior" onclick="event.stopPropagation(); expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa">
                                                     <button type="button" class="product-expand-badge position-absolute top-0 end-0 m-2" title="Agrandar"><i class="fas fa-expand"></i></button>
@@ -6313,7 +6347,7 @@
                                                         </div>
                                                         <div class="door-hint door-hint-left">Toca o pasa el ratón</div>
                                                     </div>
-                                                    <div class="door-face-back"></div>
+                                                    <div class="door-face-back"><div class="door-close-hint"><i class="fas fa-times me-1"></i> Cerrar</div></div>
                                                 </div>
                                                 <!-- Puerta Derecha -->
                                                 <div class="center-split-door center-split-door-right">
@@ -6323,7 +6357,7 @@
                                                         </div>
                                                         <div class="door-hint door-hint-right">para abrir sobre</div>
                                                     </div>
-                                                    <div class="door-face-back"></div>
+                                                    <div class="door-face-back"><div class="door-close-hint"><i class="fas fa-times me-1"></i> Cerrar</div></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -6464,7 +6498,7 @@
                                         
                                         <!-- Columna Izquierda: Tarjeta que se abre desde el centro (Gris) -->
                                         <div class="col-12 col-lg-5 col-xl-5 d-flex justify-content-center">
-                                            <div class="center-split-card-wrapper" onclick="this.classList.toggle('is-open');" title="Pasa el ratón o toca para abrir desde el centro">
+                                            <div class="center-split-card-wrapper" title="Pasa el ratón o toca para abrir desde el centro">
                                                 <!-- Interior: Foto del equipo en alta definición -->
                                                 <div class="center-split-interior" onclick="event.stopPropagation(); expandMediaFromElement(this);" title="Haga clic para ver en pantalla completa">
                                                     <button type="button" class="product-expand-badge position-absolute top-0 end-0 m-2" title="Agrandar"><i class="fas fa-expand"></i></button>
@@ -6478,7 +6512,7 @@
                                                         </div>
                                                         <div class="door-hint door-hint-left">Toca o pasa el ratón</div>
                                                     </div>
-                                                    <div class="door-face-back"></div>
+                                                    <div class="door-face-back"><div class="door-close-hint"><i class="fas fa-times me-1"></i> Cerrar</div></div>
                                                 </div>
                                                 <!-- Puerta Derecha -->
                                                 <div class="center-split-door center-split-door-right">
@@ -6488,7 +6522,7 @@
                                                         </div>
                                                         <div class="door-hint door-hint-right">para abrir sobre</div>
                                                     </div>
-                                                    <div class="door-face-back"></div>
+                                                    <div class="door-face-back"><div class="door-close-hint"><i class="fas fa-times me-1"></i> Cerrar</div></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -6846,19 +6880,11 @@
                         </p>
                     </div>
 
-                    <!-- Botones de Navegación Rápida -->
+                    <!-- Controles e Información del Showroom -->
                     <div class="showroom-controls-row">
-                        <div class="d-flex align-items-center gap-2">
-                            <button class="btn btn-sm btn-outline-light px-3 py-1" onclick="showroomPrevVideo()">
-                                <i class="fas fa-backward-step me-1"></i> Anterior
-                            </button>
-                            <button class="btn btn-sm btn-primary px-3 py-1 fw-bold" onclick="showroomNextVideo()">
-                                Siguiente <i class="fas fa-forward-step ms-1"></i>
-                            </button>
-                        </div>
-                        <div class="text-white-50 small d-none d-md-flex align-items-center gap-2">
+                        <div class="text-white-50 small d-flex align-items-center gap-2">
                             <i class="fas fa-circle-play text-info"></i>
-                            <span>Haz clic en cualquier video de la lista para reproducirlo</span>
+                            <span>Seleccione cualquier capítulo técnico en el panel lateral para reproducir</span>
                         </div>
                     </div>
                 </div>
@@ -6968,11 +6994,11 @@
         }
     }
 
-    // Sincronizar videos de banners de servicios: MÁXIMO 1 VIDEO DE BANNER ACTIVO
+    // Sincronizar videos de servicios: reproduce el banner y las tarjetas de la sección que el usuario está viendo
     function syncServiceVideosOnPage() {
         const page2 = document.querySelector('.cd-hero-slider > li[data-page-no="2"]');
         if (!page2 || !page2.classList.contains('selected')) {
-            document.querySelectorAll('video.service-video-elem').forEach(v => {
+            document.querySelectorAll('video.service-video-elem, video.roxar-card-video, video.roxar-card-video-foreground, video.roxar-video-ambient-blur').forEach(v => {
                 if (!v.paused) v.pause();
             });
             return;
@@ -6981,46 +7007,87 @@
         const windowHeight = window.innerHeight || document.documentElement.clientHeight;
         const serviceArticles = document.querySelectorAll('.roxar-showcase-container');
 
-        let activeVideo = null;
+        let activeArticle = null;
         let maxVisiblePixels = 0;
 
         serviceArticles.forEach(article => {
-            const banner = article.querySelector('.roxar-hero-banner');
-            const video = article.querySelector('video.service-video-elem');
-            if (!video || !banner) return;
-
-            const rect = banner.getBoundingClientRect();
+            const rect = article.getBoundingClientRect();
             const visibleTop = Math.max(0, rect.top);
             const visibleBottom = Math.min(windowHeight, rect.bottom);
             const visiblePixels = Math.max(0, visibleBottom - visibleTop);
 
-            if (visiblePixels >= 120) {
-                const bannerCenter = (rect.top + rect.bottom) / 2;
+            if (visiblePixels >= 80) {
+                const center = (rect.top + rect.bottom) / 2;
                 const screenCenter = windowHeight / 2;
-                const distancePenalty = Math.abs(bannerCenter - screenCenter) * 0.3;
+                const distancePenalty = Math.abs(center - screenCenter) * 0.25;
                 const score = visiblePixels - distancePenalty;
 
                 if (score > maxVisiblePixels) {
                     maxVisiblePixels = score;
-                    activeVideo = video;
+                    activeArticle = article;
                 }
             }
         });
 
+        // 1. Banner superior de la sección activa
         document.querySelectorAll('video.service-video-elem').forEach(video => {
-            if (video === activeVideo && !document.hidden) {
+            const isInActiveArticle = activeArticle && activeArticle.contains(video);
+            if (isInActiveArticle && !document.hidden) {
                 if (video.paused) {
                     video.muted = true;
                     video.playsInline = true;
-                    video.play().catch(e => console.log('Service video play handled:', e));
+                    video.play().catch(e => {});
                 }
             } else {
-                if (!video.paused) {
-                    video.pause();
-                }
+                if (!video.paused) video.pause();
             }
         });
+
+        // 2. Videos de las tarjetas dentro de la sección visible (reproducción automática fluida a 60fps)
+        serviceArticles.forEach(article => {
+            const isCurrent = (article === activeArticle);
+            article.querySelectorAll('video.roxar-card-video, video.roxar-card-video-foreground, video.roxar-video-ambient-blur').forEach(cardVid => {
+                if (isCurrent && !document.hidden) {
+                    if (cardVid.paused) {
+                        cardVid.muted = true;
+                        cardVid.playsInline = true;
+                        cardVid.play().catch(e => {});
+                    }
+                } else {
+                    if (!cardVid.paused) {
+                        cardVid.pause();
+                    }
+                }
+            });
+        });
     }
+
+    // Función universal para reanudar de inmediato videos de fondo tras cerrar cualquier modal
+    window.resumeBackgroundVideos = function() {
+        document.querySelectorAll('video').forEach(function(v) {
+            if (v.dataset.wasPlaying === 'true') {
+                delete v.dataset.wasPlaying;
+                v.muted = true;
+                v.playsInline = true;
+                v.play().catch(function() {});
+            }
+        });
+
+        const page1 = document.querySelector('.cd-hero-slider > li[data-page-no="1"]');
+        if (page1 && page1.classList.contains('selected')) {
+            const heroVideo = document.getElementById('hero-main-video');
+            if (heroVideo && heroVideo.paused) {
+                heroVideo.muted = true;
+                heroVideo.playsInline = true;
+                heroVideo.play().catch(function() {});
+            }
+        }
+
+        const page2 = document.querySelector('.cd-hero-slider > li[data-page-no="2"]');
+        if (page2 && page2.classList.contains('selected')) {
+            syncServiceVideosOnPage();
+        }
+    };
 
     // Control de rendimiento de tarjetas: Pausar videos que salen de pantalla para máximo ahorro de GPU/CPU
     function syncCardVideosOnPage() {
@@ -7528,7 +7595,6 @@
         function closeShowroomModal() {
             const modal = document.getElementById('video-modal-slb');
             const mainVideo = document.getElementById('showroom-main-video');
-            const heroVideo = document.getElementById('hero-main-video');
 
             if (modal) {
                 modal.classList.remove('active');
@@ -7536,11 +7602,9 @@
                     mainVideo.pause();
                 }
             }
-
-            // Reanudar video de fondo si seguimos en la página 1
-            const page1 = document.querySelector('.cd-hero-slider > li[data-page-no="1"]');
-            if (page1 && page1.classList.contains('selected') && heroVideo) {
-                heroVideo.play().catch(e => console.log(e));
+            document.body.style.overflow = '';
+            if (typeof window.resumeBackgroundVideos === 'function') {
+                window.resumeBackgroundVideos();
             }
         }
 
@@ -7793,8 +7857,9 @@
                 modalVideo.pause();
             }
         }
-        if (typeof syncServiceVideosOnPage === 'function') {
-            syncServiceVideosOnPage();
+        document.body.style.overflow = '';
+        if (typeof window.resumeBackgroundVideos === 'function') {
+            window.resumeBackgroundVideos();
         }
     }
 </script>
@@ -7868,9 +7933,9 @@
                 }
             }
 
-            // Explosión en cada click de pantalla (excluyendo el minijuego)
+            // Explosión en cada click de pantalla (excluyendo el minijuego y reproductores de video)
             window.addEventListener('click', (e) => {
-                if (e.target.closest('#oil-minigame-overlay')) return;
+                if (e.target.closest('#oil-minigame-overlay, video, .media-lightbox-stage, .showroom-video-wrap, #media-lightbox-modal, #video-modal-slb, #video-modal-echometer, #aictech-intro-modal')) return;
                 triggerCosmicExplosion(e.clientX, e.clientY);
             });
 
@@ -8307,8 +8372,8 @@
 
             if (modal) modal.classList.remove('active');
             document.body.style.overflow = '';
-            if (typeof syncServiceVideosOnPage === 'function') {
-                syncServiceVideosOnPage();
+            if (typeof window.resumeBackgroundVideos === 'function') {
+                window.resumeBackgroundVideos();
             }
         };
 
@@ -8342,6 +8407,41 @@
         };
 
         // Toggle del Acordeón EMERSON
+        
+        // ==========================================
+        // CONTROL FLUIDO DE SOBRES DE PRODUCTOS (FLEXIM, AMS TREX, MICRO MOTION)
+        // ==========================================
+        $(document).on('mouseenter', '.center-split-card-wrapper', function() {
+            $(this).removeClass('is-shut').addClass('is-open');
+        });
+
+        $(document).on('mouseleave', '.center-split-card-wrapper', function() {
+            $(this).removeClass('is-open is-shut');
+        });
+
+        $(document).on('click', '.center-split-card-wrapper', function(e) {
+            if ($(e.target).closest('.product-expand-badge').length) {
+                return;
+            }
+
+            const wrapper = $(this);
+            if (wrapper.hasClass('is-open')) {
+                if ($(e.target).closest('.center-split-door').length) {
+                    e.stopPropagation();
+                    wrapper.removeClass('is-open').addClass('is-shut');
+                    return;
+                }
+            } else {
+                wrapper.removeClass('is-shut').addClass('is-open');
+            }
+        });
+
+        $(document).on('click', function(e) {
+            if (!$(e.target).closest('.center-split-card-wrapper').length) {
+                $('.center-split-card-wrapper').removeClass('is-open is-shut');
+            }
+        });
+
         $(document).on('click', '#emerson-nested-toggle', function(e) {
             e.preventDefault();
             e.stopPropagation();

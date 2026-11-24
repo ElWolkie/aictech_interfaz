@@ -1976,7 +1976,7 @@
             <div class="showroom-playlist-pane">
                 <div class="showroom-playlist-header">
                     <span class="text-white fw-bold small"><i class="fas fa-list-ul me-2 text-info"></i> CAPÍTULOS TÉCNICOS</span>
-                    <span class="text-white-50 small" id="showroom-total-count">11 Videos</span>
+                    <span class="text-white-50 small" id="showroom-total-count">13 Videos</span>
                 </div>
                 <div class="showroom-playlist-list" id="showroom-playlist-container">
                     <!-- Los items de la lista se renderizan e inicializan vía JavaScript -->
@@ -2363,25 +2363,44 @@
         const showroomPlaylist = [
             {
                 id: "presentacion_aictech",
-                title: "Presentación Oficial AIC TECH, C.A. (Full HD)",
+                title: "Video 1 • Presentación Corporativa AIC TECH, C.A.",
                 subtitle: "Alta Ingeniería, Automatización & Telemetría en Tiempo Real",
-                desc: "Recorrido integral y de alta definición por las capacidades operacionales, infraestructura en Anaco, instrumentación Emerson y soluciones tecnológicas avanzadas de AIC TECH para la industria energética.",
+                desc: "Recorrido integral por las capacidades tecnológicas, infraestructura en Anaco, instrumentación Emerson y servicios especializados de campo de AIC TECH para la industria petrolera y energética.",
                 category: "PRESENTACIÓN CORPORATIVA",
-                badge: "AIC TECH FULL HD",
+                badge: "AIC TECH • CAPÍTULO 1",
                 icon: "fa-film",
                 src: "video/biblioteca/presentacion-aictech.mp4",
                 poster: "img/posters/presentacion-aictech.jpg"
             },
             {
-                id: "presentacion_oficial",
-                title: "Resumen Audiovisual AIC TECH, C.A.",
-                subtitle: "Alta Ingeniería, Automatización & Telemetría en Tiempo Real",
-                desc: "Recorrido integral por las capacidades tecnológicas, infraestructura en Anaco, instrumentación Emerson y servicios especializados de campo de AIC TECH para la industria petrolera.",
-                category: "RESUMEN EJECUTIVO",
-                badge: "AIC TECH OFICIAL",
-                icon: "fa-video",
-                src: "video/biblioteca/presentacion-2.mp4",
-                poster: "img/posters/presentacion-2.jpg"
+                id: "aictech_marcas_representante",
+                title: "Video 2 • Marcas Representadas y Alianzas Tecnológicas Oficiales",
+                subtitle: "Distribución y Respaldo Oficial de Emerson, Roxar, Rosemount, Fluenta & Kam Controls",
+                desc: "Presentación del portafolio tecnológico y alianzas estratégicas globales de AIC TECH con los fabricantes líderes mundiales en medición de flujo, instrumentación analítica y sistemas de control para optimizar la confiabilidad en pozos y plantas.",
+                category: "MARCAS Y REPRESENTACIONES",
+                badge: "AIC TECH • CAPÍTULO 2",
+                icon: "fa-award",
+                src: "video/biblioteca/Video-2-Aictech-Marcas-representante.mp4"
+            },
+            {
+                id: "aictech_petrolia",
+                title: "Video 3 • PetrolIA: Inteligencia Artificial & Telemetría de Pozos",
+                subtitle: "Monitoreo SCADA en Tiempo Real, Análisis Predictivo y Gemelos Digitales",
+                desc: "Plataforma tecnológica avanzada desarrollada por AIC TECH que integra Inteligencia Artificial, telemetría satelital y modelos matemáticos para la supervisión continua, detección temprana de anomalías y optimización del levantamiento artificial.",
+                category: "TECNOLOGÍA E INTELIGENCIA ARTIFICIAL",
+                badge: "AIC TECH • CAPÍTULO 3",
+                icon: "fa-brain",
+                src: "video/biblioteca/Video-3-Aictech-Petrolia.mp4"
+            },
+            {
+                id: "aictech_edutech",
+                title: "Video 4 • EduTech: Centro de Formación y Transferencia Tecnológica",
+                subtitle: "Capacitación Técnica Especializada, Laboratorios Prácticos y Certificación",
+                desc: "Programa de formación técnica de alto nivel de AIC TECH diseñado para ingenieros y operadores de la industria de hidrocarburos, enfocado en instrumentación de campo, calibración metrológica, automatización y telemetría avanzada.",
+                category: "FORMACIÓN & EDUTECH",
+                badge: "AIC TECH • CAPÍTULO 4",
+                icon: "fa-graduation-cap",
+                src: "video/biblioteca/Video-4-Aictech-Edutech.mp4"
             },
             {
                 id: "emerson_goboldly",
@@ -2541,12 +2560,11 @@
                 mainVideo.pause();
                 if (videoData.poster) {
                     mainVideo.poster = videoData.poster;
+                } else {
+                    mainVideo.removeAttribute('poster');
                 }
-                const currentSrc = mainVideo.currentSrc || mainVideo.src;
-                if (!currentSrc || !currentSrc.includes(videoData.src)) {
-                    mainVideo.src = videoData.src;
-                    mainVideo.load();
-                }
+                mainVideo.src = videoData.src;
+                mainVideo.load();
                 if (autoplay) {
                     const playPromise = mainVideo.play();
                     if (playPromise !== undefined) {
